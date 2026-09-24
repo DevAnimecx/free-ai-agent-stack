@@ -1,0 +1,15 @@
+# Funding configuration for free-ai-agent-stack
+# These platforms help sustain the daily verification of 384+ free-tier resources.
+
+custom:
+  - link: https://www.buymeacoffee.com/devanimecx
+    platform: buymeacoffee
+    user: devanimecx
+
+github:
+  - user: DevAnimecx
+    type: individual
+
+opencollective:
+  - platform: opencollective
+    user: free-ai-agent-stack
