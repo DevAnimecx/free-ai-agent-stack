@@ -2,7 +2,7 @@
 
 # free-ai-agent-stack
 
-**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 252 resources, verified weekly, zero cost to build on.**
+**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 297 resources, verified weekly, zero cost to build on.**
 
 [![Stars](https://img.shields.io/github/stars/free-ai-agent-stack/free-ai-agent-stack?style=flat-square&logo=github)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/stargazers)
 [![Forks](https://img.shields.io/github/forks/free-ai-agent-stack/free-ai-agent-stack?style=flat-square)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/forks)
@@ -15,18 +15,18 @@
 
 Every free LLM API, MCP server, agent framework and free-tier database a developer needs to build an AI agent in 2026 — in one place, with the free limit, the credit-card requirement and the date it was last checked. **Data is YAML in this repo; the website is generated from it; a daily robot checks every link.** If a listing says "no credit card", a human verified that. If it says "no longer free", we left it in on purpose — so you stop wasting signups on lists that never update.
 
-> **Free AI agent tools, checked 2026-09-24.** 252 entries · 171 need no credit card · 100% of links verified in the last 30 days.
+> **Free AI agent tools, checked 2026-09-24.** 297 entries · 216 need no credit card · 100% of links verified in the last 30 days.
 
 <!-- STATS:START -->
 | Category | Count | No credit card | Verified <30d | Top pick |
 |---|---:|---:|---:|---|
 | [Free LLM APIs](data/llm-apis.yaml) | 70 | 58 | 70 | Cloudflare Workers AI |
 | [MCP Servers](data/mcp-servers.yaml) | 63 | — | 63 | Context7 |
-| [Agent Tools](data/agent-tools.yaml) | 45 | 45 | 45 | Aider |
-| [Free Tiers](data/free-tiers.yaml) | 74 | 68 | 74 | Better Auth |
-| **Total** | **252** | **171** | **252** | — |
+| [Agent Tools](data/agent-tools.yaml) | 82 | 82 | 82 | Aider |
+| [Free Tiers](data/free-tiers.yaml) | 82 | 76 | 82 | Better Auth |
+| **Total** | **297** | **216** | **297** | — |
 
-_Auto-generated 2026-09-24T09:43:57+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
+_Auto-generated 2026-09-24T09:50:50+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
 <!-- STATS:END -->
 
 ## Quick start: build an agent for $0 this weekend
@@ -50,8 +50,8 @@ npx create-next-app@latest && npx vercel --prod   # static + serverless, $0 tier
 
 - [Free LLM APIs](#free-llm-apis) — 70 entries
 - [MCP servers](#mcp-servers) — 63 entries
-- [Agent tools & frameworks](#agent-tools--frameworks) — 45 entries
-- [Free-tier infrastructure](#free-tier-infrastructure) — 74 entries
+- [Agent tools & frameworks](#agent-tools--frameworks) — 82 entries
+- [Free-tier infrastructure](#free-tier-infrastructure) — 82 entries
 - [What "free" means here](#what-free-means-here) · [Methodology](#methodology) · [Machine-readable data](#machine-readable-data)
 - [Contribute](#contribute) · [Licence](#licence)
 
@@ -139,7 +139,7 @@ Stores and retrieves memories in a Qdrant collection — vector memory as a tool
 
 ## Agent tools & frameworks
 
-45 IDEs, CLI agents, frameworks and orchestrators — with the actual numbers on each free tier rather than a vague "free plan available". Full list: [`data/agent-tools.yaml`](data/agent-tools.yaml).
+82 IDEs, CLI agents, frameworks and orchestrators — with the actual numbers on each free tier rather than a vague "free plan available". Full list: [`data/agent-tools.yaml`](data/agent-tools.yaml).
 
 ### Top picks
 
@@ -179,7 +179,7 @@ One OpenAI-shaped interface over 100+ providers, with a proxy that adds budgets,
 
 ## Free-tier infrastructure
 
-74 free-tier services you actually need to ship: hosting, databases, vector stores, auth, queues, observability, email and search. Each entry includes a **cold-start risk** rating, because "free hosting" that sleeps for 60 seconds is not the same as free hosting. Full list: [`data/free-tiers.yaml`](data/free-tiers.yaml).
+82 free-tier services you actually need to ship: hosting, databases, vector stores, auth, queues, observability, email and search. Each entry includes a **cold-start risk** rating, because "free hosting" that sleeps for 60 seconds is not the same as free hosting. Full list: [`data/free-tiers.yaml`](data/free-tiers.yaml).
 
 ### Top picks
 
@@ -267,7 +267,7 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 ### Contributors
 
 <!-- CONTRIBUTORS:START -->
-@seed-import (235) @hidden-gems-import (17)
+@seed-import (235) @hidden-gems-import (62)
 <!-- CONTRIBUTORS:END -->
 
 ## Star history

@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-09-24T09:43:57+00:00",
-  "total": 252,
+  "generated_at": "2026-09-24T09:50:50+00:00",
+  "total": 297,
   "counts": {
     "llm-apis": 70,
     "mcp-servers": 63,
-    "agent-tools": 45,
-    "free-tiers": 74
+    "agent-tools": 82,
+    "free-tiers": 82
   },
   "no_card": {
     "llm-apis": 58,
     "mcp-servers": 0,
-    "agent-tools": 45,
-    "free-tiers": 68
+    "agent-tools": 82,
+    "free-tiers": 76
   },
-  "total_no_card": 171,
+  "total_no_card": 216,
   "fresh_within_7_days": {
     "llm-apis": 70,
     "mcp-servers": 63,
-    "agent-tools": 45,
-    "free-tiers": 74
+    "agent-tools": 82,
+    "free-tiers": 82
   },
   "fresh_within_30_days": {
     "llm-apis": 70,
     "mcp-servers": 63,
-    "agent-tools": 45,
-    "free-tiers": 74
+    "agent-tools": 82,
+    "free-tiers": 82
   },
   "freshness_pct_30d": 100.0,
   "statuses": {
@@ -39,44 +39,44 @@
       "deprecated": 4
     },
     "agent-tools": {
-      "active": 44,
+      "active": 81,
       "degraded": 1
     },
     "free-tiers": {
-      "active": 73,
+      "active": 81,
       "degraded": 1
     }
   },
   "contributors": {
     "seed-import": 235,
-    "hidden-gems-import": 17
+    "hidden-gems-import": 62
   },
   "top_tags": {
+    "hidden-gem": 62,
     "essential": 43,
-    "local": 23,
-    "rag": 19,
-    "coding-agent": 18,
-    "hidden-gem": 17,
+    "local": 32,
+    "self-host": 28,
+    "rag": 25,
+    "coding-agent": 24,
     "vector": 17,
+    "mcp": 15,
     "no-card": 15,
-    "self-host": 14,
+    "memory": 12,
     "open-source": 12,
     "devops": 11,
+    "embeddings": 11,
+    "gateway": 11,
+    "research": 11,
     "search": 11,
-    "embeddings": 10,
+    "automation": 10,
+    "byok": 10,
+    "edge": 10,
+    "observability": 10,
     "openai-compatible": 10,
-    "research": 10,
     "serverless": 10,
+    "cli": 9,
     "database": 9,
-    "deploy": 9,
-    "edge": 9,
-    "auth": 8,
-    "automation": 8,
-    "open-models": 8,
-    "byok": 7,
-    "cli": 7,
-    "cloud": 7,
-    "enterprise": 7
+    "deploy": 9
   },
   "deprecated_entries": [
     "llm-apis#openai-api",

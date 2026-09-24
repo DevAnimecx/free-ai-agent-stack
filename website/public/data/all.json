@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "exported_at": "2026-09-24T09:44:37+00:00",
+  "exported_at": "2026-09-24T09:51:40+00:00",
   "llm-apis": [
     {
       "id": "google-gemini",
@@ -5363,6 +5363,1041 @@
       "verified_by": "@hidden-gems-import",
       "status": "degraded",
       "notes": "Marked degraded rather than active because the business model is the product: the vendor sells terminal ad impressions to fund inference, so model access and the ad load can both change without notice. Closed source, and the \"unlimited\" wording is marketing — throughput is throttled in practice. Do not point anything production-critical at it."
+    },
+    {
+      "id": "kiss-agent-framework",
+      "name": "KISS Sorcar",
+      "category": "framework",
+      "description": "Local-first agent framework that runs as a VS Code extension plus web and mobile clients, routing to any of hundreds of models across nine provider categories.",
+      "free_limit": "Free framework (Apache-2.0) — pay only your model provider",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows",
+        "web"
+      ],
+      "install": "pip install kiss-agent-framework",
+      "url": "https://pypi.org/project/kiss-agent-framework/",
+      "tags": [
+        "local-first",
+        "byok",
+        "vscode",
+        "multi-provider",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The \"KISS\" in the name is the design brief. Provider counts and third-party agent integrations move quickly in this project, so treat any specific number (661 models, 43 agents) as a snapshot rather than a spec."
+    },
+    {
+      "id": "readyagents-core",
+      "name": "ReadyAgents Core",
+      "category": "framework",
+      "description": "Self-hosted workflow engine and MCP toolkit that records agent runs so you can replay them offline, fork a run, diff two runs, or freeze one into a regression test.",
+      "free_limit": "Free — self-hosted, bring your own provider keys",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install readyagentsdev",
+      "url": "https://pypi.org/project/readyagentsdev/",
+      "tags": [
+        "workflow",
+        "mcp",
+        "replay",
+        "testing",
+        "self-host",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The record/replay/diff loop is the genuinely unusual part — most agent frameworks still have no first-class way to turn a production run into a regression test."
+    },
+    {
+      "id": "nanobot",
+      "name": "NanoBot",
+      "category": "framework",
+      "description": "Deliberately tiny personal-agent framework from the HKU Data Intelligence lab that reimplements most of a large agent stack in roughly 4K lines.",
+      "free_limit": "Free — MIT licensed, bring your own provider keys",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/HKUDS/NanoBot",
+      "stars": 48536,
+      "tags": [
+        "lightweight",
+        "personal-agent",
+        "research",
+        "hkuds",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Actively developed by a research lab and worth reading end-to-end precisely because it is small. The \"90% of OpenClaw's capabilities\" figure is the project's own framing, not a measured comparison."
+    },
+    {
+      "id": "pincer",
+      "name": "Pincer",
+      "category": "framework",
+      "description": "Self-hosted personal agent that lives in your messaging apps — WhatsApp, Telegram, Slack, Signal and email — with a large native tool set plus everything reachable over MCP.",
+      "free_limit": "Free — self-hosted via Docker, bring your own keys",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install pincer-agent && pincer init",
+      "url": "https://pypi.org/project/pincer-agent/",
+      "tags": [
+        "messaging",
+        "docker",
+        "self-host",
+        "mcp",
+        "security",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Skill signing and audit logs are the differentiators: an agent wired into your WhatsApp can take real actions on your behalf, so its security posture matters more than a coding agent's."
+    },
+    {
+      "id": "qwenpaw",
+      "name": "QwenPaw",
+      "category": "framework",
+      "description": "Personal assistant agent that runs fully locally against its own bundled QwenPaw-Flash models, so it needs no API key and no cloud account at all.",
+      "free_limit": "Free — local models included (2B/4B/9B)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install qwenpaw",
+      "url": "https://pypi.org/project/qwenpaw/",
+      "tags": [
+        "local",
+        "no-key",
+        "memory",
+        "multi-channel",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Genuinely key-free out of the box rather than BYOK, which is rare. Connectors skew to Chinese platforms (DingTalk, Lark, WeChat, QQ) alongside Discord, Telegram and iMessage. A 2B-9B local model is a capable assistant, not a frontier-reasoning substitute."
+    },
+    {
+      "id": "tares",
+      "name": "Tares",
+      "category": "framework",
+      "description": "Self-hostable data plane for always-on agents: ingest events from Prometheus, OpenTelemetry and webhooks, then let an MCP server act on them.",
+      "free_limit": "Free — MIT licensed, runs on your own machine",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install tares",
+      "url": "https://pypi.org/project/tares/",
+      "tags": [
+        "always-on",
+        "mcp",
+        "observability",
+        "self-host",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Targets the gap between \"an agent that answers\" and one that reacts to what your infrastructure is actually doing."
+    },
+    {
+      "id": "kitaru",
+      "name": "Kitaru",
+      "category": "framework",
+      "description": "Durable-execution runtime for Python agents from the ZenML team: record, replay and improve agent runs in production.",
+      "free_limit": "Free — Apache-2.0, self-hosted",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install kitaru",
+      "url": "https://github.com/zenml-io/kitaru",
+      "stars": 293,
+      "tags": [
+        "durable-execution",
+        "production",
+        "python",
+        "replay",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Submitted as \"ZenML/Kitaru\"; the canonical repository is zenml-io/kitaru. Built by the team behind ZenML, which is the main reason to trust it at this age."
+    },
+    {
+      "id": "nexora",
+      "name": "Nexora",
+      "category": "framework",
+      "description": "Self-hosted orchestration platform where agents get personas, skills and tools, with sub-agent delegation, RAG and semantic memory.",
+      "free_limit": "Free — MIT licensed self-hosted core",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows",
+        "web"
+      ],
+      "url": "https://github.com/ParendumOU/Nexora",
+      "stars": 21,
+      "tags": [
+        "orchestration",
+        "personas",
+        "multi-agent",
+        "self-host",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Early-stage (tens of stars, commits this month). Useful if you want a self-hosted multi-agent UI today; audit it before pointing it at anything sensitive."
+    },
+    {
+      "id": "automatos-ai",
+      "name": "Automatos AI",
+      "category": "framework",
+      "description": "Apache-2.0 multi-agent orchestration platform built around RAG and vector embeddings, able to route through free provider tiers including NVIDIA's.",
+      "free_limit": "Free — Apache-2.0, bring your own keys",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows",
+        "web"
+      ],
+      "url": "https://github.com/AutomatosAI/automatos-ai",
+      "stars": 46,
+      "tags": [
+        "multi-agent",
+        "rag",
+        "byok",
+        "self-host",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Judge it as a multi-agent orchestration stack; the \"neural field theory\" framing is not an evaluable claim."
+    },
+    {
+      "id": "aigate",
+      "name": "aigate",
+      "category": "framework",
+      "description": "Single-compose self-hosted AI platform bundling inference, tool use, browser automation, image generation, speech synthesis, transcription and object storage.",
+      "free_limit": "Free — self-hosted; bundled providers have their own free tiers",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "linux"
+      ],
+      "install": "docker compose up",
+      "url": "https://github.com/psyb0t/aigate",
+      "stars": 14,
+      "tags": [
+        "docker",
+        "self-host",
+        "all-in-one",
+        "inference",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Small project with a wide attack surface — one compose file exposing inference, storage and code execution. Read the compose file before exposing it beyond localhost."
+    },
+    {
+      "id": "miii-cli",
+      "name": "miii-cli",
+      "category": "cli",
+      "description": "Offline coding agent for the terminal that runs entirely on Ollama, positioned as a local alternative to Claude Code, Cursor and Copilot.",
+      "free_limit": "Free forever — MIT licensed, no keys, no cloud",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/maruakshay/miii-cli",
+      "stars": 35,
+      "tags": [
+        "coding-agent",
+        "cli",
+        "local",
+        "ollama",
+        "offline",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Small but actively developed. Output quality tracks whichever local model you point it at, so pair it with a decent coding model rather than a 3B."
+    },
+    {
+      "id": "pawwork",
+      "name": "PawWork",
+      "category": "cli",
+      "description": "Desktop agent for macOS and Windows with free models bundled in, aimed at office files, web search and scheduled automations rather than code.",
+      "free_limit": "Free — Apache-2.0, bundled models need no API key",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "platforms": [
+        "macos",
+        "windows"
+      ],
+      "url": "https://github.com/Astro-Han/pawwork",
+      "stars": 199,
+      "tags": [
+        "desktop",
+        "no-key",
+        "office",
+        "automation",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The no-key, no-terminal framing makes it a genuine on-ramp for non-developers. Bundled free models change without notice, since they depend on upstream providers."
+    },
+    {
+      "id": "code-buddy",
+      "name": "Code Buddy",
+      "category": "cli",
+      "description": "Local-first coding agent that reads your repo, writes code and runs commands, with terminal, HTTP and optional desktop interfaces plus fleet collaboration.",
+      "free_limit": "Free — runs at $0 with Ollama; optional ChatGPT subscription integration",
+      "requires_card": false,
+      "open_source": true,
+      "language": "typescript",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "npm install @phuetz/code-buddy",
+      "url": "https://www.npmjs.com/package/@phuetz/code-buddy",
+      "tags": [
+        "coding-agent",
+        "local",
+        "ollama",
+        "terminal",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The Ollama path is the supported free route and is why this is listed. Its optional ChatGPT-subscription mode routes through a consumer account rather than an API, which is outside that provider's terms — use the local path."
+    },
+    {
+      "id": "browseros",
+      "name": "BrowserOS",
+      "category": "orchestrator",
+      "description": "Open-source agentic browser — a Chromium-based alternative to ChatGPT Atlas, Perplexity Comet and Dia, with agents built into the browser rather than bolted on.",
+      "free_limit": "Free — AGPL-3.0, bring your own model keys",
+      "requires_card": false,
+      "open_source": true,
+      "license": "AGPL-3.0",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/browseros-ai/BrowserOS",
+      "stars": 13741,
+      "tags": [
+        "browser",
+        "agentic-browser",
+        "chromium",
+        "byok",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The submission pointed at a one-star fork (gHashTag/BrowserOS); this is the upstream project. AGPL-3.0 matters if you plan to redistribute a modified build."
+    },
+    {
+      "id": "ui-tars-desktop",
+      "name": "UI-TARS Desktop",
+      "category": "orchestrator",
+      "description": "ByteDance's multimodal GUI agent stack that drives a real desktop — clicking, typing and navigating native apps — from screenshots and instructions.",
+      "free_limit": "Free — Apache-2.0, run the model locally or bring a key",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://github.com/ByteDance/UI-TARS-desktop",
+      "stars": 39105,
+      "tags": [
+        "gui-agent",
+        "computer-use",
+        "desktop",
+        "multimodal",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "One of the few computer-use stacks with real industrial backing and a permissive licence. A GUI agent that can click anything on your screen is a large security decision — run it in a VM or on a spare machine."
+    },
+    {
+      "id": "open-cowork",
+      "name": "Open Cowork",
+      "category": "orchestrator",
+      "description": "Desktop agent for Windows and macOS that installs Claude Code and MCP tooling in one click and runs the agent in a sandbox.",
+      "free_limit": "Free — MIT licensed, bring your own keys",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "platforms": [
+        "macos",
+        "windows"
+      ],
+      "url": "https://github.com/OpenCoworkAI/open-cowork",
+      "stars": 2169,
+      "tags": [
+        "desktop",
+        "sandbox",
+        "mcp",
+        "multi-model",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Sandbox isolation is the feature that matters here — the whole point of this class of tool is letting an agent act on your machine, and the sandbox is what bounds the blast radius."
+    },
+    {
+      "id": "abu-cowork",
+      "name": "Abu-Cowork",
+      "category": "orchestrator",
+      "description": "Local-first desktop agent with self-evolving skills and multi-model support, built as a privacy-preserving alternative to hosted coworking agents.",
+      "free_limit": "Free — open source, bring your own keys",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "windows"
+      ],
+      "url": "https://github.com/PM-Shawn/Abu-Cowork",
+      "stars": 383,
+      "tags": [
+        "desktop",
+        "local-first",
+        "privacy",
+        "multi-model",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Mid-sized community project. \"Self-evolving skills\" means it writes new skills for itself over time — keep an eye on what it accumulates."
+    },
+    {
+      "id": "hyperdesk",
+      "name": "HyperDesk",
+      "category": "cli",
+      "description": "Desktop coding workbench where the agent reads the project, runs commands, drives a browser and coordinates subagents — asking before it changes anything.",
+      "free_limit": "Free — open source, bring your own keys",
+      "requires_card": false,
+      "open_source": true,
+      "language": "typescript",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "npm install hyperdesk",
+      "url": "https://www.npmjs.com/package/hyperdesk",
+      "tags": [
+        "desktop",
+        "coding-agent",
+        "subagents",
+        "browser",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The confirm-before-changing behaviour is the right default for a tool with this much reach. Young project — check the package's own release notes before trusting it with a large repo."
+    },
+    {
+      "id": "alice-memory",
+      "name": "Alice Memory",
+      "category": "framework",
+      "description": "Local-first continuity layer that lets agents resume interrupted work, track open loops and recall decisions with provenance, exposed over MCP, HTTP and CLI.",
+      "free_limit": "Free — MIT licensed, local, no API keys",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "uvx alice-memory mcp",
+      "url": "https://pypi.org/project/alice-memory/",
+      "tags": [
+        "memory",
+        "mcp",
+        "provenance",
+        "local-first",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Provenance — remembering why a decision was made, not just what it was — is the part most memory layers skip. The 79.4% LongMemEval figure is the project's own reported number, not independently reproduced here."
+    },
+    {
+      "id": "mazu",
+      "name": "Mazu",
+      "category": "cli",
+      "description": "Coding-agent CLI with a memory and checkpoint layer: it keeps a queryable record of project decisions, conventions and past mistakes across sessions.",
+      "free_limit": "Free — open source, bring your own keys",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install mazu",
+      "url": "https://pypi.org/project/mazu/",
+      "tags": [
+        "memory",
+        "coding-agent",
+        "cli",
+        "checkpoints",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Pair it with any of the free coding models catalogued here. As with every local memory store, the retrieval quality matters more than the storage format."
+    },
+    {
+      "id": "pi-coding-agent",
+      "name": "pi-coding-agent",
+      "category": "cli",
+      "description": "Minimal, inspectable coding agent that persists project facts to a plain .pi/memory.md file instead of a hidden database, with self-review and autonomous tool use.",
+      "free_limit": "Free — open source, multi-provider",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install pi-coding-agent",
+      "url": "https://pypi.org/project/pi-coding-agent/",
+      "tags": [
+        "coding-agent",
+        "memory",
+        "markdown",
+        "transparent",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Storing memory as readable Markdown you can edit and review is the whole appeal — no opaque vector store to debug when recall goes wrong."
+    },
+    {
+      "id": "mengram-ai",
+      "name": "mengram-ai",
+      "category": "framework",
+      "description": "Human-like memory layer for agents with auto-save, auto-recall and a cognitive profile, split across semantic, episodic and procedural memory and exposed as MCP tools.",
+      "free_limit": "Free — open source, runs locally",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install mengram-ai",
+      "url": "https://pypi.org/project/mengram-ai/",
+      "tags": [
+        "memory",
+        "mcp",
+        "cognitive",
+        "claude-code",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Splitting memory into semantic, episodic and procedural stores is a more honest model of how agents actually benefit from memory than a single flat vector index. Actively released and includes Claude Code hooks."
+    },
+    {
+      "id": "haiku-rag",
+      "name": "haiku.rag",
+      "category": "framework",
+      "description": "Agentic RAG that runs locally by default, using Ollama-hosted open models for the full pipeline — ingestion, embeddings, retrieval and generation.",
+      "free_limit": "Free — open source; the default pipeline needs no external API key",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install haiku.rag",
+      "url": "https://github.com/ggozad/haiku.rag",
+      "tags": [
+        "rag",
+        "local",
+        "ollama",
+        "no-key",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Scales from a laptop to a server without changing the stack, and the no-key default is the reason it belongs in this catalogue rather than in a generic RAG list."
+    },
+    {
+      "id": "pinakes",
+      "name": "Pinakes",
+      "category": "framework",
+      "description": "Portable, agent-first knowledge base where one directory holds the corpus, retrieved with SQLite FTS5 lexical search plus local embeddings and local reranking.",
+      "free_limit": "Free — no API key needed to search or re-index",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install pinakes",
+      "url": "https://pypi.org/project/pinakes/",
+      "tags": [
+        "rag",
+        "bm25",
+        "sqlite",
+        "local",
+        "embeddings",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Combining BM25 with embeddings is more robust than either alone — lexical search catches exact identifiers that pure vector search misses, and re-indexing costs nothing."
+    },
+    {
+      "id": "arc-rector",
+      "name": "Arc Rector",
+      "category": "framework",
+      "description": "Agentic RAG stack assembled entirely from open-source components, with nine swappable layers so you can replace any piece without touching the rest.",
+      "free_limit": "Free — open source, no API keys, no vendor bills",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/dev48v/arc-rector",
+      "tags": [
+        "rag",
+        "modular",
+        "self-host",
+        "no-key",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Worth reading as a reference architecture even if you do not adopt it — the swappable-layer structure is a clean answer to RAG stacks that hard-code one vendor."
+    },
+    {
+      "id": "local-rag-assistant",
+      "name": "local-rag-assistant",
+      "category": "framework",
+      "description": "Chat with any codebase locally: AST-aware chunking, Ollama embeddings and a Chroma vector store, with no code leaving your machine.",
+      "free_limit": "Free — fully local, no API keys",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/lalith0087/local-rag-assistant",
+      "tags": [
+        "rag",
+        "codebase",
+        "ast",
+        "ollama",
+        "local",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "AST-aware chunking beats naive line splitting on code, because a function is the unit you actually want retrieved. Small community project — read before you run."
+    },
+    {
+      "id": "pleias-slm-rag",
+      "name": "Pleias SLM RAG",
+      "category": "framework",
+      "description": "On-device RAG API built on a ~300M-parameter model small enough to run on a Raspberry Pi 5, with no GPU and no external API calls.",
+      "free_limit": "Free — Apache-2.0 model weights",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://huggingface.co/PleIAs/Pleias-SLM-RAG",
+      "tags": [
+        "rag",
+        "on-device",
+        "small-model",
+        "edge",
+        "raspberry-pi",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Genuinely edge-sized, which is rare for anything labelled RAG. A 300M model is for retrieval and grounded short answers, not general reasoning."
+    },
+    {
+      "id": "hol-guard",
+      "name": "HOL Guard",
+      "category": "cli",
+      "description": "Antivirus and runtime protection layer for agent tooling — plugins, skills and MCP servers — that sits between your agent and the code it is about to run.",
+      "free_limit": "Free — runs locally, no account",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install hol-guard",
+      "url": "https://pypi.org/project/hol-guard/",
+      "tags": [
+        "security",
+        "mcp",
+        "runtime-protection",
+        "local",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Installing an MCP server means running someone else's code with your credentials in reach; this is one of the few tools treating that as the security boundary it is. Integrates with the major agent CLIs."
+    },
+    {
+      "id": "agent-bom",
+      "name": "agent-bom",
+      "category": "cli",
+      "description": "Scanner and self-hosted control plane for AI infrastructure — sweeps agent configs, MCP servers, instruction files, containers, cloud estate and model artefacts.",
+      "free_limit": "Free — open source, self-hosted",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install agent-bom",
+      "url": "https://pypi.org/project/agent-bom/",
+      "tags": [
+        "security",
+        "sbom",
+        "mcp",
+        "scanner",
+        "self-host",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The agent-specific targets — instruction files and MCP configs — are what distinguish it from a generic container scanner. Actively released."
+    },
+    {
+      "id": "panguard",
+      "name": "PanGuard",
+      "category": "cli",
+      "description": "One-command monitoring and guarding for agents and MCP servers, aimed at catching what an agent does rather than what it was asked to do.",
+      "free_limit": "Free — MIT licensed, 100% open source",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "language": "typescript",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "npm install panguard",
+      "url": "https://www.npmjs.com/package/panguard",
+      "tags": [
+        "security",
+        "monitoring",
+        "mcp",
+        "mit",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Deliberately low-friction — one command and it starts watching, which is the right trade for teams that will not stand up a full security stack."
+    },
+    {
+      "id": "bawbel-scanner",
+      "name": "Bawbel Scanner",
+      "category": "cli",
+      "description": "Security scanner for MCP servers and AI skill files that scores findings against OWASP's AIVSS rubric and ships an open vulnerability database with a public API.",
+      "free_limit": "Free — open source",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install bawbel-scanner",
+      "url": "https://pypi.org/project/bawbel-scanner/",
+      "tags": [
+        "security",
+        "mcp",
+        "owasp",
+        "scanner",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Scoring MCP servers against a published rubric is useful because it makes two servers comparable. AIVSS is still evolving, so treat scores as guidance rather than verdicts."
+    },
+    {
+      "id": "nightona",
+      "name": "Nightona",
+      "category": "framework",
+      "description": "Community continuation of Daytona: elastic sandbox infrastructure for running AI-generated code and agent workflows in isolation.",
+      "free_limit": "Free — AGPL-3.0, self-hosted",
+      "requires_card": false,
+      "open_source": true,
+      "license": "AGPL-3.0",
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "url": "https://github.com/nightona-co/nightona",
+      "tags": [
+        "sandbox",
+        "code-execution",
+        "self-host",
+        "daytona",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Forked from Daytona's last AGPL-3.0 release after that project changed direction, so the licence is what makes the continuation legitimate — and it means you inherit the maintenance burden rather than a vendor's."
+    },
+    {
+      "id": "capka",
+      "name": "Capka",
+      "category": "framework",
+      "description": "Self-hosted sandbox for AI agents, built as a community alternative to hosted coworking sandboxes.",
+      "free_limit": "Free — open source, self-hosted",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/LyoSU/capka",
+      "tags": [
+        "sandbox",
+        "self-host",
+        "isolation",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Young project — verify the isolation boundary yourself before trusting it with untrusted code, since that is precisely the promise being made."
+    },
+    {
+      "id": "coder-eval",
+      "name": "coder-eval",
+      "category": "framework",
+      "description": "Agent-agnostic framework for evaluating and benchmarking coding agents and skills, with support for comparing different agent harnesses head to head.",
+      "free_limit": "Free — open source",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install coder-eval",
+      "url": "https://pypi.org/project/coder-eval/",
+      "tags": [
+        "evaluation",
+        "benchmarking",
+        "coding-agent",
+        "testing",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Agent-agnostic is the valuable property: you can A/B your own agent against a reference harness instead of trusting a vendor's self-reported score."
+    },
+    {
+      "id": "openmcp",
+      "name": "OpenMCP",
+      "category": "framework",
+      "description": "Self-hosted benchmarking harness for computer-use agents acting through MCP, letting you measure tool-using agents reproducibly.",
+      "free_limit": "Free — open source, self-hosted",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/AguLeon/OpenMCP",
+      "tags": [
+        "evaluation",
+        "mcp",
+        "computer-use",
+        "benchmark",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Computer-use evaluation is the least standardised corner of agent testing, so any harness that makes results reproducible is worth knowing about. Early-stage project."
+    },
+    {
+      "id": "agent-eval",
+      "name": "agent-eval",
+      "category": "framework",
+      "description": "Evaluation framework that auto-generates test tasks for an agent, executes them and scores results across several dimensions.",
+      "free_limit": "Free — open source",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/OrrisTech/agent-eval",
+      "tags": [
+        "evaluation",
+        "testing",
+        "automation",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Auto-generated tasks solve the blank-page problem in agent testing, but they measure what the generator thought to ask — combine with your own regression cases."
+    },
+    {
+      "id": "benchclaw",
+      "name": "BenchClaw",
+      "category": "framework",
+      "description": "Multi-dimensional agent evaluation that scores runs across ten dimensions and visualises the spread as radar charts.",
+      "free_limit": "Free — MIT licensed",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://github.com/Agnuxo1/benchclaw",
+      "tags": [
+        "evaluation",
+        "benchmarking",
+        "visualisation",
+        "mit",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Multi-dimensional scoring is more informative than a single pass/fail number. The advertised \"17-judge AI tribunal\" and deception detection are separate LLM calls judging output — treat their verdicts as signal, not ground truth."
     }
   ],
   "free-tiers": [
@@ -6797,6 +7832,178 @@
       "verified_by": "@hidden-gems-import",
       "status": "active",
       "notes": "The repository documents 14+ free providers rather than the 24+ that circulates in listicles. It is a small community project (low hundreds of stars) — read the code before putting it in front of real traffic. Pair it with the free tiers already catalogued here (Groq, Gemini, Cerebras, Cloudflare) and the fallback chain rarely runs dry."
+    },
+    {
+      "id": "clawmetry",
+      "name": "ClawMetry",
+      "category": "observability",
+      "description": "Real-time observability for a long list of agent runtimes — OpenClaw, NVIDIA NemoClaw, Claude Code, Codex, Cursor, Goose, opencode, Qwen Code, Aider and more — from one dashboard.",
+      "free_limit": "Free — open-source app, install locally",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://pypi.org/project/clawmetry/",
+      "tags": [
+        "observability",
+        "tracing",
+        "self-host",
+        "multi-runtime",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Submitted as \"12 agent runtimes\" and, in an earlier batch, \"14\". The package itself currently advertises 32, which is typical for this category: the runtime count is a marketing surface, not a spec. Verify your runtime is covered before adopting."
+    },
+    {
+      "id": "agent-observability",
+      "name": "agent-observability",
+      "category": "observability",
+      "description": "Local-first tracing for agents that records every tool call, error and dollar spent, and works with Claude, Cursor and any MCP-compatible agent.",
+      "free_limit": "Free forever — local, no account",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://github.com/KryptosAI/agent-observability",
+      "tags": [
+        "observability",
+        "tracing",
+        "cost-tracking",
+        "mcp",
+        "local",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Cost tracking per tool call is the feature most local agents still lack. Small community project — read it before wiring it into anything that touches credentials."
+    },
+    {
+      "id": "claw-insights",
+      "name": "claw-insights",
+      "category": "observability",
+      "description": "Read-only observability sidecar that tails log files and CLI output, so you get agent tracing with no SDK, no code changes and no network calls.",
+      "free_limit": "Free — open source",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.npmjs.com/package/claw-insights",
+      "tags": [
+        "observability",
+        "log-tailing",
+        "no-sdk",
+        "local",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The zero-instrumentation approach is the whole point: for agents you did not write, or cannot modify, log tailing is the only observation point available."
+    },
+    {
+      "id": "omniroute",
+      "name": "OmniRoute",
+      "category": "compute",
+      "description": "Self-hosted AI router that fans one endpoint out across hundreds of providers, with multiple routing strategies, compression and MCP/A2A support.",
+      "free_limit": "Free — open source, self-hosted; route to providers' free tiers",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.npmjs.com/package/omniroute",
+      "tags": [
+        "gateway",
+        "router",
+        "self-host",
+        "fallback",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Listed in the submission as \"160+ providers\" and \"~1.51B free tokens/month\"; the package itself currently advertises 352 providers. Both figures are the vendor's own marketing and the second is not something a gateway can guarantee — it depends entirely on the upstream free tiers, which change without notice."
+    },
+    {
+      "id": "agentgateway",
+      "name": "agentgateway",
+      "category": "compute",
+      "description": "Agentic proxy built on the MCP and A2A protocols, adding authentication, observability and governance in front of agents and MCP servers.",
+      "free_limit": "Free — open source, self-hosted",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://github.com/agentgateway/agentgateway",
+      "docs_url": "https://agentgateway.dev/",
+      "tags": [
+        "gateway",
+        "mcp",
+        "a2a",
+        "governance",
+        "linux-foundation",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "A Linux Foundation project with real adoption around MCP, which makes it the most durable entry in this batch. Useful specifically when you need one place to enforce auth and policy across many MCP servers."
+    },
+    {
+      "id": "summoned-gateway",
+      "name": "summoned-gateway",
+      "category": "compute",
+      "description": "OpenAI-compatible gateway with routing, fallback, caching, guardrails and budget limits, with first-class support for Indian providers and INR cost tracking.",
+      "free_limit": "Free — self-hosted console, bring your own keys",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.npmjs.com/package/@summoned/gateway",
+      "tags": [
+        "gateway",
+        "fallback",
+        "caching",
+        "guardrails",
+        "india",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Built-in budget enforcement is the differentiator — a gateway that cannot stop a runaway agent is only half a gateway. Very early project (0.1.x), so expect rough edges."
+    },
+    {
+      "id": "fsrouter",
+      "name": "fsrouter",
+      "category": "compute",
+      "description": "Self-hosted gateway that puts one OpenAI-compatible endpoint in front of many providers, with automatic fallback, load balancing and key rotation.",
+      "free_limit": "Free — self-hosted",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.npmjs.com/package/@fudrouter/fsrouter",
+      "tags": [
+        "gateway",
+        "load-balancing",
+        "key-rotation",
+        "self-host",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Submitted as \"FSRouter\"; the package resolves to @fudrouter/fsrouter, whose own description reads \"9Router v2 — Monorepo\". The naming does not line up cleanly, so verify the package is what you expect before trusting it with provider keys — a gateway holds all of them at once."
+    },
+    {
+      "id": "n9router",
+      "name": "n9router",
+      "category": "compute",
+      "description": "Self-hosted OpenAI-compatible routing gateway for dozens of providers, shipped as a Docker image and usable as a drop-in base URL for the major coding agents.",
+      "free_limit": "Free — self-hosted via Docker",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://hub.docker.com/r/nightwalker8x/n9router",
+      "tags": [
+        "gateway",
+        "docker",
+        "self-host",
+        "coding-agents",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The submission's repository path (nightwalker8x/n9router) does not exist on GitHub, but the Docker Hub image and npm package both resolve. Prefer the npm release over pulling an unversioned image."
     }
   ]
 }

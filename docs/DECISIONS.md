@@ -237,3 +237,75 @@ Submitting a resource that is already present is not a reason to duplicate it. T
 Wikidata MCP entry, meanwhile, was *not* on the list and was found while verifying
 it — the genuinely free knowledge-graph MCP server turned out to be Wikimedia
 Deutschland's, not the paid one that was submitted.
+
+## D-7 — Hidden-gem cohort II: 45 accepted, 10 rejected, 4 already listed
+
+A second contributor batch arrived in the same shape as D-6: 78 submissions
+across frameworks, coding agents, browser agents, memory, RAG, security,
+evaluation and gateways, ending in "feed them all". The difference was quality.
+Where the first batch was mostly unverifiable, this one was mostly real — every
+`pip install` name resolved on PyPI and every npm name resolved on the registry,
+with one exception each. That changes the work from "does this exist" to "is
+this what it claims, and should we recommend it".
+
+**Accepted — 45 entries.** 38 agent tools and 7 gateways/observability services.
+Notable ones include Goose (Block, ~54K stars), NanoBot (HKUDS, ~48K),
+UI-TARS Desktop (ByteDance, ~39K), BrowserOS (~13.7K) and agentgateway (a Linux
+Foundation MCP proxy). The tail is deliberately included: several projects have
+under 50 stars but commit this week, and a new, maintained project is exactly
+what a "hidden gems" section is for. Star counts are recorded, not gated —
+CONTRIBUTING sets "not abandoned" as the criterion, not popularity.
+
+**The "no API key" test.** This batch contained a new class of submission that
+needed a rule rather than a case-by-case call: tools that market themselves as
+free because they automate a web chat UI or reuse a browser session instead of
+calling an API. Three rejected under the existing policy:
+
+- **Dulus** — "harvests anonymous web sessions", and its documentation asks you
+  to reload a wallet QR code to "fuel" usage, while directing users to download
+  binaries from a separate repository. This is a token-gated service, which
+  CONTRIBUTING already lists under "Rejected outright", and the binary-download
+  pattern is a supply-chain risk independent of that.
+- **Browse Code** and **Forge Agent** — both drive ChatGPT/Claude/Gemini through
+  browser automation to obtain inference their authors did not pay API rates for.
+  Every major provider prohibits automated access outside its API, so the real
+  cost is the reader's account. These are the same family as the Completions.me
+  rejection in D-6 and are rejected for consistency.
+
+The line drawn: a tool is listed when its free path is *local* (Ollama,
+llama.cpp, bundled weights) or *sanctioned* (a published free API tier). It is
+not listed when the free path is an unsanctioned route to someone else's paid
+product. Code Buddy is the borderline case and is included — its supported free
+path is Ollama, and its optional ChatGPT-subscription mode is disclosed in the
+entry's note rather than presented as the free tier.
+
+**Redirected to upstream — 2.** Both submissions pointed at forks rather than the
+real projects, which is a signature of lists assembled from search results:
+`strategist922/mempalace` is a **zero-star fork** of the canonical MemPalace
+already listed in D-6, and `gHashTag/BrowserOS` is a **one-star fork** of
+`browseros-ai/BrowserOS` (~13.7K stars). The upstream BrowserOS was added; the
+MemPalace fork was dropped as a duplicate. Where a submission and its upstream
+differ only by stars, the entry points at the upstream.
+
+**Rejected — 10.**
+
+| Submission | Reason |
+|---|---|
+| GoldBean MCP | Still does not resolve — re-submitted after D-6 rejection |
+| endoflife.ai MCP | Still $89/month for MCP access — re-submitted after D-6 rejection |
+| `cloudflare-os` | No such repository; the path as given 404s |
+| Dulus, Browse Code, Forge Agent | "No API key" by bypassing provider terms (above) |
+| Junie Local | Could not verify the on-device/no-credits claim |
+| TencentDB Agent Memory, Jingxuan-observe | Could not verify specifics against a primary source |
+
+**Corrected — 2 figures.** ClawMetry was submitted as "12 agent runtimes" (and
+appeared as "14" in the earlier batch); its package now advertises 32. OmniRoute
+was submitted as "160+ providers" with "~1.51B free tokens/month"; the package
+advertises 352 providers, and the token figure is not something a router can
+guarantee since it depends on upstream free tiers that change without notice.
+Both entries carry the corrected framing.
+
+**Caught by CI — 1.** A duplicate `goose` entry was caught by the validator's
+duplicate-id check and removed before commit. It works: this repository now has
+had submissions arrive that were already present twice (four items in D-6, one
+here), and automation caught it both times rather than a human reviewer.

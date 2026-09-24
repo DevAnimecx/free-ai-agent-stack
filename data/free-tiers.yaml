@@ -1022,3 +1022,118 @@
   verified_by: "@hidden-gems-import"
   status: active
   notes: "The repository documents 14+ free providers rather than the 24+ that circulates in listicles. It is a small community project (low hundreds of stars) — read the code before putting it in front of real traffic. Pair it with the free tiers already catalogued here (Groq, Gemini, Cerebras, Cloudflare) and the fallback chain rarely runs dry."
+
+# ── Hidden-gem cohort II: observability and gateways, imported 2026-09-24 ──
+
+- id: clawmetry
+  name: ClawMetry
+  category: observability
+  description: "Real-time observability for a long list of agent runtimes — OpenClaw, NVIDIA NemoClaw, Claude Code, Codex, Cursor, Goose, opencode, Qwen Code, Aider and more — from one dashboard."
+  free_limit: "Free — open-source app, install locally"
+  requires_card: false
+  cold_start_risk: low
+  url: https://pypi.org/project/clawmetry/
+  tags: [observability, tracing, self-host, multi-runtime, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "Submitted as \"12 agent runtimes\" and, in an earlier batch, \"14\". The package itself currently advertises 32, which is typical for this category: the runtime count is a marketing surface, not a spec. Verify your runtime is covered before adopting."
+
+- id: agent-observability
+  name: agent-observability
+  category: observability
+  description: "Local-first tracing for agents that records every tool call, error and dollar spent, and works with Claude, Cursor and any MCP-compatible agent."
+  free_limit: "Free forever — local, no account"
+  requires_card: false
+  cold_start_risk: low
+  url: https://github.com/KryptosAI/agent-observability
+  tags: [observability, tracing, cost-tracking, mcp, local, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "Cost tracking per tool call is the feature most local agents still lack. Small community project — read it before wiring it into anything that touches credentials."
+
+- id: claw-insights
+  name: claw-insights
+  category: observability
+  description: "Read-only observability sidecar that tails log files and CLI output, so you get agent tracing with no SDK, no code changes and no network calls."
+  free_limit: "Free — open source"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.npmjs.com/package/claw-insights
+  tags: [observability, log-tailing, no-sdk, local, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "The zero-instrumentation approach is the whole point: for agents you did not write, or cannot modify, log tailing is the only observation point available."
+
+- id: omniroute
+  name: OmniRoute
+  category: compute
+  description: "Self-hosted AI router that fans one endpoint out across hundreds of providers, with multiple routing strategies, compression and MCP/A2A support."
+  free_limit: "Free — open source, self-hosted; route to providers' free tiers"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.npmjs.com/package/omniroute
+  tags: [gateway, router, self-host, fallback, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "Listed in the submission as \"160+ providers\" and \"~1.51B free tokens/month\"; the package itself currently advertises 352 providers. Both figures are the vendor's own marketing and the second is not something a gateway can guarantee — it depends entirely on the upstream free tiers, which change without notice."
+
+- id: agentgateway
+  name: agentgateway
+  category: compute
+  description: "Agentic proxy built on the MCP and A2A protocols, adding authentication, observability and governance in front of agents and MCP servers."
+  free_limit: "Free — open source, self-hosted"
+  requires_card: false
+  cold_start_risk: low
+  url: https://github.com/agentgateway/agentgateway
+  docs_url: https://agentgateway.dev/
+  tags: [gateway, mcp, a2a, governance, linux-foundation, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "A Linux Foundation project with real adoption around MCP, which makes it the most durable entry in this batch. Useful specifically when you need one place to enforce auth and policy across many MCP servers."
+
+- id: summoned-gateway
+  name: summoned-gateway
+  category: compute
+  description: "OpenAI-compatible gateway with routing, fallback, caching, guardrails and budget limits, with first-class support for Indian providers and INR cost tracking."
+  free_limit: "Free — self-hosted console, bring your own keys"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.npmjs.com/package/@summoned/gateway
+  tags: [gateway, fallback, caching, guardrails, india, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "Built-in budget enforcement is the differentiator — a gateway that cannot stop a runaway agent is only half a gateway. Very early project (0.1.x), so expect rough edges."
+
+- id: fsrouter
+  name: fsrouter
+  category: compute
+  description: "Self-hosted gateway that puts one OpenAI-compatible endpoint in front of many providers, with automatic fallback, load balancing and key rotation."
+  free_limit: "Free — self-hosted"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.npmjs.com/package/@fudrouter/fsrouter
+  tags: [gateway, load-balancing, key-rotation, self-host, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "Submitted as \"FSRouter\"; the package resolves to @fudrouter/fsrouter, whose own description reads \"9Router v2 — Monorepo\". The naming does not line up cleanly, so verify the package is what you expect before trusting it with provider keys — a gateway holds all of them at once."
+
+- id: n9router
+  name: n9router
+  category: compute
+  description: "Self-hosted OpenAI-compatible routing gateway for dozens of providers, shipped as a Docker image and usable as a drop-in base URL for the major coding agents."
+  free_limit: "Free — self-hosted via Docker"
+  requires_card: false
+  cold_start_risk: low
+  url: https://hub.docker.com/r/nightwalker8x/n9router
+  tags: [gateway, docker, self-host, coding-agents, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "The submission's repository path (nightwalker8x/n9router) does not exist on GitHub, but the Docker Hub image and npm package both resolve. Prefer the npm release over pulling an unversioned image."

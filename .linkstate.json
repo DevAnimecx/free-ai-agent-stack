@@ -1,5 +1,11 @@
 {
   "entries": {
+    "agent-tools/abu-cowork": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/activepieces": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -7,6 +13,18 @@
       "last_status_url": 200
     },
     "agent-tools/ag2-autogen": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/agent-bom": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/agent-eval": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -24,13 +42,73 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/aigate": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/alice-memory": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/amp": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/arc-rector": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/automatos-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/bawbel-scanner": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/benchclaw": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/browseros": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/capka": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/cline": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/code-buddy": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_url": 403
+    },
+    "agent-tools/coder-eval": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -120,11 +198,29 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/haiku-rag": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/haystack": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
+    },
+    "agent-tools/hol-guard": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/hyperdesk": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_url": 403
     },
     "agent-tools/kilo-code": {
       "failures": 0,
@@ -133,6 +229,18 @@
       "last_status_url": 200
     },
     "agent-tools/kiro": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/kiss-agent-framework": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/kitaru": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -174,7 +282,19 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/local-rag-assistant": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/mastra": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/mazu": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -192,13 +312,49 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/mengram-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/miii-cli": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/n8n": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/nanobot": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/nanobrowser": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/nexora": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/nightona": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/open-cowork": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -222,6 +378,48 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/openmcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/panguard": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_url": 403
+    },
+    "agent-tools/pawwork": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/pi-coding-agent": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/pinakes": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/pincer": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/pleias-slm-rag": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/pydantic-ai": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -229,6 +427,18 @@
       "last_status_url": 200
     },
     "agent-tools/qwen-code": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/qwenpaw": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/readyagents-core": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -252,7 +462,19 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/tares": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/trae": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/ui-tars-desktop": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -283,6 +505,19 @@
       "last_status_docs_url": 200,
       "last_status_url": 200,
       "recovered_from": 1
+    },
+    "free-tiers/agent-observability": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/agentgateway": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
     },
     "free-tiers/aiven-free": {
       "failures": 0,
@@ -339,6 +574,18 @@
       "last_status_url": 200
     },
     "free-tiers/chroma-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/claw-insights": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_url": 403
+    },
+    "free-tiers/clawmetry": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -427,6 +674,12 @@
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
+    },
+    "free-tiers/fsrouter": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_url": 403
     },
     "free-tiers/gcp-free-tier": {
       "failures": 0,
@@ -525,6 +778,12 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "free-tiers/n9router": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "free-tiers/neo4j-auradb": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -548,6 +807,12 @@
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
+    },
+    "free-tiers/omniroute": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_url": 403
     },
     "free-tiers/opik": {
       "failures": 0,
@@ -628,6 +893,12 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "free-tiers/summoned-gateway": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_url": 403
+    },
     "free-tiers/supabase": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -703,7 +974,7 @@
     "free-tiers/wikidata-vectordb": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "Partial Content",
+      "last_reason": "OK",
       "last_status_docs_url": 200,
       "last_status_url": 206
     },
@@ -754,7 +1025,7 @@
     "llm-apis/aws-bedrock-free-tier": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "",
+      "last_reason": "OK",
       "last_status_docs_url": 200,
       "last_status_signup_url": 200,
       "last_status_url": 200
@@ -953,7 +1224,7 @@
     "llm-apis/huggingface-inference": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
       "last_status_docs_url": 200,
       "last_status_signup_url": 403,
       "last_status_url": 200,
@@ -985,7 +1256,7 @@
     "llm-apis/leonardo-ai": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
       "last_status_docs_url": 200,
       "last_status_signup_url": 200,
       "last_status_url": 403,
@@ -1658,5 +1929,5 @@
       "last_status_url": 200
     }
   },
-  "last_run": "2026-09-24T09:44:34+00:00"
+  "last_run": "2026-09-24T09:51:27+00:00"
 }
