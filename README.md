@@ -2,7 +2,7 @@
 
 # free-ai-agent-stack
 
-**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 379 resources, verified weekly, zero cost to build on.**
+**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 384 resources, verified weekly, zero cost to build on.**
 
 [![Stars](https://img.shields.io/github/stars/free-ai-agent-stack/free-ai-agent-stack?style=flat-square&logo=github)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/stargazers)
 [![Forks](https://img.shields.io/github/forks/free-ai-agent-stack/free-ai-agent-stack?style=flat-square)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/forks)
@@ -15,19 +15,19 @@
 
 Every free LLM API, MCP server, agent framework and free-tier database a developer needs to build an AI agent in 2026 — in one place, with the free limit, the credit-card requirement and the date it was last checked. **Data is YAML in this repo; the website is generated from it; a daily robot checks every link.** If a listing says "no credit card", a human verified that. If it says "no longer free", we left it in on purpose — so you stop wasting signups on lists that never update.
 
-> **Free AI agent tools, checked 2026-09-24.** 379 entries · 222 need no credit card · 100% of links verified in the last 30 days.
+> **Free AI agent tools, checked 2026-09-24.** 384 entries · 222 need no credit card · 100% of links verified in the last 30 days.
 
 <!-- STATS:START -->
 | Category | Count | No credit card | Verified <30d | Top pick |
 |---|---:|---:|---:|---|
 | [Free LLM APIs](data/llm-apis.yaml) | 70 | 58 | 70 | Cloudflare Workers AI |
-| [MCP Servers](data/mcp-servers.yaml) | 63 | — | 63 | Context7 |
+| [MCP Servers](data/mcp-servers.yaml) | 64 | — | 64 | Context7 |
 | [Agent Tools](data/agent-tools.yaml) | 82 | 82 | 82 | Aider |
 | [Free Tiers](data/free-tiers.yaml) | 90 | 82 | 90 | Better Auth |
-| [Agent Skills](data/skills.yaml) | 74 | — | 74 | Anthropic Agent Skills |
-| **Total** | **379** | **222** | **379** | — |
+| [Agent Skills](data/skills.yaml) | 78 | — | 78 | Anthropic Agent Skills |
+| **Total** | **384** | **222** | **384** | — |
 
-_Auto-generated 2026-09-24T11:01:45+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
+_Auto-generated 2026-09-24T11:39:08+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
 <!-- STATS:END -->
 
 ## Quick start: build an agent for $0 this weekend
@@ -50,10 +50,10 @@ npx create-next-app@latest && npx vercel --prod   # static + serverless, $0 tier
 ## Table of contents
 
 - [Free LLM APIs](#free-llm-apis) — 70 entries
-- [MCP servers](#mcp-servers) — 63 entries
+- [MCP servers](#mcp-servers) — 64 entries
 - [Agent tools & frameworks](#agent-tools--frameworks) — 82 entries
 - [Free-tier infrastructure](#free-tier-infrastructure) — 90 entries
-- [Agent skills](#agent-skills) — 74 entries
+- [Agent skills](#agent-skills) — 78 entries
 - [What "free" means here](#what-free-means-here) · [Methodology](#methodology) · [Machine-readable data](#machine-readable-data)
 - [Contribute](#contribute) · [Licence](#licence)
 
@@ -101,7 +101,7 @@ The default way to run open models locally — one command to pull, serve and ex
 
 ## MCP servers
 
-63 MCP servers with copy-paste install commands, transport, auth requirements and official-vs-community status. The MCP registry lands in 2026; this list stays useful because it tells you what a server *needs* before you run it. Full list: [`data/mcp-servers.yaml`](data/mcp-servers.yaml).
+64 MCP servers with copy-paste install commands, transport, auth requirements and official-vs-community status. The MCP registry lands in 2026; this list stays useful because it tells you what a server *needs* before you run it. Full list: [`data/mcp-servers.yaml`](data/mcp-servers.yaml).
 
 ### Top picks
 
@@ -135,7 +135,7 @@ Secure local file operations with configurable allow-listed directories — wher
 
 Stores and retrieves memories in a Qdrant collection — vector memory as a tool, paired with Qdrant's free 1GB cluster. → [github.com/qdrant/mcp-server-qdrant](https://github.com/qdrant/mcp-server-qdrant) · [`#qdrant-mcp`](https://freeaiagentstack.dev/mcp-servers#qdrant-mcp)
 
-> **63 entries in total**, including the archived reference servers (`postgres`, `slack`, `puppeteer`, `brave-search`) that most tutorials still tell you to install, each replaced with a maintained alternative. [See the full list](https://freeaiagentstack.dev/mcp-servers) · [raw data](data/mcp-servers.yaml)
+> **64 entries in total**, including the archived reference servers (`postgres`, `slack`, `puppeteer`, `brave-search`) that most tutorials still tell you to install, each replaced with a maintained alternative. [See the full list](https://freeaiagentstack.dev/mcp-servers) · [raw data](data/mcp-servers.yaml)
 
 ---
 
@@ -291,7 +291,7 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 ### Contributors
 
 <!-- CONTRIBUTORS:START -->
-@seed-import (234) @hidden-gems-import (145)
+@seed-import (234) @hidden-gems-import (150)
 <!-- CONTRIBUTORS:END -->
 
 ## Star history

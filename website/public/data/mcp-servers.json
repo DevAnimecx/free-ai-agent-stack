@@ -816,9 +816,9 @@
   },
   {
     "id": "figma-mcp",
-    "name": "Figma MCP",
-    "maintainer": "Framelink (community) / Figma Dev Mode",
-    "description": "Pulls design tokens, layout and component structure out of Figma files into the editor.",
+    "name": "Framelink Figma MCP",
+    "maintainer": "Framelink (community)",
+    "description": "Pulls design tokens, layout and component structure out of Figma files into the editor, over stdio, using a personal access token.",
     "install": "npx -y figma-developer-mcp --figma-api-key=<token>",
     "transport": [
       "stdio"
@@ -844,7 +844,10 @@
     "verified": "2026-09-24",
     "verified_by": "@seed-import",
     "status": "active",
-    "notes": "Figma also ships a first-party Dev Mode server on localhost:3845 for desktop app users."
+    "notes": [
+      "Renamed from 'Figma MCP' to name its maintainer: this is the community Framelink server, not Figma's own. For the first-party server see figma-mcp-server.",
+      "Works over stdio with a personal access token, so it needs no OAuth dance and no Figma desktop app — which is why people still reach for it over the official remote server."
+    ]
   },
   {
     "id": "linear-mcp",
@@ -1944,5 +1947,42 @@
     "verified_by": "@hidden-gems-import",
     "status": "active",
     "notes": "Hosted as a public instance by Wikimedia Deutschland, so there is nothing to install or pay for. Exposes vector_search_items, keyword_search_items and vector_search_properties. Endpoint rejects plain GETs (406) by design — point an MCP client at it rather than curl."
+  },
+  {
+    "id": "figma-mcp-server",
+    "name": "Figma MCP Server",
+    "maintainer": "Figma",
+    "description": "Figma's own MCP server, hosted at mcp.figma.com over Streamable HTTP. Reads a selected frame's variables, components and layout into the editor, generates code from it, reuses real components through Code Connect and, while in beta, writes native content back to the canvas.",
+    "install": "claude mcp add --transport http figma https://mcp.figma.com/mcp",
+    "transport": [
+      "http"
+    ],
+    "official": true,
+    "requires_auth": true,
+    "auth_type": "Figma account (OAuth)",
+    "url": "https://github.com/figma/mcp-server-guide",
+    "docs_url": "https://developers.figma.com/docs/figma-mcp-server/",
+    "stars": 2016,
+    "clients": [
+      "claude-code",
+      "cursor",
+      "vscode",
+      "gemini-cli"
+    ],
+    "tags": [
+      "design",
+      "official",
+      "remote",
+      "frontend"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": [
+      "A hosted remote server rather than a package: https://mcp.figma.com/mcp answers 401 without a token, so there is nothing to install — you add the URL and authenticate.",
+      "Free to connect on Figma's free Starter plan, but that plan and View or Collab seats on paid plans are capped at 6 tool calls per month. Dev and Full seats on paid plans get Tier 1 REST API limits instead. This is a real free allowance, not a generous one — the Studio plan at $16/month is what most people will need for daily use.",
+      "Writing to the canvas is free during the beta, and Figma has said it will become a usage-based paid feature. Assume it will not stay free.",
+      "Also installable as Claude Code and Cursor plugins and as a Gemini CLI extension, which bundle the server config together with the Figma skill pack below."
+    ]
   }
 ]

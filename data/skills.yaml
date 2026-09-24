@@ -1249,3 +1249,86 @@
   status: active
   notes:
     - "One of five skills in the Exa pack. 673 installs in the skills.sh registry. Exa has a free allowance, so both the skill and the API it drives are usable at no cost."
+# ---------------------------------------------------------------------------
+# Added 2026-09-24 (batch 6) — the vendor MCP-pack gap and two rescue paths.
+# Dedupe/verify counters live in validate.py; counts here all came from a
+# repository tree or a registry API on the date above.
+# ---------------------------------------------------------------------------
+
+- id: figma-skills
+  name: Figma Agent Skills
+  provider: Figma
+  category: vendor-pack
+  kind: pack
+  description: "Figma's own skill pack for working with design files through its MCP server — implementing designs as code, connecting components with Code Connect, generating design libraries and diagrams, and building Figma slides, FigJam boards, shaders and motion."
+  skill_count: 30
+  url: https://github.com/figma/mcp-server-guide/tree/main/skills
+  docs_url: https://developers.figma.com/docs/figma-mcp-server/
+  install: claude plugin install figma@claude-plugins-official
+  stars: 2016
+  compatible_with: [claude-code, cursor, vscode, gemini-cli, any]
+  tags: [vendor, design, figma, skills]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "30 skills counted from the repository tree on 2026-09-24: 14 under skills/, the same 14 mirrored under skills-figquery/ for the Figma query variant, and 2 workflow skills. Distribute through Figma's plugins rather than a bare skills/ directory."
+    - "Figma marks these a Beta feature, and the pack ships with no repository licence file — check the developer terms before depending on it."
+    - "The pack is what the OpenAI curated figma-* skills wrap: same job, published by the vendor whose API it drives."
+- id: alirezarezvani-claude-skills
+  name: Alireza Rezvani Claude Skills
+  provider: alirezarezvani
+  category: community
+  kind: pack
+  description: "A large community skill library spanning engineering, marketing, product, compliance, finance and C-level advisory work — 388 skills plus custom agents, commands and references, installable across a dozen coding agents."
+  skill_count: 388
+  url: https://github.com/alirezarezvani/claude-skills
+  install: npx skills add alirezarezvani/claude-skills
+  license: MIT
+  open_source: true
+  stars: 26387
+  compatible_with: [claude-code, codex, cursor, gemini-cli, any]
+  tags: [community, library, engineering, skills]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "388 skills, being the 846 SKILL.md files in the repository tree minus 458 that are mirrors under .gemini/ — 369 skill names appear twice for that reason. The README says '380+' and the skills CLI lists 367, so the true figure sits in that range; 388 is the number the tree supports once mirrors are excluded."
+    - "MIT licensed, 26,387 stars, and actively maintained — the largest community pack here after obra/superpowers."
+    - "Breadth is the point and also the risk: 388 skills in one repository means most of them are not for you, and a pack this size is a lot of third-party instruction to hand an agent. Install individual skills (--skill <name>) rather than the whole library."
+- id: a11y-audit
+  name: A11y Audit
+  provider: alirezarezvani
+  category: community
+  kind: skill
+  domain: testing
+  parent: alirezarezvani-claude-skills
+  description: "An accessibility audit pipeline over WCAG 2.2 Level A and AA: scan, fix and verify, with per-framework fix code and a compliance report. Covers React, Next.js, Vue, Angular, Svelte and plain HTML, and can run the checks in CI."
+  url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/a11y-audit/skills/a11y-audit
+  install: npx skills add alirezarezvani/claude-skills --skill a11y-audit
+  compatible_with: [claude-code, cursor, gemini-cli, any]
+  tags: [skill, community, accessibility, testing]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "934 installs in the skills.sh registry, where it is the second-most-installed result for its name."
+    - "Listed on ClawHub in the source dossier but absent there under that slug. This is the real one — verified in the skills.sh registry and in the repository tree, where the skill lives at engineering-team/a11y-audit/skills/a11y-audit alongside a mirrored copy."
+- id: notion-api
+  name: Notion API
+  provider: Intellectronica
+  category: community
+  kind: skill
+  domain: database
+  parent: intellectronica-agent-skills
+  description: "Drives a Notion workspace through the REST API with curl and jq rather than a vendor SDK or connector: query a database, create and update pages, and walk blocks, from any agent that can run shell commands."
+  url: https://github.com/intellectronica/agent-skills/tree/main/skills/notion-api
+  install: npx skills add intellectronica/agent-skills --skill notion-api
+  compatible_with: [claude-code, codex, any]
+  tags: [skill, community, notion, database]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "78,501 installs in the skills.sh registry — the second-highest of any skill measured for this catalogue, behind only Vercel's find-skills at 3,539,754."
+    - "The pack publishes this skill twice, at skills/notion-api/ and plugins/notion-api/skills/, so the CLI's copy and the tree's copy are not the same path."

@@ -548,3 +548,63 @@ successor is listed separately. All 39 were then verified one by one against raw
 
 Nine install commands were also added to pre-existing packs, each one run
 first.
+
+## D-11 — Re-audit against the re-sent dossier: 5 entries, and three questions worth asking twice
+
+The same list arrived twice. Rather than re-running a batch that was already
+committed (`f36251d`), the second pass was spent on the sections the first pass
+had reported least — Database & API, and Browser & Automation — on the theory
+that a duplicate submission is usually a symptom. It found three real gaps, all
+of them cases where the dossier's link pointed at something genuine that this
+catalogue did not have.
+
+**1. The official Figma MCP server was missing.** The row read
+`Figma MCP → github.com/figma/mcp-server-guide`, which had been mapped to
+`figma-mcp` — the community Framelink server. It is not the same thing.
+`mcp.figma.com/mcp` answers **401 without a token**, so it is a live hosted
+remote server over Streamable HTTP, and the repository behind that link is
+Figma's own. Added as `figma-mcp-server` (official, `transport: [http]`), and
+the community entry renamed to **Framelink Figma MCP** so it stops reading as
+first-party. Its honest free allowance is thin and is stated as such: Starter
+plan and View/Collab seats are capped at **6 tool calls per month**; write-to-
+canvas is free only while the beta lasts.
+
+**2. The same repository is also a vendor skill pack.** 30 skills — 14 under
+`skills/`, the same 14 mirrored under `skills-figquery/`, and 2 workflow
+skills — distributed through Figma's Claude Code and Cursor plugins and the
+Gemini CLI extension. Added as `figma-skills`. It is what the OpenAI curated
+`figma-*` skills wrap.
+
+**3. `a11y-audit` was listed as a ClawHub skill and is absent there.** It does
+exist on skills.sh, from `alirezarezvani/claude-skills`. That pack turns out to
+be the largest community pack here after superpowers (**26,387 stars, MIT**),
+so both the skill and the pack are now listed. `notion-api` was also promoted
+from a mention inside its pack to its own row at **78,501 installs** — the
+second-highest measured for this catalogue.
+
+**Counting rule reinforced.** That pack reports three different sizes: 846
+`SKILL.md` files in the tree, 367 skills listed by the CLI, and "380+" in its
+README. The tree count is inflated because **458 of the 846 are mirrors under
+`.gemini/`** — 369 skill names appear twice for exactly that reason. The
+published figure is therefore **388**, the count outside dot-directories, which
+agrees with both other sources. Same rule as microsoft/skills: the tree is the
+authority, but only after reading it, not just counting it.
+
+**Two validators earned their keep on the way in.** The description-length cap
+rejected a 300-character MCP description, and the duplicate-URL rule caught
+`figma-mcp-server` and `figma-skills` both pointing at
+`github.com/figma/mcp-server-guide` — one repository genuinely serving two
+entries. The pack was repointed at its `skills/` directory rather than having
+the rule relaxed.
+
+**Threshold applied and stated.** Of the 14 ClawHub slugs that do not exist,
+seven exist elsewhere in the ecosystem but only `a11y-audit` (934 installs)
+has any real adoption — the others sit between 1 and 56 installs. Those were
+left out rather than added to pad a count. If a future batch wants them, they
+are in `research/skills-sh-rescue.json`.
+
+**Environment note for future batches.** `website/node_modules` and
+`website/out/` do not survive between turns, and neither is tracked in git —
+`npm ci` then `npm run build` is required before the site can be rebuilt, and
+the :8080 preview has to be restarted. The data, schemas, scripts and
+`public/data/*.json` exports are all tracked and persist normally.

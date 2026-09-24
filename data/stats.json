@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-24T11:04:55+00:00",
-  "total": 379,
+  "generated_at": "2026-09-24T11:41:44+00:00",
+  "total": 384,
   "counts": {
     "llm-apis": 70,
-    "mcp-servers": 63,
+    "mcp-servers": 64,
     "agent-tools": 82,
     "free-tiers": 90,
-    "skills": 74
+    "skills": 78
   },
   "no_card": {
     "llm-apis": 58,
@@ -18,17 +18,17 @@
   "total_no_card": 222,
   "fresh_within_7_days": {
     "llm-apis": 70,
-    "mcp-servers": 63,
+    "mcp-servers": 64,
     "agent-tools": 82,
     "free-tiers": 90,
-    "skills": 74
+    "skills": 78
   },
   "fresh_within_30_days": {
     "llm-apis": 70,
-    "mcp-servers": 63,
+    "mcp-servers": 64,
     "agent-tools": 82,
     "free-tiers": 90,
-    "skills": 74
+    "skills": 78
   },
   "freshness_pct_30d": 100.0,
   "statuses": {
@@ -38,7 +38,7 @@
       "deprecated": 6
     },
     "mcp-servers": {
-      "active": 57,
+      "active": 58,
       "degraded": 2,
       "deprecated": 4
     },
@@ -51,17 +51,17 @@
       "degraded": 1
     },
     "skills": {
-      "active": 73,
+      "active": 77,
       "deprecated": 1
     }
   },
   "contributors": {
     "seed-import": 234,
-    "hidden-gems-import": 145
+    "hidden-gems-import": 150
   },
   "top_tags": {
     "hidden-gem": 70,
-    "skill": 57,
+    "skill": 59,
     "essential": 44,
     "codex": 39,
     "curated": 39,
@@ -71,20 +71,20 @@
     "coding-agent": 24,
     "devops": 21,
     "no-card": 19,
-    "skills": 17,
+    "skills": 19,
+    "community": 17,
     "vector": 17,
     "automation": 16,
     "mcp": 15,
-    "community": 14,
+    "vendor": 15,
     "security": 14,
-    "vendor": 14,
     "memory": 12,
     "open-source": 12,
     "search": 12,
     "serverless": 12,
     "clawhub": 11,
-    "embeddings": 11,
-    "gateway": 11
+    "database": 11,
+    "design": 11
   },
   "deprecated_entries": [
     "llm-apis#openai-api",
@@ -134,11 +134,11 @@
     ],
     "skills": [
       "anthropics-skills",
+      "a11y-audit",
       "clawhub-agent-guardrails",
       "apify-agent-skills",
-      "intellectronica-agent-skills",
       "openai-aspnet-core",
-      "crewai-ask-docs"
+      "alirezarezvani-claude-skills"
     ]
   }
 }

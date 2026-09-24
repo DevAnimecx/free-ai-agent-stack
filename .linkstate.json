@@ -1080,7 +1080,7 @@
     "llm-apis/aws-bedrock-free-tier": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "",
+      "last_reason": "OK",
       "last_status_docs_url": 200,
       "last_status_signup_url": 200,
       "last_status_url": 200
@@ -1257,7 +1257,7 @@
     "llm-apis/gpt4all": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "skipped: disallowed by robots.txt",
       "last_status_docs_url": 200,
       "last_status_url": 0
     },
@@ -1734,6 +1734,13 @@
       "last_status_docs_url": 200,
       "last_status_url": 200
     },
+    "mcp-servers/figma-mcp-server": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
     "mcp-servers/filesystem-mcp": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -1983,6 +1990,18 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "skills/a11y-audit": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/alirezarezvani-claude-skills": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "skills/anthropics-skills": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -2129,6 +2148,13 @@
       "last_reason": "skipped: disallowed by robots.txt",
       "last_status_url": 0
     },
+    "skills/figma-skills": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 0
+    },
     "skills/intellectronica-agent-skills": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -2146,6 +2172,12 @@
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
+    },
+    "skills/notion-api": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
     },
     "skills/openai-aspnet-core": {
       "failures": 0,
@@ -2432,5 +2464,5 @@
       "last_status_url": 200
     }
   },
-  "last_run": "2026-09-24T11:05:38+00:00"
+  "last_run": "2026-09-24T11:41:29+00:00"
 }

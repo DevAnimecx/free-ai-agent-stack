@@ -3,8 +3,8 @@
 > A verified, machine-readable catalogue of free LLM APIs, MCP servers, agent
 > frameworks and free-tier infrastructure for building AI agents at zero cost.
 
-Last data export: 2026-09-24T11:04:29+00:00
-Total entries: 379
+Last data export: 2026-09-24T11:41:42+00:00
+Total entries: 384
 Schema version: 1.0.0
 
 ## How to use this data
@@ -23,10 +23,10 @@ Schema version: 1.0.0
 - https://freeaiagentstack.dev/data/all.json — every entry, all categories
 - https://freeaiagentstack.dev/data/index.json — counts, schema version, attribution terms
 - https://freeaiagentstack.dev/data/llm-apis.json — Free LLM APIs (70 entries)
-- https://freeaiagentstack.dev/data/mcp-servers.json — MCP Servers (63 entries)
+- https://freeaiagentstack.dev/data/mcp-servers.json — MCP Servers (64 entries)
 - https://freeaiagentstack.dev/data/agent-tools.json — Agent Tools (82 entries)
 - https://freeaiagentstack.dev/data/free-tiers.json — Free Tiers (90 entries)
-- https://freeaiagentstack.dev/data/skills.json — Agent Skills (74 entries)
+- https://freeaiagentstack.dev/data/skills.json — Agent Skills (78 entries)
 
 ## Categories
 
@@ -107,7 +107,7 @@ Entries: 70
 
 ### MCP Servers
 Canonical page: https://freeaiagentstack.dev/mcp-servers
-Entries: 63
+Entries: 64
 
 - Filesystem — Secure local file operations with configurable allow-listed directories — the reference server every local agent starts with. Install: npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir Anchor: https://freeaiagentstack.dev/mcp-servers#filesystem-mcp Verified: 2026-09-24
 - Fetch — Fetches a URL and converts it to clean markdown for the model, with robots.txt respect and chunked reading. Install: uvx mcp-server-fetch Anchor: https://freeaiagentstack.dev/mcp-servers#fetch-mcp Verified: 2026-09-24
@@ -135,7 +135,7 @@ Entries: 63
 - Grafana MCP — Query dashboards, Loki logs and Prometheus metrics from inside the agent loop. Install: docker run -i --rm mcp/grafana -t stdio Anchor: https://freeaiagentstack.dev/mcp-servers#grafana-mcp Verified: 2026-09-24
 - Elasticsearch MCP — Search indices and run aggregations; works against Elastic Cloud or self-hosted. Install: npx -y @elastic/mcp-server-elasticsearch Anchor: https://freeaiagentstack.dev/mcp-servers#elasticsearch-mcp Verified: 2026-09-24
 - Stripe MCP — Read customers, invoices and subscriptions, and create payment links from a prompt. Install: npx -y @stripe/mcp --tools=all --api-key=<rk_live_or_test> Anchor: https://freeaiagentstack.dev/mcp-servers#stripe-mcp Verified: 2026-09-24
-- Figma MCP — Pulls design tokens, layout and component structure out of Figma files into the editor. Install: npx -y figma-developer-mcp --figma-api-key=<token> Anchor: https://freeaiagentstack.dev/mcp-servers#figma-mcp Verified: 2026-09-24
+- Framelink Figma MCP — Pulls design tokens, layout and component structure out of Figma files into the editor, over stdio, using a personal access token. Install: npx -y figma-developer-mcp --figma-api-key=<token> Anchor: https://freeaiagentstack.dev/mcp-servers#figma-mcp Verified: 2026-09-24
 - Linear MCP — Create, search and update issues and projects in Linear from the agent loop. Install: npx -y mcp-remote https://mcp.linear.app/mcp Anchor: https://freeaiagentstack.dev/mcp-servers#linear-mcp Verified: 2026-09-24
 - Atlassian MCP — Jira issues and Confluence pages — the enterprise ticketing counterpart to Linear. Install: npx -y mcp-remote https://mcp.atlassian.com/v1/mcp Anchor: https://freeaiagentstack.dev/mcp-servers#atlassian-mcp Verified: 2026-09-24
 - Slack MCP — Read channels and post messages — the archived reference server's maintained successor. Install: npx -y @zencoderai/slack-mcp-server Anchor: https://freeaiagentstack.dev/mcp-servers#slack-mcp Verified: 2026-09-24
@@ -172,6 +172,7 @@ Entries: 63
 - Slack (Archived Reference) — The original Slack channel-management reference server, now unmaintained. Install: npx -y @modelcontextprotocol/server-slack Status: deprecated. Anchor: https://freeaiagentstack.dev/mcp-servers#slack-archived-mcp Verified: 2026-09-24
 - Brave Search (Archived Reference) — Archived reference search server, replaced by Brave's own first-party server. Install: npx -y @modelcontextprotocol/server-brave-search Status: deprecated. Anchor: https://freeaiagentstack.dev/mcp-servers#brave-search-archived-mcp Verified: 2026-09-24
 - Wikidata MCP — Semantic and keyword search over Wikidata's ~30M entities and properties, so agents can resolve vague concepts into verifiable QIDs before writing SPARQL. Install: npx -y mcp-remote https://wd-mcp.wmcloud.org/mcp/ Anchor: https://freeaiagentstack.dev/mcp-servers#wikidata-mcp Verified: 2026-09-24
+- Figma MCP Server — Figma's own MCP server, hosted at mcp.figma.com over Streamable HTTP. Reads a selected frame's variables, components and layout into the editor, generates code from it, reuses real components through Code Connect and, while in beta, writes native content back to the canvas. Install: claude mcp add --transport http figma https://mcp.figma.com/mcp Anchor: https://freeaiagentstack.dev/mcp-servers#figma-mcp-server Verified: 2026-09-24
 
 ### Agent Tools
 Canonical page: https://freeaiagentstack.dev/agent-tools
@@ -357,7 +358,7 @@ Entries: 90
 
 ### Agent Skills
 Canonical page: https://freeaiagentstack.dev/skills
-Entries: 74
+Entries: 78
 
 - Anthropic Agent Skills — Anthropic's official skills repository — first-party packs that teach Claude Code and other agents house workflows: document handling, spreadsheet and slide authoring, PDF work and more. Install: npx skills add anthropics/skills Anchor: https://freeaiagentstack.dev/skills#anthropics-skills Verified: 2026-09-24
 - OpenAI Skills Catalog — OpenAI's curated Codex skills catalog — 39 maintained skills covering PDFs, GitHub CI repair, Playwright automation, deployment to Vercel, Cloudflare, Netlify and Render, Notion, Linear, Figma and security review. Superseded by openai/plugins, but still installable. Install: npx skills add openai/skills Status: deprecated. Anchor: https://freeaiagentstack.dev/skills#openai-skills Verified: 2026-09-24
@@ -433,6 +434,10 @@ Entries: 74
 - Browserbase Skills — Browserbase's official skills for reaching the web from an agent — search without a browser session, fetch a URL, drive a full browser, convert a browser flow into an API call, trace sessions, run adversarial UI tests and research a company. Install: npx skills add browserbase/skills Anchor: https://freeaiagentstack.dev/skills#browserbase-skills Verified: 2026-09-24
 - browse.sh — An open catalogue of browser-automation skills keyed by site: each entry names a domain, a skill and the method that reaches it, so an agent can ask what is already known about a site before writing a scraper from scratch. Install: npm i -g browse Anchor: https://freeaiagentstack.dev/skills#browse-sh Verified: 2026-09-24
 - Exa Contents — Calls the Exa Contents endpoint with cURL or raw HTTP when an agent already has URLs and needs page text, highlights, summaries, links, subpages or per-URL status without an SDK. Install: npx skills add exa-labs/agent-skills --skill exa-contents Anchor: https://freeaiagentstack.dev/skills#exa-contents Verified: 2026-09-24
+- Figma Agent Skills — Figma's own skill pack for working with design files through its MCP server — implementing designs as code, connecting components with Code Connect, generating design libraries and diagrams, and building Figma slides, FigJam boards, shaders and motion. Install: claude plugin install figma@claude-plugins-official Anchor: https://freeaiagentstack.dev/skills#figma-skills Verified: 2026-09-24
+- Alireza Rezvani Claude Skills — A large community skill library spanning engineering, marketing, product, compliance, finance and C-level advisory work — 388 skills plus custom agents, commands and references, installable across a dozen coding agents. Install: npx skills add alirezarezvani/claude-skills Anchor: https://freeaiagentstack.dev/skills#alirezarezvani-claude-skills Verified: 2026-09-24
+- A11y Audit — An accessibility audit pipeline over WCAG 2.2 Level A and AA: scan, fix and verify, with per-framework fix code and a compliance report. Covers React, Next.js, Vue, Angular, Svelte and plain HTML, and can run the checks in CI. Install: npx skills add alirezarezvani/claude-skills --skill a11y-audit Anchor: https://freeaiagentstack.dev/skills#a11y-audit Verified: 2026-09-24
+- Notion API — Drives a Notion workspace through the REST API with curl and jq rather than a vendor SDK or connector: query a database, create and update pages, and walk blocks, from any agent that can run shell commands. Install: npx skills add intellectronica/agent-skills --skill notion-api Anchor: https://freeaiagentstack.dev/skills#notion-api Verified: 2026-09-24
 
 ## Licence and attribution
 
