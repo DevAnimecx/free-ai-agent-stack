@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import urllib.parse
 import re
 import sys
 from pathlib import Path
@@ -45,11 +46,21 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Verify the static export is deployable and indexable.")
     parser.add_argument("--site-url", default=os.environ.get(
         "SITE_URL", "https://devanimecx.github.io/free-ai-agent-stack"))
-    parser.add_argument("--base-path", default=os.environ.get("BASE_PATH", "/free-ai-agent-stack"))
+    # `--base-path` is read from SITE_URL, exactly as next.config.js does it. A
+    # hardcoded default here made the checker assert the wrong thing the moment
+    # the site moved to a root domain or to a fork with a different repo name,
+    # reporting a broken deployment that was in fact correct.
+    parser.add_argument("--base-path", default=None)
     args = parser.parse_args()
 
     site_url = args.site_url.rstrip("/")
-    base = "" if args.base_path in ("", "/") else args.base_path.rstrip("/")
+    # resolve the base path AFTER site_url exists: the default depends on it
+    base_path = (
+        args.base_path
+        if args.base_path is not None
+        else os.environ.get("BASE_PATH", urllib.parse.urlparse(site_url).path)
+    )
+    base = "" if base_path in ("", "/") else base_path.rstrip("/")
     c = Check()
 
     if not OUT.exists():
@@ -103,8 +114,14 @@ def main() -> int:
 
     # A doubled base path is the specific bug this catches: metadataBase already
     # carries the subpath, so any URL that also prefixed it manually lands here.
-    doubled = f"{site_url}{base}{base}"
-    c.ok(doubled not in home, "base path applied twice in a URL", doubled)
+    # Only meaningful when a base path exists: with base == "" this expression
+    # collapses to the bare site URL, which every page contains by definition as
+    # its canonical, so the check reported a doubling that was not there.
+    if base:
+        doubled = f"{site_url}{base}{base}"
+        c.ok(doubled not in home, "base path applied twice in a URL", doubled)
+    else:
+        c.ok(True, "root-domain build: no base path to double")
 
     # --- 4. social + icon tags resolve -------------------------------------
     def meta(pattern: str) -> str | None:

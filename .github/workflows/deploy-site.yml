@@ -1,17 +1,26 @@
 name: Deploy site
 
-# GitHub Pages is the primary host. The site is configured from two values that
-# are DERIVED here rather than configured by hand:
+# GitHub Pages is the primary host. There is exactly ONE configured value:
 #
-#   BASE_PATH   /<repo-name>            (a project page is served from a subpath)
-#   SITE_URL    https://<owner>.github.io/<repo-name>
+#   SITE_URL    derived as https://<owner>.github.io/<repo-name>
 #
-# Deriving them means a fork, a rename or a transfer keeps working with no
-# repository settings touched — and it removes the failure mode where the
-# canonical URL in the markup disagrees with the URL the site is actually served
-# from, which is how a site silently splits its own search ranking. Both can be
-# overridden with repository variables (SITE_URL, BASE_PATH) for a custom domain,
-# in which case BASE_PATH should be set to the empty string.
+# Everything else follows from it. The base path is the path component of that
+# URL, and next.config.js, export_json.py and verify_export.py all derive it the
+# same way, so the canonical URL in the markup cannot disagree with the URL the
+# site is actually served from — the failure mode that silently splits a site's
+# own search ranking. A fork, a rename or a transfer therefore keeps working
+# with no repository settings touched.
+#
+# To move to a custom domain, set ONE repository variable:
+#
+#   SITE_URL = https://your-domain.com
+#
+# The base path becomes empty automatically, because it is read from the URL
+# rather than tracked as a second setting. This used to be two variables with
+# `vars.BASE_PATH || '/<repo>'`, which could not express a root-domain deploy at
+# all: GitHub evaluates an empty string as falsy, so setting BASE_PATH to "" —
+# the documented way to do it — silently fell back to the subpath and built a
+# site whose assets 404 every time.
 
 on:
   push:
@@ -35,7 +44,6 @@ concurrency:
 
 env:
   SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
-  BASE_PATH: ${{ vars.BASE_PATH || format('/{0}', github.event.repository.name) }}
 
 jobs:
   build:
@@ -70,8 +78,9 @@ jobs:
       - name: Build (static export)
         run: npm run build --prefix website
         env:
+          # Deliberately no BASE_PATH here: next.config.js reads the path
+          # component of this URL. Passing both invited them to drift.
           NEXT_PUBLIC_SITE_URL: ${{ env.SITE_URL }}
-          BASE_PATH: ${{ env.BASE_PATH }}
 
       # GitHub Pages runs Jekyll by default, and Jekyll ignores every file whose
       # name starts with an underscore — which would silently drop the entire
@@ -91,7 +100,7 @@ jobs:
             echo "### Build report"
             echo ""
             echo "- Host: $SITE_URL"
-            echo "- Base path: \`${BASE_PATH:-/}\` (empty = root domain)"
+            echo "- Base path: \`$(python3 -c "import os,urllib.parse;print(urllib.parse.urlparse(os.environ['SITE_URL']).path or '/')")\` (derived from SITE_URL)"
             echo "- Entries exported: $(python3 -c "import json;print(json.load(open('website/public/data/index.json'))['total'])")"
             echo "- Output size: $(du -sh website/out | cut -f1)"
             echo "- HTML pages: $(find website/out -name '*.html' | wc -l)"
@@ -129,6 +138,13 @@ jobs:
           node-version: "20"
       - name: Deploy (only if secrets are configured)
         if: env.VERCEL_TOKEN != ''
+        # The two values look contradictory and are not. Vercel serves the
+        # mirror from a ROOT domain, so its own assets must be root-relative —
+        # hence the explicit empty BASE_PATH, which overrides the path that
+        # would otherwise be read out of SITE_URL. SITE_URL stays the Pages
+        # address on purpose: the mirror's canonical tags then point at the one
+        # host we want indexed, instead of competing with it for the same
+        # content. A mirror that canonicalises to itself is a duplicate.
         run: |
           npx vercel deploy --prod --yes \
             --token "$VERCEL_TOKEN" \
