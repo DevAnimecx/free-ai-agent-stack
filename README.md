@@ -2,7 +2,7 @@
 
 # free-ai-agent-stack
 
-**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 305 resources, verified weekly, zero cost to build on.**
+**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 317 resources, verified weekly, zero cost to build on.**
 
 [![Stars](https://img.shields.io/github/stars/free-ai-agent-stack/free-ai-agent-stack?style=flat-square&logo=github)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/stargazers)
 [![Forks](https://img.shields.io/github/forks/free-ai-agent-stack/free-ai-agent-stack?style=flat-square)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/forks)
@@ -15,7 +15,7 @@
 
 Every free LLM API, MCP server, agent framework and free-tier database a developer needs to build an AI agent in 2026 — in one place, with the free limit, the credit-card requirement and the date it was last checked. **Data is YAML in this repo; the website is generated from it; a daily robot checks every link.** If a listing says "no credit card", a human verified that. If it says "no longer free", we left it in on purpose — so you stop wasting signups on lists that never update.
 
-> **Free AI agent tools, checked 2026-09-24.** 305 entries · 222 need no credit card · 100% of links verified in the last 30 days.
+> **Free AI agent tools, checked 2026-09-24.** 317 entries · 222 need no credit card · 100% of links verified in the last 30 days.
 
 <!-- STATS:START -->
 | Category | Count | No credit card | Verified <30d | Top pick |
@@ -24,9 +24,10 @@ Every free LLM API, MCP server, agent framework and free-tier database a develop
 | [MCP Servers](data/mcp-servers.yaml) | 63 | — | 63 | Context7 |
 | [Agent Tools](data/agent-tools.yaml) | 82 | 82 | 82 | Aider |
 | [Free Tiers](data/free-tiers.yaml) | 90 | 82 | 90 | Better Auth |
-| **Total** | **305** | **222** | **305** | — |
+| [Agent Skills](data/skills.yaml) | 12 | — | 12 | Anthropic Agent Skills |
+| **Total** | **317** | **222** | **317** | — |
 
-_Auto-generated 2026-09-24T10:16:39+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
+_Auto-generated 2026-09-24T10:30:07+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
 <!-- STATS:END -->
 
 ## Quick start: build an agent for $0 this weekend
@@ -52,6 +53,7 @@ npx create-next-app@latest && npx vercel --prod   # static + serverless, $0 tier
 - [MCP servers](#mcp-servers) — 63 entries
 - [Agent tools & frameworks](#agent-tools--frameworks) — 82 entries
 - [Free-tier infrastructure](#free-tier-infrastructure) — 90 entries
+- [Agent skills](#agent-skills) — 12 entries
 - [What "free" means here](#what-free-means-here) · [Methodology](#methodology) · [Machine-readable data](#machine-readable-data)
 - [Contribute](#contribute) · [Licence](#licence)
 
@@ -203,9 +205,9 @@ The best free vector tier: a real cluster with payload filtering, no card requir
 
 #### Oracle Cloud Always Free
 
-**compute** · 4 ARM cores + 24GB RAM, 200GB storage, 10TB egress/mo, forever · low cold-start risk
+**compute** · 2 ARM cores + 12GB RAM, 200GB storage, 10TB egress/mo, forever · low cold-start risk
 
-The only major cloud with a permanently free ARM VM generous enough to self-host several services — including your own Langfuse and n8n. → [oracle.com/cloud/free](https://www.oracle.com/cloud/free/) · [`#oracle-cloud-always-free`](https://freeaiagentstack.dev/free-tiers#oracle-cloud-always-free)
+Oracle halved this allowance on 15 June 2026 with no announcement. Two Ampere cores and 12GB is still the only permanently free ARM VM on the market and remains generous enough to self-host several services — including your own Langfuse and n8n. → [oracle.com/cloud/free](https://www.oracle.com/cloud/free/) · [`#oracle-cloud-always-free`](https://freeaiagentstack.dev/free-tiers#oracle-cloud-always-free)
 
 #### Langfuse
 
@@ -214,6 +216,28 @@ The only major cloud with a permanently free ARM VM generous enough to self-host
 Open-source LLM tracing, prompt management and evaluation — the default for debugging agent runs. → [langfuse.com](https://langfuse.com) · [`#langfuse`](https://freeaiagentstack.dev/free-tiers#langfuse)
 
 > [See the full list](https://freeaiagentstack.dev/free-tiers) · [raw data](data/free-tiers.yaml)
+
+---
+
+## Agent skills
+
+Skills are folders of instructions and scripts that teach an agent a workflow it was never trained on — how to lay out a PDF, deploy to Vercel, or repair a failing CI job. They add no process, no token and no network service, which is why they spread faster than any other agent primitive.
+
+This section lists where skills come from, at the granularity of *packs* rather than individual skills: the two first-party catalogs, vendor packs maintained by the companies whose APIs they wrap, and the public registries. Full list: [`data/skills.yaml`](data/skills.yaml).
+
+#### Anthropic Agent Skills
+
+**catalog** · 177,887 stars · first-party packs for document, spreadsheet and PDF workflows
+
+Anthropic's official skills repository, and the largest skills project by a wide margin. → [github.com/anthropics/skills](https://github.com/anthropics/skills) · [`#anthropics-skills`](https://freeaiagentstack.dev/skills#anthropics-skills)
+
+#### OpenAI Skills Catalog
+
+**catalog** · 39 curated skills · PDF, Playwright, GitHub CI repair, Vercel/Cloudflare/Netlify/Render deploys, Notion, Linear, Figma and security review
+
+OpenAI's maintained set for Codex — verified against the repository tree, not against aggregator lists. → [github.com/openai/skills](https://github.com/openai/skills) · [`#openai-skills`](https://freeaiagentstack.dev/skills#openai-skills)
+
+> **12 entries in total.** A warning that applies to this whole category: the public registries render client-side and answer HTTP 200 for *any* path, including invented ones, so a link checker cannot tell a real skill from a fake one. Of 33 claimed OpenAI skills, 28 exist; of 25 claimed registry entries, 6 did. The entries here are the ones we could confirm. [See the full list](https://freeaiagentstack.dev/skills) · [raw data](data/skills.yaml)
 
 ---
 
@@ -267,7 +291,7 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 ### Contributors
 
 <!-- CONTRIBUTORS:START -->
-@seed-import (234) @hidden-gems-import (71)
+@seed-import (234) @hidden-gems-import (83)
 <!-- CONTRIBUTORS:END -->
 
 ## Star history

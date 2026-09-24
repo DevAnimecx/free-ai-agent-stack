@@ -378,3 +378,82 @@ Face Spaces *was* already listed under the id `huggingface-spaces`, but a dedupe
 grep for `hugging-face` missed it because of the hyphen. The duplicate was caught
 by the validator rather than by my search, and the existing entry was enriched
 with the verified specs instead of being added twice.
+
+## D-9 — New category: `skills` (5th), and why registries need an API to verify
+
+This batch proposed a fifth data file. Unlike the previous three batches it
+asked for a structural change, so the decision was about whether agent skills
+are a distinct resource type or a flavour of `agent-tools`.
+
+**They are distinct.** An agent tool is a program you run; a skill is a folder of
+instructions and scripts that extends an agent you already run. Skills have no
+process, no token and no network service, and they are distributed through
+catalogs and registries rather than package indexes. Filing them under
+`agent-tools` would have meant inventing a fake `category` value inside a schema
+whose enum is IDE/CLI/framework/orchestrator. So: `data/skills.yaml`, its own
+schema, a fifth website route, and a row in the stats table.
+
+**Granularity: packs, not individual skills.** Listing 39 individual OpenAI
+skills would be 39 near-identical rows and would duplicate a registry that already
+exists. The catalogue's job is to say where skills come from, who maintains them
+and what they cost — so entries are catalogs, vendor packs and registries.
+
+**A new verification problem, and a rule for it.** Public skill directories are
+client-rendered single-page apps. Two of the three in this batch return HTTP 200
+for *any* path, including slugs invented specifically to test that:
+
+| Host | Real skill | Invented skill | Verdict |
+|---|---|---|---|
+| `clawhub.ai/skills/<slug>` | 200 | 200 | Cannot verify by URL |
+| `skills.sh/<org>/<repo>/<skill>` | 200 | 200 | Cannot verify by URL |
+| `skillsmp.com/skills/<slug>` | 404 (`/skills/notion`) | 404 | Can verify — and the claimed page is missing |
+| `github.com/openai/skills/...` | 200 | 404 | Verifiable |
+
+Rule adopted: **a skill entry may only claim a count that came from a real API or
+a repository tree.** ClawHub's 7,703 unique slugs were counted by paginating
+`clawhub.ai/api/v1/skills`; OpenAI's 39 curated skills were read from the
+repository's own file listing. Neither number was taken from the submission.
+Registries that cannot be queried are listed at registry level and marked
+`degraded` rather than carrying unverifiable counts.
+
+**What the verification found.** This batch had the highest fabrication rate of
+the four:
+
+- **OpenAI curated skills: 5 of 33 invented.** `doc`, `spreadsheet`, `imagegen`,
+  `sora` and `develop-web-game` are not in the catalog — all five 404 against the
+  repository, while the other 28 resolve. The real curated set contains skills
+  the submission did not mention: `figma-use`, `migrate-to-codex`, `hatch-pet`,
+  `winui-app`, `playwright-interactive`.
+- **ClawHub skills: 19 of 25 invented.** Only `pdf-generation`, `skill-creator`,
+  `skill-vetter`, `openai-whisper`, `systematic-debugging` and `code-review`
+  exist in the registry of 7,703. The headline "Skill Security Scan (Alibaba)"
+  does not exist under that slug, nor under any close variant.
+- **`hol-guard/hol-guard` (GitHub) does not exist**, although HOL Guard itself is
+  real and already catalogued from PyPI. `browserbase/browse.sh` is not a
+  repository either.
+- **`skillsmp.com/skills/notion`** and the claimed `duarteocarmo-dotfiles-github`
+  page did not resolve.
+
+**Two major finds the submission missed.** While verifying `openai/skills` the
+obvious sibling check turned up `anthropics/skills` — the larger project, at
+177,887 stars — and `obra/superpowers` at 290,953. All three are now listed with
+counts read from GitHub. A skills category without the two first-party catalogs
+would have been the wrong category.
+
+**Fixed while wiring this up — three real bugs.**
+
+1. `validate.py` used `if stem in CARD_CATEGORIES: ... else: require
+   requires_auth`. The else-branch silently assumed every non-card category was
+   MCP servers, so 13 spurious errors appeared the moment a third shape existed.
+   Now keyed explicitly on `stem == "mcp-servers"`.
+2. Website `<title>` and meta descriptions carried **hardcoded counts** and had
+   read "63 providers" and "62 servers" since the first import — the most
+   SEO-visible strings on the site, stale for three batches. They now carry a
+   `{count}` token substituted from `getEntries(slug).length` at render time.
+   The first attempt read from `stats.json` instead, which is written by a
+   separate script, and the new category immediately rendered a literal
+   `{count}` into its title — counting the entries the page already loads is the
+   version that cannot drift.
+3. The README's hand-written featured block still advertised Oracle's
+   pre-June-2026 spec ("4 ARM cores + 24GB RAM") — the same stale claim D-8
+   corrected in the data file but not in the prose.

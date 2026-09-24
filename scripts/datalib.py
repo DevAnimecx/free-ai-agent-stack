@@ -29,6 +29,7 @@ CATEGORY_MAP: dict[str, str] = {
     "mcp-servers": "mcp-server",
     "agent-tools": "agent-tool",
     "free-tiers": "free-tier",
+    "skills": "skill",
 }
 
 CATEGORY_LABELS: dict[str, str] = {
@@ -36,6 +37,7 @@ CATEGORY_LABELS: dict[str, str] = {
     "mcp-servers": "MCP Servers",
     "agent-tools": "Agent Tools",
     "free-tiers": "Free Tiers",
+    "skills": "Agent Skills",
 }
 
 MINIMUM_ENTRIES: dict[str, int] = {
@@ -43,6 +45,7 @@ MINIMUM_ENTRIES: dict[str, int] = {
     "mcp-servers": 35,
     "agent-tools": 20,
     "free-tiers": 30,
+    "skills": 8,
 }
 
 STALE_AFTER_DAYS = 30

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "exported_at": "2026-09-24T10:18:59+00:00",
+  "exported_at": "2026-09-24T10:32:26+00:00",
   "llm-apis": [
     {
       "id": "google-gemini",
@@ -8214,6 +8214,334 @@
       "verified_by": "@hidden-gems-import",
       "status": "active",
       "notes": "A single entry rather than the five separate ones submitted, because the value is the bundled offer and the individual partners change without notice. Verification is by student email or proof of enrolment and is usually quick. Azure for Students in particular requires no credit card. Worth listing precisely because it is under-used: many students never claim it."
+    }
+  ],
+  "skills": [
+    {
+      "id": "anthropics-skills",
+      "name": "Anthropic Agent Skills",
+      "provider": "Anthropic",
+      "category": "catalog",
+      "description": "Anthropic's official skills repository — first-party packs that teach Claude Code and other agents house workflows: document handling, spreadsheet and slide authoring, PDF work and more.",
+      "url": "https://github.com/anthropics/skills",
+      "install": "git clone https://github.com/anthropics/skills",
+      "license": "See repository (per-skill licences)",
+      "open_source": true,
+      "stars": 177887,
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "any"
+      ],
+      "tags": [
+        "official",
+        "catalog",
+        "documents",
+        "essential",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The largest skills project by a wide margin and the reference implementation of the format. Individual skills carry their own licences, so check the subfolder rather than assuming the repository licence covers everything."
+    },
+    {
+      "id": "openai-skills",
+      "name": "OpenAI Skills Catalog",
+      "provider": "OpenAI",
+      "category": "catalog",
+      "description": "OpenAI's curated skills catalog for Codex: 39 maintained skills covering PDFs, spreadsheets via notebook workflows, GitHub CI repair, Playwright automation, deployment to Vercel, Cloudflare, Netlify and Render, Notion, Linear, Figma and security review.",
+      "skill_count": 39,
+      "url": "https://github.com/openai/skills",
+      "install": "git clone https://github.com/openai/skills",
+      "open_source": true,
+      "stars": 27599,
+      "compatible_with": [
+        "codex",
+        "claude-code",
+        "cursor",
+        "any"
+      ],
+      "tags": [
+        "official",
+        "catalog",
+        "devops",
+        "security",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": [
+        "The curated set was read from the repository tree on 2026-09-24 and contains exactly 39 skills, including figma-use, migrate-to-codex, hatch-pet, winui-app and playwright-interactive.",
+        "The directory also carries skills that are not in the curated set, so treat `skills/.curated/` as the maintained, official subset.",
+        "Several skills referenced widely on aggregator sites do not exist here — a spreadsheet, a .docx editor, Sora video and image generation are not part of this catalog."
+      ]
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers",
+      "provider": "obra (Jesse Vincent)",
+      "category": "community",
+      "description": "An agentic skills framework and software-development methodology — a structured approach to planning, implementing and reviewing work with an agent, published as installable skills.",
+      "url": "https://github.com/obra/superpowers",
+      "install": "git clone https://github.com/obra/superpowers",
+      "open_source": true,
+      "stars": 290953,
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "any"
+      ],
+      "tags": [
+        "methodology",
+        "workflow",
+        "community",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "At the time of writing this is one of the most-starred repositories on GitHub by the site's own counter. The star count is recorded as reported and will be re-checked by the daily workflow; treat the methodology, not the number, as the reason to look."
+    },
+    {
+      "id": "clawhub",
+      "name": "ClawHub",
+      "provider": "OpenClaw",
+      "category": "registry",
+      "description": "The skills and plugins registry for OpenClaw — thousands of community packages, browsable by category with download counts, installable by slug.",
+      "skill_count": 7703,
+      "url": "https://clawhub.ai/",
+      "docs_url": "https://clawhub.ai/skills",
+      "compatible_with": [
+        "openclaw",
+        "any"
+      ],
+      "tags": [
+        "registry",
+        "marketplace",
+        "openclaw",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": [
+        "Counted by paginating the public API at clawhub.ai/api/v1/skills on 2026-09-24: 7,780 listings, 7,703 unique slugs.",
+        "Only the site's API can tell you whether a skill exists. Every /skills/<slug> page returns HTTP 200, including invented slugs, so link-checkers and `curl -I` cannot verify a ClawHub URL.",
+        "Includes a large Chinese-language catalogue alongside English packages."
+      ]
+    },
+    {
+      "id": "skills-sh",
+      "name": "skills.sh",
+      "provider": "Vercel Labs",
+      "category": "registry",
+      "description": "A web directory for agent skills with a CLI installer, built to make discovering and adding a skill a single command.",
+      "url": "https://skills.sh/",
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "any"
+      ],
+      "tags": [
+        "registry",
+        "directory",
+        "vercel",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "degraded",
+      "notes": [
+        "Marked degraded rather than active because individual skill pages could not be verified: the site renders client-side and returns HTTP 200 for any path, including deliberately fabricated ones.",
+        "The directory itself is real and the installer is usable, but nothing on it can be confirmed by fetching a URL — and the popular 'find-skills' and CrewAI 'design-agent' pages that circulate in aggregator posts could not be independently confirmed."
+      ]
+    },
+    {
+      "id": "skillsmp",
+      "name": "SkillsMP",
+      "provider": "SkillsMP",
+      "category": "registry",
+      "description": "An agent-skills marketplace indexing Codex and Claude skills, with browsing by creator and occupation.",
+      "url": "https://skillsmp.com/",
+      "docs_url": "https://skillsmp.com/docs",
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "any"
+      ],
+      "tags": [
+        "registry",
+        "marketplace",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "degraded",
+      "notes": "The site is real, but its advertised size (tens of thousands of skills) and its individual skill pages could not be verified — a claimed /skills/notion page returns 404, while the listing root does resolve. Marked degraded until a skill URL from this registry can be confirmed to resolve."
+    },
+    {
+      "id": "exa-agent-skills",
+      "name": "Exa Agent Skills",
+      "provider": "Exa",
+      "category": "vendor-pack",
+      "description": "Official skills for the Exa API — teaching an agent to call Exa's search and contents endpoints with cURL or raw HTTP when it already has URLs to read.",
+      "url": "https://github.com/exa-labs/agent-skills",
+      "install": "git clone https://github.com/exa-labs/agent-skills",
+      "open_source": true,
+      "stars": 54,
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "any"
+      ],
+      "tags": [
+        "vendor",
+        "search",
+        "web-extraction",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Exa's own API has a free allowance, so the skill and the service it drives are both usable at zero cost. Small repository, but vendor-maintained, which is what matters for an API wrapper."
+    },
+    {
+      "id": "neon-agent-skills",
+      "name": "Neon Agent Skills",
+      "provider": "Neon",
+      "category": "vendor-pack",
+      "description": "Official skills for operating Neon serverless Postgres from an agent — branch creation, connection handling and database workflow tasks.",
+      "url": "https://github.com/neondatabase/agent-skills",
+      "install": "git clone https://github.com/neondatabase/agent-skills",
+      "open_source": true,
+      "stars": 90,
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "any"
+      ],
+      "tags": [
+        "vendor",
+        "postgres",
+        "database",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Pairs with Neon's free tier, which is already catalogued — a useful combination because the free plan's branching model is the part agents get wrong without guidance."
+    },
+    {
+      "id": "weaviate-agent-skills",
+      "name": "Weaviate Agent Skills",
+      "provider": "Weaviate",
+      "category": "vendor-pack",
+      "description": "Official skills covering vector search, semantic and hybrid retrieval, data import, RAG cookbook patterns, agentic RAG and multimodal PDF search.",
+      "url": "https://github.com/weaviate/agent-skills",
+      "install": "git clone https://github.com/weaviate/agent-skills",
+      "open_source": true,
+      "stars": 104,
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "any"
+      ],
+      "tags": [
+        "vendor",
+        "vector-db",
+        "rag",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "One of the few skill packs that teaches retrieval *strategy* rather than an API surface — hybrid search and chunking decisions are where RAG systems actually fail."
+    },
+    {
+      "id": "apify-agent-skills",
+      "name": "Apify Agent Skills",
+      "provider": "Apify",
+      "category": "vendor-pack",
+      "description": "Official Apify skills for web scraping, data extraction and browser automation through Apify's actor platform.",
+      "url": "https://github.com/apify/agent-skills",
+      "install": "git clone https://github.com/apify/agent-skills",
+      "open_source": true,
+      "stars": 2398,
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "any"
+      ],
+      "tags": [
+        "vendor",
+        "scraping",
+        "automation",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Apify has a monthly free credit allowance that covers light scraping. For a purely free path with no account at all, pair it with Firecrawl's free tier or the Playwright skill instead."
+    },
+    {
+      "id": "microsoft-agent-skills",
+      "name": "Microsoft Agent Skills",
+      "provider": "Microsoft",
+      "category": "vendor-pack",
+      "description": "Microsoft's skills, MCP servers and custom-agent definitions spanning Azure services, the Bot Framework, Cognitive Services and enterprise .NET development patterns.",
+      "url": "https://github.com/microsoft/agent-skills",
+      "install": "git clone https://github.com/microsoft/agent-skills",
+      "open_source": true,
+      "stars": 3051,
+      "compatible_with": [
+        "vscode",
+        "claude-code",
+        "codex",
+        "any"
+      ],
+      "tags": [
+        "vendor",
+        "azure",
+        "dotnet",
+        "enterprise",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The broadest first-party pack outside the two model vendors. Most skills target Azure services, so they are only useful if you are already on that stack — Azure for Students is a no-card way in."
+    },
+    {
+      "id": "intellectronica-agent-skills",
+      "name": "Intellectronica Agent Skills",
+      "provider": "Intellectronica",
+      "category": "community",
+      "description": "A maintained personal collection of agent skills, best known for a Notion REST API skill that drives workspaces with curl and jq rather than a vendor SDK.",
+      "url": "https://github.com/intellectronica/agent-skills",
+      "install": "git clone https://github.com/intellectronica/agent-skills",
+      "open_source": true,
+      "stars": 293,
+      "compatible_with": [
+        "claude-code",
+        "codex",
+        "any"
+      ],
+      "tags": [
+        "community",
+        "notion",
+        "api",
+        "skills"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Listed because the curl-and-jq approach works with any agent that can run shell commands, with no SDK or connector required. Single-maintainer project — the Notion API it targets changes independently of the skill."
     }
   ]
 }

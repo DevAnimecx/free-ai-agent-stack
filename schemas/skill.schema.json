@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freeaiagentstack.dev/schemas/skill.schema.json",
+  "title": "Agent skill pack",
+  "description": "A bundle of agent skills — either a vendor-published pack, a curated catalogue, or a public registry. One entry per pack, not per individual skill: the catalogue describes where to get skills and what they need, rather than duplicating a registry's contents.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "name", "provider", "category", "description", "url", "verified", "verified_by", "status"],
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+        "description": "Immutable slug, unique across every category in the repo."
+      },
+      "name": { "type": "string" },
+      "provider": { "type": "string", "description": "Who publishes and maintains the pack." },
+      "category": {
+        "type": "string",
+        "enum": ["catalog", "vendor-pack", "registry", "community"],
+        "description": "catalog = first-party curated set (openai/skills, anthropics/skills). vendor-pack = published by a product vendor for its own API. registry = a public marketplace of third-party skills. community = an individual maintainer's pack."
+      },
+      "description": { "type": "string" },
+      "skill_count": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Number of skills in the pack as published by the maintainer, when stated."
+      },
+      "install": { "type": "string", "description": "Copy-pasteable install or clone command." },
+      "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+      "docs_url": { "type": "string", "format": "uri", "pattern": "^https://" },
+      "license": { "type": "string" },
+      "open_source": { "type": "boolean" },
+      "stars": { "type": "integer", "minimum": 0 },
+      "compatible_with": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": ["claude-code", "codex", "cursor", "vscode", "windsurf", "zed", "cline", "kiro", "gemini-cli", "openclaw", "any"]
+        }
+      },
+      "tags": { "type": "array", "items": { "type": "string" } },
+      "verified": { "type": "string", "description": "ISO date the URL and stated counts were last checked." },
+      "verified_by": { "type": "string" },
+      "status": { "type": "string", "enum": ["active", "degraded", "broken", "deprecated"] },
+      "notes": {
+        "description": "Caveats worth reading. A string or a list of strings.",
+        "anyOf": [
+          { "type": "string", "maxLength": 400 },
+          { "type": "array", "items": { "type": "string" }, "maxItems": 6 }
+        ]
+      }
+    }
+  }
+}

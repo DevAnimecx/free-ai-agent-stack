@@ -3,8 +3,8 @@
 > A verified, machine-readable catalogue of free LLM APIs, MCP servers, agent
 > frameworks and free-tier infrastructure for building AI agents at zero cost.
 
-Last data export: 2026-09-24T10:18:59+00:00
-Total entries: 305
+Last data export: 2026-09-24T10:32:26+00:00
+Total entries: 317
 Schema version: 1.0.0
 
 ## How to use this data
@@ -26,6 +26,7 @@ Schema version: 1.0.0
 - https://freeaiagentstack.dev/data/mcp-servers.json — MCP Servers (63 entries)
 - https://freeaiagentstack.dev/data/agent-tools.json — Agent Tools (82 entries)
 - https://freeaiagentstack.dev/data/free-tiers.json — Free Tiers (90 entries)
+- https://freeaiagentstack.dev/data/skills.json — Agent Skills (12 entries)
 
 ## Categories
 
@@ -353,6 +354,23 @@ Entries: 90
 - AMD Developer Cloud — Access to AMD Instinct MI300X GPUs with 192GB of HBM3 — enough to run 70B+ parameter models on a single instance without model parallelism — for ROCm and vLLM work. Free limit: $100 in credits for AMD AI Developer Program members. Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#amd-developer-cloud Verified: 2026-09-24
 - Yotta Shakti Studio — India-hosted serverless GPU platform with NVIDIA H100 and L40S instances billed per minute and scaling to zero, plus OpenAI-compatible AI endpoints and LoRA fine-tuning. Free limit: ₹10,000 in credits on signup (about $115). Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#yotta-shakti-studio Verified: 2026-09-24
 - GitHub Student Developer Pack — One verified student account that unlocks a bundle of cloud credits and services, including $200 of DigitalOcean credit, $100 of Azure credit, a free domain and Copilot. Free limit: Bundled credits and services for verified students. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#github-student-pack Verified: 2026-09-24
+
+### Agent Skills
+Canonical page: https://freeaiagentstack.dev/skills
+Entries: 12
+
+- Anthropic Agent Skills — Anthropic's official skills repository — first-party packs that teach Claude Code and other agents house workflows: document handling, spreadsheet and slide authoring, PDF work and more. Install: git clone https://github.com/anthropics/skills Anchor: https://freeaiagentstack.dev/skills#anthropics-skills Verified: 2026-09-24
+- OpenAI Skills Catalog — OpenAI's curated skills catalog for Codex: 39 maintained skills covering PDFs, spreadsheets via notebook workflows, GitHub CI repair, Playwright automation, deployment to Vercel, Cloudflare, Netlify and Render, Notion, Linear, Figma and security review. Install: git clone https://github.com/openai/skills Anchor: https://freeaiagentstack.dev/skills#openai-skills Verified: 2026-09-24
+- Superpowers — An agentic skills framework and software-development methodology — a structured approach to planning, implementing and reviewing work with an agent, published as installable skills. Install: git clone https://github.com/obra/superpowers Anchor: https://freeaiagentstack.dev/skills#superpowers Verified: 2026-09-24
+- ClawHub — The skills and plugins registry for OpenClaw — thousands of community packages, browsable by category with download counts, installable by slug. Anchor: https://freeaiagentstack.dev/skills#clawhub Verified: 2026-09-24
+- skills.sh — A web directory for agent skills with a CLI installer, built to make discovering and adding a skill a single command. Status: degraded. Anchor: https://freeaiagentstack.dev/skills#skills-sh Verified: 2026-09-24
+- SkillsMP — An agent-skills marketplace indexing Codex and Claude skills, with browsing by creator and occupation. Status: degraded. Anchor: https://freeaiagentstack.dev/skills#skillsmp Verified: 2026-09-24
+- Exa Agent Skills — Official skills for the Exa API — teaching an agent to call Exa's search and contents endpoints with cURL or raw HTTP when it already has URLs to read. Install: git clone https://github.com/exa-labs/agent-skills Anchor: https://freeaiagentstack.dev/skills#exa-agent-skills Verified: 2026-09-24
+- Neon Agent Skills — Official skills for operating Neon serverless Postgres from an agent — branch creation, connection handling and database workflow tasks. Install: git clone https://github.com/neondatabase/agent-skills Anchor: https://freeaiagentstack.dev/skills#neon-agent-skills Verified: 2026-09-24
+- Weaviate Agent Skills — Official skills covering vector search, semantic and hybrid retrieval, data import, RAG cookbook patterns, agentic RAG and multimodal PDF search. Install: git clone https://github.com/weaviate/agent-skills Anchor: https://freeaiagentstack.dev/skills#weaviate-agent-skills Verified: 2026-09-24
+- Apify Agent Skills — Official Apify skills for web scraping, data extraction and browser automation through Apify's actor platform. Install: git clone https://github.com/apify/agent-skills Anchor: https://freeaiagentstack.dev/skills#apify-agent-skills Verified: 2026-09-24
+- Microsoft Agent Skills — Microsoft's skills, MCP servers and custom-agent definitions spanning Azure services, the Bot Framework, Cognitive Services and enterprise .NET development patterns. Install: git clone https://github.com/microsoft/agent-skills Anchor: https://freeaiagentstack.dev/skills#microsoft-agent-skills Verified: 2026-09-24
+- Intellectronica Agent Skills — A maintained personal collection of agent skills, best known for a Notion REST API skill that drives workspaces with curl and jq rather than a vendor SDK. Install: git clone https://github.com/intellectronica/agent-skills Anchor: https://freeaiagentstack.dev/skills#intellectronica-agent-skills Verified: 2026-09-24
 
 ## Licence and attribution
 

@@ -313,6 +313,7 @@ def sync_prose_counts(text: str, stats: dict) -> str:
         "mcp-servers": "mcp-servers",
         "agent-tools": "agent-tools--frameworks",
         "free-tiers": "free-tier-infrastructure",
+        "skills": "agent-skills",
     }
     for stem, anchor in TOC_ANCHORS.items():
         text = re.sub(

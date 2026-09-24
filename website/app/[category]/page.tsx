@@ -17,17 +17,36 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
+/**
+ * Titles and meta descriptions carry a live count via a `{count}` token.
+ * These strings are the most SEO-visible text on the site and they previously
+ * held hardcoded numbers, so they kept advertising "63 providers" long after
+ * the category had grown to 70 — a stale claim in exactly the place a stale
+ * claim does the most damage. Substituting from stats here means the number
+ * is derived, never typed.
+ */
+function withCount(template: string, slug: string): string {
+  if (!template.includes("{count}")) return template;
+  // Count the entries the page already loads rather than reading stats.json:
+  // stats is written by a separate script, so a category added between runs
+  // would render a literal "{count}" into the <title>. getEntries reads the
+  // same exported JSON the page body renders from, so the two cannot disagree.
+  return template.replaceAll("{count}", String(getEntries(slug).length));
+}
+
 export async function generateMetadata({ params }: Params) {
   const { category: slug } = await params;
   const category = categoryBySlug(slug);
   if (!category) return {};
+  const title = withCount(category.title, category.slug);
+  const description = withCount(category.metaDescription, category.slug);
   return {
-    title: category.title,
-    description: category.metaDescription,
+    title,
+    description,
     alternates: { canonical: `/${category.slug}/` },
     openGraph: {
-      title: category.title,
-      description: category.metaDescription,
+      title,
+      description,
       url: `${strings.site.url}/${category.slug}/`,
       type: "website",
     },

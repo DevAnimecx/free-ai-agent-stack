@@ -165,15 +165,18 @@ def main() -> int:
                         )
 
             # --- trust-field rules ---------------------------------------
-            # requires_card is a rule for anything a developer signs up for
-            # (PRD §12.2.7). MCP servers carry requires_auth instead, because a
-            # self-hosted server has no billing relationship at all.
+            # Three shapes exist, so this is keyed explicitly rather than as an
+            # if/else. requires_card applies to anything a developer signs up
+            # for (PRD §12.2.7); MCP servers carry requires_auth instead,
+            # because a self-hosted server has no billing relationship at all;
+            # and skill packs are plain files with neither, which is why an
+            # else-branch here previously mis-validated every non-MCP addition.
             if stem in CARD_CATEGORIES:
                 if "requires_card" not in entry:
                     report.error(where, "requires_card is missing — must be explicit (default true)")
                 elif not isinstance(entry["requires_card"], bool):
                     report.error(where, "requires_card must be a boolean")
-            else:
+            elif stem == "mcp-servers":
                 if "requires_auth" not in entry:
                     report.error(where, "requires_auth is missing — MCP entries must state it explicitly")
                 elif not isinstance(entry["requires_auth"], bool):
