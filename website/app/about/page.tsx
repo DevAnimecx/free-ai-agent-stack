@@ -2,16 +2,19 @@ import Link from "next/link";
 
 import { FaqSection } from "@/components/FaqSection";
 import { CATEGORIES, getStats } from "@/lib/loadData";
-import { breadcrumbSchema, graph, personSchema } from "@/lib/schema";
-import { BRAND, SITE_BASE_PATH } from "@/lib/site";
+import { ID, breadcrumbSchema, graph, personSchema, webPageSchema } from "@/lib/schema";
+import { BRAND, SITE_BASE_PATH, SITE_URL } from "@/lib/site";
 import { strings } from "@/lib/strings";
 
 const withBase = (path: string) => `${SITE_BASE_PATH}${path}`;
 
+const PAGE_TITLE = "Methodology — how every free tier here is verified";
+const PAGE_DESCRIPTION =
+  "What counts as free, how each entry is verified by a human, which parts of a listing automation may change, how to cite the dataset, and its known limitations.";
+
 export const metadata = {
-  title: "Methodology — how every free tier here is verified",
-  description:
-    "What counts as free, how each entry is verified by a human, which parts of a listing automation may change, how to cite the dataset, and its known limitations.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/about/" },
   openGraph: {
     title: "Methodology — how every free tier here is verified",
@@ -233,7 +236,7 @@ Data licensed CC BY 4.0.`}
         </p>
       </section>
 
-      <FaqSection items={ABOUT_FAQ} heading="Questions about the method" />
+      <FaqSection items={ABOUT_FAQ} heading="Questions about the method" path="/about/" />
 
       <script
         type="application/ld+json"
@@ -245,6 +248,17 @@ Data licensed CC BY 4.0.`}
                 { name: strings.site.name, path: "/" },
                 { name: strings.about.h1, path: "/about/" },
               ]),
+              webPageSchema({
+                path: "/about/",
+                name: strings.about.h1,
+                description: PAGE_DESCRIPTION,
+                type: "AboutPage",
+                dateModified: stats.generated_at,
+                primaryImage: "/og/about.png",
+                // This page is about its author, so the author is the subject.
+                mainEntity: { "@id": ID.author },
+                breadcrumb: { "@id": `${SITE_URL}/about/#breadcrumb` },
+              }),
             ),
           ),
         }}

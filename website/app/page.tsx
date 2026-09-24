@@ -6,8 +6,8 @@ import { StatsBanner } from "@/components/StatsBanner";
 import { VerifiedBadge } from "@/components/VerifiedBadge";
 import { answerSummary, homeFaq } from "@/lib/faq";
 import { CATEGORIES, getAllEntries, getEntries, getStats } from "@/lib/loadData";
-import { datasetSchema, graph, personSchema } from "@/lib/schema";
-import { BRAND, SITE_BASE_PATH } from "@/lib/site";
+import { ID, datasetSchema, graph, personSchema, webPageSchema } from "@/lib/schema";
+import { BRAND, SITE_BASE_PATH, SITE_URL } from "@/lib/site";
 import { strings } from "@/lib/strings";
 import type { AnyEntry } from "@/lib/types";
 
@@ -250,12 +250,27 @@ export default function HomePage() {
         </p>
       </section>
 
-      <FaqSection items={faq} heading={strings.home.faqHeading} />
+      <FaqSection items={faq} heading={strings.home.faqHeading} path="/" />
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(graph(datasetSchema(stats), personSchema())),
+          __html: JSON.stringify(
+            graph(
+              datasetSchema(stats),
+              personSchema(),
+              webPageSchema({
+                path: "/",
+                name: strings.site.name,
+                description: strings.site.description,
+                type: "WebPage",
+                dateModified: stats.generated_at,
+                primaryImage: "/og/home.png",
+                mainEntity: { "@id": ID.dataset },
+                breadcrumb: { "@id": `${SITE_URL}/#breadcrumb` },
+              }),
+            ),
+          ),
         }}
       />
     </>

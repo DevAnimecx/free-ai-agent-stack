@@ -1,13 +1,18 @@
 import { FaqSection } from "@/components/FaqSection";
+import { getStats } from "@/lib/loadData";
 import { strings } from "@/lib/strings";
-import { BRAND, SITE_BASE_PATH } from "@/lib/site";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
+import { BRAND, SITE_BASE_PATH, SITE_URL } from "@/lib/site";
 
 const withBase = (path: string) => `${SITE_BASE_PATH}${path}`;
 
+const PAGE_TITLE = "Contribute — add a free AI resource in three steps";
+const PAGE_DESCRIPTION =
+  "How to add a free LLM API, MCP server or free-tier service to free-ai-agent-stack: a three-step flow, the inclusion criteria and exactly what CI checks.";
+
 export const metadata = {
-  title: "Contribute — add a free AI resource in three steps",
-  description:
-    "How to add a free LLM API, MCP server or free-tier service to free-ai-agent-stack: a three-step flow, the inclusion criteria and exactly what CI checks.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/contribute/" },
   openGraph: {
     title: "Contribute — add a free AI resource in three steps",
@@ -162,7 +167,31 @@ export default function ContributePage() {
         </ul>
       </section>
 
-      <FaqSection items={CONTRIBUTE_FAQ} heading="Questions contributors ask" />
+      <FaqSection items={CONTRIBUTE_FAQ} heading="Questions contributors ask" path="/contribute/" />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graph(
+              breadcrumbSchema([
+                { name: strings.site.name, path: "/" },
+                { name: "Contribute", path: "/contribute/" },
+              ]),
+              webPageSchema({
+                path: "/contribute/",
+                name: PAGE_TITLE,
+                description: PAGE_DESCRIPTION,
+                type: "WebPage",
+                dateModified: getStats().generated_at,
+                primaryImage: "/og/contribute.png",
+                mainEntity: { "@id": `${SITE_URL}/contribute/#faq` },
+                breadcrumb: { "@id": `${SITE_URL}/contribute/#breadcrumb` },
+              }),
+            ),
+          ),
+        }}
+      />
 
       <section className="mt-8 border-t border-slate-200 pt-4 dark:border-slate-800">
         <h2 className="text-[15px] font-semibold text-slate-900 dark:text-slate-50">

@@ -6,8 +6,8 @@ import { FaqSection } from "@/components/FaqSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { answerSummary, faqFor } from "@/lib/faq";
 import { CATEGORIES, categoryBySlug, getEntries, getStats } from "@/lib/loadData";
-import { breadcrumbSchema, categoryDatasetSchema, graph, itemListSchema } from "@/lib/schema";
-import { SITE_BASE_PATH } from "@/lib/site";
+import { breadcrumbSchema, categoryDatasetSchema, graph, itemListSchema, webPageSchema } from "@/lib/schema";
+import { SITE_BASE_PATH, SITE_URL } from "@/lib/site";
 import { strings } from "@/lib/strings";
 
 const withBase = (path: string) => `${SITE_BASE_PATH}${path}`;
@@ -127,7 +127,7 @@ export default async function CategoryPage({ params }: Params) {
 
       <CategoryExplorer entries={entries} slug={category.slug} />
 
-      <FaqSection items={faq} heading={`${category.label} — questions`} />
+      <FaqSection items={faq} heading={`${category.label} — questions`} path={`/${category.slug}/`} />
 
       <section className="mt-10 border-t border-slate-200 pt-4 dark:border-slate-800">
         <h2 className="text-[13px] font-semibold text-slate-900 dark:text-slate-50">
@@ -171,6 +171,16 @@ export default async function CategoryPage({ params }: Params) {
                 { name: strings.site.name, path: "/" },
                 { name: category.label, path: `/${category.slug}/` },
               ]),
+              webPageSchema({
+                path: `/${category.slug}/`,
+                name: category.label,
+                description: category.metaDescription,
+                type: "CollectionPage",
+                dateModified: stats.generated_at,
+                primaryImage: `/og/${category.slug}.png`,
+                mainEntity: { "@id": `${SITE_URL}/${category.slug}/#list` },
+                breadcrumb: { "@id": `${SITE_URL}/${category.slug}/#breadcrumb` },
+              }),
             ),
           ),
         }}

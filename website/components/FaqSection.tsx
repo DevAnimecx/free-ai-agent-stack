@@ -17,10 +17,13 @@ export function FaqSection({
   items,
   heading,
   id = "faq",
+  path = "/",
 }: {
   items: Array<{ q: string; a: string }>;
   heading: string;
   id?: string;
+  /** The page this block sits on — scopes the FAQPage @id to this URL. */
+  path?: string;
 }) {
   if (items.length === 0) return null;
 
@@ -45,7 +48,7 @@ export function FaqSection({
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph(faqSchema(items))) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph(faqSchema(items, path))) }}
       />
     </section>
   );

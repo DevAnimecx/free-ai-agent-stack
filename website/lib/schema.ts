@@ -19,6 +19,21 @@ const SITE_ID = `${SITE_URL}/#website`;
 const AUTHOR_ID = `${SITE_URL}/#author`;
 const DATASET_ID = `${SITE_URL}/#dataset`;
 
+/**
+ * The stable identifiers every node in the graph is built from. Exported so a
+ * page can point at the catalogue, the author or the site without re-declaring
+ * an identifier and risking a typo that silently orphans the reference.
+ */
+export const ID = {
+  website: SITE_ID,
+  author: AUTHOR_ID,
+  organization: ORG_ID,
+  dataset: DATASET_ID,
+} as const;
+
+/** @id of the WebPage node for a given path, e.g. "/about/" → .../about/#webpage */
+export const pageId = (path: string) => `${abs(path)}#webpage`;
+
 /** The person credited on every page. */
 export function personSchema() {
   return {
@@ -218,8 +233,13 @@ export function categoryDatasetSchema(category: { slug: string; label: string },
 }
 
 export function breadcrumbSchema(trail: Array<{ name: string; path: string }>) {
+  // The @id is derived from the LAST crumb, which is the page the trail leads
+  // to — so the page node can link to its own breadcrumb without being told a
+  // path again, and two pages can never share one.
+  const terminus = trail[trail.length - 1]?.path ?? "/";
   return {
     "@type": "BreadcrumbList",
+    "@id": `${abs(terminus)}#breadcrumb`,
     itemListElement: trail.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -235,9 +255,12 @@ export function breadcrumbSchema(trail: Array<{ name: string; path: string }>) {
  * the heading, a self-contained answer of 40–60 words immediately under it,
  * marked up so an engine can lift it whole.
  */
-export function faqSchema(items: Array<{ q: string; a: string }>) {
+export function faqSchema(items: Array<{ q: string; a: string }>, path = "/") {
   return {
     "@type": "FAQPage",
+    // Scoped to its own page. A shared @id across pages would tell a crawler
+    // that four different URLs are the same entity.
+    "@id": `${abs(path)}#faq`,
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.q,
@@ -273,6 +296,60 @@ export function itemListSchema(category: CategoryConfig, entries: AnyEntry[]) {
         dateModified: entry.verified,
       },
     })),
+  };
+}
+
+/**
+ * The node that turns a pile of entities into a connected document.
+ *
+ * Without it, a category page published an ItemList, a Dataset, a
+ * BreadcrumbList and a FAQPage as four unrelated islands: a crawler could see
+ * every part and still not know which page asserted them, what the page is
+ * about, who wrote it or when it changed. Every other page-level fact hangs off
+ * this node, and it is what `isPartOf` chains resolve through.
+ *
+ * Deliberately no `aggregateRating`, `review` or `interactionStatistic`: this
+ * site does not have those, and inventing them is the fastest route to a
+ * structured-data manual action.
+ */
+export function webPageSchema(opts: {
+  path: string;
+  name: string;
+  description?: string;
+  /** CollectionPage for the category indexes, AboutPage for /about/. */
+  type?: "WebPage" | "CollectionPage" | "AboutPage";
+  /** ISO date the content last actually changed, not the build time. */
+  dateModified?: string;
+  /** Path to the social card, e.g. "/og/about.png". */
+  primaryImage?: string;
+  mainEntity?: { "@id": string };
+  breadcrumb?: { "@id": string };
+}) {
+  return {
+    "@type": opts.type ?? "WebPage",
+    "@id": pageId(opts.path),
+    url: abs(opts.path),
+    name: opts.name,
+    ...(opts.description ? { description: opts.description } : {}),
+    inLanguage: "en",
+    isPartOf: { "@id": SITE_ID },
+    author: { "@id": AUTHOR_ID },
+    publisher: { "@id": ORG_ID },
+    isAccessibleForFree: true,
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    ...(opts.dateModified ? { dateModified: opts.dateModified } : {}),
+    ...(opts.primaryImage
+      ? {
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            url: abs(opts.primaryImage),
+            width: 1200,
+            height: 630,
+          },
+        }
+      : {}),
+    ...(opts.mainEntity ? { mainEntity: opts.mainEntity } : {}),
+    ...(opts.breadcrumb ? { breadcrumb: opts.breadcrumb } : {}),
   };
 }
 
