@@ -47,7 +47,22 @@ jobs:
             echo "No link-status changes today."
           else
             git commit -m "chore(data): daily link verification $(date -u +%Y-%m-%d)"
-            git push
+            # Rebase before pushing. A scheduled job that pushes a commit will
+            # lose the race whenever anything else lands on main while it runs —
+            # and the failure looks like a broken link check rather than a stale
+            # checkout. Three attempts is enough: each retry pulls the new head.
+            for attempt in 1 2 3; do
+              if git push; then
+                echo "Pushed on attempt $attempt."
+                break
+              fi
+              echo "Push rejected (attempt $attempt) — rebasing onto the new head."
+              git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+              if [ "$attempt" = "3" ]; then
+                echo "::error::Could not push the link-state commit after 3 attempts."
+                exit 1
+              fi
+            done
           fi
 
       - name: Upload the report
