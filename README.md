@@ -454,9 +454,15 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 
 ## 🤝 Support this project
 
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/DevAnimecx?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/DevAnimecx/sponsor) · [![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-☕%20yellow?style=for-the-badge)](https://www.buymeacoffee.com/devanimecx) · [![X (Twitter)](https://img.shields.io/badge/X-Twitter-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/DevAnimecx) · [![Mastodon](https://img.shields.io/badge/Mastodon-68426c?style=for-the-badge&logo=mastodon&logoColor=white)](https://hachyderm.io/@devanimecx)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/DevAnimecx?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/DevAnimecx/sponsor) · [![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-☕%20yellow?style=for-the-badge)](https://www.buymeacoffee.com/devanimecx) · [![X](https://img.shields.io/badge/X-@devadarshkush-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/devadarshkush) · [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adarshkushwahdev/) · [![Mastodon](https://img.shields.io/badge/Mastodon-68426c?style=for-the-badge&logo=mastodon&logoColor=white)](https://hachyderm.io/@devanimecx)
 
 Keeping 384 entries human-verified and link-checked daily is a full-time job. If this catalogue has saved you a signup or two, consider sponsoring the maintenance.
+
+### 📧 Direct contact
+
+For sponsorship inquiries, collaboration requests, or vendor outreach:
+
+**animecx69@gmail.com**
 
 ---
 
@@ -494,12 +500,14 @@ The published website carries structured data on every page so search engines an
 
 **Built and maintained by [Adarsh Kushwah](https://github.com/DevAnimecx) — Dev Animecx**
 
+[![X](https://img.shields.io/badge/X-@devadarshkush-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/devadarshkush) [![LinkedIn](https://img.shields.io/badge/LinkedIn-Adarsh%20Kushwah-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adarshkushwahdev/) [![Email](https://img.shields.io/badge/Email-animecx69@gmail.com-4285F4?style=for-the-badge&logo=gmail&logoColor=white)](mailto:animecx69@gmail.com)
+
 <sub>Independent project. Not affiliated with, endorsed by or sponsored by any listed vendor.</sub>
 
 </div>
 
 <div align="center">
 
-**[Website](https://devanimecx.github.io/free-ai-agent-stack)** · **[Add a resource](../../issues/new?template=add-resource.yml)** · **[Methodology](docs/METHODOLOGY.md)** · **[Sponsor](https://github.com/DevAnimecx/sponsor)**
+**[Website](https://devanimecx.github.io/free-ai-agent-stack)** · **[Add a resource](../../issues/new?template=add-resource.yml)** · **[Methodology](docs/METHODOLOGY.md)** · **[Sponsor](https://github.com/DevAnimecx/sponsor)** · **[Contact](mailto:animecx69@gmail.com)**
 
 </div>

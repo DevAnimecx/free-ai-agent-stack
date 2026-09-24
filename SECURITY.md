@@ -8,7 +8,7 @@ Only the latest release of `main` receives security fixes.
 
 Please do **not** open a public issue for security vulnerabilities. Instead:
 
-1. Email **adarsh.kushwah@gmail.com** with a descriptive subject line
+1. Email **animecx69@gmail.com** with a descriptive subject line
 2. Include a clear description of the issue, reproduction steps, and impact assessment
 3. We will acknowledge receipt within 72 hours and aim to provide a fix within 14 days for high-severity issues
 

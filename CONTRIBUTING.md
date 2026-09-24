@@ -48,7 +48,7 @@ Every field is documented in [`schemas/`](schemas/). Here is a complete LLM API 
   signup_url: https://acme.example/signup
   tags: [no-card, openai-compatible]    # lowercase, hyphenated
   verified: 2026-09-24                  # the date YOU checked the pricing page
-  verified_by: "@your-github-handle"    # credit where it's due
+  verified_by: "@DevAnimecx"    # credit where it's due
   status: active                        # active | degraded | broken | deprecated
   notes: "Free tier is not available in the EU."   # optional, but invaluable
 ```

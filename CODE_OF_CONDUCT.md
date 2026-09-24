@@ -38,7 +38,7 @@ This Code of Conduct applies within all community spaces (issues, pull requests,
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behaviour may be reported using GitHub's private reporting tools (Report content → *Report to repository maintainers*), or by opening an issue if the matter is not sensitive. There is deliberately no email address here: a conduct contact on a domain this project does not serve would silently swallow reports. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behaviour may be reported using GitHub's private reporting tools (Report content → *Report to repository maintainers*), by opening an issue if the matter is not sensitive, or by emailing **animecx69@gmail.com** directly. All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the reporter of any incident.
 
