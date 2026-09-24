@@ -1209,7 +1209,7 @@
     "llm-apis/faster-whisper": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "skipped: disallowed by robots.txt",
       "last_status_docs_url": 0,
       "last_status_url": 200
     },
@@ -1403,10 +1403,10 @@
     "llm-apis/openai-api": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_reason": "OK",
       "last_status_docs_url": 200,
-      "last_status_signup_url": 403,
-      "last_status_url": 403
+      "last_status_signup_url": 200,
+      "last_status_url": 200
     },
     "llm-apis/openrouter-free": {
       "failures": 0,
@@ -1428,8 +1428,8 @@
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_docs_url": 200,
-      "last_status_signup_url": 403,
-      "last_status_url": 403
+      "last_status_signup_url": 200,
+      "last_status_url": 200
     },
     "llm-apis/piper-tts": {
       "failures": 0,
@@ -1456,7 +1456,7 @@
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
-      "last_status_docs_url": 200,
+      "last_status_docs_url": 403,
       "last_status_signup_url": 200,
       "last_status_url": 200,
       "recovered_from": 1
@@ -1495,7 +1495,7 @@
     "llm-apis/speechmatics": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "skipped: disallowed by robots.txt",
       "last_status_docs_url": 200,
       "last_status_signup_url": 0,
       "last_status_url": 200
@@ -2464,5 +2464,5 @@
       "last_status_url": 200
     }
   },
-  "last_run": "2026-09-24T12:59:39+00:00"
+  "last_run": "2026-09-24T14:02:27+00:00"
 }

@@ -371,7 +371,7 @@
   tags: [cloud, gcp, devops]
   verified: 2026-09-24
   verified_by: "@seed-import"
-  status: degraded
+  status: active
   notes: "Google has renamed and reorganised these packages several times in 2026 — confirm the current package name on the docs page before copying the install line."
 
 - id: docker-mcp
