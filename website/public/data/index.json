@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0.0",
-  "exported_at": "2026-09-24T10:32:26+00:00",
+  "exported_at": "2026-09-24T11:04:29+00:00",
   "generated_by": "scripts/export_json.py",
   "source": "https://github.com/free-ai-agent-stack/free-ai-agent-stack",
   "license": "CC-BY-4.0 (data) / MIT (code)",
   "attribution": "Data from free-ai-agent-stack (https://free-ai-agent-stack.dev). When citing, link to the specific category page and include the entry `verified` date so readers know how current the claim is.",
-  "total": 317,
+  "total": 379,
   "categories": {
     "llm-apis": {
       "label": "Free LLM APIs",
@@ -37,7 +37,7 @@
     },
     "skills": {
       "label": "Agent Skills",
-      "count": 12,
+      "count": 74,
       "no_card": 0,
       "json": "/data/skills.json",
       "page": "/skills"

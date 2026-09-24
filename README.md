@@ -2,7 +2,7 @@
 
 # free-ai-agent-stack
 
-**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 317 resources, verified weekly, zero cost to build on.**
+**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 379 resources, verified weekly, zero cost to build on.**
 
 [![Stars](https://img.shields.io/github/stars/free-ai-agent-stack/free-ai-agent-stack?style=flat-square&logo=github)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/stargazers)
 [![Forks](https://img.shields.io/github/forks/free-ai-agent-stack/free-ai-agent-stack?style=flat-square)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/forks)
@@ -15,7 +15,7 @@
 
 Every free LLM API, MCP server, agent framework and free-tier database a developer needs to build an AI agent in 2026 — in one place, with the free limit, the credit-card requirement and the date it was last checked. **Data is YAML in this repo; the website is generated from it; a daily robot checks every link.** If a listing says "no credit card", a human verified that. If it says "no longer free", we left it in on purpose — so you stop wasting signups on lists that never update.
 
-> **Free AI agent tools, checked 2026-09-24.** 317 entries · 222 need no credit card · 100% of links verified in the last 30 days.
+> **Free AI agent tools, checked 2026-09-24.** 379 entries · 222 need no credit card · 100% of links verified in the last 30 days.
 
 <!-- STATS:START -->
 | Category | Count | No credit card | Verified <30d | Top pick |
@@ -24,10 +24,10 @@ Every free LLM API, MCP server, agent framework and free-tier database a develop
 | [MCP Servers](data/mcp-servers.yaml) | 63 | — | 63 | Context7 |
 | [Agent Tools](data/agent-tools.yaml) | 82 | 82 | 82 | Aider |
 | [Free Tiers](data/free-tiers.yaml) | 90 | 82 | 90 | Better Auth |
-| [Agent Skills](data/skills.yaml) | 12 | — | 12 | Anthropic Agent Skills |
-| **Total** | **317** | **222** | **317** | — |
+| [Agent Skills](data/skills.yaml) | 74 | — | 74 | Anthropic Agent Skills |
+| **Total** | **379** | **222** | **379** | — |
 
-_Auto-generated 2026-09-24T10:30:07+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
+_Auto-generated 2026-09-24T11:01:45+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
 <!-- STATS:END -->
 
 ## Quick start: build an agent for $0 this weekend
@@ -53,7 +53,7 @@ npx create-next-app@latest && npx vercel --prod   # static + serverless, $0 tier
 - [MCP servers](#mcp-servers) — 63 entries
 - [Agent tools & frameworks](#agent-tools--frameworks) — 82 entries
 - [Free-tier infrastructure](#free-tier-infrastructure) — 90 entries
-- [Agent skills](#agent-skills) — 12 entries
+- [Agent skills](#agent-skills) — 74 entries
 - [What "free" means here](#what-free-means-here) · [Methodology](#methodology) · [Machine-readable data](#machine-readable-data)
 - [Contribute](#contribute) · [Licence](#licence)
 
@@ -227,17 +227,17 @@ This section lists where skills come from, at the granularity of *packs* rather 
 
 #### Anthropic Agent Skills
 
-**catalog** · 177,887 stars · first-party packs for document, spreadsheet and PDF workflows
+**catalog** · 177,887 stars · 19 skills · document, spreadsheet, slide and PDF workflows
 
 Anthropic's official skills repository, and the largest skills project by a wide margin. → [github.com/anthropics/skills](https://github.com/anthropics/skills) · [`#anthropics-skills`](https://freeaiagentstack.dev/skills#anthropics-skills)
 
-#### OpenAI Skills Catalog
+#### OpenAI Plugins
 
-**catalog** · 39 curated skills · PDF, Playwright, GitHub CI repair, Vercel/Cloudflare/Netlify/Render deploys, Notion, Linear, Figma and security review
+**catalog** · 7,141 stars · 536 skills across 62 plugins · the current home for Codex skills
 
-OpenAI's maintained set for Codex — verified against the repository tree, not against aggregator lists. → [github.com/openai/skills](https://github.com/openai/skills) · [`#openai-skills`](https://freeaiagentstack.dev/skills#openai-skills)
+Where OpenAI moved its skill catalogue — vendor plugins from Adobe, Cloudflare, Datadog, Figma, GitHub, Linear, Notion, Sentry, Stripe and Vercel alongside first-party tooling. The older `openai/skills` catalog is deprecated but its 39 curated skills still install. → [github.com/openai/plugins](https://github.com/openai/plugins) · [`#openai-plugins`](https://freeaiagentstack.dev/skills#openai-plugins)
 
-> **12 entries in total.** A warning that applies to this whole category: the public registries render client-side and answer HTTP 200 for *any* path, including invented ones, so a link checker cannot tell a real skill from a fake one. Of 33 claimed OpenAI skills, 28 exist; of 25 claimed registry entries, 6 did. The entries here are the ones we could confirm. [See the full list](https://freeaiagentstack.dev/skills) · [raw data](data/skills.yaml)
+> **74 entries in total.** The warning for this category: registries that render in the browser answer HTTP 200 for *any* path, including invented ones, so a link checker cannot tell a real skill from a fake one — only an API or a file listing can. Of one submitted list of 25 registry entries, 11 existed and 14 did not, and seven of those 14 turned out to exist in another registry. Four named OpenAI skills exist at no path; one exists only as a system skill inside Codex. Every install command here was run before it was written down. [See the full list](https://freeaiagentstack.dev/skills) · [raw data](data/skills.yaml)
 
 ---
 
@@ -291,7 +291,7 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 ### Contributors
 
 <!-- CONTRIBUTORS:START -->
-@seed-import (234) @hidden-gems-import (83)
+@seed-import (234) @hidden-gems-import (145)
 <!-- CONTRIBUTORS:END -->
 
 ## Star history

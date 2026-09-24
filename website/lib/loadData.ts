@@ -72,13 +72,13 @@ export const CATEGORIES: CategoryConfig[] = [
   {
     slug: "skills",
     label: "Agent Skills",
-    title: "Agent skills in 2026 — {count} packs, catalogs and registries",
+    title: "Agent skills in 2026 — {count} packs, catalogs, registries and individual skills",
     metaDescription:
-      "Where agent skills actually come from: first-party catalogs from Anthropic and OpenAI, vendor packs for Exa, Neon, Weaviate, Apify and Azure, and the public registries — with the counts we could verify.",
+      "Where agent skills come from and which ones exist: first-party catalogs from Anthropic and OpenAI, vendor packs for Vercel, Exa, Neon, Weaviate, Apify, Browserbase, CrewAI and Microsoft, the public registries — and the individual skills verified one by one.",
     intro: [
       "An agent skill is a folder of instructions and scripts that teaches an agent a workflow it was not trained on: how to render and check a PDF, how to deploy to Vercel, how to repair a failing CI job. Unlike an MCP server, a skill adds no moving part — no process to run, no token to hold, no network service to keep alive. It is just files, which is precisely why skills have spread faster than any other agent primitive.",
-      "That ease of distribution has a cost. The largest public directory in this catalogue returns an HTTP 200 for every URL you ask it for, including ones that do not exist, so a link checker cannot tell a real skill from an invented one. During verification for this category we checked 33 claimed OpenAI skills against the repository's own file listing and found 28 real; five — a .docx editor, a spreadsheet skill, image generation, Sora video and a web-game skill — are not in the catalog at all. Of 25 claimed registry entries, six existed.",
-      "This page therefore lists where skills come from rather than pretending to mirror a registry: the two first-party catalogs, the vendor packs maintained by the companies whose APIs they wrap, and the registries themselves, each marked with how much of it we could actually confirm. Every pack here is free — skills are files. Start with the first-party catalogs; they are the ones that get updated when the underlying product changes.",
+      "That ease of distribution is why this category needed more verification than any other here. Registries that render in the browser answer HTTP 200 for every URL, invented ones included, so a link checker cannot tell a real skill from a fake one — confirming anything means reading an API or a repository's file listing. One submitted list of 25 registry entries held 11 that existed and 14 that did not, and seven of those 14 turned out to exist in a different registry. Four OpenAI skills circulating widely exist at no path at all — a .docx editor, a spreadsheet skill, Sora video and a web-game builder — and image generation exists only as a system skill that ships inside Codex.",
+      "So this page lists two things. Packs, catalogs and registries, one row each and never expanded into their contents, because openai/plugins alone holds 536 skills and ClawHub holds thousands. And individual skills, one row each, listed only where someone named that specific skill and it verified on its own, with the pack it belongs to recorded. Every install command below was run before it was written down. Skills are files, so nothing here asks for a card, a key or an account.",
     ],
     schema: "schemas/skill.schema.json",
   },

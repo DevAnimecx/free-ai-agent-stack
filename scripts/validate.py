@@ -124,6 +124,15 @@ def main() -> int:
         report.stats[stem] = len(entries)
         validate_schema(entries, schema_path, report, label)
 
+        # data/skills.yaml holds two kinds in one file, so the pack ids have to
+        # be collected before the per-entry loop can resolve `parent` links.
+        skill_packs: set[str] = set()
+        if stem == "skills":
+            skill_packs = {
+                str(e.get("id")) for e in entries
+                if isinstance(e, dict) and e.get("kind") == "pack"
+            }
+
         for entry in entries:
             if not isinstance(entry, dict):
                 report.error(label, "entry is not a mapping")
@@ -181,6 +190,30 @@ def main() -> int:
                     report.error(where, "requires_auth is missing — MCP entries must state it explicitly")
                 elif not isinstance(entry["requires_auth"], bool):
                     report.error(where, "requires_auth must be a boolean")
+
+            # --- skills: pack vs individual skill ------------------------
+            # Two kinds share one file. An individual skill must say what it is
+            # about (domain) and, when it came from a pack in this file, which
+            # one (parent); a pack must not carry skill-only fields, and a
+            # count only means anything for a pack — one skill is one skill.
+            if stem == "skills":
+                kind = entry.get("kind")
+                if kind == "skill":
+                    if not entry.get("domain"):
+                        report.error(where, "kind: skill requires a domain")
+                    if entry.get("skill_count") is not None:
+                        report.error(where, "skill_count belongs on a pack, not on an individual skill")
+                    parent = entry.get("parent")
+                    if parent and parent not in skill_packs:
+                        report.error(
+                            f"{where}.parent",
+                            f"parent '{parent}' does not match any kind: pack id in data/skills.yaml",
+                        )
+                elif kind == "pack":
+                    if entry.get("domain"):
+                        report.error(where, "domain belongs on an individual skill, not on a pack")
+                    if entry.get("parent"):
+                        report.error(where, "a pack cannot have a parent")
 
             verified = entry.get("verified")
             if isinstance(verified, str):

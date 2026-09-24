@@ -297,6 +297,7 @@ def sync_prose_counts(text: str, stats: dict) -> str:
     for stem, needle in (
         ("llm-apis", "provider that quietly stopped being free"),
         ("mcp-servers", "archived reference servers"),
+        ("skills", "link checker cannot tell a real skill from a fake one"),
     ):
         text = re.sub(
             rf"\*\*\d+(?= entries in total\*\*, [^.]*{re.escape(needle)})",

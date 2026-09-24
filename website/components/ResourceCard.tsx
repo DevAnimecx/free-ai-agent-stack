@@ -1,7 +1,7 @@
 import { CopyButton } from "./CopyButton";
 import { VerifiedBadge } from "./VerifiedBadge";
 import { strings } from "@/lib/strings";
-import type { AgentToolEntry, AnyEntry, FreeTierEntry, LlmApiEntry, McpServerEntry } from "@/lib/types";
+import type { AgentToolEntry, AnyEntry, FreeTierEntry, LlmApiEntry, McpServerEntry, SkillEntry } from "@/lib/types";
 
 const REPORT_BASE =
   "https://github.com/free-ai-agent-stack/free-ai-agent-stack/issues/new?template=report-broken-link.yml";
@@ -34,11 +34,13 @@ export function ResourceCard({ entry, slug }: { entry: AnyEntry; slug: string })
   const isMcp = slug === "mcp-servers";
   const isTool = slug === "agent-tools";
   const isTier = slug === "free-tiers";
+  const isSkill = slug === "skills";
 
   const llm = entry as LlmApiEntry;
   const mcp = entry as McpServerEntry;
   const tool = entry as AgentToolEntry;
   const tier = entry as FreeTierEntry;
+  const skill = entry as SkillEntry;
 
   const meta: Array<[string, string]> = [];
   if (isLlm) {
@@ -67,6 +69,19 @@ export function ResourceCard({ entry, slug }: { entry: AnyEntry; slug: string })
     if (typeof mcp.stars === "number" && mcp.stars > 0)
       meta.push([strings.card.stars, mcp.stars.toLocaleString()]);
   }
+  if (isSkill) {
+    // A skill says what it is about and which pack it came from; a pack says
+    // how many skills it holds. Neither field means anything on the other, so
+    // each is only read under the kind the entry declares.
+    if (skill.kind === "skill") {
+      if (skill.domain) meta.push(["Domain", skill.domain]);
+      if (skill.parent) meta.push(["Part of", skill.parent]);
+    }
+    if (typeof skill.skill_count === "number" && skill.skill_count > 0)
+      meta.push(["Skills", skill.skill_count.toLocaleString()]);
+    if (typeof skill.stars === "number" && skill.stars > 0)
+      meta.push([strings.card.stars, skill.stars.toLocaleString()]);
+  }
 
   const flags: string[] = [];
   if (isLlm || isTool || isTier) {
@@ -82,8 +97,19 @@ export function ResourceCard({ entry, slug }: { entry: AnyEntry; slug: string })
   if (isLlm && llm.data_used_for_training === true) flags.push(strings.card.trainingOn);
   if (isLlm && llm.data_used_for_training === false) flags.push(strings.card.trainingOff);
   if (isTool && tool.open_source) flags.push("open source");
+  if (isSkill) {
+    flags.push(skill.kind === "pack" ? "pack" : "single skill");
+    flags.push(skill.category.replace("-", " "));
+    if (skill.compatible_with?.length) flags.push(skill.compatible_with.join(" · "));
+  }
 
-  const install = isMcp ? mcp.install : isTool ? tool.install : undefined;
+  const install = isMcp
+    ? mcp.install
+    : isTool
+      ? tool.install
+      : isSkill
+        ? skill.install
+        : undefined;
 
   return (
     <article

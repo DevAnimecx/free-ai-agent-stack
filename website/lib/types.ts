@@ -87,7 +87,29 @@ export interface FreeTierEntry extends BaseEntry {
   cold_start_risk?: "low" | "medium" | "high";
 }
 
-export type AnyEntry = LlmApiEntry | McpServerEntry | AgentToolEntry | FreeTierEntry;
+export interface SkillEntry extends BaseEntry {
+  provider: string;
+  category: "catalog" | "vendor-pack" | "registry" | "community";
+  /** pack = a bundle, catalogue or registry; skill = one verified skill. */
+  kind: "pack" | "skill";
+  /** What an individual skill is about. Absent on packs. */
+  domain?: string;
+  /** The pack an individual skill came from, by id. */
+  parent?: string;
+  /** Number of skills in a pack, read from an API or a repository tree. */
+  skill_count?: number;
+  install?: string;
+  license?: string;
+  open_source?: boolean;
+  compatible_with?: string[];
+}
+
+export type AnyEntry =
+  | LlmApiEntry
+  | McpServerEntry
+  | AgentToolEntry
+  | FreeTierEntry
+  | SkillEntry;
 
 export interface CategoryConfig {
   slug: string;

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-24T10:30:48+00:00",
-  "total": 317,
+  "generated_at": "2026-09-24T11:04:28+00:00",
+  "total": 379,
   "counts": {
     "llm-apis": 70,
     "mcp-servers": 63,
     "agent-tools": 82,
     "free-tiers": 90,
-    "skills": 12
+    "skills": 74
   },
   "no_card": {
     "llm-apis": 58,
@@ -21,14 +21,14 @@
     "mcp-servers": 63,
     "agent-tools": 82,
     "free-tiers": 90,
-    "skills": 12
+    "skills": 74
   },
   "fresh_within_30_days": {
     "llm-apis": 70,
     "mcp-servers": 63,
     "agent-tools": 82,
     "free-tiers": 90,
-    "skills": 12
+    "skills": 74
   },
   "freshness_pct_30d": 100.0,
   "statuses": {
@@ -51,40 +51,40 @@
       "degraded": 1
     },
     "skills": {
-      "active": 10,
-      "degraded": 2
+      "active": 73,
+      "deprecated": 1
     }
   },
   "contributors": {
     "seed-import": 234,
-    "hidden-gems-import": 83
+    "hidden-gems-import": 145
   },
   "top_tags": {
     "hidden-gem": 70,
+    "skill": 57,
     "essential": 44,
+    "codex": 39,
+    "curated": 39,
     "local": 32,
     "self-host": 28,
     "rag": 26,
     "coding-agent": 24,
+    "devops": 21,
     "no-card": 19,
+    "skills": 17,
     "vector": 17,
+    "automation": 16,
     "mcp": 15,
-    "devops": 12,
+    "community": 14,
+    "security": 14,
+    "vendor": 14,
     "memory": 12,
     "open-source": 12,
     "search": 12,
     "serverless": 12,
-    "skills": 12,
-    "automation": 11,
+    "clawhub": 11,
     "embeddings": 11,
-    "gateway": 11,
-    "research": 11,
-    "byok": 10,
-    "database": 10,
-    "edge": 10,
-    "observability": 10,
-    "openai-compatible": 10,
-    "cli": 9
+    "gateway": 11
   },
   "deprecated_entries": [
     "llm-apis#openai-api",
@@ -96,7 +96,8 @@
     "mcp-servers#puppeteer-mcp",
     "mcp-servers#google-drive-mcp",
     "mcp-servers#slack-archived-mcp",
-    "mcp-servers#brave-search-archived-mcp"
+    "mcp-servers#brave-search-archived-mcp",
+    "skills#openai-skills"
   ],
   "featured": {
     "llm-apis": [
@@ -133,11 +134,11 @@
     ],
     "skills": [
       "anthropics-skills",
+      "clawhub-agent-guardrails",
       "apify-agent-skills",
-      "clawhub",
       "intellectronica-agent-skills",
-      "exa-agent-skills",
-      "microsoft-agent-skills"
+      "openai-aspnet-core",
+      "crewai-ask-docs"
     ]
   }
 }

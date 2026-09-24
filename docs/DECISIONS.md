@@ -457,3 +457,94 @@ would have been the wrong category.
 3. The README's hand-written featured block still advertised Oracle's
    pre-June-2026 spec ("4 ARM cores + 24GB RAM") — the same stale claim D-8
    corrected in the data file but not in the prose.
+
+## D-10 — Individual skills, and what the registries actually report (batch 5)
+
+Supersedes the pack-only rule in D-9. `data/skills.yaml` now carries two
+granularities in one file, discriminated by a new `kind` field:
+
+- `kind: pack` — a bundle, catalogue or registry. Carries `skill_count`, read
+  from an API or a repository tree.
+- `kind: skill` — one individually verified skill. Carries `domain` (what it is
+  about) and `parent` (the pack it came from). No count — one skill is one skill.
+
+`validate.py` enforces the split: a skill must have a domain and must not carry
+a count, a pack may have neither, and `parent` must resolve to a real pack id in
+the same file. Both rules fired during this batch, on our own data.
+
+D-9's worry — that listing individual skills would duplicate a registry — was
+right but too blunt. "Never list individual skills" also meant the catalogue
+could not answer *does the skill called X exist*, which is the question people
+actually arrive with. The line drawn instead:
+
+- **Packs are never expanded.** openai/plugins holds 536 skills, ClawHub's open
+  catalogue holds thousands; each stays one row.
+- **An individual skill earns a row** when a human named that specific skill and
+  it verified on its own against a machine-readable source. 57 were added on
+  that basis. Nothing was imported in bulk.
+
+**Sources that can say no.** The recurring problem in this category is that a
+URL status code proves nothing, so each registry had to be probed until
+something could contradict a claim:
+
+| Source | What works | The trap |
+| --- | --- | --- |
+| ClawHub `/api/v1/skills` | cursor walk via `nextCursor`; `?owner=` resolves a shared slug | `?page=` is silently ignored and returns page 1 forever — a 120-page walk produced 99 unique slugs, repeated. `robots.txt` disallows `/api/` entirely. |
+| ClawHub `/v1/feeds/skills` | explicitly allowed by robots.txt; 942 skills from verified publishers | covers verified publishers only, not the open catalogue |
+| skills.sh | `api/search?q=` is public and returns ids **with install counts** | `/api/v1/skills` needs a Vercel OIDC token |
+| SkillsMP | current `/creators/<owner>/<repo>/<skill>` returns honest 404s | every `/skills/<slug>` URL circulating online is legacy-dead |
+| GitHub trees API | authoritative pack sizes | — |
+
+**Install commands were run, not read.** `npx skills add` was executed against
+eight sources plus a bare `.well-known` SKILL.md URL, and
+`openclaw skills install @owner/slug` was confirmed from OpenClaw's docs. One
+finding came only from running it: `npx skills add openai/plugins` resolves to a
+single skill, because the plugins repo nests skills too deep for the CLI — so
+that pack's entry carries no install command rather than a broken one.
+
+**What the submission got wrong (batch 5):**
+
+- **14 of 25 claimed ClawHub slugs do not exist**; 11 do. The previous batch's
+  rate on the same registry was 19 of 25. Seven of the 14 absent ones *do* exist
+  elsewhere in the ecosystem, but only one has adoption above 50 installs, so
+  none were added.
+- **Four OpenAI skills exist at no path**: a `.docx` editor, a spreadsheet
+  skill, Sora video, a web-game builder. The fifth disputed name, `imagegen`,
+  does exist — as `skills/.system/imagegen`, a skill that ships inside Codex
+  rather than a curated one.
+- **"Skill Security Scan (Alibaba)"** is published by `@sudhindrat`; no
+  Alibaba-owned package exists under that slug.
+- `modelcontextprotocol/servers/tree/main/src/slack` 404s — that server moved to
+  `servers-archived`, which this repo already tracks.
+- SkillsMP's per-skill links are legacy-dead, and the site advertises **200,000+
+  skills, not the 71,000+** in circulation.
+- HOL Guard's repository is `hashgraph-online/hol-guard` (★664), not
+  `hol-guard/hol-guard`; `browserbase/browse.sh` is a *website* — the skills
+  repository is `browserbase/skills` (★3,731).
+
+**The structural find.** `openai/skills` is deprecated: its README now points to
+`openai/plugins` (★7,141), which holds 62 plugins and 536 skills. The 39 curated
+skills still install, so the entry is kept with `status: deprecated` and the
+successor is listed separately. All 39 were then verified one by one against raw
+`SKILL.md` files, and all 39 resolve.
+
+**Corrections to our own entries — five, all ours:**
+
+1. `skills-sh` degraded → **active**. Its search API returns ids with install
+   counts, which is how every skills.sh entry here was verified. D-9's note that
+   find-skills and CrewAI's skills "could not be independently confirmed" was
+   wrong; the API confirms them (find-skills: 3,539,754 installs).
+2. `skillsmp` degraded → **active**. Current-scheme URLs return honest 404s.
+3. `microsoft-agent-skills` pointed at a redirecting path. Canonical is
+   `microsoft/skills`; the tree holds 204 SKILL.md files against the README's
+   claim of 175, and the scope is Azure SDKs and Microsoft Foundry rather than
+   the Bot Framework and Cognitive Services.
+4. `clawhub`'s count was 7,703 from a *capped* walk. The open catalogue passed
+   12,892 unique slugs without finishing and is robots-disallowed, so the entry
+   now publishes the 942-skill verified-publisher feed instead and says plainly
+   that the open catalogue has no enumerable permitted source.
+5. The near-duplicate check caught our own `openai-sentry` colliding with the
+   existing Sentry free tier — renamed to "Sentry Issue Triage".
+
+Nine install commands were also added to pre-existing packs, each one run
+first.

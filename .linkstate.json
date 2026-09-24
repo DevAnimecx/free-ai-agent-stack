@@ -1995,6 +1995,18 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "skills/browse-sh": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/browserbase-skills": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "skills/clawhub": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -2003,11 +2015,119 @@
       "last_status_url": 200,
       "recovered_from": 1
     },
+    "skills/clawhub-agent-guardrails": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-code-review": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-openai-whisper": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-pdf-generation": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-prompt-injection-defense": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-refactoring": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-skill-creator": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-skill-security-scan": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-skill-vetter": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-systematic-debugging": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/clawhub-threat-modeling": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/crewai-ask-docs": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/crewai-design-agent": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/crewai-design-task": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/crewai-getting-started": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/crewai-skills": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/dedalus-machines": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "skills/exa-agent-skills": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
+    },
+    "skills/exa-contents": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
     },
     "skills/intellectronica-agent-skills": {
       "failures": 0,
@@ -2027,16 +2147,257 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "skills/openai-aspnet-core": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-chatgpt-apps": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-cli-creator": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-cloudflare-deploy": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-define-goal": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-figma": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-figma-code-connect-components": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-figma-create-design-system-rules": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-figma-create-new-file": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-figma-generate-design": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-figma-generate-library": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-figma-implement-design": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-figma-use": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-gh-address-comments": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-gh-fix-ci": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-hatch-pet": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-jupyter-notebook": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-linear": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-migrate-to-codex": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-netlify-deploy": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-notion-knowledge-capture": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-notion-meeting-intelligence": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-notion-research-documentation": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-notion-spec-to-implementation": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-openai-docs": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-pdf": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-playwright": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-playwright-interactive": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-plugins": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/openai-render-deploy": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-screenshot": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-security-best-practices": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-security-ownership-map": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-security-threat-model": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-sentry": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
     "skills/openai-skills": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "skills/openai-speech": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-transcribe": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-vercel-deploy": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-winui-app": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "skills/openai-yeet": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
     "skills/skills-sh": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
+      "last_status_docs_url": 200,
       "last_status_url": 200
     },
     "skills/skillsmp": {
@@ -2052,6 +2413,18 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "skills/vercel-agent-skills": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "skills/vercel-find-skills": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "skills/weaviate-agent-skills": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -2059,5 +2432,5 @@
       "last_status_url": 200
     }
   },
-  "last_run": "2026-09-24T10:32:17+00:00"
+  "last_run": "2026-09-24T11:05:38+00:00"
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://freeaiagentstack.dev/schemas/skill.schema.json",
-  "title": "Agent skill pack",
-  "description": "A bundle of agent skills — either a vendor-published pack, a curated catalogue, or a public registry. One entry per pack, not per individual skill: the catalogue describes where to get skills and what they need, rather than duplicating a registry's contents.",
+  "title": "Agent skill pack or individual skill",
+  "description": "Agent skills, at two granularities held in one file. kind: pack is a bundle — a vendor-published pack, a curated catalogue, or a public registry — and carries skill_count. kind: skill is one individually verified skill and carries domain plus the id of the pack it came from. Packs are never bulk-expanded into their contents: an individual skill appears here only when a human pointed at it and it verified against a machine-readable source.",
   "type": "array",
   "items": {
     "type": "object",
     "additionalProperties": false,
-    "required": ["id", "name", "provider", "category", "description", "url", "verified", "verified_by", "status"],
+    "required": ["id", "name", "provider", "category", "kind", "description", "url", "verified", "verified_by", "status"],
     "properties": {
       "id": {
         "type": "string",
@@ -15,19 +15,34 @@
         "description": "Immutable slug, unique across every category in the repo."
       },
       "name": { "type": "string" },
-      "provider": { "type": "string", "description": "Who publishes and maintains the pack." },
+      "provider": { "type": "string", "description": "Who publishes and maintains it — an org, or the registry handle that owns the package." },
       "category": {
         "type": "string",
         "enum": ["catalog", "vendor-pack", "registry", "community"],
-        "description": "catalog = first-party curated set (openai/skills, anthropics/skills). vendor-pack = published by a product vendor for its own API. registry = a public marketplace of third-party skills. community = an individual maintainer's pack."
+        "description": "Where it comes from: catalog = first-party curated set (openai/skills, anthropics/skills). vendor-pack = published by a product vendor for its own API. registry = a public marketplace of third-party skills. community = an individual maintainer's pack."
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["pack", "skill"],
+        "description": "pack = a collection, catalogue or registry entry. skill = one individual skill, verified on its own."
+      },
+      "domain": {
+        "type": "string",
+        "enum": ["automation", "database", "design", "devops", "documents", "engineering", "framework", "media", "productivity", "security", "testing", "web"],
+        "description": "What the skill is about. Required when kind is skill; absent on packs."
+      },
+      "parent": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+        "description": "For kind: skill, the id of the pack it belongs to in this same file. Omitted for standalone skills published outside a pack."
       },
       "description": { "type": "string" },
       "skill_count": {
         "type": "integer",
         "minimum": 0,
-        "description": "Number of skills in the pack as published by the maintainer, when stated."
+        "description": "Number of skills in a pack, read from an API or a repository tree. Only meaningful on kind: pack; individual skills do not carry a count."
       },
-      "install": { "type": "string", "description": "Copy-pasteable install or clone command." },
+      "install": { "type": "string", "description": "Copy-pasteable install command. Verified by running it where a CLI is involved." },
       "url": { "type": "string", "format": "uri", "pattern": "^https://" },
       "docs_url": { "type": "string", "format": "uri", "pattern": "^https://" },
       "license": { "type": "string" },

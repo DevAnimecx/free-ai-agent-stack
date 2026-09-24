@@ -1,23 +1,46 @@
-# Agent skills — packs, catalogs and registries.
+# Agent skills — packs, catalogs, registries and individually verified skills.
 #
-# Granularity note: one entry per *pack*, not per skill. Listing 39 individual
-# OpenAI skills would be 39 near-identical rows and would duplicate a registry
-# that already exists; what a reader needs is where skills come from, who
-# maintains them, and what they cost (nothing — every entry here is free files).
+# Two kinds live in this one file:
 #
-# Verification note: registries that render client-side (skills.sh, skillsmp.com)
-# return HTTP 200 for any path at all, including fabricated ones, so a 200 from
-# those hosts proves nothing. Only packs whose contents could be listed from a
-# real API or a repository tree are counted below, and their counts were read
-# from that source on 2026-09-24.
+#   kind: pack    a bundle — a vendor pack, a curated catalogue, or a registry.
+#                 Carries skill_count, read from an API or a repository tree.
+#   kind: skill   one individual skill, named by a human and verified on its own
+#                 against a machine-readable source, with `domain` for what it is
+#                 about and `parent` for the pack it came from.
+#
+# Granularity rule: a pack is never expanded into its contents. openai/plugins
+# holds 536 skills and ClawHub holds thousands; each of those stays one row. An
+# individual skill earns its own row only when someone pointed at that specific
+# skill and it verified — which is why this file lists 39 Codex curated skills
+# but not the 536 plugins, and 11 ClawHub skills but not the other 7,700.
+#
+# Verification rule: a client-rendered registry returns HTTP 200 for any path at
+# all, including invented ones, so a 200 from those hosts proves nothing. Every
+# count below came from a real API or a repository tree on 2026-09-24:
+#
+#   clawhub.ai/api/v1/skills   cursor-paginated — `page=` is silently ignored and
+#                              repeats page 1, so only a cursor walk counts.
+#                              /skills/<slug> returns 404 for unknown slugs and
+#                              409 AMBIGUOUS_SKILL_SLUG when several owners share
+#                              one, which is why @owner/slug is the only
+#                              unambiguous reference.
+#   skills.sh/api/search?q=    public; returns skill ids with install counts.
+#                              /api/v1/skills requires a Vercel OIDC token.
+#   skillsmp.com               honest 404s on the current /creators/<owner>/
+#                              <repo>/<skill> scheme; the older /skills/<slug>
+#                              URLs are dead and say "Legacy skill URL not found".
+#   api.github.com git trees   authoritative counts, including openai/plugins
+#                              (536 SKILL.md files) and microsoft/skills (204).
 
 - id: anthropics-skills
   name: Anthropic Agent Skills
   provider: Anthropic
   category: catalog
+  kind: pack
   description: "Anthropic's official skills repository — first-party packs that teach Claude Code and other agents house workflows: document handling, spreadsheet and slide authoring, PDF work and more."
+  skill_count: 19
   url: https://github.com/anthropics/skills
-  install: "git clone https://github.com/anthropics/skills"
+  install: npx skills add anthropics/skills
   license: "See repository (per-skill licences)"
   open_source: true
   stars: 177887
@@ -26,35 +49,40 @@
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
   status: active
-  notes: "The largest skills project by a wide margin and the reference implementation of the format. Individual skills carry their own licences, so check the subfolder rather than assuming the repository licence covers everything."
-
+  notes:
+    - "The repository tree holds 19 skills plus a template directory; the largest skills project by a wide margin and the reference implementation of the format."
+    - "`npx skills add anthropics/skills` was verified by running it — the skills CLI lists and installs this pack like any other source."
+    - "Individual skills carry their own licences, so check the subfolder rather than assuming the repository licence covers everything."
 - id: openai-skills
   name: OpenAI Skills Catalog
   provider: OpenAI
   category: catalog
-  description: "OpenAI's curated skills catalog for Codex: 39 maintained skills covering PDFs, spreadsheets via notebook workflows, GitHub CI repair, Playwright automation, deployment to Vercel, Cloudflare, Netlify and Render, Notion, Linear, Figma and security review."
+  kind: pack
+  description: "OpenAI's curated Codex skills catalog — 39 maintained skills covering PDFs, GitHub CI repair, Playwright automation, deployment to Vercel, Cloudflare, Netlify and Render, Notion, Linear, Figma and security review. Superseded by openai/plugins, but still installable."
   skill_count: 39
   url: https://github.com/openai/skills
-  install: "git clone https://github.com/openai/skills"
+  install: npx skills add openai/skills
   open_source: true
   stars: 27599
   compatible_with: [codex, claude-code, cursor, any]
   tags: [official, catalog, devops, security, skills]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
-  status: active
+  status: deprecated
   notes:
-    - "The curated set was read from the repository tree on 2026-09-24 and contains exactly 39 skills, including figma-use, migrate-to-codex, hatch-pet, winui-app and playwright-interactive."
-    - "The directory also carries skills that are not in the curated set, so treat `skills/.curated/` as the maintained, official subset."
-    - "Several skills referenced widely on aggregator sites do not exist here — a spreadsheet, a .docx editor, Sora video and image generation are not part of this catalog."
-
+    - "Deprecated by OpenAI: the repository README now directs new work to openai/plugins. The 39 curated skills still install and the repository is not archived — it was last pushed 2026-09-08."
+    - "All 39 entries under skills/.curated/ were checked one by one on 2026-09-24 and every SKILL.md resolves, including figma-use, migrate-to-codex, hatch-pet, winui-app and playwright-interactive."
+    - "skills/.system/ holds five further skills that ship with Codex and install automatically: imagegen, openai-docs, plugin-creator, skill-creator and skill-installer."
+    - "Skills widely listed online as OpenAI's — a .docx editor, a spreadsheet skill, Sora video and a web-game skill — exist at no path in this catalogue. Image generation does exist, but as the imagegen system skill above rather than a curated one."
 - id: superpowers
   name: Superpowers
   provider: obra (Jesse Vincent)
   category: community
+  kind: pack
   description: "An agentic skills framework and software-development methodology — a structured approach to planning, implementing and reviewing work with an agent, published as installable skills."
+  skill_count: 15
   url: https://github.com/obra/superpowers
-  install: "git clone https://github.com/obra/superpowers"
+  install: npx skills add obra/superpowers
   open_source: true
   stars: 290953
   compatible_with: [claude-code, codex, any]
@@ -62,14 +90,16 @@
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
   status: active
-  notes: "At the time of writing this is one of the most-starred repositories on GitHub by the site's own counter. The star count is recorded as reported and will be re-checked by the daily workflow; treat the methodology, not the number, as the reason to look."
-
+  notes:
+    - "15 skills read from the repository tree, and `npx skills add obra/superpowers` was verified by running it."
+    - "OpenAI ships this methodology as a plugin of its own inside openai/plugins — an unusual case of a community project being blessed upstream. One of the most-starred repositories on GitHub; treat the stars as the reason to look, not the reason to trust."
 - id: clawhub
   name: ClawHub
   provider: OpenClaw
   category: registry
-  description: "The skills and plugins registry for OpenClaw — thousands of community packages, browsable by category with download counts, installable by slug."
-  skill_count: 7703
+  kind: pack
+  description: "The skills and plugins registry for OpenClaw — 942 skills from verified publishers in the feed ClawHub publishes, sitting in front of a much larger open catalogue of community uploads."
+  skill_count: 942
   url: https://clawhub.ai/
   docs_url: https://clawhub.ai/skills
   compatible_with: [openclaw, any]
@@ -78,29 +108,36 @@
   verified_by: "@hidden-gems-import"
   status: active
   notes:
-    - "Counted by paginating the public API at clawhub.ai/api/v1/skills on 2026-09-24: 7,780 listings, 7,703 unique slugs."
-    - "Only the site's API can tell you whether a skill exists. Every /skills/<slug> page returns HTTP 200, including invented slugs, so link-checkers and `curl -I` cannot verify a ClawHub URL."
+    - "The 942 counted here are the entries in ClawHub's own feed at /v1/feeds/skills (edition of 2026-09-24), which covers skills from verified publishers. It is the figure the registry publishes."
+    - "The open catalogue behind that feed is far larger and is not counted here: walking the site's listing API passed 12,892 unique slugs without finishing, and that endpoint is disallowed by the site's own robots.txt — so the open catalogue has no permitted, enumerable source and gets no number."
+    - "Skills install with `openclaw skills install @owner/slug`, verified against OpenClaw's documentation."
+    - "A skill URL cannot be checked with a status code: every /skills/<slug> page answers HTTP 200, invented slugs included. Checking one by hand works through the API instead — /api/v1/skills/<slug> returns 404 when a slug does not exist, 409 AMBIGUOUS_SKILL_SLUG when several owners share it, which is why @owner/slug is the only unambiguous reference."
+    - "Size and usage are different numbers: the top packages sit in the 100k–480k download range and most listings show none at all."
     - "Includes a large Chinese-language catalogue alongside English packages."
-
 - id: skills-sh
   name: skills.sh
   provider: Vercel Labs
   category: registry
+  kind: pack
   description: "A web directory for agent skills with a CLI installer, built to make discovering and adding a skill a single command."
   url: https://skills.sh/
+  docs_url: https://skills.sh/docs
+  install: npx skills add vercel-labs/agent-skills
   compatible_with: [claude-code, codex, cursor, any]
   tags: [registry, directory, vercel, skills]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
-  status: degraded
+  status: active
   notes:
-    - "Marked degraded rather than active because individual skill pages could not be verified: the site renders client-side and returns HTTP 200 for any path, including deliberately fabricated ones."
-    - "The directory itself is real and the installer is usable, but nothing on it can be confirmed by fetching a URL — and the popular 'find-skills' and CrewAI 'design-agent' pages that circulate in aggregator posts could not be independently confirmed."
-
+    - "Moved from degraded to active: the registry has a public search API at skills.sh/api/search?q= that returns skill ids with install counts, which is how every skills.sh entry in this file was verified. The site's own pages still return HTTP 200 for any path, so only the API can confirm a skill exists."
+    - "/api/v1/skills requires a Vercel OIDC token, so the search endpoint is the usable one."
+    - "The CLI that powers it is open source (vercel-labs/skills, 32,380 stars) and `npx skills add <source> --skill <name>` was verified by running it against seven sources, including packs outside Vercel's own."
+    - "Install counts are lopsided: vercel-labs/skills/find-skills showed 3,539,754 installs against roughly 7,000 for CrewAI's four skills and a few hundred for smaller packs."
 - id: skillsmp
   name: SkillsMP
   provider: SkillsMP
   category: registry
+  kind: pack
   description: "An agent-skills marketplace indexing Codex and Claude skills, with browsing by creator and occupation."
   url: https://skillsmp.com/
   docs_url: https://skillsmp.com/docs
@@ -108,16 +145,21 @@
   tags: [registry, marketplace, skills]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
-  status: degraded
-  notes: "The site is real, but its advertised size (tens of thousands of skills) and its individual skill pages could not be verified — a claimed /skills/notion page returns 404, while the listing root does resolve. Marked degraded until a skill URL from this registry can be confirmed to resolve."
-
+  status: active
+  notes:
+    - "Moved from degraded to active: its current URL scheme returns honest 404s. /creators/<owner>/<repo>/<skill> resolves for real skills and 404s for invented ones, in both cases tested."
+    - "The older /skills/<slug> URLs that circulate in aggregator posts are dead — they return a page titled 'Legacy skill URL not found'."
+    - "The site advertises 200,000+ skills. That is its own claim: there is no public API and the catalogue is not enumerable in a way we could count, so no skill_count is stated here."
+    - "Much of what it indexes mirrors public GitHub repositories, so the canonical copy usually lives on GitHub rather than here."
 - id: exa-agent-skills
   name: Exa Agent Skills
   provider: Exa
   category: vendor-pack
+  kind: pack
   description: "Official skills for the Exa API — teaching an agent to call Exa's search and contents endpoints with cURL or raw HTTP when it already has URLs to read."
+  skill_count: 5
   url: https://github.com/exa-labs/agent-skills
-  install: "git clone https://github.com/exa-labs/agent-skills"
+  install: npx skills add exa-labs/agent-skills
   open_source: true
   stars: 54
   compatible_with: [claude-code, codex, any]
@@ -125,15 +167,16 @@
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
   status: active
-  notes: "Exa's own API has a free allowance, so the skill and the service it drives are both usable at zero cost. Small repository, but vendor-maintained, which is what matters for an API wrapper."
-
+  notes: "Five skills, counted from the repository tree; `npx skills add exa-labs/agent-skills` verified by running it. Exa's own API has a free allowance, so the skill and the service it drives are both usable at zero cost."
 - id: neon-agent-skills
   name: Neon Agent Skills
   provider: Neon
   category: vendor-pack
+  kind: pack
   description: "Official skills for operating Neon serverless Postgres from an agent — branch creation, connection handling and database workflow tasks."
+  skill_count: 17
   url: https://github.com/neondatabase/agent-skills
-  install: "git clone https://github.com/neondatabase/agent-skills"
+  install: npx skills add neondatabase/agent-skills
   open_source: true
   stars: 90
   compatible_with: [claude-code, codex, cursor, any]
@@ -141,15 +184,18 @@
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
   status: active
-  notes: "Pairs with Neon's free tier, which is already catalogued — a useful combination because the free plan's branching model is the part agents get wrong without guidance."
-
+  notes:
+    - "17 SKILL.md files counted from the repository tree, though the skills CLI lists 8 of them — the rest sit in layouts it does not traverse."
+    - "Pairs with Neon's free tier, which is already catalogued — a useful combination because the free plan's branching model is the part agents get wrong without guidance."
 - id: weaviate-agent-skills
   name: Weaviate Agent Skills
   provider: Weaviate
   category: vendor-pack
+  kind: pack
   description: "Official skills covering vector search, semantic and hybrid retrieval, data import, RAG cookbook patterns, agentic RAG and multimodal PDF search."
+  skill_count: 2
   url: https://github.com/weaviate/agent-skills
-  install: "git clone https://github.com/weaviate/agent-skills"
+  install: npx skills add weaviate/agent-skills
   open_source: true
   stars: 104
   compatible_with: [claude-code, codex, any]
@@ -157,15 +203,16 @@
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
   status: active
-  notes: "One of the few skill packs that teaches retrieval *strategy* rather than an API surface — hybrid search and chunking decisions are where RAG systems actually fail."
-
+  notes: "Only two skills, counted from the tree — the smallest vendor pack here. It teaches retrieval strategy rather than an API surface, and hybrid search and chunking decisions are where RAG systems actually fail."
 - id: apify-agent-skills
   name: Apify Agent Skills
   provider: Apify
   category: vendor-pack
+  kind: pack
   description: "Official Apify skills for web scraping, data extraction and browser automation through Apify's actor platform."
+  skill_count: 5
   url: https://github.com/apify/agent-skills
-  install: "git clone https://github.com/apify/agent-skills"
+  install: npx skills add apify/agent-skills
   open_source: true
   stars: 2398
   compatible_with: [claude-code, codex, cursor, any]
@@ -173,15 +220,16 @@
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
   status: active
-  notes: "Apify has a monthly free credit allowance that covers light scraping. For a purely free path with no account at all, pair it with Firecrawl's free tier or the Playwright skill instead."
-
+  notes: "Five skills, counted from the tree. Apify has a monthly free credit allowance that covers light scraping; for a purely free path with no account, pair it with Firecrawl's free tier or the Playwright skill instead."
 - id: microsoft-agent-skills
   name: Microsoft Agent Skills
   provider: Microsoft
   category: vendor-pack
-  description: "Microsoft's skills, MCP servers and custom-agent definitions spanning Azure services, the Bot Framework, Cognitive Services and enterprise .NET development patterns."
-  url: https://github.com/microsoft/agent-skills
-  install: "git clone https://github.com/microsoft/agent-skills"
+  kind: pack
+  description: "Microsoft's skills, plugins and custom-agent definitions for building on Azure SDKs and Microsoft Foundry — generated per service and language, alongside MCP-builder, documentation and workspace tooling."
+  skill_count: 204
+  url: https://github.com/microsoft/skills
+  install: npx skills add microsoft/skills
   open_source: true
   stars: 3051
   compatible_with: [vscode, claude-code, codex, any]
@@ -189,15 +237,19 @@
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
   status: active
-  notes: "The broadest first-party pack outside the two model vendors. Most skills target Azure services, so they are only useful if you are already on that stack — Azure for Students is a no-card way in."
-
+  notes:
+    - "The repository now lives at microsoft/skills; the older microsoft/agent-skills path redirects to it, which is the link most aggregator lists still carry."
+    - "Counted from the tree: 204 SKILL.md files, 191 under .github/plugins and 13 under .github/skills. The README separately advertises 175 skills, so the two figures do not agree and the tree is the one we can check."
+    - "Scope is Azure SDKs and Microsoft Foundry, not the Bot Framework or Cognitive Services as aggregator descriptions have it. Marked work in progress by Microsoft; `npx skills add microsoft/skills` verified by running it."
 - id: intellectronica-agent-skills
   name: Intellectronica Agent Skills
   provider: Intellectronica
   category: community
+  kind: pack
   description: "A maintained personal collection of agent skills, best known for a Notion REST API skill that drives workspaces with curl and jq rather than a vendor SDK."
+  skill_count: 44
   url: https://github.com/intellectronica/agent-skills
-  install: "git clone https://github.com/intellectronica/agent-skills"
+  install: npx skills add intellectronica/agent-skills
   open_source: true
   stars: 293
   compatible_with: [claude-code, codex, any]
@@ -205,4 +257,995 @@
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
   status: active
-  notes: "Listed because the curl-and-jq approach works with any agent that can run shell commands, with no SDK or connector required. Single-maintainer project — the Notion API it targets changes independently of the skill."
+  notes:
+    - "44 SKILL.md files counted from the tree; the skills CLI lists 22, so the difference is layout rather than content we could see."
+    - "Its notion-api skill is one of the most-installed skills anywhere in this category — 78,501 installs in the skills.sh registry, second only to Vercel's find-skills among the packs measured here."
+    - "Single-maintainer project. The curl-and-jq approach works with any agent that can run shell commands, but the Notion API it targets changes independently of the skill."
+- id: openai-aspnet-core
+  name: ASP.NET Core
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: framework
+  parent: openai-skills
+  description: "Build, review, refactor, or architect ASP.NET Core web applications using current official guidance for .NET web development."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/aspnet-core"
+  install: npx skills add openai/skills --skill aspnet-core
+  compatible_with: [codex]
+  tags: [skill, codex, curated, framework]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-chatgpt-apps
+  name: ChatGPT Apps
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: framework
+  parent: openai-skills
+  description: "Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/chatgpt-apps"
+  install: npx skills add openai/skills --skill chatgpt-apps
+  compatible_with: [codex]
+  tags: [skill, codex, curated, framework]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-cli-creator
+  name: CLI Creator
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: engineering
+  parent: openai-skills
+  description: "Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin tool, or a local script."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/cli-creator"
+  install: npx skills add openai/skills --skill cli-creator
+  compatible_with: [codex]
+  tags: [skill, codex, curated, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-cloudflare-deploy
+  name: Cloudflare Deploy
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: devops
+  parent: openai-skills
+  description: "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/cloudflare-deploy"
+  install: npx skills add openai/skills --skill cloudflare-deploy
+  compatible_with: [codex]
+  tags: [skill, codex, curated, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-define-goal
+  name: Define Goal
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: productivity
+  parent: openai-skills
+  description: "Helps the user state a concrete, measurable goal before work starts — invoked when someone asks to set an objective or create a goal."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/define-goal"
+  install: npx skills add openai/skills --skill define-goal
+  compatible_with: [codex]
+  tags: [skill, codex, curated, productivity]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-figma
+  name: Figma
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: design
+  parent: openai-skills
+  description: "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/figma"
+  install: npx skills add openai/skills --skill figma
+  compatible_with: [codex]
+  tags: [skill, codex, curated, design]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-figma-code-connect-components
+  name: Figma Code Connect
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: design
+  parent: openai-skills
+  description: "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create…"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/figma-code-connect-components"
+  install: npx skills add openai/skills --skill figma-code-connect-components
+  compatible_with: [codex]
+  tags: [skill, codex, curated, design]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-figma-create-design-system-rules
+  name: Figma Design System Rules
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: design
+  parent: openai-skills
+  description: "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wa…"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/figma-create-design-system-rules"
+  install: npx skills add openai/skills --skill figma-create-design-system-rules
+  compatible_with: [codex]
+  tags: [skill, codex, curated, design]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-figma-create-new-file
+  name: Figma Create File
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: design
+  parent: openai-skills
+  description: "Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam file, or when you need a new file before calling use_figma. Handles plan resolution via whoami if needed."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/figma-create-new-file"
+  install: npx skills add openai/skills --skill figma-create-new-file
+  compatible_with: [codex]
+  tags: [skill, codex, curated, design]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-figma-generate-design
+  name: Figma Generate Design
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: design
+  parent: openai-skills
+  description: "Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/figma-generate-design"
+  install: npx skills add openai/skills --skill figma-generate-design
+  compatible_with: [codex]
+  tags: [skill, codex, curated, design]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-figma-generate-library
+  name: Figma Generate Library
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: design
+  parent: openai-skills
+  description: "Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundation…"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/figma-generate-library"
+  install: npx skills add openai/skills --skill figma-generate-library
+  compatible_with: [codex]
+  tags: [skill, codex, curated, design]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-figma-implement-design
+  name: Figma Implement Design
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: design
+  parent: openai-skills
+  description: "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement compo…"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/figma-implement-design"
+  install: npx skills add openai/skills --skill figma-implement-design
+  compatible_with: [codex]
+  tags: [skill, codex, curated, design]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-figma-use
+  name: Figma Use
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: design
+  parent: openai-skills
+  description: "Mandatory prerequisite before any use_figma tool call — the Figma MCP workflow for pulling design context and translating nodes into code."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/figma-use"
+  install: npx skills add openai/skills --skill figma-use
+  compatible_with: [codex]
+  tags: [skill, codex, curated, design]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-gh-address-comments
+  name: GitHub Address Comments
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: devops
+  parent: openai-skills
+  description: "Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/gh-address-comments"
+  install: npx skills add openai/skills --skill gh-address-comments
+  compatible_with: [codex]
+  tags: [skill, codex, curated, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-gh-fix-ci
+  name: GitHub Fix CI
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: devops
+  parent: openai-skills
+  description: "Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit appr…"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/gh-fix-ci"
+  install: npx skills add openai/skills --skill gh-fix-ci
+  compatible_with: [codex]
+  tags: [skill, codex, curated, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-hatch-pet
+  name: Hatch Pet
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: media
+  parent: openai-skills
+  description: "Create, repair, validate, visually QA, and package Codex-compatible animated pets and pet spritesheets from character art, generated images, company or prospect brand cues, or visual references."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/hatch-pet"
+  install: npx skills add openai/skills --skill hatch-pet
+  compatible_with: [codex]
+  tags: [skill, codex, curated, media]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-jupyter-notebook
+  name: Jupyter Notebook
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: engineering
+  parent: openai-skills
+  description: "Use when user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials;"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/jupyter-notebook"
+  install: npx skills add openai/skills --skill jupyter-notebook
+  compatible_with: [codex]
+  tags: [skill, codex, curated, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-linear
+  name: Linear
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: productivity
+  parent: openai-skills
+  description: "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/linear"
+  install: npx skills add openai/skills --skill linear
+  compatible_with: [codex]
+  tags: [skill, codex, curated, productivity]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-migrate-to-codex
+  name: Migrate to Codex
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: engineering
+  parent: openai-skills
+  description: "Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/migrate-to-codex"
+  install: npx skills add openai/skills --skill migrate-to-codex
+  compatible_with: [codex]
+  tags: [skill, codex, curated, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-netlify-deploy
+  name: Netlify Deploy
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: devops
+  parent: openai-skills
+  description: "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/netlify-deploy"
+  install: npx skills add openai/skills --skill netlify-deploy
+  compatible_with: [codex]
+  tags: [skill, codex, curated, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-notion-knowledge-capture
+  name: Notion Knowledge Capture
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: productivity
+  parent: openai-skills
+  description: "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/notion-knowledge-capture"
+  install: npx skills add openai/skills --skill notion-knowledge-capture
+  compatible_with: [codex]
+  tags: [skill, codex, curated, productivity]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-notion-meeting-intelligence
+  name: Notion Meeting Intelligence
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: productivity
+  parent: openai-skills
+  description: "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/notion-meeting-intelligence"
+  install: npx skills add openai/skills --skill notion-meeting-intelligence
+  compatible_with: [codex]
+  tags: [skill, codex, curated, productivity]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-notion-research-documentation
+  name: Notion Research Documentation
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: productivity
+  parent: openai-skills
+  description: "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/notion-research-documentation"
+  install: npx skills add openai/skills --skill notion-research-documentation
+  compatible_with: [codex]
+  tags: [skill, codex, curated, productivity]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-notion-spec-to-implementation
+  name: Notion Spec to Implementation
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: productivity
+  parent: openai-skills
+  description: "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/notion-spec-to-implementation"
+  install: npx skills add openai/skills --skill notion-spec-to-implementation
+  compatible_with: [codex]
+  tags: [skill, codex, curated, productivity]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-openai-docs
+  name: OpenAI Docs
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: engineering
+  parent: openai-skills
+  description: "Answers questions about building with OpenAI products and APIs, Codex surfaces, and current official documentation."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/openai-docs"
+  install: npx skills add openai/skills --skill openai-docs
+  compatible_with: [codex]
+  tags: [skill, codex, curated, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-pdf
+  name: PDF
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: documents
+  parent: openai-skills
+  description: "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/pdf"
+  install: npx skills add openai/skills --skill pdf
+  compatible_with: [codex]
+  tags: [skill, codex, curated, documents]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-playwright
+  name: Playwright
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: automation
+  parent: openai-skills
+  description: "Use when task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/playwright"
+  install: npx skills add openai/skills --skill playwright
+  compatible_with: [codex]
+  tags: [skill, codex, curated, automation]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-playwright-interactive
+  name: Playwright Interactive
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: automation
+  parent: openai-skills
+  description: "Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/playwright-interactive"
+  install: npx skills add openai/skills --skill playwright-interactive
+  compatible_with: [codex]
+  tags: [skill, codex, curated, automation]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-render-deploy
+  name: Render Deploy
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: devops
+  parent: openai-skills
+  description: "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/render-deploy"
+  install: npx skills add openai/skills --skill render-deploy
+  compatible_with: [codex]
+  tags: [skill, codex, curated, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-screenshot
+  name: Screenshot
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: automation
+  parent: openai-skills
+  description: "Use when user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is n…"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/screenshot"
+  install: npx skills add openai/skills --skill screenshot
+  compatible_with: [codex]
+  tags: [skill, codex, curated, automation]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-security-best-practices
+  name: Security Best Practices
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: security
+  parent: openai-skills
+  description: Perform language and framework specific security best-practice reviews and suggest improvements.
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/security-best-practices"
+  install: npx skills add openai/skills --skill security-best-practices
+  compatible_with: [codex]
+  tags: [skill, codex, curated, security]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-security-ownership-map
+  name: Security Ownership Map
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: security
+  parent: openai-skills
+  description: "Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/security-ownership-map"
+  install: npx skills add openai/skills --skill security-ownership-map
+  compatible_with: [codex]
+  tags: [skill, codex, curated, security]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-security-threat-model
+  name: Security Threat Model
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: security
+  parent: openai-skills
+  description: "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/security-threat-model"
+  install: npx skills add openai/skills --skill security-threat-model
+  compatible_with: [codex]
+  tags: [skill, codex, curated, security]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-sentry
+  name: Sentry Issue Triage
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: devops
+  parent: openai-skills
+  description: "Use when user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/sentry"
+  install: npx skills add openai/skills --skill sentry
+  compatible_with: [codex]
+  tags: [skill, codex, curated, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-speech
+  name: Speech
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: media
+  parent: openai-skills
+  description: "Use when user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API;"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/speech"
+  install: npx skills add openai/skills --skill speech
+  compatible_with: [codex]
+  tags: [skill, codex, curated, media]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-transcribe
+  name: Transcribe
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: media
+  parent: openai-skills
+  description: "Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or mee…"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/transcribe"
+  install: npx skills add openai/skills --skill transcribe
+  compatible_with: [codex]
+  tags: [skill, codex, curated, media]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-vercel-deploy
+  name: Vercel Deploy
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: devops
+  parent: openai-skills
+  description: "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\"."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/vercel-deploy"
+  install: npx skills add openai/skills --skill vercel-deploy
+  compatible_with: [codex]
+  tags: [skill, codex, curated, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-winui-app
+  name: WinUI App
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: framework
+  parent: openai-skills
+  description: "Bootstrap, develop, and design modern WinUI 3 desktop applications with C# and the Windows App SDK using official Microsoft guidance, WinUI Gallery patterns, Windows App SDK samples, and CommunityToolkit compon…"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/winui-app"
+  install: npx skills add openai/skills --skill winui-app
+  compatible_with: [codex]
+  tags: [skill, codex, curated, framework]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: openai-yeet
+  name: "Yeet (stage, commit, PR)"
+  provider: OpenAI
+  category: catalog
+  kind: skill
+  domain: devops
+  parent: openai-skills
+  description: "Stages, commits, pushes and opens a GitHub pull request in one flow with the GitHub CLI, only when explicitly asked."
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/yeet"
+  install: npx skills add openai/skills --skill yeet
+  compatible_with: [codex]
+  tags: [skill, codex, curated, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+- id: crewai-design-agent
+  name: Design Agent
+  provider: CrewAI
+  category: vendor-pack
+  kind: skill
+  domain: framework
+  parent: crewai-skills
+  description: "CrewAI agent design and configuration — role, goal and backstory, LLM choice, tool assignment, max_iter/max_rpm/max_execution_time tuning, planning and code execution, delegation, knowledge sources, guardrails, and agents in YAML versus code."
+  url: "https://skills.sh/crewaiinc/skills/design-agent"
+  install: npx skills add crewaiinc/skills --skill design-agent
+  compatible_with: [any]
+  tags: [skill, vendor, crewai, framework]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "7,053 installs in the skills.sh registry at check time."
+- id: crewai-design-task
+  name: Design Task
+  provider: CrewAI
+  category: vendor-pack
+  kind: skill
+  domain: framework
+  parent: crewai-skills
+  description: "CrewAI task design — writing descriptions and expected_output, chaining tasks with context, output formats (pydantic, JSON, file), guardrails for validation, human_input, async execution and markdown output."
+  url: "https://skills.sh/crewaiinc/skills/design-task"
+  install: npx skills add crewaiinc/skills --skill design-task
+  compatible_with: [any]
+  tags: [skill, vendor, crewai, framework]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "6,911 installs in the skills.sh registry at check time."
+- id: crewai-getting-started
+  name: Getting Started
+  provider: CrewAI
+  category: vendor-pack
+  kind: skill
+  domain: framework
+  parent: crewai-skills
+  description: "CrewAI architecture decisions and project scaffolding — choosing between LLM.call(), Agent.kickoff(), Crew.kickoff() and Flow, scaffolding with `crewai create flow`, YAML config, the @CrewBase crew.py pattern and conversational Flows."
+  url: "https://skills.sh/crewaiinc/skills/getting-started"
+  install: npx skills add crewaiinc/skills --skill getting-started
+  compatible_with: [any]
+  tags: [skill, vendor, crewai, framework]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "7,102 installs in the skills.sh registry at check time."
+- id: crewai-ask-docs
+  name: Ask Docs
+  provider: CrewAI
+  category: vendor-pack
+  kind: skill
+  domain: framework
+  parent: crewai-skills
+  description: "A docs-aware assistant for CrewAI framework questions, answering from the current documentation rather than from model memory."
+  url: "https://skills.sh/crewaiinc/skills/ask-docs"
+  install: npx skills add crewaiinc/skills --skill ask-docs
+  compatible_with: [any]
+  tags: [skill, vendor, crewai, framework]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "6,937 installs in the skills.sh registry at check time."
+- id: vercel-find-skills
+  name: Find Skills
+  provider: Vercel Labs
+  category: vendor-pack
+  kind: skill
+  domain: engineering
+  parent: vercel-agent-skills
+  description: "Discovers and installs skills from the skills.sh registry from inside an agent session, so an agent can extend itself mid-task instead of the user installing files by hand."
+  url: "https://skills.sh/vercel-labs/skills/find-skills"
+  install: npx skills add vercel-labs/skills --skill find-skills
+  compatible_with: [claude-code, codex, cursor, any]
+  tags: [skill, discovery, registry, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "3,539,754 installs in the registry API at check time — the most-installed agent skill we have measured anywhere. It is the bootstrap skill of the skills.sh ecosystem: install it once and it can fetch others."
+- id: dedalus-machines
+  name: Dedalus Machines
+  provider: Dedalus Labs
+  category: vendor-pack
+  kind: skill
+  domain: devops
+  description: "Sets up and operates Dedalus Machines: a persistent Linux sandbox an agent can reach over SSH, run remote code in, or host a temporary service from, including CLI authentication and API base URL configuration."
+  url: "https://docs.dedaluslabs.ai/.well-known/skills/dedalus-machines/SKILL.md"
+  install: "npx skills add https://docs.dedaluslabs.ai/.well-known/skills/dedalus-machines/SKILL.md"
+  compatible_with: [any]
+  tags: [skill, vendor, sandbox, devops]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Published on the vendor docs domain through a .well-known endpoint rather than a Git repository — the skills CLI discovers it there, which we confirmed by running the install command with --list."
+    - "The lowercase path redirects to SKILL.md; the filename is case-sensitive, so use the URL exactly as written."
+- id: clawhub-pdf-generation
+  name: PDF Generation
+  provider: "@bartok9"
+  category: registry
+  kind: skill
+  domain: documents
+  parent: clawhub
+  description: "Generates PDFs from agent output, including layout and pagination, without leaving the session."
+  url: "https://clawhub.ai/bartok9/skills/pdf-generation"
+  install: openclaw skills install @bartok9/pdf-generation
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, documents]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "1,500 downloads and 47 installations in the ClawHub registry at check time."
+    - "The slug \"pdf-generation\" is shared by 2 packages on ClawHub; this is the most-downloaded one, so install it by ref to get this exact package rather than whichever came first."
+- id: clawhub-skill-creator
+  name: Skill Creator
+  provider: "@chindden"
+  category: registry
+  kind: skill
+  domain: engineering
+  parent: clawhub
+  description: "Guides the creation of new skills — structure, metadata and the parts of a skill that change agent behaviour rather than just adding prose."
+  url: "https://clawhub.ai/chindden/skills/skill-creator"
+  install: openclaw skills install @chindden/skill-creator
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "101,702 downloads and 3,498 installations in the ClawHub registry at check time."
+    - "The slug \"skill-creator\" is shared by 7 packages on ClawHub; this is the most-downloaded one, so install it by ref to get this exact package rather than whichever came first."
+- id: clawhub-skill-vetter
+  name: Skill Vetter
+  provider: "@spclaudehome"
+  category: registry
+  kind: skill
+  domain: security
+  parent: clawhub
+  description: "Security-first vetting for a skill before it is installed: what a skill can reach, what it writes, and what it should not be trusted with."
+  url: "https://clawhub.ai/spclaudehome/skills/skill-vetter"
+  install: openclaw skills install @spclaudehome/skill-vetter
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, security]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "274,297 downloads and 12,215 installations in the ClawHub registry at check time."
+    - "The slug \"skill-vetter\" is shared by 4 packages on ClawHub; this is the most-downloaded one, so install it by ref to get this exact package rather than whichever came first."
+- id: clawhub-openai-whisper
+  name: OpenAI Whisper
+  provider: "@steipete"
+  category: registry
+  kind: skill
+  domain: media
+  parent: clawhub
+  description: "Speech-to-text transcription driven through Whisper, wired up for an agent that receives audio."
+  url: "https://clawhub.ai/steipete/skills/openai-whisper"
+  install: openclaw skills install @steipete/openai-whisper
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, media]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "88,606 downloads and 2,973 installations in the ClawHub registry at check time."
+    - "The slug \"openai-whisper\" is shared by 4 packages on ClawHub; this is the most-downloaded one, so install it by ref to get this exact package rather than whichever came first."
+- id: clawhub-skill-security-scan
+  name: Skill Scanner
+  provider: "@sudhindrat"
+  category: registry
+  kind: skill
+  domain: security
+  parent: clawhub
+  description: "Scans a skill for known risky behaviour — static analysis across backdoors, cryptomining and data-exfiltration patterns."
+  url: "https://clawhub.ai/sudhindrat/skills/skill-security-scan"
+  install: openclaw skills install @sudhindrat/skill-security-scan
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, security]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - 910 downloads and 40 installations in the ClawHub registry at check time.
+    - "The slug \"skill-security-scan\" is shared by 2 packages on ClawHub; this is the most-downloaded one, so install it by ref to get this exact package rather than whichever came first."
+    - "Published by @sudhindrat. Lists circulating online attribute this skill to Alibaba Cloud; the registry lists no such owner."
+- id: clawhub-prompt-injection-defense
+  name: Prompt Injection Defense
+  provider: ClawHub
+  category: registry
+  kind: skill
+  domain: security
+  parent: clawhub
+  description: "Hardens an agent session against prompt injection arriving through untrusted content: search results, email, downloaded files and PDFs."
+  url: "https://clawhub.ai/skills/prompt-injection-defense"
+  install: openclaw skills install prompt-injection-defense
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, security]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - 841 downloads and 18 installations in the ClawHub registry at check time.
+- id: clawhub-agent-guardrails
+  name: Agent Guardrails
+  provider: "@olmmlo-cmd"
+  category: registry
+  kind: skill
+  domain: security
+  parent: clawhub
+  description: "Implements guardrails for an agent — what it may do unattended and where it must stop and ask."
+  url: "https://clawhub.ai/olmmlo-cmd/skills/agent-guardrails"
+  install: openclaw skills install @olmmlo-cmd/agent-guardrails
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, security]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "1,573 downloads and 49 installations in the ClawHub registry at check time."
+    - "The slug \"agent-guardrails\" is shared by 2 packages on ClawHub; this is the most-downloaded one, so install it by ref to get this exact package rather than whichever came first."
+- id: clawhub-systematic-debugging
+  name: Systematic Debugging
+  provider: "@ivansslo"
+  category: registry
+  kind: skill
+  domain: engineering
+  parent: clawhub
+  description: "A staged debugging methodology: reproduce, isolate, hypothesise, then verify — instead of pattern-matching on the first plausible cause."
+  url: "https://clawhub.ai/ivansslo/skills/systematic-debugging"
+  install: openclaw skills install @ivansslo/systematic-debugging
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "1,452 downloads and 2 installations in the ClawHub registry at check time."
+    - "The slug \"systematic-debugging\" is shared by 5 packages on ClawHub; this is the most-downloaded one, so install it by ref to get this exact package rather than whichever came first."
+- id: clawhub-code-review
+  name: Code Review
+  provider: "@wpank"
+  category: registry
+  kind: skill
+  domain: engineering
+  parent: clawhub
+  description: "Reviews a diff the way a careful colleague does, separating correctness problems from style preferences."
+  url: "https://clawhub.ai/wpank/skills/code-review"
+  install: openclaw skills install @wpank/code-review
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "18,744 downloads and 553 installations in the ClawHub registry at check time."
+    - "The slug \"code-review\" is shared by 8 packages on ClawHub; this is the most-downloaded one, so install it by ref to get this exact package rather than whichever came first."
+- id: clawhub-refactoring
+  name: Refactoring
+  provider: ClawHub
+  category: registry
+  kind: skill
+  domain: engineering
+  parent: clawhub
+  description: "A deep refactoring workflow built on characterisation tests, small incremental steps, behaviour preservation and verification after each step."
+  url: "https://clawhub.ai/skills/refactoring"
+  install: openclaw skills install refactoring
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, engineering]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "1,519 downloads and 29 installations in the ClawHub registry at check time."
+- id: clawhub-threat-modeling
+  name: Threat Modeling
+  provider: ClawHub
+  category: registry
+  kind: skill
+  domain: security
+  parent: clawhub
+  description: "Structured threat modelling with STRIDE, attack trees and risk scoring to find and prioritise threats in a system design."
+  url: "https://clawhub.ai/skills/threat-modeling"
+  install: openclaw skills install threat-modeling
+  compatible_with: [openclaw]
+  tags: [skill, community, clawhub, security]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "1,958 downloads and 54 installations in the ClawHub registry at check time."
+- id: openai-plugins
+  name: OpenAI Plugins
+  provider: OpenAI
+  category: catalog
+  kind: pack
+  description: "OpenAI's current home for Codex skills and plugins — 62 plugin packages holding 536 skills, from first-party tooling to integrations published by Adobe, Atlassian, Canva, Cloudflare, Datadog, Figma, GitHub, Linear, Notion, Sentry, Stripe, Supabase, Vercel and more."
+  skill_count: 536
+  url: "https://github.com/openai/plugins"
+  stars: 7141
+  compatible_with: [codex]
+  tags: [official, catalog, plugins, skills]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Successor to openai/skills. Read from the repository tree on 2026-09-24: 62 directories under plugins/, containing 536 SKILL.md files."
+    - "Heaviest packages: twilio-developer-kit (55 skills), vercel (54), zoom (53), life-science-research (50), public-equity-investing (23), shopify (20), build-web-data-visualization (18), data-analytics (18), ngs-analysis (18)."
+    - "Layout is one directory per plugin with skills, commands, agents, hooks.json and an .mcp.json, not a flat skills/ tree — the generic skills CLI does not traverse it, so these install through Codex."
+    - "No repository-level licence; each plugin carries its own LICENSE.txt."
+- id: crewai-skills
+  name: CrewAI Skills
+  provider: CrewAI
+  category: vendor-pack
+  kind: pack
+  description: "Official CrewAI skills for building multi-agent systems — agent and task design, project scaffolding, and a docs-aware helper for framework questions."
+  skill_count: 4
+  url: "https://github.com/crewaiinc/skills"
+  install: npx skills add crewaiinc/skills
+  stars: 42
+  compatible_with: [any]
+  tags: [vendor, framework, crewai, skills]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Four skills, all four independently present in the skills.sh registry with roughly 6,900–7,100 installs each. Small repository, but it teaches design decisions (role, goal, guardrails, task dependencies) rather than API calls."
+- id: vercel-agent-skills
+  name: Vercel Agent Skills
+  provider: Vercel
+  category: vendor-pack
+  kind: pack
+  description: "Vercel's official skills for React and Next.js work and for shipping to Vercel: React best practices, composition patterns, view transitions, React Native, deployment, optimising cost and performance, plus web design and writing guidelines."
+  skill_count: 9
+  url: "https://github.com/vercel-labs/agent-skills"
+  install: npx skills add vercel-labs/agent-skills
+  stars: 31497
+  compatible_with: [claude-code, codex, cursor, any]
+  tags: [vendor, react, deployment, skills]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Nine skills, including react-best-practices, web-design-guidelines, vercel-optimize, deploy-to-vercel and vercel-cli-with-tokens."
+    - "The same lab builds the skills.sh registry and its CLI, so these are the reference example of a vendor pack that installs cleanly through `npx skills add`."
+- id: browserbase-skills
+  name: Browserbase Skills
+  provider: Browserbase
+  category: vendor-pack
+  kind: pack
+  description: "Browserbase's official skills for reaching the web from an agent — search without a browser session, fetch a URL, drive a full browser, convert a browser flow into an API call, trace sessions, run adversarial UI tests and research a company."
+  skill_count: 18
+  url: "https://github.com/browserbase/skills"
+  install: npx skills add browserbase/skills
+  stars: 3731
+  compatible_with: [claude-code, codex, cursor, any]
+  tags: [vendor, browser, automation, skills]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Eighteen skills read from the repository tree. The pack distinguishes cheap paths (search, fetch) from expensive ones (full browser sessions), which is the cost decision agents usually get wrong."
+- id: browse-sh
+  name: browse.sh
+  provider: Browserbase
+  category: registry
+  kind: pack
+  description: "An open catalogue of browser-automation skills keyed by site: each entry names a domain, a skill and the method that reaches it, so an agent can ask what is already known about a site before writing a scraper from scratch."
+  url: "https://browse.sh/"
+  install: npm i -g browse
+  compatible_with: [any]
+  tags: [registry, browser, automation, skills]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Published by the Browserbase team; the CLI is the npm package `browse` (\"Unified Browserbase CLI for browser automation and cloud APIs\"), which we confirmed exists under Browserbase maintainers."
+    - "No count is claimed here: the catalogue is not exposed by a public API and the page does not state a size, so unlike the other registries in this file there is nothing to verify against."
+    - "Entries read like `sam.gov · contract-opportunity-search · api` — a domain, the job and how to reach it."
+- id: exa-contents
+  name: Exa Contents
+  provider: Exa
+  category: vendor-pack
+  kind: skill
+  domain: web
+  parent: exa-agent-skills
+  description: "Calls the Exa Contents endpoint with cURL or raw HTTP when an agent already has URLs and needs page text, highlights, summaries, links, subpages or per-URL status without an SDK."
+  url: "https://github.com/exa-labs/agent-skills/tree/main/skills/exa-contents"
+  install: npx skills add exa-labs/agent-skills --skill exa-contents
+  compatible_with: [any]
+  tags: [skill, vendor, web, scraping]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "One of five skills in the Exa pack. 673 installs in the skills.sh registry. Exa has a free allowance, so both the skill and the API it drives are usable at no cost."
