@@ -267,7 +267,8 @@ export default function HomePage() {
                 dateModified: stats.generated_at,
                 primaryImage: "/og/home.png",
                 mainEntity: { "@id": ID.dataset },
-                breadcrumb: { "@id": `${SITE_URL}/#breadcrumb` },
+                // No breadcrumb reference: this page IS the root of every trail, so
+                // pointing at one here only produced a dangling reference.
               }),
             ),
           ),

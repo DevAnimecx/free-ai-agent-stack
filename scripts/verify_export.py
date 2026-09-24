@@ -123,6 +123,73 @@ def main() -> int:
     else:
         c.ok(True, "root-domain build: no base path to double")
 
+    # --- 3b. the JSON-LD graph is connected and self-consistent -------------
+    # The reference-integrity check is the valuable one. A node pointing at an
+    # @id defined nowhere is worse than no node at all: it looks right in a
+    # diff, parses fine, and tells a crawler nothing.
+    #
+    # References resolve site-wide, not per-document — schema.org @ids are
+    # global, and the parent Dataset is legitimately defined on the home page
+    # while its five category children point at it. So: collect every id defined
+    # anywhere, then require every reference to land somewhere. That catches a
+    # typo without failing a correct cross-page link.
+    docs: dict[str, str] = {}
+    id_sources: dict[str, set[str]] = {}
+    parsed_pages: dict[str, list[dict]] = {}
+
+    for page in pages:
+        doc = (OUT / page).read_text()
+        docs[page] = doc
+        blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', doc, re.S)
+        c.ok(bool(blocks), f"no JSON-LD on {page}")
+        nodes: list[dict] = []
+        parsed_ok = True
+        for raw in blocks:
+            try:
+                nodes.extend(json.loads(raw).get("@graph", []))
+            except json.JSONDecodeError as exc:
+                parsed_ok = False
+                c.ok(False, f"JSON-LD does not parse on {page}", str(exc)[:80])
+        if not parsed_ok:
+            continue
+        parsed_pages[page] = nodes
+        for node in nodes:
+            if isinstance(node, dict) and node.get("@id"):
+                id_sources.setdefault(node["@id"], set()).add(page)
+
+    def collect_refs(value: object, into: set[str]) -> None:
+        if isinstance(value, dict):
+            for key, val in value.items():
+                if key == "@id" and isinstance(val, str):
+                    into.add(val)
+                else:
+                    collect_refs(val, into)
+        elif isinstance(value, list):
+            for item in value:
+                collect_refs(item, into)
+
+    for page, nodes in parsed_pages.items():
+        defined_here = {n["@id"] for n in nodes if n.get("@id")}
+
+        # Every indexed page needs a page node tying it back to the site.
+        if "404" not in page:
+            c.ok(
+                any(str(i).endswith("#webpage") for i in defined_here),
+                f"no WebPage node on {page}",
+            )
+
+        refs: set[str] = set()
+        collect_refs(nodes, refs)
+        unresolved = sorted(
+            ref for ref in refs - set(id_sources)
+            if ref.startswith(site_url) and "#" in ref
+        )
+        c.ok(
+            not unresolved,
+            f"unresolved @id reference(s) on {page}",
+            ", ".join(u.replace(site_url, "") for u in unresolved[:3]),
+        )
+
     # --- 4. social + icon tags resolve -------------------------------------
     def meta(pattern: str) -> str | None:
         """First capture group, or None. Only for single-group patterns."""
