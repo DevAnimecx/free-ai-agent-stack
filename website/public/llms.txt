@@ -3,8 +3,8 @@
 > A verified, machine-readable catalogue of free LLM APIs, MCP servers, agent
 > frameworks and free-tier infrastructure for building AI agents at zero cost.
 
-Last data export: 2026-09-24T09:31:25+00:00
-Total entries: 235
+Last data export: 2026-09-24T09:44:37+00:00
+Total entries: 252
 Schema version: 1.0.0
 
 ## How to use this data
@@ -22,16 +22,16 @@ Schema version: 1.0.0
 
 - https://freeaiagentstack.dev/data/all.json — every entry, all categories
 - https://freeaiagentstack.dev/data/index.json — counts, schema version, attribution terms
-- https://freeaiagentstack.dev/data/llm-apis.json — Free LLM APIs (63 entries)
-- https://freeaiagentstack.dev/data/mcp-servers.json — MCP Servers (62 entries)
-- https://freeaiagentstack.dev/data/agent-tools.json — Agent Tools (40 entries)
-- https://freeaiagentstack.dev/data/free-tiers.json — Free Tiers (70 entries)
+- https://freeaiagentstack.dev/data/llm-apis.json — Free LLM APIs (70 entries)
+- https://freeaiagentstack.dev/data/mcp-servers.json — MCP Servers (63 entries)
+- https://freeaiagentstack.dev/data/agent-tools.json — Agent Tools (45 entries)
+- https://freeaiagentstack.dev/data/free-tiers.json — Free Tiers (74 entries)
 
 ## Categories
 
 ### Free LLM APIs
 Canonical page: https://freeaiagentstack.dev/llm-apis
-Entries: 63
+Entries: 70
 
 - Google Gemini API — Frontier multimodal models on a permanent free tier — Flash and Flash-Lite families only since April 2026. Free limit: 1,500 requests/day on Flash, 1,000/day on Flash-Lite; 250K TPM. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#google-gemini Verified: 2026-09-24
 - Groq Cloud — Open-weight models at 300+ tokens/sec on LPU hardware, with the most generous request-per-day allowance of any free tier. Free limit: 1,000 req/day and 200K tokens/day per model. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#groq Verified: 2026-09-24
@@ -96,10 +96,17 @@ Entries: 63
 - DeepSeek API — Extremely cheap per-token pricing, but no standing free tier and no signup grant since 2026. Free limit: None — top-up required (cheapest paid tokens on the market). Credit card required. Status: deprecated. Anchor: https://freeaiagentstack.dev/llm-apis#deepseek-api Verified: 2026-09-24
 - Together AI — 200+ open models, but the signup trial credit was retired; a $5 minimum purchase is required. Free limit: None — $5 minimum purchase to start. Credit card required. Status: deprecated. Anchor: https://freeaiagentstack.dev/llm-apis#together-ai Verified: 2026-09-24
 - Perplexity API (Sonar) — Search-grounded Sonar models are paid API only; the free consumer app is not API access. Free limit: None — Pro subscribers get $5/month of API credit. Credit card required. Status: deprecated. Anchor: https://freeaiagentstack.dev/llm-apis#perplexity-api Verified: 2026-09-24
+- Dahl Inference — Anonymous open-model inference on a decentralised GPU network — 100M tokens per key with no account, no card and no signup, on an OpenAI-compatible endpoint. Free limit: 100M tokens per API key. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#dahl-inference Verified: 2026-09-24
+- LLM7.io — Gateway you can call with the literal placeholder key "unused" — no account, no email, no card, just a base URL and an OpenAI SDK. Free limit: 10 req/min anonymous; 40 req/min with a free token. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#llm7 Verified: 2026-09-24
+- OVHcloud AI Endpoints — EU-hosted, GDPR-friendly inference over 20+ open-weight models at $0, usable without an API key on the anonymous tier. Free limit: Free — $0 per request on the anonymous tier. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#ovh-ai-endpoints Verified: 2026-09-24
+- Hack Club AI — Free OpenAI-compatible access to Gemini, GPT-5.2, Kimi K2 and 30+ other models for Hack Clubbers — the most generous free tier aimed at teenage developers. Free limit: Free for Hack Club members. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#hack-club-ai Verified: 2026-09-24
+- Space Bunny Alpha — Anonymous stealth model on OpenRouter with a 1M-token context window, free at $0 in and $0 out while the provider stays cloaked. Free limit: Free ($0/$0 per million tokens) while the preview runs. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#space-bunny-alpha Verified: 2026-09-24
+- ZenMux — Unified gateway over 100+ models that keeps a small set of model ids permanently free, including DeepSeek V4 Flash Vision and GLM-5.3. Free limit: Free model ids, including deepseek/deepseek-v4-flash-vision-exp-free and z-ai/glm-5.3-free. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#zenmux-free Verified: 2026-09-24
+- Puter.js — Client-side JavaScript SDK that gives a web app AI, storage, database and auth with no backend — the developer pays nothing because each signed-in user spends credits from their own Puter account. Free limit: Free for developers; end users spend their own Puter credits. No credit card required. Anchor: https://freeaiagentstack.dev/llm-apis#puter-js Verified: 2026-09-24
 
 ### MCP Servers
 Canonical page: https://freeaiagentstack.dev/mcp-servers
-Entries: 62
+Entries: 63
 
 - Filesystem — Secure local file operations with configurable allow-listed directories — the reference server every local agent starts with. Install: npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir Anchor: https://freeaiagentstack.dev/mcp-servers#filesystem-mcp Verified: 2026-09-24
 - Fetch — Fetches a URL and converts it to clean markdown for the model, with robots.txt respect and chunked reading. Install: uvx mcp-server-fetch Anchor: https://freeaiagentstack.dev/mcp-servers#fetch-mcp Verified: 2026-09-24
@@ -163,10 +170,11 @@ Entries: 62
 - Google Drive (Archived) — Searches and reads Google Drive files. Superseded by community Workspace servers. Install: npx -y @modelcontextprotocol/server-gdrive Status: deprecated. Anchor: https://freeaiagentstack.dev/mcp-servers#google-drive-mcp Verified: 2026-09-24
 - Slack (Archived Reference) — The original Slack channel-management reference server, now unmaintained. Install: npx -y @modelcontextprotocol/server-slack Status: deprecated. Anchor: https://freeaiagentstack.dev/mcp-servers#slack-archived-mcp Verified: 2026-09-24
 - Brave Search (Archived Reference) — Archived reference search server, replaced by Brave's own first-party server. Install: npx -y @modelcontextprotocol/server-brave-search Status: deprecated. Anchor: https://freeaiagentstack.dev/mcp-servers#brave-search-archived-mcp Verified: 2026-09-24
+- Wikidata MCP — Semantic and keyword search over Wikidata's ~30M entities and properties, so agents can resolve vague concepts into verifiable QIDs before writing SPARQL. Install: npx -y mcp-remote https://wd-mcp.wmcloud.org/mcp/ Anchor: https://freeaiagentstack.dev/mcp-servers#wikidata-mcp Verified: 2026-09-24
 
 ### Agent Tools
 Canonical page: https://freeaiagentstack.dev/agent-tools
-Entries: 40
+Entries: 45
 
 - Cursor — AI-first code editor with whole-project awareness, tab completion and a multi-file agent. Free limit: Hobby plan: limited agent requests + 2,000 tab completions/month. No credit card required. Anchor: https://freeaiagentstack.dev/agent-tools#cursor Verified: 2026-09-24
 - Devin Desktop (formerly Windsurf) — Agentic editor from Cognition — the Windsurf/Cascade lineage, renamed after the 2026 acquisition. Free limit: Free plan: unlimited tab completion, quota-limited Cascade agent sessions. No credit card required. Anchor: https://freeaiagentstack.dev/agent-tools#devin-desktop Verified: 2026-09-24
@@ -208,10 +216,15 @@ Entries: 40
 - Langflow — Visual drag-and-drop builder that compiles to LangChain-based flows and exposes each as an API. Free limit: Open source (MIT). No credit card required. Install: uvx langflow Anchor: https://freeaiagentstack.dev/agent-tools#langflow Verified: 2026-09-24
 - Flowise — Low-code LLM orchestration with agent flows, tools and embeddable chat widgets. Free limit: Open source (Apache 2.0). No credit card required. Install: npx flowise start Anchor: https://freeaiagentstack.dev/agent-tools#flowise Verified: 2026-09-24
 - Activepieces — Open-source Zapier alternative with AI pieces and MCP support, MIT-licensed rather than fair-code. Free limit: Self-hosted Community Edition free (MIT). No credit card required. Anchor: https://freeaiagentstack.dev/agent-tools#activepieces Verified: 2026-09-24
+- MemPalace — Local-first memory for agents that stores conversations verbatim in ChromaDB and organises them into wings, halls and rooms instead of letting an LLM decide what is worth keeping. Free limit: Free — MIT licensed, runs locally with zero API calls. No credit card required. Install: pip install mempalace && mempalace init Anchor: https://freeaiagentstack.dev/agent-tools#mempalace Verified: 2026-09-24
+- Cognee — Open-source memory platform that builds a self-hosted knowledge graph from your data, giving agents persistent long-term memory across sessions. Free limit: Free — self-hosted, runs with local extraction and embedding models. No credit card required. Install: pip install cognee Anchor: https://freeaiagentstack.dev/agent-tools#cognee Verified: 2026-09-24
+- Mem0 — Drop-in memory layer for agents that extracts and stores salient facts between sessions, with the widest framework support of any memory library. Free limit: Free open-source self-host; hosted tier includes 10K memories. No credit card required. Install: pip install mem0ai Anchor: https://freeaiagentstack.dev/agent-tools#mem0 Verified: 2026-09-24
+- Nanobrowser — Open-source Chrome extension that runs multi-agent web workflows — extract, compare and fill forms — inside your own browser, on your own keys. Free limit: Free — Apache-2.0 extension, works with any provider including Ollama and Groq. No credit card required. Anchor: https://freeaiagentstack.dev/agent-tools#nanobrowser Verified: 2026-09-24
+- Freebuff — Coding agent funded by terminal advertising — desktop, CLI, web and chat clients all backed by frontier models at no cost, in exchange for text ads. Free limit: Free with ad support; no subscription. No credit card required. Status: degraded. Anchor: https://freeaiagentstack.dev/agent-tools#freebuff Verified: 2026-09-24
 
 ### Free Tiers
 Canonical page: https://freeaiagentstack.dev/free-tiers
-Entries: 70
+Entries: 74
 
 - Vercel — Static and serverless hosting with preview deployments per branch and AI Gateway included. Free limit: Hobby: 100GB bandwidth/mo, 100h serverless, $5/mo AI credit. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#vercel Verified: 2026-09-24
 - Netlify — Static hosting, edge functions and form handling with per-branch deploy previews. Free limit: 100GB bandwidth/mo, 300 build minutes/mo. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#netlify Verified: 2026-09-24
@@ -283,6 +296,10 @@ Entries: 70
 - Algolia — Hosted search with typo tolerance, synonyms and instant-search UI libraries. Free limit: 10K search requests/mo, 1M records. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#algolia Verified: 2026-09-24
 - DocSearch — Free Algolia-powered documentation search for open-source projects, including crawl and the search UI. Free limit: Free for open-source and developer documentation. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#docsearch Verified: 2026-09-24
 - Typesense Cloud — Open-source (GPL) search engine with typo tolerance and vector search, self-hostable or managed. Free limit: Self-hosted is free; cloud offers trial clusters. No credit card required. Status: degraded. Anchor: https://freeaiagentstack.dev/free-tiers#typesense-cloud Verified: 2026-09-24
+- Actian VectorAI DB (Community Edition) — Embedded vector database from Actian that runs on a laptop with no service to deploy, built for agent memory and local RAG prototypes. Free limit: 5,000 vectors, free forever. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#actian-vectorai Verified: 2026-09-24
+- Wikidata Vector Database — Wikimedia Deutschland's public vector database over Wikidata — roughly 30 million knowledge-graph entities exposed as embeddings for RAG grounding in verifiable, open data. Free limit: Free public access, no account. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#wikidata-vectordb Verified: 2026-09-24
+- Opik — Comet's open-source LLM observability stack — tracing, evaluation, prompt management and production monitoring for agents and RAG pipelines. Free limit: Free — Apache-2.0, self-host the full platform. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#opik Verified: 2026-09-24
+- free-llm-gateway — Self-hosted OpenAI-compatible gateway that fronts more than a dozen free LLM providers behind one endpoint and falls through to the next provider on failure. Free limit: Free — self-hosted, bring your own free provider keys. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#free-llm-gateway Verified: 2026-09-24
 
 ## Licence and attribution
 

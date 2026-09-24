@@ -36,6 +36,12 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/cognee": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/continue-dev": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -79,6 +85,12 @@
       "last_status_url": 200
     },
     "agent-tools/flowise": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/freebuff": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -168,7 +180,25 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "agent-tools/mem0": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/mempalace": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "agent-tools/n8n": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/nanobrowser": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -245,6 +275,14 @@
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_url": 200
+    },
+    "free-tiers/actian-vectorai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 1
     },
     "free-tiers/aiven-free": {
       "failures": 0,
@@ -384,6 +422,12 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "free-tiers/free-llm-gateway": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
     "free-tiers/gcp-free-tier": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -503,6 +547,13 @@
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/opik": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
       "last_status_url": 200
     },
     "free-tiers/oracle-cloud-always-free": {
@@ -649,6 +700,13 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "free-tiers/wikidata-vectordb": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "Partial Content",
+      "last_status_docs_url": 200,
+      "last_status_url": 206
+    },
     "free-tiers/workos-authkit": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -672,7 +730,7 @@
     "llm-apis/alibaba-model-studio": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "",
       "last_status_docs_url": 200,
       "last_status_signup_url": 200,
       "last_status_url": 200
@@ -775,6 +833,14 @@
       "last_status_signup_url": 200,
       "last_status_url": 200
     },
+    "llm-apis/dahl-inference": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
     "llm-apis/deepgram": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -817,7 +883,7 @@
     "llm-apis/faster-whisper": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "skipped: disallowed by robots.txt",
+      "last_reason": "OK",
       "last_status_docs_url": 0,
       "last_status_url": 200
     },
@@ -877,10 +943,17 @@
       "last_status_signup_url": 200,
       "last_status_url": 200
     },
+    "llm-apis/hack-club-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
     "llm-apis/huggingface-inference": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_reason": "OK",
       "last_status_docs_url": 200,
       "last_status_signup_url": 403,
       "last_status_url": 200,
@@ -912,7 +985,7 @@
     "llm-apis/leonardo-ai": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_reason": "OK",
       "last_status_docs_url": 200,
       "last_status_signup_url": 200,
       "last_status_url": 403,
@@ -921,7 +994,7 @@
     "llm-apis/llama-cpp": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "skipped: disallowed by robots.txt",
+      "last_reason": "OK",
       "last_status_docs_url": 0,
       "last_status_url": 200
     },
@@ -930,6 +1003,14 @@
       "last_checked": "2026-09-24",
       "last_reason": "OK",
       "last_status_docs_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/llm7": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
       "last_status_url": 200
     },
     "llm-apis/lm-studio": {
@@ -1009,6 +1090,13 @@
       "last_status_signup_url": 200,
       "last_status_url": 200
     },
+    "llm-apis/ovh-ai-endpoints": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
     "llm-apis/perplexity-api": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -1025,6 +1113,13 @@
       "last_status_url": 200
     },
     "llm-apis/pollinations": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/puter-js": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -1063,10 +1158,18 @@
       "last_status_signup_url": 200,
       "last_status_url": 200
     },
-    "llm-apis/speechmatics": {
+    "llm-apis/space-bunny-alpha": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/speechmatics": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
       "last_status_docs_url": 200,
       "last_status_signup_url": 0,
       "last_status_url": 200
@@ -1135,7 +1238,7 @@
     "llm-apis/wllama": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "skipped: disallowed by robots.txt",
+      "last_reason": "OK",
       "last_status_docs_url": 0,
       "last_status_url": 200
     },
@@ -1148,6 +1251,15 @@
       "last_status_url": 200
     },
     "llm-apis/zai-glm-free": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/zenmux-free": {
       "failures": 0,
       "last_checked": "2026-09-24",
       "last_reason": "OK",
@@ -1520,6 +1632,13 @@
       "last_reason": "OK",
       "last_status_url": 200
     },
+    "mcp-servers/wikidata-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
     "mcp-servers/wikipedia-mcp": {
       "failures": 0,
       "last_checked": "2026-09-24",
@@ -1539,5 +1658,5 @@
       "last_status_url": 200
     }
   },
-  "last_run": "2026-09-24T09:29:07+00:00"
+  "last_run": "2026-09-24T09:44:34+00:00"
 }

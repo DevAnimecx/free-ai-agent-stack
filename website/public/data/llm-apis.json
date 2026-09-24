@@ -2021,5 +2021,230 @@
     "verified_by": "@seed-import",
     "status": "deprecated",
     "notes": "Tavily, Exa and Brave all have free search tiers — see the MCP list for agent-ready alternatives."
+  },
+  {
+    "id": "dahl-inference",
+    "name": "Dahl Inference",
+    "provider": "Dahl",
+    "description": "Anonymous open-model inference on a decentralised GPU network — 100M tokens per key with no account, no card and no signup, on an OpenAI-compatible endpoint.",
+    "free_limit": "100M tokens per API key",
+    "requires_card": false,
+    "requires_phone": false,
+    "rate_limit": "Not published; the 100M-token balance is the binding limit",
+    "models": [
+      "kimi-k2.6",
+      "minimax-m2.7",
+      "glm-5.2-fp8"
+    ],
+    "modalities": [
+      "text"
+    ],
+    "commercial_use": true,
+    "data_used_for_training": false,
+    "url": "https://inference.dahl.global",
+    "docs_url": "https://docs.dahl.global/authentication",
+    "signup_url": "https://inference.dahl.global",
+    "tags": [
+      "no-card",
+      "no-signup",
+      "openai-compatible",
+      "open-models",
+      "hidden-gem",
+      "agents"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "The 100M allowance is per key, not per day — issuance is unlimited, so you can mint another key when one is spent. Anonymous keys come from POST /tokens. Direct curl calls frequently trip a Cloudflare challenge (403); the browser chat and the documented endpoints work. Runs on the Gonka compute network."
+  },
+  {
+    "id": "llm7",
+    "name": "LLM7.io",
+    "provider": "LLM7",
+    "description": "Gateway you can call with the literal placeholder key \"unused\" — no account, no email, no card, just a base URL and an OpenAI SDK.",
+    "free_limit": "10 req/min anonymous; 40 req/min with a free token",
+    "requires_card": false,
+    "requires_phone": false,
+    "rate_limit": "10 RPM anonymous, 40 RPM with token",
+    "models": [
+      "gpt-oss-120b",
+      "gemma-4-31b",
+      "minimax-m2.7",
+      "codestral",
+      "mistral-nemo"
+    ],
+    "modalities": [
+      "text"
+    ],
+    "context_window": 1000000,
+    "commercial_use": true,
+    "data_used_for_training": null,
+    "url": "https://llm7.io",
+    "docs_url": "https://docs.llm7.io/quickstart",
+    "signup_url": "https://dash.llm7.io",
+    "tags": [
+      "no-card",
+      "no-signup",
+      "openai-compatible",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "The widely-repeated \"2 req/s, 20 RPM, 100 req/hr\" figures do not match the vendor documentation: anonymous access is 10 req/min and a free token from token.llm7.io raises it to 40 req/min. Anonymous traffic only reaches the turbo model set."
+  },
+  {
+    "id": "ovh-ai-endpoints",
+    "name": "OVHcloud AI Endpoints",
+    "provider": "OVHcloud",
+    "description": "EU-hosted, GDPR-friendly inference over 20+ open-weight models at $0, usable without an API key on the anonymous tier.",
+    "free_limit": "Free — $0 per request on the anonymous tier",
+    "requires_card": false,
+    "requires_phone": false,
+    "rate_limit": "~2 requests/min per model anonymous",
+    "models": [
+      "Meta-Llama-3_3-70B-Instruct",
+      "whisper-large-v3-turbo"
+    ],
+    "modalities": [
+      "text",
+      "speech-to-text"
+    ],
+    "commercial_use": true,
+    "data_used_for_training": null,
+    "url": "https://endpoints.ai.cloud.ovh.net",
+    "signup_url": "https://endpoints.ai.cloud.ovh.net",
+    "tags": [
+      "no-card",
+      "no-signup",
+      "openai-compatible",
+      "eu-hosted",
+      "gdpr",
+      "open-models",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "The API host is oai.endpoints.kepler.ai.cloud.ovh.net — posting to the marketing domain returns 405. Anonymous calls are accepted and then answered with \"API rate limit exceeded\", which is how the ~2 req/min cap presents itself; no key is required to reach that point. The published catalogue returns pricing of 0 for prompt, completion and request."
+  },
+  {
+    "id": "hack-club-ai",
+    "name": "Hack Club AI",
+    "provider": "Hack Club",
+    "description": "Free OpenAI-compatible access to Gemini, GPT-5.2, Kimi K2 and 30+ other models for Hack Clubbers — the most generous free tier aimed at teenage developers.",
+    "free_limit": "Free for Hack Club members",
+    "requires_card": false,
+    "requires_phone": false,
+    "rate_limit": "Not published",
+    "modalities": [
+      "text"
+    ],
+    "commercial_use": true,
+    "data_used_for_training": null,
+    "url": "https://ai.hackclub.com",
+    "signup_url": "https://ai.hackclub.com",
+    "tags": [
+      "no-card",
+      "students",
+      "openai-compatible",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "Gated on a Hack Club account, which is aimed at students and teenage hackers. Not a general-purpose public tier — do not list it as one."
+  },
+  {
+    "id": "space-bunny-alpha",
+    "name": "Space Bunny Alpha",
+    "provider": "Stealth (anonymous, via OpenRouter)",
+    "description": "Anonymous stealth model on OpenRouter with a 1M-token context window, free at $0 in and $0 out while the provider stays cloaked.",
+    "free_limit": "Free ($0/$0 per million tokens) while the preview runs",
+    "requires_card": false,
+    "requires_phone": false,
+    "rate_limit": "OpenRouter free-tier limits",
+    "models": [
+      "stealth/space-bunny-alpha"
+    ],
+    "modalities": [
+      "text",
+      "vision"
+    ],
+    "context_window": 1000000,
+    "commercial_use": true,
+    "data_used_for_training": null,
+    "url": "https://openrouter.ai/stealth/space-bunny-alpha",
+    "docs_url": "https://openrouter.ai/docs",
+    "signup_url": "https://openrouter.ai/keys",
+    "tags": [
+      "stealth",
+      "free-preview",
+      "openrouter",
+      "hidden-gem",
+      "volatile"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "Confirmed live against OpenRouter's model API on 2026-09-24. Stealth previews are temporary by design: Ox Alpha, the previous drop, was unmasked as Z.AI's GLM-5.3-Flash and removed from the free catalogue within a week — which is exactly why it is not listed here. Needs an OpenRouter account, and prompts are handled by an anonymous provider, so keep secrets out of it."
+  },
+  {
+    "id": "zenmux-free",
+    "name": "ZenMux",
+    "provider": "ZenMux",
+    "description": "Unified gateway over 100+ models that keeps a small set of model ids permanently free, including DeepSeek V4 Flash Vision and GLM-5.3.",
+    "free_limit": "Free model ids, including deepseek/deepseek-v4-flash-vision-exp-free and z-ai/glm-5.3-free",
+    "requires_card": false,
+    "requires_phone": false,
+    "rate_limit": "Not published",
+    "modalities": [
+      "text",
+      "vision"
+    ],
+    "commercial_use": true,
+    "data_used_for_training": null,
+    "url": "https://zenmux.ai",
+    "docs_url": "https://docs.zenmux.ai/",
+    "signup_url": "https://zenmux.ai",
+    "tags": [
+      "openai-compatible",
+      "free-models",
+      "gateway",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "The gateway as a whole is commercial — only the -free suffixed model ids cost nothing. Paid tiers advertise a 5% service-fee discount on top-up, so expect upsell copy on the pricing page."
+  },
+  {
+    "id": "puter-js",
+    "name": "Puter.js",
+    "provider": "Puter",
+    "description": "Client-side JavaScript SDK that gives a web app AI, storage, database and auth with no backend — the developer pays nothing because each signed-in user spends credits from their own Puter account.",
+    "free_limit": "Free for developers; end users spend their own Puter credits",
+    "requires_card": false,
+    "requires_phone": false,
+    "rate_limit": "Per-user credit balance",
+    "modalities": [
+      "text",
+      "vision"
+    ],
+    "commercial_use": true,
+    "data_used_for_training": null,
+    "url": "https://developer.puter.com",
+    "docs_url": "https://docs.puter.com",
+    "tags": [
+      "no-signup",
+      "user-pays",
+      "sdk",
+      "browser",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "Usually marketed as \"free and unlimited\", which is only half true. It is genuinely free for the developer, but not unlimited: once a user exhausts their Puter allocation they pay Puter directly, so an app with heavy anonymous traffic will hit a wall. The open-source developer tools that wrap it as a drop-in OpenAI server are unmaintained third-party bridges and are not listed."
   }
 ]

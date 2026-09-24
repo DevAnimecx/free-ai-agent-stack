@@ -1341,5 +1341,94 @@
     "verified_by": "@seed-import",
     "status": "degraded",
     "notes": "The managed cloud often lacks a permanent free cluster now — budget to self-host on the free Oracle VM."
+  },
+  {
+    "id": "actian-vectorai",
+    "name": "Actian VectorAI DB (Community Edition)",
+    "category": "vector-db",
+    "description": "Embedded vector database from Actian that runs on a laptop with no service to deploy, built for agent memory and local RAG prototypes.",
+    "free_limit": "5,000 vectors, free forever",
+    "requires_card": false,
+    "cold_start_risk": "low",
+    "url": "https://www.actian.com/databases/vectorai-db/",
+    "docs_url": "https://docs.actian.com/",
+    "tags": [
+      "vector",
+      "local",
+      "embedded",
+      "no-card",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "Community Edition needs no billing setup and no account. It is an embedded engine, not a hosted service, so there is no cold start or idle shutdown to worry about. Past 5,000 vectors the licence blocks writes but never blocks deletes, so you can always bring a database back into compliance. LangChain and LlamaIndex integrations are published."
+  },
+  {
+    "id": "wikidata-vectordb",
+    "name": "Wikidata Vector Database",
+    "category": "vector-db",
+    "description": "Wikimedia Deutschland's public vector database over Wikidata — roughly 30 million knowledge-graph entities exposed as embeddings for RAG grounding in verifiable, open data.",
+    "free_limit": "Free public access, no account",
+    "requires_card": false,
+    "cold_start_risk": "low",
+    "url": "https://wd-vectordb.wmcloud.org/",
+    "docs_url": "https://www.wikidata.org/wiki/Wikidata:Vector_Database",
+    "tags": [
+      "vector",
+      "knowledge-graph",
+      "open-data",
+      "rag",
+      "research",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "Covers the ~30M Wikidata items that have at least one Wikipedia article, and the current embeddings are built from the September 2024 dump, so treat it as stable-but-not-live data. An API key is still required today; Wikimedia has said future versions will drop that requirement. Pairs with the community Wikidata MCP server at wd-mcp.wmcloud.org."
+  },
+  {
+    "id": "opik",
+    "name": "Opik",
+    "category": "observability",
+    "description": "Comet's open-source LLM observability stack — tracing, evaluation, prompt management and production monitoring for agents and RAG pipelines.",
+    "free_limit": "Free — Apache-2.0, self-host the full platform",
+    "requires_card": false,
+    "cold_start_risk": "low",
+    "url": "https://github.com/comet-ml/opik",
+    "docs_url": "https://www.comet.com/docs/opik/",
+    "tags": [
+      "observability",
+      "evaluation",
+      "tracing",
+      "self-host",
+      "apache",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "The whole platform is Apache-2.0 and self-hostable, so the free tier is not a trimmed demo. Comet also sells a hosted version with a usage allowance if you would rather not run the stack yourself."
+  },
+  {
+    "id": "free-llm-gateway",
+    "name": "free-llm-gateway",
+    "category": "compute",
+    "description": "Self-hosted OpenAI-compatible gateway that fronts more than a dozen free LLM providers behind one endpoint and falls through to the next provider on failure.",
+    "free_limit": "Free — self-hosted, bring your own free provider keys",
+    "requires_card": false,
+    "cold_start_risk": "low",
+    "url": "https://github.com/MrFadiAi/free-llm-gateway",
+    "tags": [
+      "gateway",
+      "fallback",
+      "self-host",
+      "openai-compatible",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "The repository documents 14+ free providers rather than the 24+ that circulates in listicles. It is a small community project (low hundreds of stars) — read the code before putting it in front of real traffic. Pair it with the free tiers already catalogued here (Groq, Gemini, Cerebras, Cloudflare) and the fallback chain rarely runs dry."
   }
 ]

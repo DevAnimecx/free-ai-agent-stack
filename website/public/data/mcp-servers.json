@@ -1908,5 +1908,41 @@
     "verified_by": "@seed-import",
     "status": "deprecated",
     "notes": "Install @brave/brave-search-mcp-server instead."
+  },
+  {
+    "id": "wikidata-mcp",
+    "name": "Wikidata MCP",
+    "maintainer": "Wikimedia Deutschland",
+    "description": "Semantic and keyword search over Wikidata's ~30M entities and properties, so agents can resolve vague concepts into verifiable QIDs before writing SPARQL.",
+    "install": "npx -y mcp-remote https://wd-mcp.wmcloud.org/mcp/",
+    "transport": [
+      "http"
+    ],
+    "official": true,
+    "language": "python",
+    "requires_auth": false,
+    "auth_type": "none",
+    "tools_exposed": 3,
+    "url": "https://github.com/philippesaade-wmde/WikidataMCP",
+    "stars": 33,
+    "docs_url": "https://wd-vectordb.wmcloud.org/docs",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "reference",
+      "research",
+      "knowledge-graph",
+      "open-data",
+      "official",
+      "hidden-gem"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@hidden-gems-import",
+    "status": "active",
+    "notes": "Hosted as a public instance by Wikimedia Deutschland, so there is nothing to install or pay for. Exposes vector_search_items, keyword_search_items and vector_search_properties. Endpoint rejects plain GETs (406) by design — point an MCP client at it rather than curl."
   }
 ]

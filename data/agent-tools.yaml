@@ -640,3 +640,101 @@
   verified: 2026-09-24
   verified_by: "@seed-import"
   status: active
+
+# ── Hidden-gem cohort, imported 2026-09-24 ────────────────────────────────
+# Memory/cognition tools land under `framework`; each was fetched and checked
+# against its own repository before inclusion. Benchmarks are quoted from the
+# projects' own reproducible runs (see notes) rather than their marketing.
+
+- id: mempalace
+  name: MemPalace
+  category: framework
+  description: "Local-first memory for agents that stores conversations verbatim in ChromaDB and organises them into wings, halls and rooms instead of letting an LLM decide what is worth keeping."
+  free_limit: "Free — MIT licensed, runs locally with zero API calls"
+  requires_card: false
+  open_source: true
+  license: MIT
+  language: python
+  platforms: [macos, linux, windows]
+  install: "pip install mempalace && mempalace init"
+  url: https://github.com/milla-jovovich/mempalace
+  stars: 59259
+  tags: [memory, rag, local-first, mit, mcp, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Co-created by Milla Jovovich and Ben Sigman."
+    - "Often quoted as \"100% on benchmarks\" — that is the hybrid pipeline with cloud reranking, which the authors themselves flagged as tuned on failing questions. The defensible numbers are 96.6% R@5 raw on LongMemEval with zero API calls and a 98.4% held-out hybrid score."
+    - "The project publicly walked back an overstated \"30x lossless compression\" claim; its experimental AAAK mode actually regresses to 84.2%."
+
+- id: cognee
+  name: Cognee
+  category: framework
+  description: "Open-source memory platform that builds a self-hosted knowledge graph from your data, giving agents persistent long-term memory across sessions."
+  free_limit: "Free — self-hosted, runs with local extraction and embedding models"
+  requires_card: false
+  open_source: true
+  license: Apache-2.0
+  language: python
+  platforms: [macos, linux, windows]
+  install: "pip install cognee"
+  url: https://github.com/topoteretes/cognee
+  stars: 30958
+  tags: [memory, knowledge-graph, rag, self-host, local, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "Runs end to end without an OpenAI or Anthropic key by using local extraction and embedding models, which is unusual for knowledge-graph memory. A hosted tier exists for teams that would rather not self-host."
+
+- id: mem0
+  name: Mem0
+  category: framework
+  description: "Drop-in memory layer for agents that extracts and stores salient facts between sessions, with the widest framework support of any memory library."
+  free_limit: "Free open-source self-host; hosted tier includes 10K memories"
+  requires_card: false
+  open_source: true
+  license: Apache-2.0
+  language: python
+  platforms: [macos, linux, windows]
+  install: "pip install mem0ai"
+  url: https://github.com/mem0ai/mem0
+  stars: 65934
+  tags: [memory, rag, framework-integrations, self-host, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "The most-starred memory project by a wide margin. Extraction-based like its benchmarks measure against — it summarises rather than storing verbatim, so recall depends on the extraction step. The hosted platform is a paid product beyond the free allowance."
+
+- id: nanobrowser
+  name: Nanobrowser
+  category: orchestrator
+  description: "Open-source Chrome extension that runs multi-agent web workflows — extract, compare and fill forms — inside your own browser, on your own keys."
+  free_limit: "Free — Apache-2.0 extension, works with any provider including Ollama and Groq"
+  requires_card: false
+  open_source: true
+  license: Apache-2.0
+  language: typescript
+  platforms: [web]
+  url: https://github.com/nanobrowser/nanobrowser
+  stars: 13827
+  tags: [browser, automation, byok, ollama, chrome-extension, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "The pitch is \"open-source alternative to OpenAI Operator\", and its real advantage is BYOK: pair it with Ollama for a fully local browser agent, or with a free Groq/Gemini key. Chrome-family browsers only."
+
+- id: freebuff
+  name: Freebuff
+  category: cli
+  description: "Coding agent funded by terminal advertising — desktop, CLI, web and chat clients all backed by frontier models at no cost, in exchange for text ads."
+  free_limit: "Free with ad support; no subscription"
+  requires_card: false
+  open_source: false
+  platforms: [macos, linux, windows]
+  url: https://freebuff.dev
+  tags: [coding-agent, ad-supported, free, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: degraded
+  notes: "Marked degraded rather than active because the business model is the product: the vendor sells terminal ad impressions to fund inference, so model access and the ad load can both change without notice. Closed source, and the \"unlimited\" wording is marketing — throughput is throttled in practice. Do not point anything production-critical at it."

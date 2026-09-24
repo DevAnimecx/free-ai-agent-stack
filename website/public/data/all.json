@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "exported_at": "2026-09-24T09:31:25+00:00",
+  "exported_at": "2026-09-24T09:44:37+00:00",
   "llm-apis": [
     {
       "id": "google-gemini",
@@ -2024,6 +2024,231 @@
       "verified_by": "@seed-import",
       "status": "deprecated",
       "notes": "Tavily, Exa and Brave all have free search tiers — see the MCP list for agent-ready alternatives."
+    },
+    {
+      "id": "dahl-inference",
+      "name": "Dahl Inference",
+      "provider": "Dahl",
+      "description": "Anonymous open-model inference on a decentralised GPU network — 100M tokens per key with no account, no card and no signup, on an OpenAI-compatible endpoint.",
+      "free_limit": "100M tokens per API key",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Not published; the 100M-token balance is the binding limit",
+      "models": [
+        "kimi-k2.6",
+        "minimax-m2.7",
+        "glm-5.2-fp8"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://inference.dahl.global",
+      "docs_url": "https://docs.dahl.global/authentication",
+      "signup_url": "https://inference.dahl.global",
+      "tags": [
+        "no-card",
+        "no-signup",
+        "openai-compatible",
+        "open-models",
+        "hidden-gem",
+        "agents"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The 100M allowance is per key, not per day — issuance is unlimited, so you can mint another key when one is spent. Anonymous keys come from POST /tokens. Direct curl calls frequently trip a Cloudflare challenge (403); the browser chat and the documented endpoints work. Runs on the Gonka compute network."
+    },
+    {
+      "id": "llm7",
+      "name": "LLM7.io",
+      "provider": "LLM7",
+      "description": "Gateway you can call with the literal placeholder key \"unused\" — no account, no email, no card, just a base URL and an OpenAI SDK.",
+      "free_limit": "10 req/min anonymous; 40 req/min with a free token",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "10 RPM anonymous, 40 RPM with token",
+      "models": [
+        "gpt-oss-120b",
+        "gemma-4-31b",
+        "minimax-m2.7",
+        "codestral",
+        "mistral-nemo"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "context_window": 1000000,
+      "commercial_use": true,
+      "data_used_for_training": null,
+      "url": "https://llm7.io",
+      "docs_url": "https://docs.llm7.io/quickstart",
+      "signup_url": "https://dash.llm7.io",
+      "tags": [
+        "no-card",
+        "no-signup",
+        "openai-compatible",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The widely-repeated \"2 req/s, 20 RPM, 100 req/hr\" figures do not match the vendor documentation: anonymous access is 10 req/min and a free token from token.llm7.io raises it to 40 req/min. Anonymous traffic only reaches the turbo model set."
+    },
+    {
+      "id": "ovh-ai-endpoints",
+      "name": "OVHcloud AI Endpoints",
+      "provider": "OVHcloud",
+      "description": "EU-hosted, GDPR-friendly inference over 20+ open-weight models at $0, usable without an API key on the anonymous tier.",
+      "free_limit": "Free — $0 per request on the anonymous tier",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "~2 requests/min per model anonymous",
+      "models": [
+        "Meta-Llama-3_3-70B-Instruct",
+        "whisper-large-v3-turbo"
+      ],
+      "modalities": [
+        "text",
+        "speech-to-text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": null,
+      "url": "https://endpoints.ai.cloud.ovh.net",
+      "signup_url": "https://endpoints.ai.cloud.ovh.net",
+      "tags": [
+        "no-card",
+        "no-signup",
+        "openai-compatible",
+        "eu-hosted",
+        "gdpr",
+        "open-models",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The API host is oai.endpoints.kepler.ai.cloud.ovh.net — posting to the marketing domain returns 405. Anonymous calls are accepted and then answered with \"API rate limit exceeded\", which is how the ~2 req/min cap presents itself; no key is required to reach that point. The published catalogue returns pricing of 0 for prompt, completion and request."
+    },
+    {
+      "id": "hack-club-ai",
+      "name": "Hack Club AI",
+      "provider": "Hack Club",
+      "description": "Free OpenAI-compatible access to Gemini, GPT-5.2, Kimi K2 and 30+ other models for Hack Clubbers — the most generous free tier aimed at teenage developers.",
+      "free_limit": "Free for Hack Club members",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Not published",
+      "modalities": [
+        "text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": null,
+      "url": "https://ai.hackclub.com",
+      "signup_url": "https://ai.hackclub.com",
+      "tags": [
+        "no-card",
+        "students",
+        "openai-compatible",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Gated on a Hack Club account, which is aimed at students and teenage hackers. Not a general-purpose public tier — do not list it as one."
+    },
+    {
+      "id": "space-bunny-alpha",
+      "name": "Space Bunny Alpha",
+      "provider": "Stealth (anonymous, via OpenRouter)",
+      "description": "Anonymous stealth model on OpenRouter with a 1M-token context window, free at $0 in and $0 out while the provider stays cloaked.",
+      "free_limit": "Free ($0/$0 per million tokens) while the preview runs",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "OpenRouter free-tier limits",
+      "models": [
+        "stealth/space-bunny-alpha"
+      ],
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "context_window": 1000000,
+      "commercial_use": true,
+      "data_used_for_training": null,
+      "url": "https://openrouter.ai/stealth/space-bunny-alpha",
+      "docs_url": "https://openrouter.ai/docs",
+      "signup_url": "https://openrouter.ai/keys",
+      "tags": [
+        "stealth",
+        "free-preview",
+        "openrouter",
+        "hidden-gem",
+        "volatile"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Confirmed live against OpenRouter's model API on 2026-09-24. Stealth previews are temporary by design: Ox Alpha, the previous drop, was unmasked as Z.AI's GLM-5.3-Flash and removed from the free catalogue within a week — which is exactly why it is not listed here. Needs an OpenRouter account, and prompts are handled by an anonymous provider, so keep secrets out of it."
+    },
+    {
+      "id": "zenmux-free",
+      "name": "ZenMux",
+      "provider": "ZenMux",
+      "description": "Unified gateway over 100+ models that keeps a small set of model ids permanently free, including DeepSeek V4 Flash Vision and GLM-5.3.",
+      "free_limit": "Free model ids, including deepseek/deepseek-v4-flash-vision-exp-free and z-ai/glm-5.3-free",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Not published",
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": null,
+      "url": "https://zenmux.ai",
+      "docs_url": "https://docs.zenmux.ai/",
+      "signup_url": "https://zenmux.ai",
+      "tags": [
+        "openai-compatible",
+        "free-models",
+        "gateway",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The gateway as a whole is commercial — only the -free suffixed model ids cost nothing. Paid tiers advertise a 5% service-fee discount on top-up, so expect upsell copy on the pricing page."
+    },
+    {
+      "id": "puter-js",
+      "name": "Puter.js",
+      "provider": "Puter",
+      "description": "Client-side JavaScript SDK that gives a web app AI, storage, database and auth with no backend — the developer pays nothing because each signed-in user spends credits from their own Puter account.",
+      "free_limit": "Free for developers; end users spend their own Puter credits",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Per-user credit balance",
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": null,
+      "url": "https://developer.puter.com",
+      "docs_url": "https://docs.puter.com",
+      "tags": [
+        "no-signup",
+        "user-pays",
+        "sdk",
+        "browser",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Usually marketed as \"free and unlimited\", which is only half true. It is genuinely free for the developer, but not unlimited: once a user exhausts their Puter allocation they pay Puter directly, so an app with heavy anonymous traffic will hit a wall. The open-source developer tools that wrap it as a drop-in OpenAI server are unmaintained third-party bridges and are not listed."
     }
   ],
   "mcp-servers": [
@@ -3936,6 +4161,42 @@
       "verified_by": "@seed-import",
       "status": "deprecated",
       "notes": "Install @brave/brave-search-mcp-server instead."
+    },
+    {
+      "id": "wikidata-mcp",
+      "name": "Wikidata MCP",
+      "maintainer": "Wikimedia Deutschland",
+      "description": "Semantic and keyword search over Wikidata's ~30M entities and properties, so agents can resolve vague concepts into verifiable QIDs before writing SPARQL.",
+      "install": "npx -y mcp-remote https://wd-mcp.wmcloud.org/mcp/",
+      "transport": [
+        "http"
+      ],
+      "official": true,
+      "language": "python",
+      "requires_auth": false,
+      "auth_type": "none",
+      "tools_exposed": 3,
+      "url": "https://github.com/philippesaade-wmde/WikidataMCP",
+      "stars": 33,
+      "docs_url": "https://wd-vectordb.wmcloud.org/docs",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "reference",
+        "research",
+        "knowledge-graph",
+        "open-data",
+        "official",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Hosted as a public instance by Wikimedia Deutschland, so there is nothing to install or pay for. Exposes vector_search_items, keyword_search_items and vector_search_properties. Endpoint rejects plain GETs (406) by design — point an MCP client at it rather than curl."
     }
   ],
   "agent-tools": [
@@ -4953,6 +5214,155 @@
       "verified": "2026-09-24",
       "verified_by": "@seed-import",
       "status": "active"
+    },
+    {
+      "id": "mempalace",
+      "name": "MemPalace",
+      "category": "framework",
+      "description": "Local-first memory for agents that stores conversations verbatim in ChromaDB and organises them into wings, halls and rooms instead of letting an LLM decide what is worth keeping.",
+      "free_limit": "Free — MIT licensed, runs locally with zero API calls",
+      "requires_card": false,
+      "open_source": true,
+      "license": "MIT",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install mempalace && mempalace init",
+      "url": "https://github.com/milla-jovovich/mempalace",
+      "stars": 59259,
+      "tags": [
+        "memory",
+        "rag",
+        "local-first",
+        "mit",
+        "mcp",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": [
+        "Co-created by Milla Jovovich and Ben Sigman.",
+        "Often quoted as \"100% on benchmarks\" — that is the hybrid pipeline with cloud reranking, which the authors themselves flagged as tuned on failing questions. The defensible numbers are 96.6% R@5 raw on LongMemEval with zero API calls and a 98.4% held-out hybrid score.",
+        "The project publicly walked back an overstated \"30x lossless compression\" claim; its experimental AAAK mode actually regresses to 84.2%."
+      ]
+    },
+    {
+      "id": "cognee",
+      "name": "Cognee",
+      "category": "framework",
+      "description": "Open-source memory platform that builds a self-hosted knowledge graph from your data, giving agents persistent long-term memory across sessions.",
+      "free_limit": "Free — self-hosted, runs with local extraction and embedding models",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install cognee",
+      "url": "https://github.com/topoteretes/cognee",
+      "stars": 30958,
+      "tags": [
+        "memory",
+        "knowledge-graph",
+        "rag",
+        "self-host",
+        "local",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Runs end to end without an OpenAI or Anthropic key by using local extraction and embedding models, which is unusual for knowledge-graph memory. A hosted tier exists for teams that would rather not self-host."
+    },
+    {
+      "id": "mem0",
+      "name": "Mem0",
+      "category": "framework",
+      "description": "Drop-in memory layer for agents that extracts and stores salient facts between sessions, with the widest framework support of any memory library.",
+      "free_limit": "Free open-source self-host; hosted tier includes 10K memories",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install mem0ai",
+      "url": "https://github.com/mem0ai/mem0",
+      "stars": 65934,
+      "tags": [
+        "memory",
+        "rag",
+        "framework-integrations",
+        "self-host",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The most-starred memory project by a wide margin. Extraction-based like its benchmarks measure against — it summarises rather than storing verbatim, so recall depends on the extraction step. The hosted platform is a paid product beyond the free allowance."
+    },
+    {
+      "id": "nanobrowser",
+      "name": "Nanobrowser",
+      "category": "orchestrator",
+      "description": "Open-source Chrome extension that runs multi-agent web workflows — extract, compare and fill forms — inside your own browser, on your own keys.",
+      "free_limit": "Free — Apache-2.0 extension, works with any provider including Ollama and Groq",
+      "requires_card": false,
+      "open_source": true,
+      "license": "Apache-2.0",
+      "language": "typescript",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://github.com/nanobrowser/nanobrowser",
+      "stars": 13827,
+      "tags": [
+        "browser",
+        "automation",
+        "byok",
+        "ollama",
+        "chrome-extension",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The pitch is \"open-source alternative to OpenAI Operator\", and its real advantage is BYOK: pair it with Ollama for a fully local browser agent, or with a free Groq/Gemini key. Chrome-family browsers only."
+    },
+    {
+      "id": "freebuff",
+      "name": "Freebuff",
+      "category": "cli",
+      "description": "Coding agent funded by terminal advertising — desktop, CLI, web and chat clients all backed by frontier models at no cost, in exchange for text ads.",
+      "free_limit": "Free with ad support; no subscription",
+      "requires_card": false,
+      "open_source": false,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://freebuff.dev",
+      "tags": [
+        "coding-agent",
+        "ad-supported",
+        "free",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "degraded",
+      "notes": "Marked degraded rather than active because the business model is the product: the vendor sells terminal ad impressions to fund inference, so model access and the ad load can both change without notice. Closed source, and the \"unlimited\" wording is marketing — throughput is throttled in practice. Do not point anything production-critical at it."
     }
   ],
   "free-tiers": [
@@ -6298,6 +6708,95 @@
       "verified_by": "@seed-import",
       "status": "degraded",
       "notes": "The managed cloud often lacks a permanent free cluster now — budget to self-host on the free Oracle VM."
+    },
+    {
+      "id": "actian-vectorai",
+      "name": "Actian VectorAI DB (Community Edition)",
+      "category": "vector-db",
+      "description": "Embedded vector database from Actian that runs on a laptop with no service to deploy, built for agent memory and local RAG prototypes.",
+      "free_limit": "5,000 vectors, free forever",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.actian.com/databases/vectorai-db/",
+      "docs_url": "https://docs.actian.com/",
+      "tags": [
+        "vector",
+        "local",
+        "embedded",
+        "no-card",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Community Edition needs no billing setup and no account. It is an embedded engine, not a hosted service, so there is no cold start or idle shutdown to worry about. Past 5,000 vectors the licence blocks writes but never blocks deletes, so you can always bring a database back into compliance. LangChain and LlamaIndex integrations are published."
+    },
+    {
+      "id": "wikidata-vectordb",
+      "name": "Wikidata Vector Database",
+      "category": "vector-db",
+      "description": "Wikimedia Deutschland's public vector database over Wikidata — roughly 30 million knowledge-graph entities exposed as embeddings for RAG grounding in verifiable, open data.",
+      "free_limit": "Free public access, no account",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://wd-vectordb.wmcloud.org/",
+      "docs_url": "https://www.wikidata.org/wiki/Wikidata:Vector_Database",
+      "tags": [
+        "vector",
+        "knowledge-graph",
+        "open-data",
+        "rag",
+        "research",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "Covers the ~30M Wikidata items that have at least one Wikipedia article, and the current embeddings are built from the September 2024 dump, so treat it as stable-but-not-live data. An API key is still required today; Wikimedia has said future versions will drop that requirement. Pairs with the community Wikidata MCP server at wd-mcp.wmcloud.org."
+    },
+    {
+      "id": "opik",
+      "name": "Opik",
+      "category": "observability",
+      "description": "Comet's open-source LLM observability stack — tracing, evaluation, prompt management and production monitoring for agents and RAG pipelines.",
+      "free_limit": "Free — Apache-2.0, self-host the full platform",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://github.com/comet-ml/opik",
+      "docs_url": "https://www.comet.com/docs/opik/",
+      "tags": [
+        "observability",
+        "evaluation",
+        "tracing",
+        "self-host",
+        "apache",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The whole platform is Apache-2.0 and self-hostable, so the free tier is not a trimmed demo. Comet also sells a hosted version with a usage allowance if you would rather not run the stack yourself."
+    },
+    {
+      "id": "free-llm-gateway",
+      "name": "free-llm-gateway",
+      "category": "compute",
+      "description": "Self-hosted OpenAI-compatible gateway that fronts more than a dozen free LLM providers behind one endpoint and falls through to the next provider on failure.",
+      "free_limit": "Free — self-hosted, bring your own free provider keys",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://github.com/MrFadiAi/free-llm-gateway",
+      "tags": [
+        "gateway",
+        "fallback",
+        "self-host",
+        "openai-compatible",
+        "hidden-gem"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@hidden-gems-import",
+      "status": "active",
+      "notes": "The repository documents 14+ free providers rather than the 24+ that circulates in listicles. It is a small community project (low hundreds of stars) — read the code before putting it in front of real traffic. Pair it with the free tiers already catalogued here (Groq, Gemini, Cerebras, Cloudflare) and the fallback chain rarely runs dry."
     }
   ]
 }

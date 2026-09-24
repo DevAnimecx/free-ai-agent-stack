@@ -171,3 +171,69 @@ tools, 30 free tiers). The build shipped 63 / 62 / 40 / 70. The surplus is mostl
 in the two categories where coverage compounds: MCP servers (archived-but-used
 servers and their maintained replacements) and free tiers (the full stack an agent
 needs, not just a database).
+
+*Superseded in part by D-6: the catalogue now ships 70 / 63 / 45 / 74 = 252
+entries after the hidden-gem import. The reasoning above still holds — the surplus
+stayed concentrated in MCP servers and free tiers.*
+
+## D-6 — Hidden-gem cohort: 17 accepted, 13 rejected, 5 already listed
+
+In September 2026 a contributor submitted a curated "hidden gems" list of roughly
+40 resources — including several stealth models, unknown gateways and a zero-key
+inference bridge. "Feed them all" is not a policy this repository can follow. The
+entire value of the catalogue is that a human checked the claim before it shipped,
+so the list was treated as a set of leads, not as data. Every item was fetched and
+checked against the vendor's own documentation or live API on 2026-09-24.
+
+**Accepted — 17 entries.** Dahl Inference (100M anonymous tokens), LLM7.io, OVH
+AI Endpoints, Hack Club AI, Space Bunny Alpha, ZenMux, Puter.js, MemPalace,
+Cognee, Mem0, Nanobrowser, Freebuff, Actian VectorAI DB, Wikidata Vector
+Database, Opik, free-llm-gateway and Wikidata MCP.
+
+**Corrected before publication — 4.** Three submitted figures did not survive
+contact with the source and were replaced with the documented numbers:
+
+| Claim as submitted | What the vendor actually documents |
+|---|---|
+| LLM7.io: "2 req/s, 20 RPM, 100 req/hr" | 10 req/min anonymous, 40 req/min with a free token |
+| Puter.js: "free & unlimited, no API keys" | Free for the *developer*; end users spend their own credits and pay Puter past the allowance |
+| free-llm-gateway: "24+ providers" | Its own README says 14+ |
+| MemPalace: "100% accuracy on benchmarks" | 96.6% R@5 raw, zero API calls; the 100% figure is a reranked pipeline the authors themselves flagged as tuned on failing questions |
+
+**Rejected — 13, grouped by reason.**
+
+*Paid, despite being submitted as free.* endoflife.ai MCP ("the MCP server is
+covered by a paid key from $89 a month"), Court Records MCP ($0.01 per tool call)
+and SEC Filings MCP ($0.004 per tool call). A free web UI or a free trial does not
+make an MCP server a free tier.
+
+*Cannot be recommended to readers in good conscience.* Completions.me advertises
+unlimited free Claude Opus and GPT-5.2. No legitimate unmetered frontier-model API
+exists; independent coverage is unambiguous that such services resell revoked or
+stolen keys and route every prompt through infrastructure the user does not
+control. AgentRouter ($175 signup credit) was rejected for the same family of
+reasons: reviewers report billing errors that strand the balance, and at least one
+widely-shared guide concedes the served models may not be the models named. Both
+are also referral-driven products. A repository that promises verification has no
+business pointing readers at either.
+
+*Dead or nonexistent.* Aerolink is a parked Porkbun placeholder, so its "$35 + $140
+in credits" cannot exist. KeylessAI's host does not resolve. BazaarLink returns
+HTTP 500. GoldBean MCP and Enally AI do not resolve. WebOperator, Everfern, KISS
+Sorcar, pi-coding-agent, memory-forge, mengram-ai, uniroute, Agens, Accomplish,
+token-free-gateway, AINative LangChain.js, dhiya-npm, Rapls, AgentLens and
+ClawMetry could not be located at any URL that matched the description.
+
+*Expired.* Ox Alpha — the previous stealth drop — is absent from OpenRouter's
+live catalogue: its preview ended in late August 2026 and the model was unmasked
+as Z.AI's GLM-5.3-Flash. Its sibling, Space Bunny Alpha, was confirmed live and
+free on the import date, so it shipped instead, flagged `volatile`. This is the
+clearest illustration of why the rule exists: a list written in August would have
+shipped a dead entry in September.
+
+**Already listed — 5.** Pollinations, OpenRouter, Helicone, Context7 and DeepWiki
+were already in the catalogue; Playwright and the reference Memory server likewise.
+Submitting a resource that is already present is not a reason to duplicate it. The
+Wikidata MCP entry, meanwhile, was *not* on the list and was found while verifying
+it — the genuinely free knowledge-graph MCP server turned out to be Wikimedia
+Deutschland's, not the paid one that was submitted.

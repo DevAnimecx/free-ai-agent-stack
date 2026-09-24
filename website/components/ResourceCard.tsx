@@ -44,7 +44,17 @@ export function ResourceCard({ entry, slug }: { entry: AnyEntry; slug: string })
   if (isLlm) {
     meta.push([strings.card.freeLimit, llm.free_limit]);
     if (llm.rate_limit) meta.push([strings.card.rateLimit, llm.rate_limit]);
-    if (llm.context_window) meta.push(["Context", `${(llm.context_window / 1000).toLocaleString()}K`]);
+    // Format context the way people read it, not as a raw division: 131072
+    // should be "131K" (not "131.072K") and 1000000 should be "1M" (not
+    // "1,000K"), which is what the naive /1000 + toLocaleString produced.
+    if (llm.context_window) {
+      const ctx = llm.context_window;
+      const label =
+        ctx >= 1_000_000
+          ? `${(ctx / 1_000_000).toFixed(ctx % 1_000_000 === 0 ? 0 : 1)}M`
+          : `${Math.round(ctx / 1000)}K`;
+      meta.push(["Context", label]);
+    }
   }
   if (isTool) meta.push([strings.card.freeLimit, tool.free_limit]);
   if (isTier) {

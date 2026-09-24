@@ -267,6 +267,62 @@ def readme_contributors_block(stats: dict) -> str:
     return " ".join(parts)
 
 
+def sync_prose_counts(text: str, stats: dict) -> str:
+    """Rewrite the hardcoded counts in the README prose.
+
+    Only the block between the STATS markers is auto-generated, so every other
+    number in the README is prose — and prose drifts. The hero line already
+    shipped one wrong figure (165 against a real 155). These patterns are
+    anchored to surrounding words rather than bare numbers so that counts in
+    unrelated sentences, table rows and code fences are left alone.
+    """
+    c = stats["counts"]
+    subs = [
+        (r"(?<=\*\s)\d+(?= entries ·)", stats["total"]),
+        (r"\d+(?= need no credit card)", stats["total_no_card"]),
+        (r"\d+(?= resources, verified weekly)", stats["total"]),
+        (r"— \d+(?= entries$)", None),  # handled per-category below
+        (r"\d+(?= free LLM API providers)", c.get("llm-apis", 0)),
+        (r"\d+(?= MCP servers with copy-paste)", c.get("mcp-servers", 0)),
+        (r"\d+(?= IDEs, CLI agents, frameworks)", c.get("agent-tools", 0)),
+        (r"\d+(?= free-tier services you actually need)", c.get("free-tiers", 0)),
+    ]
+    for pattern, value in subs:
+        if value is None:
+            continue
+        text = re.sub(pattern, str(value), text, flags=re.MULTILINE)
+
+    # "> **63 entries in total**" — three of these, one per category section,
+    # distinguished by the marker word that follows in the same sentence.
+    for stem, needle in (
+        ("llm-apis", "provider that quietly stopped being free"),
+        ("mcp-servers", "archived reference servers"),
+    ):
+        text = re.sub(
+            rf"\*\*\d+(?= entries in total\*\*, [^.]*{re.escape(needle)})",
+            f"**{c.get(stem, 0)}",
+            text,
+        )
+
+    # Table of contents lines: "- [Free LLM APIs](#free-llm-apis) — 63 entries".
+    # The anchors are the *section headings*, not the category slugs, so each
+    # stem needs its own mapping — matching on stem alone silently missed
+    # llm-apis and free-tiers and left two stale counts in the README.
+    TOC_ANCHORS = {
+        "llm-apis": "free-llm-apis",
+        "mcp-servers": "mcp-servers",
+        "agent-tools": "agent-tools--frameworks",
+        "free-tiers": "free-tier-infrastructure",
+    }
+    for stem, anchor in TOC_ANCHORS.items():
+        text = re.sub(
+            rf"(\[[^\]]*\]\(#{re.escape(anchor)}\) — )\d+",
+            rf"\g<1>{c.get(stem, 0)}",
+            text,
+        )
+    return text
+
+
 def replace_block(text: str, start: str, end: str, body: str) -> str:
     pattern = re.compile(rf"{re.escape(start)}.*?{re.escape(end)}", re.S)
     replacement = f"{start}\n{body}\n{end}"
@@ -306,6 +362,7 @@ def main() -> int:
     original = README.read_text(encoding="utf-8")
     updated = replace_block(original, STATS_START, STATS_END, readme_stats_block(stats, data))
     updated = replace_block(updated, CONTRIB_START, CONTRIB_END, readme_contributors_block(stats))
+    updated = sync_prose_counts(updated, stats)
 
     # The rendered block carries a generation timestamp, which changes on every
     # run. `--check` exists to catch *content* drift (counts, contributor wall),
