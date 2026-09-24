@@ -29,7 +29,7 @@ jobs:
           python-version: "3.13"
       - run: python3 -m pip install --quiet pyyaml jsonschema requests
 
-      - name: Check every URL (3 strikes → status: broken)
+      - name: "Check every URL (3 strikes → status: broken)"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
