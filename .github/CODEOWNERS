@@ -1,27 +1,27 @@
-# CODEOWNERS — default reviewers per path (PRD §13.4, Phase 3 prepares for Phase 2)
+# CODEOWNERS — default reviewers per path
 #
-# Until category maintainers are appointed (see docs/GOVERNANCE.md), @founding-maintainer
+# Until category maintainers are appointed (see docs/GOVERNANCE.md), @DevAnimecx
 # owns everything. Replace the placeholders below as maintainers join; the
 # structure is here so the change is a one-line edit, not a reorganisation.
 
 # Default: everything
-*                       @founding-maintainer
+*                       @DevAnimecx
 
 # Data — one owner per category once Phase 2 begins
-/data/llm-apis.yaml     @founding-maintainer
-/data/mcp-servers.yaml  @founding-maintainer
-/data/agent-tools.yaml  @founding-maintainer
-/data/free-tiers.yaml   @founding-maintainer
+/data/llm-apis.yaml     @DevAnimecx
+/data/mcp-servers.yaml  @DevAnimecx
+/data/agent-tools.yaml  @DevAnimecx
+/data/free-tiers.yaml   @DevAnimecx
 
 # The data contract. Changes here need two maintainers (GOVERNANCE.md).
-/schemas/               @founding-maintainer
-/scripts/               @founding-maintainer
+/schemas/               @DevAnimecx
+/scripts/               @DevAnimecx
 
 # Automation and the site
-/.github/workflows/     @founding-maintainer
-/website/               @founding-maintainer
+/.github/workflows/     @DevAnimecx
+/website/               @DevAnimecx
 
 # Governance documents: review required before editing
-/docs/GOVERNANCE.md     @founding-maintainer
-/CONTRIBUTING.md        @founding-maintainer
-/docs/METHODOLOGY.md    @founding-maintainer
+/docs/GOVERNANCE.md     @DevAnimecx
+/CONTRIBUTING.md        @DevAnimecx
+/docs/METHODOLOGY.md    @DevAnimecx

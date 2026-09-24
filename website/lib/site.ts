@@ -49,6 +49,14 @@ export const BRAND = {
   byline: "Adarsh Kushwah (Dev Animecx)",
   github: "https://github.com/DevAnimecx",
   repo: "https://github.com/DevAnimecx/free-ai-agent-stack",
+  x: "https://x.com/devadarshkush",
+  linkedin: "https://www.linkedin.com/in/adarshkushwahdev/",
+  email: "animecx69@gmail.com",
   /** schema.org sameAs targets. Only profiles that verifiably exist. */
-  sameAs: ["https://github.com/DevAnimecx", "https://github.com/DevAnimecx/free-ai-agent-stack"],
+  sameAs: [
+    "https://github.com/DevAnimecx",
+    "https://github.com/DevAnimecx/free-ai-agent-stack",
+    "https://x.com/devadarshkush",
+    "https://www.linkedin.com/in/adarshkushwahdev/",
+  ],
 } as const;

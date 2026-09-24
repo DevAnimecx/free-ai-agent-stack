@@ -4,7 +4,7 @@ import { strings } from "@/lib/strings";
 import type { AgentToolEntry, AnyEntry, FreeTierEntry, LlmApiEntry, McpServerEntry, SkillEntry } from "@/lib/types";
 
 const REPORT_BASE =
-  "https://github.com/free-ai-agent-stack/free-ai-agent-stack/issues/new?template=report-broken-link.yml";
+  "https://github.com/DevAnimecx/free-ai-agent-stack/issues/new?template=report-broken-link.yml";
 
 /** US-2.3 / FR-W-8: pre-fills the issue with this entry's ID, one click. */
 function reportUrl(entry: AnyEntry, slug: string) {

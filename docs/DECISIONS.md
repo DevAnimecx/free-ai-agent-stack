@@ -675,7 +675,8 @@ no surrounding prose travels with it.
 conduct reports to `conduct@freeaiagentstack.dev`, and the link checker's
 user-agent advertised the same domain — neither of which this project serves, so
 both would have silently swallowed mail. Reports now route through GitHub's
-private reporting, and the UA points at the repository and a reachable contact.
+private reporting and through `animecx69@gmail.com`, and the UA points at the
+repository and a reachable contact.
 The five `schemas/*.json` `$id` values were on the same dead domain and could
 not be dereferenced; they now resolve to the live host.
 
