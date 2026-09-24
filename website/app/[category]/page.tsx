@@ -2,10 +2,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CategoryExplorer } from "@/components/CategoryExplorer";
+import { FaqSection } from "@/components/FaqSection";
 import { StatsBanner } from "@/components/StatsBanner";
+import { answerSummary, faqFor } from "@/lib/faq";
 import { CATEGORIES, categoryBySlug, getEntries, getStats } from "@/lib/loadData";
-import { itemListSchema } from "@/lib/schema";
+import { breadcrumbSchema, graph, itemListSchema } from "@/lib/schema";
+import { SITE_BASE_PATH } from "@/lib/site";
 import { strings } from "@/lib/strings";
+
+const withBase = (path: string) => `${SITE_BASE_PATH}${path}`;
 
 interface Params {
   params: Promise<{ category: string }>;
@@ -47,8 +52,23 @@ export async function generateMetadata({ params }: Params) {
     openGraph: {
       title,
       description,
-      url: `${strings.site.url}/${category.slug}/`,
+      url: `/${category.slug}/`,
       type: "website",
+      // One generated card per category, carrying that category's real counts.
+      images: [
+        {
+          url: `/og/${category.slug}.png`,
+          width: 1200,
+          height: 630,
+          alt: `${category.label} — ${description}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`/og/${category.slug}.png`],
     },
   };
 }
@@ -61,10 +81,13 @@ export default async function CategoryPage({ params }: Params) {
   const entries = getEntries(category.slug);
   const stats = getStats();
   const others = CATEGORIES.filter((c) => c.slug !== category.slug);
+  const faq = faqFor(category.slug);
 
   return (
     <>
       <header className="pb-4">
+        {/* Visible breadcrumb; the same trail is emitted as BreadcrumbList
+            below, so the two are generated from one literal. */}
         <nav aria-label="Breadcrumb" className="text-[12px] text-slate-400 dark:text-slate-500">
           <Link href="/" className="hover:text-slate-700 dark:hover:text-slate-300">
             {strings.site.name}
@@ -81,6 +104,15 @@ export default async function CategoryPage({ params }: Params) {
           {category.schema.split("/").pop()}
         </p>
 
+        {/* AEO-1: the quotable one-sentence answer, placed above the fold and
+            before the explorer, because it is the passage an engine lifts. */}
+        <p
+          id="answer-summary"
+          className="mt-3 max-w-prose border-l-2 border-blue-600 pl-3 text-[13px] leading-6 text-slate-700 dark:border-blue-500 dark:text-slate-300"
+        >
+          {answerSummary(category.slug)}
+        </p>
+
         {/* SEO-11: 150+ words of unique intro copy per category. */}
         <div className="prose-intro mt-3">
           {category.intro.map((paragraph, index) => (
@@ -94,6 +126,8 @@ export default async function CategoryPage({ params }: Params) {
       </header>
 
       <CategoryExplorer entries={entries} slug={category.slug} />
+
+      <FaqSection items={faq} heading={`${category.label} — questions`} />
 
       <section className="mt-10 border-t border-slate-200 pt-4 dark:border-slate-800">
         <h2 className="text-[13px] font-semibold text-slate-900 dark:text-slate-50">
@@ -128,7 +162,17 @@ export default async function CategoryPage({ params }: Params) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(category, entries)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graph(
+              itemListSchema(category, entries),
+              breadcrumbSchema([
+                { name: strings.site.name, path: "/" },
+                { name: category.label, path: `/${category.slug}/` },
+              ]),
+            ),
+          ),
+        }}
       />
     </>
   );

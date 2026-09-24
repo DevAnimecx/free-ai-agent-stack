@@ -1,10 +1,20 @@
 import { strings } from "@/lib/strings";
+import { BRAND, SITE_BASE_PATH } from "@/lib/site";
+
+const withBase = (path: string) => `${SITE_BASE_PATH}${path}`;
 
 export const metadata = {
   title: "Contribute — add a free AI resource in three steps",
   description:
     "How to add a free LLM API, MCP server or free-tier service to free-ai-agent-stack: a three-step flow, the inclusion criteria and exactly what CI checks.",
   alternates: { canonical: "/contribute/" },
+  openGraph: {
+    title: "Contribute — add a free AI resource in three steps",
+    description:
+      "Twelve lines of YAML. CI checks the schema, the duplicates and the link before a human reads it.",
+    url: "/contribute/",
+    images: [{ url: "/og/contribute.png", width: 1200, height: 630, alt: "Contribute" }],
+  },
 };
 
 const ISSUE_ADD = `${strings.site.repo}/issues/new?template=add-resource.yml`;
@@ -18,6 +28,23 @@ export default function ContributePage() {
       </h1>
       <p className="mt-2 max-w-prose text-[14px] leading-6 text-slate-600 dark:text-slate-400">
         {strings.contribute.lede}
+      </p>
+
+      {/* Contribution is asked of people who have just found the catalogue, so
+          the maintainer is named here too: an anonymous ask for free labour
+          converts badly and reads badly. */}
+      <p className="mt-2 max-w-prose text-[13px] leading-6 text-slate-600 dark:text-slate-400">
+        Maintained by{" "}
+        <a
+          href={BRAND.github}
+          target="_blank"
+          rel="noopener noreferrer author"
+          className="font-medium text-slate-900 hover:underline dark:text-slate-100"
+        >
+          {BRAND.author}
+        </a>{" "}
+        at {BRAND.studio}. Corrections are as welcome as additions — a dead link
+        reported is worth more than a resource nobody checks.
       </p>
 
       <div className="mt-5 flex flex-wrap gap-3">

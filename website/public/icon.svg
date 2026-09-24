@@ -1,0 +1,18 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="free-ai-agent-stack">
+  <title>free-ai-agent-stack</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="url(#g)"/>
+  <!-- stack: three bars, the topmost lifted — "an agent reaching for a tool" -->
+  <rect x="34" y="112" width="112" height="14" rx="7" fill="#93c5fd"/>
+  <rect x="34" y="88" width="112" height="14" rx="7" fill="#60a5fa"/>
+  <rect x="34" y="64" width="72" height="14" rx="7" fill="#3b82f6"/>
+  <circle cx="126" cy="58" r="17" fill="#f8fafc"/>
+  <path d="M118 58.5l6 6 11-13" fill="none" stroke="#1d4ed8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="90" y="158" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="700" fill="#e2e8f0" text-anchor="middle">AK</text>
+</svg>

@@ -59,7 +59,7 @@ Every item is enforced by the build, not by discipline:
 ## 4. Backlinks
 
 1. **Reciprocal badge.** Every listed project can embed
-   `https://freeaiagentstack.dev/badge.svg`, which links back. This is the
+   `https://devanimecx.github.io/free-ai-agent-stack/badge.svg`, which links back. This is the
    highest-yield, lowest-effort link source, and it scales with the catalogue
 2. **Awesome lists.** Submit to `awesome-ai-agents`, `awesome-mcp-servers`,
    `awesome-llm`, `awesome-free-apis`, `awesome-selfhosted` and the

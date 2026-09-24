@@ -1,10 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "exported_at": "2026-09-24T11:41:42+00:00",
+  "exported_at": "2026-09-24T12:59:44+00:00",
   "generated_by": "scripts/export_json.py",
-  "source": "https://github.com/free-ai-agent-stack/free-ai-agent-stack",
+  "source": "https://github.com/DevAnimecx/free-ai-agent-stack",
   "license": "CC-BY-4.0 (data) / MIT (code)",
-  "attribution": "Data from free-ai-agent-stack (https://free-ai-agent-stack.dev). When citing, link to the specific category page and include the entry `verified` date so readers know how current the claim is.",
+  "author": "Adarsh Kushwah (Dev Animecx)",
+  "contact": "https://github.com/DevAnimecx",
+  "citation": "free-ai-agent-stack (2026). Adarsh Kushwah (Dev Animecx). https://devanimecx.github.io/free-ai-agent-stack",
+  "attribution": "Data from free-ai-agent-stack by Adarsh Kushwah (Dev Animecx) (https://devanimecx.github.io/free-ai-agent-stack). When citing, link to the specific category page and include the entry `verified` date so readers know how current the claim is.",
   "total": 384,
   "categories": {
     "llm-apis": {

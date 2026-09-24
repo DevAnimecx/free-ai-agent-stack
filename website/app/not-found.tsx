@@ -1,6 +1,14 @@
 import Link from "next/link";
 
 import { CATEGORIES, getStats } from "@/lib/loadData";
+import { strings } from "@/lib/strings";
+
+export const metadata = {
+  title: "Not found",
+  // A 404 must never be indexed or followed: it is the one page on the site
+  // where both defaults would actively hurt.
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   const stats = getStats();
@@ -30,6 +38,11 @@ export default function NotFound() {
         <li>
           <Link href="/" className="text-blue-700 hover:underline dark:text-blue-400">
             Home
+          </Link>
+        </li>
+        <li>
+          <Link href="/about/" className="text-blue-700 hover:underline dark:text-blue-400">
+            {strings.nav.about}
           </Link>
         </li>
       </ul>

@@ -1,0 +1,25 @@
+{
+  "name": "free-ai-agent-stack — free AI agent tools, verified weekly",
+  "short_name": "free-ai-agent-stack",
+  "description": "Every free LLM API, MCP server, agent framework and free-tier infrastructure service you need to build an AI agent in 2026 — with free limits, credit-card requirements and verification dates.",
+  "id": "/",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["developer", "productivity", "reference"],
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Free LLM APIs", "short_name": "LLM APIs", "url": "./llm-apis/" },
+    { "name": "MCP servers", "short_name": "MCP", "url": "./mcp-servers/" },
+    { "name": "Free tiers", "short_name": "Tiers", "url": "./free-tiers/" }
+  ]
+}

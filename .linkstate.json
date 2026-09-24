@@ -1016,7 +1016,7 @@
     "free-tiers/wikidata-vectordb": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "Partial Content",
+      "last_reason": "OK",
       "last_status_docs_url": 200,
       "last_status_url": 206
     },
@@ -1080,7 +1080,7 @@
     "llm-apis/aws-bedrock-free-tier": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "",
       "last_status_docs_url": 200,
       "last_status_signup_url": 200,
       "last_status_url": 200
@@ -1257,7 +1257,7 @@
     "llm-apis/gpt4all": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "skipped: disallowed by robots.txt",
+      "last_reason": "OK",
       "last_status_docs_url": 200,
       "last_status_url": 0
     },
@@ -1311,7 +1311,7 @@
     "llm-apis/leonardo-ai": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
       "last_status_docs_url": 200,
       "last_status_signup_url": 200,
       "last_status_url": 403,
@@ -1403,7 +1403,7 @@
     "llm-apis/openai-api": {
       "failures": 0,
       "last_checked": "2026-09-24",
-      "last_reason": "OK",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
       "last_status_docs_url": 200,
       "last_status_signup_url": 403,
       "last_status_url": 403
@@ -2464,5 +2464,5 @@
       "last_status_url": 200
     }
   },
-  "last_run": "2026-09-24T11:41:29+00:00"
+  "last_run": "2026-09-24T12:59:39+00:00"
 }

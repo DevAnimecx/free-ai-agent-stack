@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -36,7 +37,14 @@ from datalib import (  # noqa: E402
 )
 
 SCHEMA_VERSION = "1.0.0"
-SITE_URL = "https://freeaiagentstack.dev"
+
+# Where the site is served from. One environment variable, because a canonical
+# host that disagrees with itself between llms.txt, the sitemap and the pages is
+# how a site ends up with its SEO split across two origins.
+SITE_URL = os.environ.get("SITE_URL", "https://devanimecx.github.io/free-ai-agent-stack").rstrip("/")
+SITE_NAME = "free-ai-agent-stack"
+SITE_AUTHOR = "Adarsh Kushwah (Dev Animecx)"
+SITE_REPO = "https://github.com/DevAnimecx/free-ai-agent-stack"
 
 
 def write_json(path: Path, payload: object) -> None:
@@ -58,10 +66,13 @@ def index_payload(data: dict[str, list[dict]], exported_at: str) -> dict:
         "schema_version": SCHEMA_VERSION,
         "exported_at": exported_at,
         "generated_by": "scripts/export_json.py",
-        "source": "https://github.com/free-ai-agent-stack/free-ai-agent-stack",
+        "source": SITE_REPO,
         "license": "CC-BY-4.0 (data) / MIT (code)",
+        "author": SITE_AUTHOR,
+        "contact": "https://github.com/DevAnimecx",
+        "citation": f"{SITE_NAME} (2026). {SITE_AUTHOR}. {SITE_URL}",
         "attribution": (
-            "Data from free-ai-agent-stack (https://free-ai-agent-stack.dev). "
+            f"Data from {SITE_NAME} by {SITE_AUTHOR} ({SITE_URL}). "
             "When citing, link to the specific category page and include the "
             "entry `verified` date so readers know how current the claim is."
         ),
@@ -77,10 +88,13 @@ def llms_txt(data: dict[str, list[dict]], exported_at: str) -> str:
         "",
         "> A verified, machine-readable catalogue of free LLM APIs, MCP servers, agent",
         "> frameworks and free-tier infrastructure for building AI agents at zero cost.",
+        ">",
+        f"> Maintained by {SITE_AUTHOR}. Source: {SITE_REPO}",
         "",
         f"Last data export: {exported_at}",
         f"Total entries: {sum(len(e) for e in data.values())}",
         "Schema version: " + SCHEMA_VERSION,
+        f"Canonical site: {SITE_URL}",
         "",
         "## How to use this data",
         "",
@@ -131,8 +145,111 @@ def llms_txt(data: dict[str, list[dict]], exported_at: str) -> str:
         "Data is CC-BY-4.0. Code is MIT. Reuse freely, including in AI answers, with",
         "attribution to free-ai-agent-stack and, where practical, the entry's verified date.",
         "",
+        f"Cite as: {SITE_NAME} (2026). {SITE_AUTHOR}. {SITE_URL}",
+        "",
     ]
     return "\n".join(lines)
+
+
+def llms_full_txt(data: dict[str, list[dict]], exported_at: str) -> str:
+    """The complete catalogue as plain prose, for models that ingest in full.
+
+    llms.txt is an index by design — it points at JSON. This file is the
+    opposite trade: every field of every entry, written out, so a model with no
+    ability to fetch can still answer questions about the dataset from the file
+    alone. Both exist because the two use cases are genuinely different, and the
+    llms.txt convention asks for the first while answer engines reward the
+    second.
+    """
+    total = sum(len(e) for e in data.values())
+    lines = [
+        f"# {SITE_NAME} — complete catalogue",
+        "",
+        f"Maintained by {SITE_AUTHOR}. Canonical: {SITE_URL}. Source: {SITE_REPO}",
+        f"Exported: {exported_at} · Entries: {total} · Licence: CC BY 4.0",
+        "",
+        "Every entry below was verified by a human on the date shown. `requires_card`",
+        "defaults to true when unknown. An entry with status `deprecated` no longer",
+        "offers what it is listed for, and is kept so it is not re-recommended.",
+        "",
+    ]
+    for stem, label in CATEGORY_LABELS.items():
+        entries = data[stem]
+        lines += [
+            f"## {label} ({len(entries)} entries)",
+            "",
+            f"Category page: {SITE_URL}/{stem}/",
+            "",
+        ]
+        for entry in entries:
+            lines.append(f"### {entry.get('name')} — id `{entry.get('id')}`")
+            lines.append(str(entry.get("description", "")).strip())
+            lines.append("")
+            for field, human in (
+                ("provider", "Provider"),
+                ("maintainer", "Maintainer"),
+                ("free_limit", "Free limit"),
+                ("rate_limit", "Rate limit"),
+                ("context_window", "Context window"),
+                ("install", "Install"),
+                ("auth_type", "Authentication"),
+                ("license", "Licence"),
+                ("skill_count", "Skills"),
+                ("stars", "Stars"),
+                ("open_source", "Open source"),
+                ("requires_card", "Credit card required"),
+                ("requires_auth", "Authentication required"),
+                ("tags", "Tags"),
+            ):
+                value = entry.get(field)
+                if value in (None, "", []):
+                    continue
+                if isinstance(value, bool):
+                    value = "yes" if value else "no"
+                elif isinstance(value, list):
+                    value = ", ".join(str(v) for v in value)
+                lines.append(f"- {human}: {value}")
+            lines.append(f"- Status: {entry.get('status', 'active')}")
+            lines.append(f"- Verified: {entry.get('verified')} by {entry.get('verified_by')}")
+            lines.append(f"- URL: {entry.get('url')}")
+            lines.append(f"- Citation: {SITE_URL}/{stem}/#{entry.get('id')}")
+            for note in entry.get("notes") or []:
+                if isinstance(note, str) and note.strip():
+                    lines.append(f"- Note: {note.strip()}")
+            lines.append("")
+    lines += [
+        "## Licence",
+        "",
+        f"Data CC BY 4.0 · Code MIT. Cite as: {SITE_NAME} (2026). {SITE_AUTHOR}.",
+        f"{SITE_URL}",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def publish_schemas(out_root: Path, quiet: bool) -> int:
+    """Copy the JSON Schemas into the build with live, resolvable `$id`s.
+
+    A schema is only citable if it can be dereferenced. The repository's schemas
+    previously carried a placeholder `$id` on a domain this project does not
+    serve, so anything that tried to resolve them got nothing. Rewriting `$id`
+    to the real host turns five internal validation files into five public,
+    machine-readable artifacts that describe the dataset's contract.
+    """
+    src_dir = REPO_ROOT / "schemas"
+    dst_dir = out_root / "schemas"
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    count = 0
+    for src in sorted(src_dir.glob("*.schema.json")):
+        schema = json.loads(src.read_text(encoding="utf-8"))
+        schema["$id"] = f"{SITE_URL}/schemas/{src.name}"
+        dst_dir.joinpath(src.name).write_text(
+            json.dumps(schema, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        count += 1
+    if not quiet:
+        print(f"  schemas/*.json                {count:>4} published with live $id")
+    return count
 
 
 def main() -> int:
@@ -167,6 +284,11 @@ def main() -> int:
     llms = llms_txt(data, exported_at)
     (out_root / "llms.txt").write_text(llms, encoding="utf-8")
 
+    llms_full = llms_full_txt(data, exported_at)
+    (out_root / "llms-full.txt").write_text(llms_full, encoding="utf-8")
+
+    schema_count = publish_schemas(out_root, args.quiet)
+
     if not args.quiet:
         print(f"Exported to {out_root}")
         for stem, entries in data.items():
@@ -174,6 +296,8 @@ def main() -> int:
         print(f"  data/all.json                 {sum(len(e) for e in data.values()):>4} entries")
         print(f"  data/index.json               counts + attribution")
         print(f"  llms.txt                      {len(llms.splitlines()):>4} lines")
+        print(f"  llms-full.txt                 {len(llms_full.splitlines()):>4} lines")
+        print(f"  schemas/*.json                {schema_count:>4} published")
     return 0
 
 

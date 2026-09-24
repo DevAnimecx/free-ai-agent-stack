@@ -1,14 +1,45 @@
 import Link from "next/link";
 
+import { FaqSection } from "@/components/FaqSection";
 import { CATEGORIES, getStats } from "@/lib/loadData";
+import { breadcrumbSchema, graph, personSchema } from "@/lib/schema";
+import { BRAND, SITE_BASE_PATH } from "@/lib/site";
 import { strings } from "@/lib/strings";
+
+const withBase = (path: string) => `${SITE_BASE_PATH}${path}`;
 
 export const metadata = {
   title: "Methodology — how every free tier here is verified",
   description:
-    "What counts as free, how each entry is verified by a human, which parts of a listing automation may change, and the known limitations of this dataset.",
+    "What counts as free, how each entry is verified by a human, which parts of a listing automation may change, how to cite the dataset, and its known limitations.",
   alternates: { canonical: "/about/" },
+  openGraph: {
+    title: "Methodology — how every free tier here is verified",
+    description:
+      "What counts as free, who verified each claim, what automation may change, and how to cite this dataset.",
+    url: "/about/",
+    images: [{ url: "/og/about.png", width: 1200, height: 630, alt: "Methodology" }],
+  },
 };
+
+const ABOUT_FAQ = [
+  {
+    q: "Can I reuse this dataset in my own project?",
+    a: "Yes. The data is licensed CC BY 4.0 and the code MIT, so you may republish and adapt it, including commercially, provided you attribute it. The full catalogue is published as JSON, llms.txt and llms-full.txt, so you can consume it directly rather than scraping the rendered pages.",
+  },
+  {
+    q: "What does “free” mean in this catalogue?",
+    a: "Free to start without a credit card, on a tier the vendor documents publicly, with a citable limit. Card-gated credit grants of $100 or more are listed separately as trials, and a tier that quietly stopped being free stays in the data flagged rather than deleted, so the record shows where claims failed.",
+  },
+  {
+    q: "How is each entry verified?",
+    a: "A human opens the vendor's own pricing or documentation page and records the free limit in the vendor's units, whether a card is required, and the date. A robot then re-checks every URL daily and flags dead links after three consecutive failures. Entries unverified for 30 days return to the triage queue.",
+  },
+  {
+    q: "Who maintains free-ai-agent-stack?",
+    a: `Built and maintained by ${BRAND.byline}. Every entry records the handle of whoever verified it, the dataset is versioned in public on GitHub, and the project takes corrections through issues and pull requests.`,
+  },
+];
 
 export default function AboutPage() {
   const stats = getStats();
@@ -120,6 +151,64 @@ export default function AboutPage() {
         </dl>
       </section>
 
+      {/* E-E-A-T: who maintains this, stated on the page a sceptical reader
+          lands on. Answer engines and reviewers both look for a named party
+          with a traceable identity behind a claim-making dataset. */}
+      <section className="mt-6 prose-intro">
+        <h2 className="text-[15px] font-semibold text-slate-900 dark:text-slate-50">
+          {strings.about.authorHeading}
+        </h2>
+        <p>{strings.about.authorBody}</p>
+        <p className="font-mono text-[12px]">
+          <a
+            href={BRAND.github}
+            target="_blank"
+            rel="noopener noreferrer author"
+            className="text-blue-700 hover:underline dark:text-blue-400"
+          >
+            github.com/DevAnimecx
+          </a>{" "}
+          ·{" "}
+          <a
+            href={BRAND.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-700 hover:underline dark:text-blue-400"
+          >
+            source
+          </a>
+        </p>
+      </section>
+
+      <section className="mt-6 prose-intro">
+        <h2 className="text-[15px] font-semibold text-slate-900 dark:text-slate-50">
+          {strings.about.citeHeading}
+        </h2>
+        <p>{strings.about.citeBody}</p>
+        <pre className="mt-2 overflow-x-auto rounded border border-slate-200 bg-slate-50 p-3 font-mono text-[12px] leading-5 text-slate-700 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300">
+{`free-ai-agent-stack (2026). ${BRAND.byline}.
+${strings.site.url}
+Data licensed CC BY 4.0.`}
+        </pre>
+        <p className="mt-2 font-mono text-[12px]">
+          <a href={withBase("/data/all.json")} className="text-blue-700 hover:underline dark:text-blue-400">
+            /data/all.json
+          </a>{" "}
+          ·{" "}
+          <a href={withBase("/llms.txt")} className="text-blue-700 hover:underline dark:text-blue-400">
+            /llms.txt
+          </a>{" "}
+          ·{" "}
+          <a href={withBase("/llms-full.txt")} className="text-blue-700 hover:underline dark:text-blue-400">
+            /llms-full.txt
+          </a>{" "}
+          ·{" "}
+          <a href={withBase("/feed.xml")} className="text-blue-700 hover:underline dark:text-blue-400">
+            /feed.xml
+          </a>
+        </p>
+      </section>
+
       <section className="mt-6 border-t border-slate-200 pt-4 dark:border-slate-800">
         <p className="max-w-prose text-[13px] leading-6 text-slate-600 dark:text-slate-400">
           The long form lives in the repository:{" "}
@@ -143,6 +232,23 @@ export default function AboutPage() {
           .
         </p>
       </section>
+
+      <FaqSection items={ABOUT_FAQ} heading="Questions about the method" />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graph(
+              personSchema(),
+              breadcrumbSchema([
+                { name: strings.site.name, path: "/" },
+                { name: strings.about.h1, path: "/about/" },
+              ]),
+            ),
+          ),
+        }}
+      />
     </>
   );
 }

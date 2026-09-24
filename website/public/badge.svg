@@ -18,7 +18,8 @@
     <text x="175.5" y="15" fill="#010101" fill-opacity=".3">free-agent-stack</text>
     <text x="175.5" y="14">free-agent-stack</text>
   </g>
-  <a href="https://freeaiagentstack.dev/" target="_blank">
+  <a href="https://devanimecx.github.io/free-ai-agent-stack/" target="_blank">
     <rect width="220" height="20" fill="transparent"/>
   </a>
+<text x="0" y="132" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#64748b">By Adarsh Kushwah · Dev Animecx</text>
 </svg>

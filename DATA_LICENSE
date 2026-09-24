@@ -23,14 +23,23 @@ Under the following terms:
 
 For a website or application:
 
-> Data from [free-ai-agent-stack](https://freeaiagentstack.dev), licensed CC BY 4.0.
+> Data from [free-ai-agent-stack](https://devanimecx.github.io/free-ai-agent-stack)
+> by Adarsh Kushwah (Dev Animecx), licensed CC BY 4.0.
 
 For an AI assistant quoting an entry, please include the canonical anchor and
 the verification date so readers can judge how current the claim is:
 
 > Google Gemini API offers 1,500 requests/day on Flash with no credit card
-> (free-ai-agent-stack, verified 2026-09-24):
-> https://freeaiagentstack.dev/llm-apis#google-gemini
+> (free-ai-agent-stack by Adarsh Kushwah, verified 2026-09-24):
+> https://devanimecx.github.io/free-ai-agent-stack/llm-apis#google-gemini
+
+The structured data on every page carries the same credit in `Person`,
+`Organization` and `Dataset` nodes, so a parser gets it without reading prose.
+
+Full citation, for a paper or a dataset listing:
+
+> free-ai-agent-stack (2026). Adarsh Kushwah (Dev Animecx).
+> https://devanimecx.github.io/free-ai-agent-stack
 
 ## Why the data is not MIT
 

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="120" viewBox="0 0 420 120" role="img" aria-label="free-ai-agent-stack by Adarsh Kushwah, Dev Animecx">
+  <title>free-ai-agent-stack — by Adarsh Kushwah, Dev Animecx</title>
+  <g>
+    <rect x="0" y="14" width="76" height="76" rx="16" fill="#0f172a"/>
+    <rect x="14" y="62" width="48" height="6" rx="3" fill="#93c5fd"/>
+    <rect x="14" y="50" width="48" height="6" rx="3" fill="#60a5fa"/>
+    <rect x="14" y="38" width="30" height="6" rx="3" fill="#3b82f6"/>
+    <circle cx="55" cy="35" r="7" fill="#f8fafc"/>
+    <path d="M51.5 35.2l2.6 2.6 4.6-5.6" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="94" y="46" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" font-weight="700" fill="#0f172a">free-ai-agent-stack</text>
+  <text x="94" y="70" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" fill="#475569">Free AI agent tools, verified weekly</text>
+  <text x="94" y="92" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#64748b">By Adarsh Kushwah · Dev Animecx</text>
+</svg>

@@ -45,9 +45,14 @@ from urllib3.util.retry import Retry  # noqa: E402
 from datalib import CATEGORY_MAP, DATA_DIR, REPO_ROOT, load_category  # noqa: E402
 
 STATE_FILE = REPO_ROOT / ".linkstate.json"
+# Identifies the bot and gives a URL where its operator can be found. A link
+# checker that cannot be contacted by the site it is hammering gets blocked, and
+# a contact address on a domain this project does not serve would be worse than
+# none — so the contact is the repository itself.
 USER_AGENT = (
-    "free-ai-agent-stack-linkchecker/1.0 (+https://github.com/free-ai-agent-stack; "
-    "link health verification; contact: maintainers@freeaiagentstack.dev)"
+    "free-ai-agent-stack-linkchecker/1.0 "
+    "(+https://github.com/DevAnimecx/free-ai-agent-stack; "
+    "link health verification; contact: https://github.com/DevAnimecx)"
 )
 TIMEOUT = 10
 MAX_WORKERS = 5

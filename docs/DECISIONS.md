@@ -608,3 +608,73 @@ are in `research/skills-sh-rescue.json`.
 `npm ci` then `npm run build` is required before the site can be rebuilt, and
 the :8080 preview has to be restarted. The data, schemas, scripts and
 `public/data/*.json` exports are all tracked and persist normally.
+
+## D-12 — GitHub Pages is the host, and the base path is derived, not configured (2026-09-24)
+
+**Decision.** The site serves from GitHub Pages at
+`https://devanimecx.github.io/free-ai-agent-stack/`, deployed by
+`.github/workflows/deploy-site.yml` on every push to `main`. `SITE_URL` and
+`BASE_PATH` are **derived** from `github.repository_owner` and
+`github.event.repository.name`, not stored as settings. Repo variables
+`SITE_URL` and `BASE_PATH` can override both, which is what makes a future move
+to a root domain — or a Vercel mirror — a variable change rather than a code
+change.
+
+**Why derived.** A canonical URL that disagrees with where the site is actually
+served is the single worst SEO failure available here: it splits ranking between
+two hosts, and it is invisible because every page still renders. Deriving both
+from the same three GitHub-provided strings removes the class of bug rather than
+one instance of it. A fork or a rename keeps working with nothing touched.
+
+**The build found a real defect.** The export was shipping root-relative asset
+URLs — `/_next/static/...` — while every other URL carried the subpath. On
+Pages that means no stylesheet and no JavaScript: the HTML arrives correct and
+completely unstyled. The cause was `next.config.js` reading
+`process.env.BASE_PATH || ""`, so a local build and a CI build produced two
+structurally different sites from the same commit. `next.config.js` now derives
+`basePath` *and* `assetPrefix` from `NEXT_PUBLIC_SITE_URL`, so one value decides
+everything. `scripts/verify_export.py` asserts it, and the local preview is
+served under a `/free-ai-agent-stack/` prefix so this fails locally before it
+fails in production.
+
+**What "deepest SEO/AEO" means concretely**, and why each piece is there:
+canonical + OG + Twitter cards on all 14 pages; `@graph` JSON-LD with stable
+`@id`s so `Person`, `Organization`, `WebSite` and `Dataset` nodes cross-
+reference instead of repeating; `ItemList` of 78 items on `/skills/` and the
+other category pages; `FAQPage` generated from the same array that renders the
+visible FAQ, so the markup and the prose cannot drift; `BreadcrumbList` per
+page; sitemap with `lastmod`; robots allowing 18 named AI crawlers explicitly;
+`llms.txt` (450 lines) and `llms-full.txt` (24,706 lines); RSS at `/feed.xml`;
+and a one-sentence answer summary marked `id="answer-summary"` on every page,
+which is the passage an answer engine lifts.
+
+**Answer summaries are per-category, not templated.** A shared sentence
+produced a false claim: reading the credit-card count for MCP servers and
+skills, which record no such field, yielded "0 of which need no credit card" —
+an assertion that none of them are card-free. It shipped on two of five
+category pages and their social cards. Each category is now described with a
+statistic that exists for it, and `facts()` returns an unrendered `{noCard}`
+token instead of defaulting to `0`, so a future category that reaches for a
+field it does not record shows a visibly broken token rather than a plausible
+zero.
+
+**`.nojekyll` is mandatory, not cosmetic.** Pages runs Jekyll by default, and
+Jekyll silently drops every path beginning with an underscore — including all
+of `_next/`. The workflow writes `out/.nojekyll` and the file is also committed
+in `public/`, so both paths are covered.
+
+**Attribution.** The byline is **"Adarsh Kushwah (Dev Animecx)"** — one
+canonical string, used in the site header and footer, the README title block and
+footer, `LICENSE`, `DATA_LICENSE`, `data/index.json` (`author`, `contact`,
+`citation` fields), `llms.txt`, and the `Person` + `Organization` JSON-LD nodes
+that every page publishes. The badge SVG carries the byline inside the file
+itself, because a badge is consumed as an image on third-party READMEs where
+no surrounding prose travels with it.
+
+**Two stale contacts corrected while sweeping.** `CODE_OF_CONDUCT.md` invited
+conduct reports to `conduct@freeaiagentstack.dev`, and the link checker's
+user-agent advertised the same domain — neither of which this project serves, so
+both would have silently swallowed mail. Reports now route through GitHub's
+private reporting, and the UA points at the repository and a reachable contact.
+The five `schemas/*.json` `$id` values were on the same dead domain and could
+not be dereferenced; they now resolve to the live host.

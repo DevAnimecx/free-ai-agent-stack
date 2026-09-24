@@ -4,12 +4,16 @@
 
 **Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 384 resources, verified weekly, zero cost to build on.**
 
-[![Stars](https://img.shields.io/github/stars/free-ai-agent-stack/free-ai-agent-stack?style=flat-square&logo=github)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/stargazers)
-[![Forks](https://img.shields.io/github/forks/free-ai-agent-stack/free-ai-agent-stack?style=flat-square)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/forks)
-[![Contributors](https://img.shields.io/github/contributors/free-ai-agent-stack/free-ai-agent-stack?style=flat-square)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/graphs/contributors)
-[![Last commit](https://img.shields.io/github/last-commit/free-ai-agent-stack/free-ai-agent-stack?style=flat-square)](https://github.com/free-ai-agent-stack/free-ai-agent-stack/commits/main)
-[![Link check](https://img.shields.io/github/actions/workflow/status/free-ai-agent-stack/free-ai-agent-stack/verify.yml?label=links&style=flat-square)](../../actions/workflows/verify.yml)
-[![Website](https://img.shields.io/badge/website-live-brightgreen?style=flat-square)](https://freeaiagentstack.dev)
+**By [Adarsh Kushwah](https://github.com/DevAnimecx) — Dev Animecx**
+
+[![Stars](https://img.shields.io/github/stars/DevAnimecx/free-ai-agent-stack?style=flat-square&logo=github)](https://github.com/DevAnimecx/free-ai-agent-stack/stargazers)
+[![Forks](https://img.shields.io/github/forks/DevAnimecx/free-ai-agent-stack?style=flat-square)](https://github.com/DevAnimecx/free-ai-agent-stack/forks)
+[![Contributors](https://img.shields.io/github/contributors/DevAnimecx/free-ai-agent-stack?style=flat-square)](https://github.com/DevAnimecx/free-ai-agent-stack/graphs/contributors)
+[![Last commit](https://img.shields.io/github/last-commit/DevAnimecx/free-ai-agent-stack?style=flat-square)](https://github.com/DevAnimecx/free-ai-agent-stack/commits/main)
+[![Link check](https://img.shields.io/github/actions/workflow/status/DevAnimecx/free-ai-agent-stack/verify.yml?label=links&style=flat-square)](../../actions/workflows/verify.yml)
+[![Website](https://img.shields.io/badge/website-live-brightgreen?style=flat-square)](https://devanimecx.github.io/free-ai-agent-stack/)
+[![Data](https://img.shields.io/badge/data-JSON%20%2B%20llms.txt-blue?style=flat-square)](https://devanimecx.github.io/free-ai-agent-stack/llms.txt)
+[![Licence](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey?style=flat-square)](DATA_LICENSE)
 
 </div>
 
@@ -55,7 +59,7 @@ npx create-next-app@latest && npx vercel --prod   # static + serverless, $0 tier
 - [Free-tier infrastructure](#free-tier-infrastructure) — 90 entries
 - [Agent skills](#agent-skills) — 78 entries
 - [What "free" means here](#what-free-means-here) · [Methodology](#methodology) · [Machine-readable data](#machine-readable-data)
-- [Contribute](#contribute) · [Licence](#licence)
+- [Deployment](#deployment) · [Contribute](#contribute) · [Licence](#licence)
 
 ---
 
@@ -69,33 +73,33 @@ npx create-next-app@latest && npx vercel --prod   # static + serverless, $0 tier
 
 **Google** · 1,500 requests/day on Flash, 1,000/day on Flash-Lite; 250K TPM · no credit card · verified 2026-09-24
 
-Frontier multimodal models on a permanent free tier — Flash and Flash-Lite families only since April 2026. Free-tier prompts are used to improve Google products. → [ai.google.dev](https://ai.google.dev) · [`#google-gemini`](https://freeaiagentstack.dev/llm-apis#google-gemini)
+Frontier multimodal models on a permanent free tier — Flash and Flash-Lite families only since April 2026. Free-tier prompts are used to improve Google products. → [ai.google.dev](https://ai.google.dev) · [`#google-gemini`](https://devanimecx.github.io/free-ai-agent-stack/llm-apis#google-gemini)
 
 #### Groq Cloud
 
 **Groq** · 1,000 req/day and 200K tokens/day per model · no credit card · verified 2026-09-24
 
-Open-weight models at 300+ tokens/sec on LPU hardware, with the most generous request-per-day allowance of any free tier. → [groq.com](https://groq.com) · [`#groq`](https://freeaiagentstack.dev/llm-apis#groq)
+Open-weight models at 300+ tokens/sec on LPU hardware, with the most generous request-per-day allowance of any free tier. → [groq.com](https://groq.com) · [`#groq`](https://devanimecx.github.io/free-ai-agent-stack/llm-apis#groq)
 
 #### OpenRouter Free Models
 
 **OpenRouter** · 50 requests/day (1,000/day after a one-time $10 credit purchase) · no credit card · verified 2026-09-24
 
-One OpenAI-compatible key fronting 19+ `:free` models across providers. The `:free` roster rotates monthly. → [openrouter.ai](https://openrouter.ai) · [`#openrouter-free`](https://freeaiagentstack.dev/llm-apis#openrouter-free)
+One OpenAI-compatible key fronting 19+ `:free` models across providers. The `:free` roster rotates monthly. → [openrouter.ai](https://openrouter.ai) · [`#openrouter-free`](https://devanimecx.github.io/free-ai-agent-stack/llm-apis#openrouter-free)
 
 #### Cloudflare Workers AI
 
 **Cloudflare** · 10,000 Neurons/day · no credit card · verified 2026-09-24
 
-Serverless inference that runs inside a Worker — no egress cost, no cold-start management. Budget is in Neurons, not tokens. → [developers.cloudflare.com](https://developers.cloudflare.com/workers-ai/) · [`#cloudflare-workers-ai`](https://freeaiagentstack.dev/llm-apis#cloudflare-workers-ai)
+Serverless inference that runs inside a Worker — no egress cost, no cold-start management. Budget is in Neurons, not tokens. → [developers.cloudflare.com](https://developers.cloudflare.com/workers-ai/) · [`#cloudflare-workers-ai`](https://devanimecx.github.io/free-ai-agent-stack/llm-apis#cloudflare-workers-ai)
 
 #### Ollama
 
 **Ollama** · Unlimited; limited only by your GPU/RAM · no credit card · verified 2026-09-24
 
-The default way to run open models locally — one command to pull, serve and expose an OpenAI-compatible endpoint. → [ollama.com](https://ollama.com) · [`#ollama`](https://freeaiagentstack.dev/llm-apis#ollama)
+The default way to run open models locally — one command to pull, serve and expose an OpenAI-compatible endpoint. → [ollama.com](https://ollama.com) · [`#ollama`](https://devanimecx.github.io/free-ai-agent-stack/llm-apis#ollama)
 
-> **70 entries in total**, including every provider that quietly stopped being free (OpenAI, Anthropic, xAI, DeepSeek, Together, Perplexity — all marked `status: deprecated` with the reason). [See the full list](https://freeaiagentstack.dev/llm-apis) · [raw data](data/llm-apis.yaml)
+> **70 entries in total**, including every provider that quietly stopped being free (OpenAI, Anthropic, xAI, DeepSeek, Together, Perplexity — all marked `status: deprecated` with the reason). [See the full list](https://devanimecx.github.io/free-ai-agent-stack/llm-apis) · [raw data](data/llm-apis.yaml)
 
 ---
 
@@ -109,33 +113,33 @@ The default way to run open models locally — one command to pull, serve and ex
 
 **Upstash** · `npx -y @upstash/context7-mcp` · stdio, http · no auth
 
-Version-pinned, up-to-date documentation for thousands of libraries — the single highest-value server for coding agents. → [github.com/upstash/context7](https://github.com/upstash/context7) · [`#context7-mcp`](https://freeaiagentstack.dev/mcp-servers#context7-mcp)
+Version-pinned, up-to-date documentation for thousands of libraries — the single highest-value server for coding agents. → [github.com/upstash/context7](https://github.com/upstash/context7) · [`#context7-mcp`](https://devanimecx.github.io/free-ai-agent-stack/mcp-servers#context7-mcp)
 
 #### GitHub MCP Server
 
 **GitHub** · `docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server` · stdio, http · PAT required
 
-Repo automation, PRs, issues, code search and CI workflows — 51 tools. → [github.com/github/github-mcp-server](https://github.com/github/github-mcp-server) · [`#github-mcp`](https://freeaiagentstack.dev/mcp-servers#github-mcp)
+Repo automation, PRs, issues, code search and CI workflows — 51 tools. → [github.com/github/github-mcp-server](https://github.com/github/github-mcp-server) · [`#github-mcp`](https://devanimecx.github.io/free-ai-agent-stack/mcp-servers#github-mcp)
 
 #### Playwright MCP
 
 **Microsoft** · `npx -y @playwright/mcp@latest` · stdio, http · no auth
 
-Browser automation over accessibility snapshots rather than screenshots — far fewer tokens than screenshot-based agents. → [github.com/microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) · [`#playwright-mcp`](https://freeaiagentstack.dev/mcp-servers#playwright-mcp)
+Browser automation over accessibility snapshots rather than screenshots — far fewer tokens than screenshot-based agents. → [github.com/microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) · [`#playwright-mcp`](https://devanimecx.github.io/free-ai-agent-stack/mcp-servers#playwright-mcp)
 
 #### Filesystem
 
 **MCP Steering Group** · `npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir` · stdio · no auth
 
-Secure local file operations with configurable allow-listed directories — where every local agent starts. → [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) · [`#filesystem-mcp`](https://freeaiagentstack.dev/mcp-servers#filesystem-mcp)
+Secure local file operations with configurable allow-listed directories — where every local agent starts. → [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) · [`#filesystem-mcp`](https://devanimecx.github.io/free-ai-agent-stack/mcp-servers#filesystem-mcp)
 
 #### Qdrant MCP
 
 **Qdrant** · `uvx mcp-server-qdrant --qdrant-url <url>` · stdio · API key
 
-Stores and retrieves memories in a Qdrant collection — vector memory as a tool, paired with Qdrant's free 1GB cluster. → [github.com/qdrant/mcp-server-qdrant](https://github.com/qdrant/mcp-server-qdrant) · [`#qdrant-mcp`](https://freeaiagentstack.dev/mcp-servers#qdrant-mcp)
+Stores and retrieves memories in a Qdrant collection — vector memory as a tool, paired with Qdrant's free 1GB cluster. → [github.com/qdrant/mcp-server-qdrant](https://github.com/qdrant/mcp-server-qdrant) · [`#qdrant-mcp`](https://devanimecx.github.io/free-ai-agent-stack/mcp-servers#qdrant-mcp)
 
-> **64 entries in total**, including the archived reference servers (`postgres`, `slack`, `puppeteer`, `brave-search`) that most tutorials still tell you to install, each replaced with a maintained alternative. [See the full list](https://freeaiagentstack.dev/mcp-servers) · [raw data](data/mcp-servers.yaml)
+> **64 entries in total**, including the archived reference servers (`postgres`, `slack`, `puppeteer`, `brave-search`) that most tutorials still tell you to install, each replaced with a maintained alternative. [See the full list](https://devanimecx.github.io/free-ai-agent-stack/mcp-servers) · [raw data](data/mcp-servers.yaml)
 
 ---
 
@@ -149,33 +153,33 @@ Stores and retrieves memories in a Qdrant collection — vector memory as a tool
 
 **cli** · 1,000 requests/day with a personal Google account (60 RPM) · open source
 
-Google's open-source terminal agent with the most generous free quota of any first-party CLI. The best $0 coding agent in 2026. → [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) · [`#gemini-cli`](https://freeaiagentstack.dev/agent-tools#gemini-cli)
+Google's open-source terminal agent with the most generous free quota of any first-party CLI. The best $0 coding agent in 2026. → [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) · [`#gemini-cli`](https://devanimecx.github.io/free-ai-agent-stack/agent-tools#gemini-cli)
 
 #### Cline
 
 **ide** · Free and open source — bring any provider key (including free tiers) · open source
 
-Autonomous coding agent for VS Code, JetBrains and the terminal, with human approval at every step. Point it at Gemini or Groq free tiers and a full agent costs nothing. → [cline.bot](https://cline.bot) · [`#cline`](https://freeaiagentstack.dev/agent-tools#cline)
+Autonomous coding agent for VS Code, JetBrains and the terminal, with human approval at every step. Point it at Gemini or Groq free tiers and a full agent costs nothing. → [cline.bot](https://cline.bot) · [`#cline`](https://devanimecx.github.io/free-ai-agent-stack/agent-tools#cline)
 
 #### LangGraph
 
 **framework** · Open source (MIT) · Python
 
-Stateful, graph-based agent orchestration with durable execution, human-in-the-loop and time travel. → [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/) · [`#langgraph`](https://freeaiagentstack.dev/agent-tools#langgraph)
+Stateful, graph-based agent orchestration with durable execution, human-in-the-loop and time travel. → [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/) · [`#langgraph`](https://devanimecx.github.io/free-ai-agent-stack/agent-tools#langgraph)
 
 #### n8n
 
 **orchestrator** · Self-hosted Community Edition is free forever (fair-code licence) · TypeScript
 
-Node-based automation with native AI agent nodes, MCP trigger and hundreds of integrations. → [n8n.io](https://n8n.io) · [`#n8n`](https://freeaiagentstack.dev/agent-tools#n8n)
+Node-based automation with native AI agent nodes, MCP trigger and hundreds of integrations. → [n8n.io](https://n8n.io) · [`#n8n`](https://devanimecx.github.io/free-ai-agent-stack/agent-tools#n8n)
 
 #### LiteLLM
 
 **framework** · Open source (MIT) · Python
 
-One OpenAI-shaped interface over 100+ providers, with a proxy that adds budgets, keys and tracing — the cleanest way to stack several free tiers behind one endpoint. → [docs.litellm.ai](https://docs.litellm.ai) · [`#litellm`](https://freeaiagentstack.dev/agent-tools#litellm)
+One OpenAI-shaped interface over 100+ providers, with a proxy that adds budgets, keys and tracing — the cleanest way to stack several free tiers behind one endpoint. → [docs.litellm.ai](https://docs.litellm.ai) · [`#litellm`](https://devanimecx.github.io/free-ai-agent-stack/agent-tools#litellm)
 
-> [See the full list](https://freeaiagentstack.dev/agent-tools) · [raw data](data/agent-tools.yaml)
+> [See the full list](https://devanimecx.github.io/free-ai-agent-stack/agent-tools) · [raw data](data/agent-tools.yaml)
 
 ---
 
@@ -189,33 +193,33 @@ One OpenAI-shaped interface over 100+ providers, with a proxy that adds budgets,
 
 **hosting** · Hobby: 100GB bandwidth/mo, 100h serverless, $5/mo AI credit · low cold-start risk
 
-Static and serverless hosting with preview deployments per branch and AI Gateway included. Hobby is explicitly non-commercial. → [vercel.com](https://vercel.com) · [`#vercel`](https://freeaiagentstack.dev/free-tiers#vercel)
+Static and serverless hosting with preview deployments per branch and AI Gateway included. Hobby is explicitly non-commercial. → [vercel.com](https://vercel.com) · [`#vercel`](https://devanimecx.github.io/free-ai-agent-stack/free-tiers#vercel)
 
 #### Supabase
 
 **database** · 500MB database, 1GB file storage, 50K MAU auth · medium cold-start risk
 
-Postgres with auth, storage, realtime and pgvector in one free project. Projects pause after 7 days of inactivity. → [supabase.com](https://supabase.com) · [`#supabase`](https://freeaiagentstack.dev/free-tiers#supabase)
+Postgres with auth, storage, realtime and pgvector in one free project. Projects pause after 7 days of inactivity. → [supabase.com](https://supabase.com) · [`#supabase`](https://devanimecx.github.io/free-ai-agent-stack/free-tiers#supabase)
 
 #### Qdrant Cloud
 
 **vector-db** · 1GB cluster free forever · low cold-start risk
 
-The best free vector tier: a real cluster with payload filtering, no card required. Holds roughly 250K vectors at 384 dimensions. → [qdrant.tech](https://qdrant.tech) · [`#qdrant-cloud`](https://freeaiagentstack.dev/free-tiers#qdrant-cloud)
+The best free vector tier: a real cluster with payload filtering, no card required. Holds roughly 250K vectors at 384 dimensions. → [qdrant.tech](https://qdrant.tech) · [`#qdrant-cloud`](https://devanimecx.github.io/free-ai-agent-stack/free-tiers#qdrant-cloud)
 
 #### Oracle Cloud Always Free
 
 **compute** · 2 ARM cores + 12GB RAM, 200GB storage, 10TB egress/mo, forever · low cold-start risk
 
-Oracle halved this allowance on 15 June 2026 with no announcement. Two Ampere cores and 12GB is still the only permanently free ARM VM on the market and remains generous enough to self-host several services — including your own Langfuse and n8n. → [oracle.com/cloud/free](https://www.oracle.com/cloud/free/) · [`#oracle-cloud-always-free`](https://freeaiagentstack.dev/free-tiers#oracle-cloud-always-free)
+Oracle halved this allowance on 15 June 2026 with no announcement. Two Ampere cores and 12GB is still the only permanently free ARM VM on the market and remains generous enough to self-host several services — including your own Langfuse and n8n. → [oracle.com/cloud/free](https://www.oracle.com/cloud/free/) · [`#oracle-cloud-always-free`](https://devanimecx.github.io/free-ai-agent-stack/free-tiers#oracle-cloud-always-free)
 
 #### Langfuse
 
 **observability** · 50K observations/mo on free cloud; self-hosted is unlimited · low cold-start risk
 
-Open-source LLM tracing, prompt management and evaluation — the default for debugging agent runs. → [langfuse.com](https://langfuse.com) · [`#langfuse`](https://freeaiagentstack.dev/free-tiers#langfuse)
+Open-source LLM tracing, prompt management and evaluation — the default for debugging agent runs. → [langfuse.com](https://langfuse.com) · [`#langfuse`](https://devanimecx.github.io/free-ai-agent-stack/free-tiers#langfuse)
 
-> [See the full list](https://freeaiagentstack.dev/free-tiers) · [raw data](data/free-tiers.yaml)
+> [See the full list](https://devanimecx.github.io/free-ai-agent-stack/free-tiers) · [raw data](data/free-tiers.yaml)
 
 ---
 
@@ -229,15 +233,15 @@ This section lists where skills come from, at the granularity of *packs* rather 
 
 **catalog** · 177,887 stars · 19 skills · document, spreadsheet, slide and PDF workflows
 
-Anthropic's official skills repository, and the largest skills project by a wide margin. → [github.com/anthropics/skills](https://github.com/anthropics/skills) · [`#anthropics-skills`](https://freeaiagentstack.dev/skills#anthropics-skills)
+Anthropic's official skills repository, and the largest skills project by a wide margin. → [github.com/anthropics/skills](https://github.com/anthropics/skills) · [`#anthropics-skills`](https://devanimecx.github.io/free-ai-agent-stack/skills#anthropics-skills)
 
 #### OpenAI Plugins
 
 **catalog** · 7,141 stars · 536 skills across 62 plugins · the current home for Codex skills
 
-Where OpenAI moved its skill catalogue — vendor plugins from Adobe, Cloudflare, Datadog, Figma, GitHub, Linear, Notion, Sentry, Stripe and Vercel alongside first-party tooling. The older `openai/skills` catalog is deprecated but its 39 curated skills still install. → [github.com/openai/plugins](https://github.com/openai/plugins) · [`#openai-plugins`](https://freeaiagentstack.dev/skills#openai-plugins)
+Where OpenAI moved its skill catalogue — vendor plugins from Adobe, Cloudflare, Datadog, Figma, GitHub, Linear, Notion, Sentry, Stripe and Vercel alongside first-party tooling. The older `openai/skills` catalog is deprecated but its 39 curated skills still install. → [github.com/openai/plugins](https://github.com/openai/plugins) · [`#openai-plugins`](https://devanimecx.github.io/free-ai-agent-stack/skills#openai-plugins)
 
-> **74 entries in total.** The warning for this category: registries that render in the browser answer HTTP 200 for *any* path, including invented ones, so a link checker cannot tell a real skill from a fake one — only an API or a file listing can. Of one submitted list of 25 registry entries, 11 existed and 14 did not, and seven of those 14 turned out to exist in another registry. Four named OpenAI skills exist at no path; one exists only as a system skill inside Codex. Every install command here was run before it was written down. [See the full list](https://freeaiagentstack.dev/skills) · [raw data](data/skills.yaml)
+> **74 entries in total.** The warning for this category: registries that render in the browser answer HTTP 200 for *any* path, including invented ones, so a link checker cannot tell a real skill from a fake one — only an API or a file listing can. Of one submitted list of 25 registry entries, 11 existed and 14 did not, and seven of those 14 turned out to exist in another registry. Four named OpenAI skills exist at no path; one exists only as a system skill inside Codex. Every install command here was run before it was written down. [See the full list](https://devanimecx.github.io/free-ai-agent-stack/skills) · [raw data](data/skills.yaml)
 
 ---
 
@@ -272,13 +276,44 @@ Built for agents, not just humans: stable IDs, a versioned schema, JSON endpoint
 
 | Resource | URL |
 |---|---|
-| Full dataset | [`/data/all.json`](https://freeaiagentstack.dev/data/all.json) |
-| Per category | `/data/llm-apis.json` · `/data/mcp-servers.json` · `/data/agent-tools.json` · `/data/free-tiers.json` |
-| Agent summary | [`/llms.txt`](https://freeaiagentstack.dev/llms.txt) |
-| Schemas | [`schemas/`](schemas/) — Draft 2020-12, `additionalProperties: false` |
+| Full dataset | [`/data/all.json`](https://devanimecx.github.io/free-ai-agent-stack/data/all.json) |
+| Per category | `/data/llm-apis.json` · `/data/mcp-servers.json` · `/data/agent-tools.json` · `/data/free-tiers.json` · `/data/skills.json` |
+| Index and counts | [`/data/index.json`](https://devanimecx.github.io/free-ai-agent-stack/data/index.json) |
+| Agent summary | [`/llms.txt`](https://devanimecx.github.io/free-ai-agent-stack/llms.txt) — index of everything below |
+| Full text for models | [`/llms-full.txt`](https://devanimecx.github.io/free-ai-agent-stack/llms-full.txt) — every field of every entry, ~25k lines |
+| Change feed | [`/feed.xml`](https://devanimecx.github.io/free-ai-agent-stack/feed.xml) — RSS of the 50 most recently re-verified entries |
+| Schemas | [`/schemas/*.json`](https://devanimecx.github.io/free-ai-agent-stack/schemas/skill.schema.json) — Draft 2020-12, published with live `$id`s |
 | Validation | `python3 scripts/validate.py` — schema, duplicates, dead links, affiliate params |
+| Export check | `python3 scripts/verify_export.py` — canonicals, OG images, JSON-LD, base path |
 
 IDs are immutable: once merged, an ID never changes. Renames are a new entry plus a deprecation.
+
+### Citing this dataset
+
+```
+free-ai-agent-stack (2026). Adarsh Kushwah (Dev Animecx).
+https://devanimecx.github.io/free-ai-agent-stack
+Data licensed CC BY 4.0.
+```
+
+Structured data on every page carries the same attribution in `Person`, `Organization` and `Dataset` nodes, so anything that parses the markup rather than the prose still resolves the author.
+
+## Deployment
+
+Hosted on **GitHub Pages** at <https://devanimecx.github.io/free-ai-agent-stack/>. The site is a static export — no server, no runtime cost.
+
+`.github/workflows/deploy-site.yml` builds and deploys on every push to `main`. Both values it needs are *derived*, not configured:
+
+| Value | Derived from | Override |
+|---|---|---|
+| `BASE_PATH` | `/<repo-name>` | repo variable `BASE_PATH` (set to empty string for a root domain) |
+| `SITE_URL` | `https://<owner>.github.io/<repo-name>` | repo variable `SITE_URL` |
+
+Deriving them means a fork, rename or transfer keeps working with no settings touched — and it removes the failure mode where the canonical URL disagrees with where the site is actually served, which silently splits a site's search ranking.
+
+**One prerequisite, once:** Settings → Pages → *Build and deployment* → Source = **GitHub Actions**. Without it the deploy job has no target.
+
+The build fails rather than shipping a broken deployment: `scripts/verify_export.py` asserts the canonical host, that every Open Graph image and feed exists, that JSON-LD parses and names the author, that the base path appears exactly once, and that all five category pages carry `ItemList`, `FAQPage` and `BreadcrumbList` schema. A `.nojekyll` file is written into the output because Pages otherwise runs Jekyll, which silently deletes every path beginning with an underscore — including all of `_next/`.
 
 ## Contribute
 
@@ -296,10 +331,10 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 
 ## Star history
 
-<a href="https://star-history.com/#free-ai-agent-stack/free-ai-agent-stack&Date">
+<a href="https://star-history.com/#DevAnimecx/free-ai-agent-stack&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=free-ai-agent-stack/free-ai-agent-stack&type=Date&theme=dark" />
-    <img alt="Star history chart for free-ai-agent-stack" src="https://api.star-history.com/svg?repos=free-ai-agent-stack/free-ai-agent-stack&type=Date" width="600" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=DevAnimecx/free-ai-agent-stack&type=Date&theme=dark" />
+    <img alt="Star history chart for free-ai-agent-stack" src="https://api.star-history.com/svg?repos=DevAnimecx/free-ai-agent-stack&type=Date" width="600" />
   </picture>
 </a>
 
@@ -309,8 +344,18 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 - **Data** (`data/**`, `schemas/**`) — [CC-BY-4.0](DATA_LICENSE); reuse it, including in AI answers, with attribution
 - **Trademarks** belong to their owners. This project is not affiliated with any listed vendor, and a listing is not an endorsement.
 
+---
+
 <div align="center">
 
-**[Website](https://freeaiagentstack.dev)** · **[Add a resource](../../issues/new?template=add-resource.yml)** · **[Methodology](docs/METHODOLOGY.md)**
+**Built and maintained by [Adarsh Kushwah](https://github.com/DevAnimecx) — Dev Animecx**
+
+<sub>Independent project. Not affiliated with, endorsed by or sponsored by any listed vendor.</sub>
+
+</div>
+
+<div align="center">
+
+**[Website](https://devanimecx.github.io/free-ai-agent-stack)** · **[Add a resource](../../issues/new?template=add-resource.yml)** · **[Methodology](docs/METHODOLOGY.md)**
 
 </div>
