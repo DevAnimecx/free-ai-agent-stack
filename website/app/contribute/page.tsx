@@ -1,3 +1,4 @@
+import { FaqSection } from "@/components/FaqSection";
 import { strings } from "@/lib/strings";
 import { BRAND, SITE_BASE_PATH } from "@/lib/site";
 
@@ -19,6 +20,29 @@ export const metadata = {
 
 const ISSUE_ADD = `${strings.site.repo}/issues/new?template=add-resource.yml`;
 const ISSUE_FIX = `${strings.site.repo}/issues/new?template=report-broken-link.yml`;
+
+const CONTRIBUTE_FAQ = [
+  {
+    q: "How do I add a resource to this list?",
+    a: "Fork the repository and add roughly twelve lines of YAML to the relevant file in data/ — one entry, one link, one verified date. Run scripts/validate.py, which checks the schema and rejects duplicate ids, URLs and near-duplicate names, then open a pull request. You do not need to touch the website: the pages, the JSON endpoints, the schemas and llms.txt are all generated from that YAML.",
+  },
+  {
+    q: "Why was my entry rejected?",
+    a: "Four reasons cover almost every rejection: the free tier requires a credit card up front, the project has no users and no commits in the last year, the offer is a time-limited trial described as free, or the link could not be verified as reachable. A card-required free tier is listed as a trial rather than as a free tier, because free here means you can start today without entering card details.",
+  },
+  {
+    q: "How long does a pull request take to review?",
+    a: "Usually within a few days. Automated checks run first — schema, duplicate ids and URLs, affiliate parameters and link reachability — so a pull request that passes them is mostly a question of whether the entry belongs. Any entry whose last verification is older than 30 days is re-checked before it is merged.",
+  },
+  {
+    q: "Can I pay to have my product listed?",
+    a: "No. There is no paid placement, no sponsored slot and no affiliate link anywhere in this catalogue, and affiliate parameters are rejected by the validator automatically. A listing here is a factual claim about a free tier rather than an advertisement, which is also why entries that stop being free are kept and marked rather than quietly deleted.",
+  },
+  {
+    q: "What do I do if a listed limit is wrong?",
+    a: "Open an issue, or a pull request, with the corrected figure and set the verified date to the day you confirmed it. Correcting a limit is as valuable as adding an entry — an out-of-date free limit is the exact problem this catalogue exists to solve — and the correction is credited to whoever made it.",
+  },
+];
 
 export default function ContributePage() {
   return (
@@ -137,6 +161,8 @@ export default function ContributePage() {
           <li>A delete guard that refuses a change dropping a category below its floor</li>
         </ul>
       </section>
+
+      <FaqSection items={CONTRIBUTE_FAQ} heading="Questions contributors ask" />
 
       <section className="mt-8 border-t border-slate-200 pt-4 dark:border-slate-800">
         <h2 className="text-[15px] font-semibold text-slate-900 dark:text-slate-50">

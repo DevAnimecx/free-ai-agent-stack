@@ -178,6 +178,45 @@ export function datasetSchema(stats?: {
   };
 }
 
+/**
+ * A Dataset node for one category page.
+ *
+ * The home page publishes the catalogue as a single Dataset. Each category is a
+ * real subset with its own JSON endpoint and its own anchor space, so marking it
+ * as its own Dataset — linked back with `isPartOf` rather than duplicating the
+ * whole description — lets the category page be understood as data in its own
+ * right without competing with the parent as a separate entity.
+ */
+export function categoryDatasetSchema(category: { slug: string; label: string }, count: number) {
+  return {
+    "@type": "Dataset",
+    "@id": `${SITE_URL}/#dataset-${category.slug}`,
+    name: `${category.label} — free-ai-agent-stack`,
+    description: `The ${category.label} section of the free-ai-agent-stack catalogue: ${count} entries with free limits, rate limits, credit-card requirements, status and the date each was last verified by a human.`,
+    isAccessibleForFree: true,
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    creator: { "@id": AUTHOR_ID },
+    publisher: { "@id": ORG_ID },
+    isPartOf: { "@id": DATASET_ID },
+    size: `${count} entries`,
+    citation: `free-ai-agent-stack (2026). ${BRAND.byline}. ${abs(`/${category.slug}/`)}`,
+    distribution: [
+      {
+        "@type": "DataDownload",
+        name: `${category.label} as JSON`,
+        encodingFormat: "application/json",
+        contentUrl: abs(`/data/${category.slug}.json`),
+      },
+      {
+        "@type": "DataDownload",
+        name: "Whole catalogue as JSON",
+        encodingFormat: "application/json",
+        contentUrl: abs("/data/all.json"),
+      },
+    ],
+  };
+}
+
 export function breadcrumbSchema(trail: Array<{ name: string; path: string }>) {
   return {
     "@type": "BreadcrumbList",

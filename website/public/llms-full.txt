@@ -1,7 +1,7 @@
 # free-ai-agent-stack — complete catalogue
 
 Maintained by Adarsh Kushwah (Dev Animecx). Canonical: https://devanimecx.github.io/free-ai-agent-stack. Source: https://github.com/DevAnimecx/free-ai-agent-stack
-Exported: 2026-09-24T13:15:44+00:00 · Entries: 384 · Licence: CC BY 4.0
+Exported: 2026-09-24T13:21:14+00:00 · Entries: 384 · Licence: CC BY 4.0
 
 Every entry below was verified by a human on the date shown. `requires_card`
 defaults to true when unknown. An entry with status `deprecated` no longer

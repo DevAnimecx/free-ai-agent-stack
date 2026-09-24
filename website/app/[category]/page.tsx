@@ -6,7 +6,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { answerSummary, faqFor } from "@/lib/faq";
 import { CATEGORIES, categoryBySlug, getEntries, getStats } from "@/lib/loadData";
-import { breadcrumbSchema, graph, itemListSchema } from "@/lib/schema";
+import { breadcrumbSchema, categoryDatasetSchema, graph, itemListSchema } from "@/lib/schema";
 import { SITE_BASE_PATH } from "@/lib/site";
 import { strings } from "@/lib/strings";
 
@@ -166,6 +166,7 @@ export default async function CategoryPage({ params }: Params) {
           __html: JSON.stringify(
             graph(
               itemListSchema(category, entries),
+              categoryDatasetSchema(category, entries.length),
               breadcrumbSchema([
                 { name: strings.site.name, path: "/" },
                 { name: category.label, path: `/${category.slug}/` },
