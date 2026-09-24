@@ -227,12 +227,26 @@ def readme_stats_block(stats: dict, data: dict[str, list[dict]]) -> str:
         "| Category | Count | No credit card | Verified <30d | Top pick |",
         "|---|---:|---:|---:|---|",
     ]
-    first = {stem: (entries[0]["name"] if entries else "—") for stem, entries in data.items()}
+    # Top pick = the first *featured* entry (same signal the website home grid
+    # uses), not entries[0], which is just file order and would read as random.
+    top_pick: dict[str, str] = {}
+    for stem, entries in data.items():
+        by_id = {e["id"]: e.get("name", e["id"]) for e in entries}
+        picks = stats.get("featured", {}).get(stem) or [e["id"] for e in entries[:1]]
+        top_pick[stem] = by_id.get(picks[0], "—") if picks else "—"
+
+    # Only some categories model `requires_card` (MCP servers use `requires_auth`),
+    # so print an em dash rather than a misleading 0 for the others.
+    tracks_card = {stem for stem in data if any("requires_card" in e for e in data[stem])}
+
     for stem, label in CATEGORY_LABELS.items():
         count = stats["counts"].get(stem, 0)
         card_free = stats["no_card"].get(stem, 0)
+        card_cell = str(card_free) if stem in tracks_card else "—"
         fresh = stats["fresh_within_30_days"].get(stem, 0)
-        lines.append(f"| [{label}](data/{stem}.yaml) | {count} | {card_free} | {fresh} | {first.get(stem, '—')} |")
+        lines.append(
+            f"| [{label}](data/{stem}.yaml) | {count} | {card_cell} | {fresh} | {top_pick.get(stem, '—')} |"
+        )
     lines.append(
         f"| **Total** | **{stats['total']}** | **{stats['total_no_card']}** | "
         f"**{sum(stats['fresh_within_30_days'].values())}** | — |"

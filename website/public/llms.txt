@@ -3,7 +3,7 @@
 > A verified, machine-readable catalogue of free LLM APIs, MCP servers, agent
 > frameworks and free-tier infrastructure for building AI agents at zero cost.
 
-Last data export: 2026-09-24T09:30:23+00:00
+Last data export: 2026-09-24T09:31:25+00:00
 Total entries: 235
 Schema version: 1.0.0
 

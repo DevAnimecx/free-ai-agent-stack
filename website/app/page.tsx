@@ -15,13 +15,25 @@ export const metadata = {
 };
 
 function pickFeatured(stats: ReturnType<typeof getStats>): Array<AnyEntry & { _category: string }> {
-  const out: Array<AnyEntry & { _category: string }> = [];
-  for (const category of CATEGORIES) {
+  // Round-robin across categories. Pushing each category's picks in sequence
+  // and slicing the head would fill the grid with llm-apis and mcp-servers
+  // only — agent-tools and free-tiers would never surface on the home page.
+  const byCategory = CATEGORIES.map((category) => {
     const ids = stats.featured[category.slug] ?? [];
     const entries = getEntries(category.slug);
+    const picks: Array<AnyEntry & { _category: string }> = [];
     for (const id of ids) {
       const found = entries.find((entry) => entry.id === id);
-      if (found) out.push({ ...found, _category: category.slug });
+      if (found) picks.push({ ...found, _category: category.slug });
+    }
+    return picks;
+  });
+
+  const out: Array<AnyEntry & { _category: string }> = [];
+  const depth = Math.max(0, ...byCategory.map((picks) => picks.length));
+  for (let i = 0; i < depth; i++) {
+    for (const picks of byCategory) {
+      if (picks[i]) out.push(picks[i]);
     }
   }
   return out;

@@ -20,13 +20,13 @@ Every free LLM API, MCP server, agent framework and free-tier database a develop
 <!-- STATS:START -->
 | Category | Count | No credit card | Verified <30d | Top pick |
 |---|---:|---:|---:|---|
-| [Free LLM APIs](data/llm-apis.yaml) | 63 | 51 | 63 | Google Gemini API |
-| [MCP Servers](data/mcp-servers.yaml) | 62 | 0 | 62 | Filesystem |
-| [Agent Tools](data/agent-tools.yaml) | 40 | 40 | 40 | Cursor |
-| [Free Tiers](data/free-tiers.yaml) | 70 | 64 | 70 | Vercel |
+| [Free LLM APIs](data/llm-apis.yaml) | 63 | 51 | 63 | Cloudflare Workers AI |
+| [MCP Servers](data/mcp-servers.yaml) | 62 | — | 62 | Context7 |
+| [Agent Tools](data/agent-tools.yaml) | 40 | 40 | 40 | Aider |
+| [Free Tiers](data/free-tiers.yaml) | 70 | 64 | 70 | Better Auth |
 | **Total** | **235** | **155** | **235** | — |
 
-_Auto-generated 2026-09-24T09:19:48+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
+_Auto-generated 2026-09-24T09:31:20+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
 <!-- STATS:END -->
 
 ## Quick start: build an agent for $0 this weekend
