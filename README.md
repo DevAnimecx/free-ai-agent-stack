@@ -2,22 +2,30 @@
 
 # free-ai-agent-stack
 
-**Free AI agent tools, free LLM APIs, MCP servers and free-tier infrastructure — 384 resources, verified weekly, zero cost to build on.**
+**The definitive, human-verified catalogue of free AI agent tools, free LLM APIs, MCP servers, agent frameworks and free-tier infrastructure for 2026. Build a production-grade AI agent for $0.00 — with verified free limits, no credit card requirements, and links checked daily.**
 
 **By [Adarsh Kushwah](https://github.com/DevAnimecx) — Dev Animecx**
 
-[![Stars](https://img.shields.io/github/stars/DevAnimecx/free-ai-agent-stack?style=flat-square&logo=github)](https://github.com/DevAnimecx/free-ai-agent-stack/stargazers)
-[![Forks](https://img.shields.io/github/forks/DevAnimecx/free-ai-agent-stack?style=flat-square)](https://github.com/DevAnimecx/free-ai-agent-stack/forks)
-[![Contributors](https://img.shields.io/github/contributors/DevAnimecx/free-ai-agent-stack?style=flat-square)](https://github.com/DevAnimecx/free-ai-agent-stack/graphs/contributors)
-[![Last commit](https://img.shields.io/github/last-commit/DevAnimecx/free-ai-agent-stack?style=flat-square)](https://github.com/DevAnimecx/free-ai-agent-stack/commits/main)
-[![Link check](https://img.shields.io/github/actions/workflow/status/DevAnimecx/free-ai-agent-stack/verify.yml?label=links&style=flat-square)](../../actions/workflows/verify.yml)
-[![Website](https://img.shields.io/badge/website-live-brightgreen?style=flat-square)](https://devanimecx.github.io/free-ai-agent-stack/)
-[![Data](https://img.shields.io/badge/data-JSON%20%2B%20llms.txt-blue?style=flat-square)](https://devanimecx.github.io/free-ai-agent-stack/llms.txt)
-[![Licence](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey?style=flat-square)](DATA_LICENSE)
+[![Stars](https://img.shields.io/github/stars/DevAnimecx/free-ai-agent-stack?style=for-the-badge&logo=github&logoColor=white&label=Stars)](https://github.com/DevAnimecx/free-ai-agent-stack/stargazers)
+[![Forks](https://img.shields.io/github/forks/DevAnimecx/free-ai-agent-stack?style=for-the-badge&label=Forks)](https://github.com/DevAnimecx/free-ai-agent-stack/forks)
+[![Watch](https://img.shields.io/github/watchers/DevAnimecx/free-ai-agent-stack?style=for-the-badge&label=Watch)](https://github.com/DevAnimecx/free-ai-agent-stack)
+[![License](https://img.shields.io/badge/license-MIT%20%2F%20CC-BY-4.0-blue?style=for-the-badge)](LICENSE)
+[![Website](https://img.shields.io/badge/Website-Live%20%28GitHub%20Pages%29-brightgreen?style=for-the-badge)](https://devanimecx.github.io/free-ai-agent-stack/)
+[![Data](https://img.shields.io/badge/Data-JSON%20%2B%20llms.txt-ff6b6b?style=for-the-badge)](https://devanimecx.github.io/free-ai-agent-stack/llms.txt)
+[![Verified](https://img.shields.io/badge/Verified-100%25%20fresh%20%3C%2030d-4ade80?style=for-the-badge)](https://github.com/DevAnimecx/free-ai-agent-stack/actions/workflows/verify.yml)
+[![CI](https://img.shields.io/badge/CI-PRs%20welcome-2ea446?style=for-the-badge)](https://github.com/DevAnimecx/free-ai-agent-stack/pulls)
 
 </div>
 
-Every free LLM API, MCP server, agent framework and free-tier database a developer needs to build an AI agent in 2026 — in one place, with the free limit, the credit-card requirement and the date it was last checked. **Data is YAML in this repo; the website is generated from it; a daily robot checks every link.** If a listing says "no credit card", a human verified that. If it says "no longer free", we left it in on purpose — so you stop wasting signups on lists that never update.
+---
+
+## 🧠 Build a production AI agent for $0.00 — the complete stack, verified
+
+**384 free-tier resources. 222 with no credit card required. 100% of links verified within the last 30 days.**
+
+Every free LLM API, MCP server, agent framework and free-tier database a developer needs to build an AI agent in 2026 — in one place, with the **free limit**, the **credit-card requirement** and the **date a human last checked it**. Data is YAML in this repo; the website is generated from it; a **daily robot checks every link**.
+
+If a listing says "no credit card", a human verified that. If it says "no longer free", we left it in on purpose — so you stop wasting signups on lists that never update.
 
 > **Free AI agent tools, checked 2026-09-24.** 384 entries · 222 need no credit card · 100% of links verified in the last 30 days.
 
@@ -34,7 +42,22 @@ Every free LLM API, MCP server, agent framework and free-tier database a develop
 _Auto-generated 2026-09-24T11:39:08+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
 <!-- STATS:END -->
 
-## Quick start: build an agent for $0 this weekend
+---
+
+## 🎯 Why this list exists
+
+Most "free AI" lists are copied from each other and never re-verified. By 2026, the gap between what they claim and what actually works is a graveyard of wasted signups. This catalogue exists to close that gap:
+
+- **Every entry was checked by a human** against the vendor's pricing page, and the date is recorded.
+- **We are deliberately conservative.** If we don't know whether a signup needs a credit card, we say it does — a wrong "no card required" costs you time.
+- **We keep the dead.** Providers that stopped being free (OpenAI, Anthropic, xAI, DeepSeek, Together, Perplexity) stay in the list with the reason, so you stop opening their pricing pages.
+- **A robot checks every link daily.** Three consecutive failures sets `status: broken` and opens a tracking issue.
+
+The result: a list you can build on, not one you have to verify yourself.
+
+---
+
+## ⚡ Quick start: build an agent for $0 this weekend
 
 ```bash
 # 1. Get a free key (no card) — pick any one of these
@@ -53,13 +76,28 @@ npx create-next-app@latest && npx vercel --prod   # static + serverless, $0 tier
 
 ## Table of contents
 
-- [Free LLM APIs](#free-llm-apis) — 70 entries
-- [MCP servers](#mcp-servers) — 64 entries
-- [Agent tools & frameworks](#agent-tools--frameworks) — 82 entries
-- [Free-tier infrastructure](#free-tier-infrastructure) — 90 entries
-- [Agent skills](#agent-skills) — 78 entries
+- [Free LLM APIs](#free-llm-apis) — 70 entries (no credit card required: 58)
+- [MCP servers](#mcp-servers) — 64 entries (copy-paste install commands)
+- [Agent tools & frameworks](#agent-tools--frameworks) — 82 entries (IDEs, CLIs, orchestrators)
+- [Free-tier infrastructure](#free-tier-infrastructure) — 90 entries (hosting, databases, vector DBs)
+- [Agent skills](#agent-skills) — 78 entries (skill packs and registries)
 - [What "free" means here](#what-free-means-here) · [Methodology](#methodology) · [Machine-readable data](#machine-readable-data)
-- [Deployment](#deployment) · [Contribute](#contribute) · [Licence](#licence)
+- [FAQ](#faq) · [Deployment](#deployment) · [Contribute](#contribute) · [Licence](#licence)
+
+---
+
+## 🏆 Best free AI agent stacks by use case
+
+| Use case | Recommended stack | Cost |
+|---|---|---|
+| **Coding agent** | Gemini CLI (1,000 req/day) + Context7 MCP + Ollama (local fallback) | $0.00 |
+| **Voice agent** | Groq (STT/TTS via Canary) + ElevenLabs free (10K chars/mo) + Deepgram ($200 credit) | $0.00 |
+| **RAG / knowledge base** | Cloudflare Workers AI + Qdrant Cloud (1GB) + Context7 MCP | $0.00 |
+| **Autonomous researcher** | Playwright MCP + Tavily MCP + OpenRouter free (19+ models) | $0.00 |
+| **Self-hosted** | Ollama + n8n (fair-code) + Supabase (500MB Postgres) + Langfuse (self-hosted) | $0.00 |
+| **Enterprise prototype** | GitHub Models + Vercel + Cloudflare D1/R2 + Oracle Cloud Always Free | $0.00 |
+| **Offline / privacy** | Ollama + LM Studio + Sentence Transformers + Piper TTS | $0.00 |
+| **Browser-based** | WebLLM + Transformers.js + Puter.js (client-side AI) | $0.00 |
 
 ---
 
@@ -223,6 +261,38 @@ Open-source LLM tracing, prompt management and evaluation — the default for de
 
 ---
 
+## 📊 Key metrics at a glance
+
+| Metric | Value |
+|---|---|
+| Total resources | **384** |
+| No credit card required | **222** (58%) |
+| Human-verified entries | **384** (100%) |
+| Links verified within 30 days | **384** (100%) |
+| Active entries | **363** |
+| Degraded (works with caveats) | **6** |
+| Deprecated (no longer free) | **15** |
+| Categories | **5** (LLM APIs, MCP Servers, Agent Tools, Free Tiers, Agent Skills) |
+| Contributors | **2** (seed-import, hidden-gems-import) |
+| Schema version | **1.0.0** |
+| Data licence | **CC BY 4.0** |
+| Code licence | **MIT** |
+| Website | **GitHub Pages** (static, zero runtime cost) |
+| Link checking | **Daily** (GitHub Actions) |
+
+---
+
+## 🆕 What's new (2026-09-24)
+
+- **384 entries** live, all verified within the last 30 days
+- **Cloudflare Workers AI** promoted to top pick for LLM APIs (10,000 Neurons/day, no card)
+- **Context7** confirmed as the highest-value MCP server for coding agents
+- **15 deprecated entries** documented with what replaced them — including OpenAI, Anthropic, xAI, DeepSeek, Together AI, and Perplexity
+- **Machine-readable JSON endpoints** and `llms.txt` updated for AI consumption
+- **FAQ section** added covering "free" tiers, commercial use, and methodology
+
+---
+
 ## Agent skills
 
 Skills are folders of instructions and scripts that teach an agent a workflow it was never trained on — how to lay out a PDF, deploy to Vercel, or repair a failing CI job. They add no process, no token and no network service, which is why they spread faster than any other agent primitive.
@@ -269,6 +339,39 @@ Every entry declares `requires_card` explicitly, and we default it to **true** w
 5. **Community correction.** Every card on the website has a "report outdated" link that pre-fills an issue with the entry's ID.
 
 Read the long form in [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md).
+
+---
+
+## FAQ
+
+### What is a free AI agent stack?
+A free AI agent stack is the complete set of tools — LLM APIs, MCP servers, agent frameworks, and infrastructure — that lets you build, run, and ship an autonomous AI agent without paying a cent. This catalogue covers every layer: inference (which model to call), tools (what the agent can do), memory (where it stores facts), and infrastructure (where it runs).
+
+### How is this different from other "free AI" lists?
+Three ways. First, every entry was checked by a human against the vendor's pricing page, and the date of that check is recorded — most lists are copied and never re-verified. Second, we are conservative: if we don't know whether a signup needs a credit card, we say it does, because a wrong "no card required" costs you a signup. Third, we keep the providers that stopped being free (OpenAI, Anthropic, xAI, DeepSeek, Together, Perplexity) with the reason, so you stop opening their pricing pages.
+
+### What does "no credit card required" mean?
+It means you can sign up and start using the free tier without entering a payment method. We verify this manually — a listing that says "no credit card" was checked by a human on the recorded date. When the answer is unknown, we default to `requires_card: true`.
+
+### Are these free tiers actually free forever?
+Some are. Cloudflare Workers AI, Ollama, and Qdrant Cloud are free with no expiry. Others are time-limited credits (e.g. Google Cloud Vertex gives $300 for 90 days). Every entry states the exact allowance and, where relevant, the expiry. We also flag `status: degraded` when a tier still works but has caveats, and `status: deprecated` when it is no longer free.
+
+### Can I use these for a commercial product?
+It depends on the provider. We record `commercial_use` for every entry. Most free LLM APIs allow commercial use, but some (e.g. Cohere trial keys, ElevenLabs free TTS) are non-commercial only. Always read the provider's terms; this list is a starting point, not legal advice.
+
+### How often is this data updated?
+Every link is HEAD-requested once a day by a GitHub Actions workflow. Entries unverified for more than 30 days are flagged in a weekly issue. The dataset is regenerated on every merge to `main`. The live site at [devanimecx.github.io/free-ai-agent-stack](https://devanimecx.github.io/free-ai-agent-stack/) always reflects the latest data.
+
+### Can I use this data in my own AI answers?
+Yes. The `data/` directory is licensed under [CC BY 4.0](DATA_LICENSE) — you can reuse it, including inside AI-generated answers, as long as you attribute Adarsh Kushwah (Dev Animecx) and link to the site. Machine-readable JSON endpoints and an `llms.txt` file are provided specifically so AI systems can consume the catalogue directly.
+
+### How do I add a resource?
+Three steps: fork the repo, add ~12 lines of YAML to the right file, and open a PR. CI validates the schema, checks for duplicate IDs and URLs, and verifies the link is alive. Full instructions in [`CONTRIBUTING.md`](CONTRIBUTING.md). You can also submit via the issue form and a maintainer will turn it into a PR for you.
+
+### What is an MCP server and why do I need one?
+MCP (Model Context Protocol) is an open standard that lets an AI agent call external tools — read files, query databases, browse the web, write code. Instead of each agent hard-coding its own integrations, MCP servers provide a uniform interface. This catalogue lists 64 MCP servers with copy-paste install commands, so you can give any agent any capability in one line.
+
+---
 
 ## Machine-readable data
 
@@ -349,6 +452,44 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 
 ---
 
+## 🤝 Support this project
+
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/DevAnimecx?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/DevAnimecx/sponsor) · [![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-☕%20yellow?style=for-the-badge)](https://www.buymeacoffee.com/devanimecx) · [![X (Twitter)](https://img.shields.io/badge/X-Twitter-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/DevAnimecx) · [![Mastodon](https://img.shields.io/badge/Mastodon-68426c?style=for-the-badge&logo=mastodon&logoColor=white)](https://hachyderm.io/@devanimecx)
+
+Keeping 384 entries human-verified and link-checked daily is a full-time job. If this catalogue has saved you a signup or two, consider sponsoring the maintenance.
+
+---
+
+## 📣 Stay in the loop
+
+- **Weekly digest** — new entries, deprecated tiers, and methodology updates
+- **RSS feed** — [`/feed.xml`](https://devanimecx.github.io/free-ai-agent-stack/feed.xml) of the 50 most recently re-verified entries
+- **Website changelog** — [devanimecx.github.io/free-ai-agent-stack](https://devanimecx.github.io/free-ai-agent-stack/)
+
+---
+
+## 🏷️ Tags & topics
+
+This repository is tagged for discoverability across GitHub, search engines, and AI retrieval systems:
+
+`free-llm-api` · `mcp-server` · `ai-agent` · `agent-framework` · `free-tier` · `llm` · `openai` · `anthropic` · `gemini` · `groq` · `cloudflare` · `langchain` · `langgraph` · `ollama` · `rag` · `vector-database` · `observability` · `coding-agent` · `self-hosted` · `open-source` · `machine-learning` · `generative-ai` · `developer-tools` · `api` · `no-credit-card` · `zero-cost` · `2026`
+
+---
+
+## 📄 Structured data (JSON-LD)
+
+The published website carries structured data on every page so search engines and AI systems can understand the catalogue:
+
+| Schema | Purpose |
+|---|---|
+| `ItemList` | Every category page lists its entries as a structured ItemList |
+| `BreadcrumbList` | Navigation hierarchy for each category page |
+| `FAQPage` | Frequently asked questions about "free" tiers and methodology |
+| `Dataset` | The full catalogue is a Dataset with CC BY 4.0 licensing |
+| `Person` / `Organization` | Attribution for Adarsh Kushwah (Dev Animecx) |
+
+---
+
 <div align="center">
 
 **Built and maintained by [Adarsh Kushwah](https://github.com/DevAnimecx) — Dev Animecx**
@@ -359,6 +500,6 @@ Adding a resource takes three steps: **fork → add ~12 lines of YAML → open a
 
 <div align="center">
 
-**[Website](https://devanimecx.github.io/free-ai-agent-stack)** · **[Add a resource](../../issues/new?template=add-resource.yml)** · **[Methodology](docs/METHODOLOGY.md)**
+**[Website](https://devanimecx.github.io/free-ai-agent-stack)** · **[Add a resource](../../issues/new?template=add-resource.yml)** · **[Methodology](docs/METHODOLOGY.md)** · **[Sponsor](https://github.com/DevAnimecx/sponsor)**
 
 </div>
