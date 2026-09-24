@@ -3,8 +3,8 @@
 > A verified, machine-readable catalogue of free LLM APIs, MCP servers, agent
 > frameworks and free-tier infrastructure for building AI agents at zero cost.
 
-Last data export: 2026-09-24T09:51:40+00:00
-Total entries: 297
+Last data export: 2026-09-24T10:18:59+00:00
+Total entries: 305
 Schema version: 1.0.0
 
 ## How to use this data
@@ -25,7 +25,7 @@ Schema version: 1.0.0
 - https://freeaiagentstack.dev/data/llm-apis.json — Free LLM APIs (70 entries)
 - https://freeaiagentstack.dev/data/mcp-servers.json — MCP Servers (63 entries)
 - https://freeaiagentstack.dev/data/agent-tools.json — Agent Tools (82 entries)
-- https://freeaiagentstack.dev/data/free-tiers.json — Free Tiers (82 entries)
+- https://freeaiagentstack.dev/data/free-tiers.json — Free Tiers (90 entries)
 
 ## Categories
 
@@ -261,7 +261,7 @@ Entries: 82
 
 ### Free Tiers
 Canonical page: https://freeaiagentstack.dev/free-tiers
-Entries: 82
+Entries: 90
 
 - Vercel — Static and serverless hosting with preview deployments per branch and AI Gateway included. Free limit: Hobby: 100GB bandwidth/mo, 100h serverless, $5/mo AI credit. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#vercel Verified: 2026-09-24
 - Netlify — Static hosting, edge functions and form handling with per-branch deploy previews. Free limit: 100GB bandwidth/mo, 300 build minutes/mo. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#netlify Verified: 2026-09-24
@@ -273,10 +273,10 @@ Entries: 82
 - Fly.io — Runs Docker containers close to users with persistent volumes and private networking. Free limit: Limited free VM allowance for small machines (no managed databases). Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#fly-io Verified: 2026-09-24
 - Koyeb — Serverless container platform with a small always-on free instance and GPU options. Free limit: One free web service instance (0.1 vCPU / 512MB). No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#koyeb Verified: 2026-09-24
 - Deno Deploy — Edge TypeScript runtime with KV storage, queues and cron built in — no build step. Free limit: 1M requests/mo, 100GB bandwidth/mo. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#deno-deploy Verified: 2026-09-24
-- Oracle Cloud Always Free — The only major cloud with a permanently free ARM VM generous enough to self-host several services. Free limit: 4 ARM cores + 24GB RAM, 200GB storage, 10TB egress/mo, forever. Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#oracle-cloud-always-free Verified: 2026-09-24
+- Oracle Cloud Always Free — The only genuinely free-forever VPS with usable specs — 2 Arm Ampere cores and 12GB RAM running 24/7, as one VM or split in two. Free limit: 2 ARM OCPUs + 12GB RAM, 200GB storage, 10TB egress/mo, forever. Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#oracle-cloud-always-free Verified: 2026-09-24
 - AWS Free Tier — Twelve months of t4g.small, Lambda allowances and 5GB S3, plus always-free Lambda and DynamoDB caps. Free limit: 12-month credits for new accounts; perpetual Lambda/DynamoDB allowances. Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#aws-free-tier Verified: 2026-09-24
 - Google Cloud Free Tier — e2-micro VM, Cloud Run and Firestore allowances, plus the $300 new-account credit. Free limit: Always-free e2-micro VM + Cloud Run/Speech/BigQuery monthly quotas. Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#gcp-free-tier Verified: 2026-09-24
-- Hugging Face Spaces — Free CPU containers for hosting Gradio or Docker demos, with permanent public URLs. Free limit: 2 vCPU / 16GB RAM free CPU Spaces (sleep after inactivity on some configs). No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#huggingface-spaces Verified: 2026-09-24
+- Hugging Face Spaces — Free Docker or Gradio container hosting with a permanent public URL — 2 vCPU and 16GB RAM on the CPU Basic tier, enough for a real service rather than a toy demo. Free limit: 2 vCPU / 16GB RAM / 50GB ephemeral disk, unlimited Spaces. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#huggingface-spaces Verified: 2026-09-24
 - Google Colab — Free hosted Jupyter with a T4 GPU — the cheapest path to fine-tuning or running a large model. Free limit: Free GPU sessions (T4), subject to availability and session limits. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#google-colab Verified: 2026-09-24
 - Kaggle Notebooks — Free GPU/TPU notebooks with 30 hours of weekly GPU quota and persistent datasets. Free limit: 30 GPU hours/week (P100 or T4x2), 20 TPU hours/week. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#kaggle-notebooks Verified: 2026-09-24
 - Modal — Serverless Python with GPU-per-second billing — good for embedding jobs and batch inference. Free limit: $30/month of included compute on the free plan. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#modal Verified: 2026-09-24
@@ -345,6 +345,14 @@ Entries: 82
 - summoned-gateway — OpenAI-compatible gateway with routing, fallback, caching, guardrails and budget limits, with first-class support for Indian providers and INR cost tracking. Free limit: Free — self-hosted console, bring your own keys. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#summoned-gateway Verified: 2026-09-24
 - fsrouter — Self-hosted gateway that puts one OpenAI-compatible endpoint in front of many providers, with automatic fallback, load balancing and key rotation. Free limit: Free — self-hosted. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#fsrouter Verified: 2026-09-24
 - n9router — Self-hosted OpenAI-compatible routing gateway for dozens of providers, shipped as a Docker image and usable as a drop-in base URL for the major coding agents. Free limit: Free — self-hosted via Docker. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#n9router Verified: 2026-09-24
+- Google AI Studio Starter Tier — No-card deployment path from AI Studio: prompt an app, click Publish, and get a live Cloud Run URL backed by Firestore or Cloud SQL plus Firebase Auth. Free limit: Two full-stack apps, no time limit, no billing account. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#google-ai-studio-starter Verified: 2026-09-24
+- Hugging Face ZeroGPU — Shared on-demand GPU for Spaces, allocated per request rather than held for the lifetime of the Space — so a demo can use real GPU acceleration without paying hourly. Free limit: Free daily quota of GPU time, per-user. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#huggingface-zerogpu Verified: 2026-09-24
+- Databricks Free Edition — A permanently free Databricks workspace for personal use — notebooks, SQL warehouse, the AI assistant, a GenAI playground and agent-builder tooling, with no cloud account. Free limit: Forever free, one serverless workspace with daily usage limits. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#databricks-free-edition Verified: 2026-09-24
+- Toolforge — Wikimedia's shared cloud for community bots: web servers, scheduled jobs and managed access to Wikimedia data, free for anyone with a Wikimedia account. Free limit: Free web servers and job scheduling for Wikimedia tooling. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#toolforge Verified: 2026-09-24
+- Zeabur — Deploy from a repository or a Dockerfile with services and databases wired together, on a free plan that needs no credit card. Free limit: Free plan — sign up and deploy, no card. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#zeabur Verified: 2026-09-24
+- AMD Developer Cloud — Access to AMD Instinct MI300X GPUs with 192GB of HBM3 — enough to run 70B+ parameter models on a single instance without model parallelism — for ROCm and vLLM work. Free limit: $100 in credits for AMD AI Developer Program members. Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#amd-developer-cloud Verified: 2026-09-24
+- Yotta Shakti Studio — India-hosted serverless GPU platform with NVIDIA H100 and L40S instances billed per minute and scaling to zero, plus OpenAI-compatible AI endpoints and LoRA fine-tuning. Free limit: ₹10,000 in credits on signup (about $115). Credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#yotta-shakti-studio Verified: 2026-09-24
+- GitHub Student Developer Pack — One verified student account that unlocks a bundle of cloud credits and services, including $200 of DigitalOcean credit, $100 of Azure credit, a free domain and Copilot. Free limit: Bundled credits and services for verified students. No credit card required. Anchor: https://freeaiagentstack.dev/free-tiers#github-student-pack Verified: 2026-09-24
 
 ## Licence and attribution
 

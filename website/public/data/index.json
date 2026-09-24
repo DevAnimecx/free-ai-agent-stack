@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0.0",
-  "exported_at": "2026-09-24T09:51:40+00:00",
+  "exported_at": "2026-09-24T10:18:59+00:00",
   "generated_by": "scripts/export_json.py",
   "source": "https://github.com/free-ai-agent-stack/free-ai-agent-stack",
   "license": "CC-BY-4.0 (data) / MIT (code)",
   "attribution": "Data from free-ai-agent-stack (https://free-ai-agent-stack.dev). When citing, link to the specific category page and include the entry `verified` date so readers know how current the claim is.",
-  "total": 297,
+  "total": 305,
   "categories": {
     "llm-apis": {
       "label": "Free LLM APIs",
@@ -30,8 +30,8 @@
     },
     "free-tiers": {
       "label": "Free Tiers",
-      "count": 82,
-      "no_card": 76,
+      "count": 90,
+      "no_card": 82,
       "json": "/data/free-tiers.json",
       "page": "/free-tiers"
     }

@@ -145,16 +145,21 @@
 - id: oracle-cloud-always-free
   name: Oracle Cloud Always Free
   category: compute
-  description: "The only major cloud with a permanently free ARM VM generous enough to self-host several services."
-  free_limit: "4 ARM cores + 24GB RAM, 200GB storage, 10TB egress/mo, forever"
+  description: "The only genuinely free-forever VPS with usable specs — 2 Arm Ampere cores and 12GB RAM running 24/7, as one VM or split in two."
+  free_limit: "2 ARM OCPUs + 12GB RAM, 200GB storage, 10TB egress/mo, forever"
   requires_card: true
   cold_start_risk: low
   url: https://www.oracle.com/cloud/free/
-  tags: [vm, always-free, self-host, arm, essential]
+  tags: [arm, capacity-scarce, vm, always-free, self-host, essential]
   verified: 2026-09-24
   verified_by: "@seed-import"
   status: active
-  notes: "Capacity in popular regions is often exhausted — retry or pick another home region. Card required for verification but not charged."
+  notes:
+    - "Oracle halved this allowance on 15 June 2026 — 4 OCPU/24GB became 2 OCPU/12GB — with no announcement, only a quiet docs edit."
+    - "Instances above the new limit were terminated after 18 August 2026."
+    - "The pool is tenancy-wide, not per-instance."
+    - "Idle instances are reclaimed: under 20% 95th-percentile CPU, network and memory across a seven-day window."
+    - "Signup rejections are routine, and ARM capacity is scarce enough that launches frequently fail with \"Out of capacity\"; Pay As You Go accounts reportedly keep the old 4/24 allowance for free."
 
 - id: aws-free-tier
   name: AWS Free Tier
@@ -185,16 +190,21 @@
 - id: huggingface-spaces
   name: Hugging Face Spaces
   category: compute
-  description: "Free CPU containers for hosting Gradio or Docker demos, with permanent public URLs."
-  free_limit: "2 vCPU / 16GB RAM free CPU Spaces (sleep after inactivity on some configs)"
+  description: "Free Docker or Gradio container hosting with a permanent public URL — 2 vCPU and 16GB RAM on the CPU Basic tier, enough for a real service rather than a toy demo."
+  free_limit: "2 vCPU / 16GB RAM / 50GB ephemeral disk, unlimited Spaces"
   requires_card: false
-  cold_start_risk: medium
+  cold_start_risk: high
   url: https://huggingface.co/spaces
-  tags: [demos, gradio, docker, ml]
+  docs_url: https://huggingface.co/docs/hub/spaces-overview
+  tags: [demos, gradio, docker, ml, no-card, free-forever]
   verified: 2026-09-24
-  verified_by: "@seed-import"
+  verified_by: "@hidden-gems-import"
   status: active
-  notes: "Best free way to put a public demo of your agent in front of people."
+  notes:
+    - "One of the most generous free CPU containers available, and it needs no card at any point."
+    - "Spaces sleep after inactivity and cold-start on the next visit, so this is not an always-on host without a keep-alive."
+    - "The 50GB disk is ephemeral and resets on every restart; persistent /data storage is a paid upgrade from $5/mo for 20GB. Back state up to a Storage Bucket or dataset repo instead."
+    - "Private Spaces are restricted on the free tier, so treat a free Space as public."
 
 - id: google-colab
   name: Google Colab
@@ -1137,3 +1147,140 @@
   verified_by: "@hidden-gems-import"
   status: active
   notes: "The submission's repository path (nightwalker8x/n9router) does not exist on GitHub, but the Docker Hub image and npm package both resolve. Prefer the npm release over pulling an unversioned image."
+
+# ── Hidden-gem cohort III: always-free compute, imported 2026-09-24 ───────
+# Verified against vendor documentation and, where a claim could not be
+# reproduced, marked as a trial rather than a free tier.
+
+- id: google-ai-studio-starter
+  name: Google AI Studio Starter Tier
+  category: hosting
+  description: "No-card deployment path from AI Studio: prompt an app, click Publish, and get a live Cloud Run URL backed by Firestore or Cloud SQL plus Firebase Auth."
+  free_limit: "Two full-stack apps, no time limit, no billing account"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://ai.google.dev/gemini-api/docs/billing
+  docs_url: https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained
+  tags: [paas, no-card, cloud-run, firebase, postgres, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "The single best no-card full-stack path in this catalogue — a Google Account is genuinely enough, with no billing account created."
+    - "Hard limits: two active apps, 1GiB stored data, 10GiB egress/month, 40K writes and 50K reads a day, one locked-in region, and no BigQuery or Pub/Sub."
+    - "You are ineligible if you have ever held a Google Cloud billing account."
+    - "Cloud Run scales to zero, so expect a cold start on the first request."
+
+
+- id: huggingface-zerogpu
+  name: Hugging Face ZeroGPU
+  category: compute
+  description: "Shared on-demand GPU for Spaces, allocated per request rather than held for the lifetime of the Space — so a demo can use real GPU acceleration without paying hourly."
+  free_limit: "Free daily quota of GPU time, per-user"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://huggingface.co/docs/hub/spaces-zerogpu
+  docs_url: https://huggingface.co/docs/hub/spaces-gpus
+  tags: [gpu, serverless, shared, quota, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "The quota is measured in minutes of GPU time per day and is small (sources report roughly 3.5 minutes authenticated against 2 unauthenticated), so this is for demos and short inference, not training or long-running agents."
+    - "Submission claimed the hardware is an RTX Pro 6000 Blackwell; other sources report H200."
+    - "Treat the exact GPU as variable — Hugging Face rotates the pool, and the quota is the part that actually constrains you."
+
+- id: databricks-free-edition
+  name: Databricks Free Edition
+  category: compute
+  description: "A permanently free Databricks workspace for personal use — notebooks, SQL warehouse, the AI assistant, a GenAI playground and agent-builder tooling, with no cloud account."
+  free_limit: "Forever free, one serverless workspace with daily usage limits"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.databricks.com/learn/free-edition
+  tags: [notebooks, spark, llm-playground, no-card, free-forever, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "Replaced the retired Community Edition in January 2026 and has no expiry. Non-commercial use only, with a personal email rather than a work one, and Databricks explicitly reserves the right to train on your data — do not put anything proprietary here. No GPUs and no classic compute; it is one serverless workspace with fair-use limits and locked enterprise features."
+
+- id: toolforge
+  name: Toolforge
+  category: hosting
+  description: "Wikimedia's shared cloud for community bots: web servers, scheduled jobs and managed access to Wikimedia data, free for anyone with a Wikimedia account."
+  free_limit: "Free web servers and job scheduling for Wikimedia tooling"
+  requires_card: false
+  cold_start_risk: low
+  url: https://toolforge.org/
+  docs_url: https://wikitech.wikimedia.org/wiki/Help:Toolforge
+  tags: [bots, scheduled-jobs, wikimedia, free-forever, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "A genuinely hidden free tier that most lists miss. The scope is the catch: it exists for tools that serve the Wikimedia projects, not as general-purpose hosting, and your tool must comply with Wikimedia's tool policies. For a scheduled bot that reads or maintains wiki data, nothing else here comes close on price."
+
+- id: zeabur
+  name: Zeabur
+  category: hosting
+  description: "Deploy from a repository or a Dockerfile with services and databases wired together, on a free plan that needs no credit card."
+  free_limit: "Free plan — sign up and deploy, no card"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://zeabur.com/docs/en-US/pricing/free-plan
+  tags: [paas, docker, no-card, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Two claims in the submission were wrong in opposite directions, both worth knowing."
+    - "Zeabur's free plan requires NO credit card (the submission said it did), and it DOES auto-sleep after inactivity (the submission said it did not) — the wake-up request pays a cold-start penalty."
+    - "There is also no SLA on the free plan and no automated database backup, which matters if you treat it as production."
+    - "The $5/mo figure quoted as a free credit is actually the price of the paid Dev plan."
+
+- id: amd-developer-cloud
+  name: AMD Developer Cloud
+  category: compute
+  description: "Access to AMD Instinct MI300X GPUs with 192GB of HBM3 — enough to run 70B+ parameter models on a single instance without model parallelism — for ROCm and vLLM work."
+  free_limit: "$100 in credits for AMD AI Developer Program members"
+  requires_card: true
+  cold_start_risk: medium
+  url: https://devcloud.amd.com/
+  docs_url: https://developer.amd.com/ai-developer-program/
+  tags: [gpu, mi300x, rocm, trial, vllm, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes:
+    - "Listed as a `trial`, not a free tier."
+    - "The submission described this as simply \"free\" with no card; in fact a valid credit card is required at account creation, the $100 is a one-off credit rather than a rechargeable tier, and the credit hours expire (AMD's own pages disagree — 30 days on the current page, 10 days in older guidance)."
+    - "Credits apply only to MI300X instances, and you are billed for powered-off instances until you destroy them."
+    - "Qualifies under OQ-3 (>= $100 and >= 30 days) and is excluded from every no-card filter."
+
+- id: yotta-shakti-studio
+  name: Yotta Shakti Studio
+  category: compute
+  description: "India-hosted serverless GPU platform with NVIDIA H100 and L40S instances billed per minute and scaling to zero, plus OpenAI-compatible AI endpoints and LoRA fine-tuning."
+  free_limit: "₹10,000 in credits on signup (about $115)"
+  requires_card: true
+  cold_start_risk: medium
+  url: https://www.yotta.com/
+  docs_url: https://www.yotta.com/shakti-studio/
+  tags: [gpu, h100, india, serverless, trial, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "Listed as a `trial`. The credit runs against standard pay-as-you-go rates for 30 days from activation, so nothing is billed at a fake trial price — what you measure is what production would cost. Hosted entirely in India, which makes it the strongest option here for teams with data-residency requirements. Verify current card requirements at signup: the credit is granted after verification."
+
+- id: github-student-pack
+  name: GitHub Student Developer Pack
+  category: compute
+  description: "One verified student account that unlocks a bundle of cloud credits and services, including $200 of DigitalOcean credit, $100 of Azure credit, a free domain and Copilot."
+  free_limit: "Bundled credits and services for verified students"
+  requires_card: false
+  cold_start_risk: low
+  url: https://education.github.com/pack
+  tags: [students, credits, digitalocean, azure, hidden-gem]
+  verified: 2026-09-24
+  verified_by: "@hidden-gems-import"
+  status: active
+  notes: "A single entry rather than the five separate ones submitted, because the value is the bundled offer and the individual partners change without notice. Verification is by student email or proof of enrolment and is usually quick. Azure for Students in particular requires no credit card. Worth listing precisely because it is under-used: many students never claim it."

@@ -309,3 +309,72 @@ Both entries carry the corrected framing.
 duplicate-id check and removed before commit. It works: this repository now has
 had submissions arrive that were already present twice (four items in D-6, one
 here), and automation caught it both times rather than a human reviewer.
+
+## D-8 — Hidden-gem cohort III: 8 accepted, 8 rejected, 9 already listed
+
+A third batch, this time about always-free compute: VPS instances, container
+hosts, PaaS platforms, GPU credits and student programmes. The important outcome
+was not the additions — it was that the batch **caught stale data in our own
+catalogue**.
+
+**Our Oracle entry was wrong, and this batch is why we know.** The submission
+claimed Oracle's Always Free ARM allowance is "up to 2 ARM OCPUs / 12 GB RAM
+(reduced from 4/24 in June 2026)". That claim is correct, and our entry had been
+sitting at the old 4 OCPU / 24 GB figure. Oracle halved the allowance on
+15 June 2026 by quietly editing its documentation — no blog post, no customer
+notice — and gave existing tenancies until 18 August 2026 before terminating
+over-limit instances. `oracle-cloud-always-free` is now corrected to 2 OCPU /
+12 GB with the change, the deadline and the tenancy-wide pool documented. A
+catalogue whose selling point is freshness had been carrying a stale spec on one
+of its headline entries for three months.
+
+**Accepted — 8 entries.**
+
+| Entry | What made it worth listing |
+|---|---|
+| Google AI Studio Starter Tier | Two full-stack apps on Cloud Run + Firestore/Cloud SQL, no billing account, no expiry |
+| Hugging Face Spaces | Free Docker host at 2 vCPU / 16GB RAM, no card ever |
+| Hugging Face ZeroGPU | Shared GPU allocated per request with a free daily quota |
+| Databricks Free Edition | Free-forever workspace, no cloud account |
+| Toolforge | Wikimedia's free bot hosting — genuinely hidden, absent from most lists |
+| Zeabur | Free plan with no card required |
+| AMD Developer Cloud | MI300X with 192GB HBM3, listed as a `trial` |
+| Yotta Shakti Studio | H100/L40S in India, listed as a `trial` |
+| GitHub Student Developer Pack | Bundled credits, collapsed from five submissions into one entry |
+
+**Corrected — 3 claims, in both directions.** Zeabur was wrong twice over: the
+submission said it requires a card (it does not) and that it never sleeps (it
+auto-sleeps after inactivity). The "$5 free credit" was actually the price of the
+paid Dev plan. AMD was the reverse error: presented as simply "free" with no
+card, when a card is required at account creation, the $100 is one-off, and the
+credits expire (AMD's own pages disagree with each other — 30 days now, 10 days
+in older guidance). AMD and Yotta are listed as `trial` under OQ-3, which
+already permits card-gated credit grants of $100+ over 30+ days provided they
+are tagged and never appear in a no-card filter. Hugging Face ZeroGPU's hardware
+could not be pinned down — the submission said an RTX Pro 6000 Blackwell, other
+sources say H200 — so the entry states the quota, which is the real constraint,
+and flags the hardware as variable.
+
+**Rejected — 8.**
+
+| Submission | Reason |
+|---|---|
+| ClawCloud | Its own users report the free tier does not work and support never replies: Trustpilot 2.0/5 across 30 reviews, 2.8/5 across 16 more. Several reviewers describe being charged and then ignored past the refund window |
+| Kuberns | `kuberns.com` does not resolve |
+| Darwin Agentic Cloud | No independent coverage found; could not verify the signed-receipt or spend-limit claims |
+| rawhq | No independent coverage found; could not verify the "90% cheaper than EC2, free forever" claim |
+| SnapDeploy, InstaVM, Northflank | Free-tier claims could not be reproduced from vendor documentation — Northflank's pricing page now shows only paid plans |
+| GTHost Free NAT KVM | A LowEndTalk promotional offer, not a standing free tier |
+| PicoClaw / Hermes Agent / HuggingClaw / huggingfree-openclaw recipes | Deployment guides for third-party agent projects rather than free tiers — out of scope for `free-tiers.yaml` |
+
+ClawCloud is the clearest rejection in this batch and worth naming explicitly:
+a provider with a documented pattern of taking payment and providing no support
+is the exact opposite of what this catalogue promises readers.
+
+**Already listed — 9.** Oracle, GCP, AWS, Render, Railway, Fly.io, Neon, Qdrant
+and Cloudflare R2 were all already present, which is why the batch's real
+contribution was the correction rather than the additions. One near-miss: Hugging
+Face Spaces *was* already listed under the id `huggingface-spaces`, but a dedupe
+grep for `hugging-face` missed it because of the hyphen. The duplicate was caught
+by the validator rather than by my search, and the existing entry was enriched
+with the verified specs instead of being added twice.

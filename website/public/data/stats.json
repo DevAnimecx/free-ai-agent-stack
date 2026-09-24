@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-09-24T09:50:50+00:00",
-  "total": 297,
+  "generated_at": "2026-09-24T10:16:39+00:00",
+  "total": 305,
   "counts": {
     "llm-apis": 70,
     "mcp-servers": 63,
     "agent-tools": 82,
-    "free-tiers": 82
+    "free-tiers": 90
   },
   "no_card": {
     "llm-apis": 58,
     "mcp-servers": 0,
     "agent-tools": 82,
-    "free-tiers": 76
+    "free-tiers": 82
   },
-  "total_no_card": 216,
+  "total_no_card": 222,
   "fresh_within_7_days": {
     "llm-apis": 70,
     "mcp-servers": 63,
     "agent-tools": 82,
-    "free-tiers": 82
+    "free-tiers": 90
   },
   "fresh_within_30_days": {
     "llm-apis": 70,
     "mcp-servers": 63,
     "agent-tools": 82,
-    "free-tiers": 82
+    "free-tiers": 90
   },
   "freshness_pct_30d": 100.0,
   "statuses": {
@@ -43,26 +43,27 @@
       "degraded": 1
     },
     "free-tiers": {
-      "active": 81,
+      "active": 89,
       "degraded": 1
     }
   },
   "contributors": {
-    "seed-import": 235,
-    "hidden-gems-import": 62
+    "seed-import": 234,
+    "hidden-gems-import": 71
   },
   "top_tags": {
-    "hidden-gem": 62,
+    "hidden-gem": 70,
     "essential": 43,
     "local": 32,
     "self-host": 28,
     "rag": 25,
     "coding-agent": 24,
+    "no-card": 19,
     "vector": 17,
     "mcp": 15,
-    "no-card": 15,
     "memory": 12,
     "open-source": 12,
+    "serverless": 12,
     "devops": 11,
     "embeddings": 11,
     "gateway": 11,
@@ -73,7 +74,6 @@
     "edge": 10,
     "observability": 10,
     "openai-compatible": 10,
-    "serverless": 10,
     "cli": 9,
     "database": 9,
     "deploy": 9
