@@ -43,15 +43,25 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # lowercased: github.repository_owner keeps the account's capitalisation,
-  # and a canonical URL should not carry it
-  SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', lower(github.repository_owner), lower(github.event.repository.name)) }}
+  # NOT lowercased here: GitHub expressions have no lower() function, and
+  # calling one that does not exist is a startup failure — the whole workflow is
+  # rejected before any job is scheduled, with no error in the log to explain it.
+  # github.repository_owner preserves the account's capitalisation, which put
+  # "DevAnimecx.github.io" in the canonical URL, so the first step lowercases it
+  # and writes the result to GITHUB_ENV instead.
+  SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
 
 jobs:
   build:
     name: Build static export
     runs-on: ubuntu-latest
     steps:
+      # Hosts are case-insensitive but a canonical URL should be lowercase, and
+      # github.repository_owner is not. Doing it in a shell step keeps the
+      # expression valid.
+      - name: Normalise the site URL to lowercase
+        run: echo "SITE_URL=${SITE_URL,,}" >> "$GITHUB_ENV"
+
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
