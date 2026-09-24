@@ -311,7 +311,10 @@ Hosted on **GitHub Pages** at <https://devanimecx.github.io/free-ai-agent-stack/
 
 Deriving them means a fork, rename or transfer keeps working with no settings touched — and it removes the failure mode where the canonical URL disagrees with where the site is actually served, which silently splits a site's search ranking.
 
-**One prerequisite, once:** Settings → Pages → *Build and deployment* → Source = **GitHub Actions**. Without it the deploy job has no target.
+**No manual setup required.** The Pages site is already configured with
+`build_type: workflow`, and the workflow derives the host from the repository
+itself — so a fork, a rename or a transfer keeps deploying with nothing touched.
+If you ever need to re-create it: Settings → Pages → Source = **GitHub Actions**.
 
 The build fails rather than shipping a broken deployment: `scripts/verify_export.py` asserts the canonical host, that every Open Graph image and feed exists, that JSON-LD parses and names the author, that the base path appears exactly once, and that all five category pages carry `ItemList`, `FAQPage` and `BreadcrumbList` schema. A `.nojekyll` file is written into the output because Pages otherwise runs Jekyll, which silently deletes every path beginning with an underscore — including all of `_next/`.
 

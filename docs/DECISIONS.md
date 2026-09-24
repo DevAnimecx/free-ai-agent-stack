@@ -678,3 +678,37 @@ both would have silently swallowed mail. Reports now route through GitHub's
 private reporting, and the UA points at the repository and a reachable contact.
 The five `schemas/*.json` `$id` values were on the same dead domain and could
 not be dereferenced; they now resolve to the live host.
+
+## D-13 — Three CI failures that were invisible until the first real run (2026-09-24)
+
+Nothing here was caught locally, because none of it is a code defect that a test
+can see. All three were found by reading the runs on GitHub after the first
+push, and each had a failure shape that hides its own cause.
+
+**The Pages deploy could not build.** It died on its first data step with
+`ModuleNotFoundError: No module named 'requests'`. The workflow installed
+pyyaml, jsonschema and pillow; `generate_stats.py` imports `requests`, so the
+build never reached the compiler.
+
+**Two workflows had never run a single job.** `validate.yml` and `verify.yml`
+appear in the runs list as startup failures: the workflow's own name is replaced
+by its file path and the job count is zero. The cause was an unquoted
+colon-space inside a step name — `(PRD guardrail: <150KB)` and
+`(3 strikes → status: broken)` — which makes the YAML invalid, so GitHub rejects
+the workflow before scheduling anything. Every push up to that point had shipped
+data with no schema validation and no link checking behind it, and the runs list
+gave no hint that this was a syntax problem rather than a broken link. Both
+names are quoted now.
+
+**A fix for the second failure created a third of the same shape.** To stop
+`github.repository_owner` putting the account's capitalisation into the canonical
+URL, the workflow called `lower(...)` — which is not a GitHub Actions expression
+function. That rejected the whole workflow as invalid, indistinguishable from the
+problem it was meant to solve. The lowercasing now happens in a shell step with
+bash parameter expansion, which is a real feature.
+
+**The lesson recorded here:** a startup failure looks like a mystery, not a
+syntax error. Zero jobs and a file path where a workflow name should be means
+stop reading logs and start validating YAML. `python3 -c "import yaml;
+yaml.safe_load(open('.github/workflows/deploy-site.yml').read())"` would have
+found two of the three in a second.
