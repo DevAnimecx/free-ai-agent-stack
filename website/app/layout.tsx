@@ -213,6 +213,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               >
                 GitHub
               </a>
+              <a
+                href={BRAND.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="@devadarshkush on X"
+                className="hover:text-slate-900 dark:hover:text-slate-100"
+              >
+                X
+              </a>
+              <a
+                href={BRAND.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Adarsh Kushwah on LinkedIn"
+                className="hover:text-slate-900 dark:hover:text-slate-100"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={`mailto:${BRAND.email}`}
+                title={BRAND.email}
+                className="hover:text-slate-900 dark:hover:text-slate-100"
+              >
+                Email
+              </a>
             </div>
             <p>
               {strings.footer.lastVerified} {stats.generated_at.slice(0, 10)} ·{" "}
