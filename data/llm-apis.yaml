@@ -1,0 +1,1299 @@
+# free-ai-agent-stack — data/llm-apis.yaml
+# Source of truth for the "Free LLM APIs" category.
+# Schema: schemas/llm-api.schema.json  |  Validate: python3 scripts/validate.py
+# Rules: id is immutable; requires_card defaults to true when unknown (conservative);
+#        verified must be a real, past-or-today date set by a human.
+# Snapshot window: 2026-09-24
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Tier A — standing free tiers you can build on today
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: google-gemini
+  name: Google Gemini API
+  provider: Google
+  description: "Frontier multimodal models on a permanent free tier — Flash and Flash-Lite families only since April 2026."
+  free_limit: "1,500 requests/day on Flash, 1,000/day on Flash-Lite; 250K TPM"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "10-15 RPM, 250K TPM"
+  models: [gemini-3-flash, gemini-3.1-flash-lite, gemini-2.5-flash]
+  modalities: [text, vision, audio, video]
+  context_window: 1000000
+  commercial_use: true
+  data_used_for_training: true
+  url: https://ai.google.dev
+  docs_url: https://ai.google.dev/gemini-api/docs
+  signup_url: https://aistudio.google.com/apikey
+  tags: [essential, multimodal, long-context, frontier, no-card]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Free-tier prompts are used to improve Google products outside the EU/UK/EEA. Pro models left the free tier in April 2026."
+
+- id: groq
+  name: Groq Cloud
+  provider: Groq
+  description: "Open-weight models at 300+ tokens/sec on LPU hardware, with the most generous request-per-day allowance of any free tier."
+  free_limit: "1,000 req/day and 200K tokens/day per model"
+  free_limit_tokens_per_day: 200000
+  requires_card: false
+  requires_phone: false
+  rate_limit: "30 RPM, 8K TPM"
+  models: [gpt-oss-120b, gpt-oss-20b, qwen3.6-27b]
+  modalities: [text]
+  context_window: 131072
+  commercial_use: true
+  data_used_for_training: false
+  url: https://groq.com
+  docs_url: https://console.groq.com/docs/rate-limits
+  signup_url: https://console.groq.com/keys
+  tags: [essential, fast-inference, openai-compatible, no-card, agents]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The 200K tokens/day ceiling usually binds before the request count does. Llama models were removed from the free plan in 2026."
+
+- id: openrouter-free
+  name: OpenRouter Free Models
+  provider: OpenRouter
+  description: "One OpenAI-compatible key fronting 19+ `:free` models across providers — the best way to A/B models without multiple signups."
+  free_limit: "50 requests/day (1,000/day after a one-time $10 credit purchase)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "20 RPM"
+  models: [deepseek-v3.2, llama-4-scout, qwen3-coder, gemma-3-27b]
+  modalities: [text, vision]
+  context_window: 262144
+  commercial_use: true
+  data_used_for_training: false
+  url: https://openrouter.ai
+  docs_url: https://openrouter.ai/docs/api-reference/limits
+  signup_url: https://openrouter.ai/settings/keys
+  tags: [essential, multi-provider, openai-compatible, model-comparison, no-card]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The `:free` roster rotates monthly. Upstream providers frequently return 429s on free variants."
+
+- id: cloudflare-workers-ai
+  name: Cloudflare Workers AI
+  provider: Cloudflare
+  description: "Serverless inference that runs inside a Worker — no egress cost, no cold-start management, free daily budget."
+  free_limit: "10,000 Neurons/day (roughly 3-8K short LLM calls/day)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Account-level; unchanged by plan"
+  models: [llama-3.3-70b, gpt-oss-120b, qwen3, kimi-k2.5, flux-1-schnell, whisper]
+  modalities: [text, vision, image-gen, speech-to-text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://developers.cloudflare.com/workers-ai/
+  docs_url: https://developers.cloudflare.com/workers-ai/platform/pricing/
+  signup_url: https://dash.cloudflare.com/sign-up
+  tags: [essential, edge, serverless, embeddings, no-card]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Budget is denominated in Neurons, not tokens — per-model conversion varies, so budget by testing one call."
+
+- id: github-models
+  name: GitHub Models
+  provider: GitHub / Microsoft
+  description: "Frontier and open models behind a GitHub PAT — the lowest-friction free tier if you already have a GitHub account."
+  free_limit: "150-1,000 requests/day depending on tier and model"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "15 RPM"
+  models: [gpt-4o, claude-sonnet, llama-4, phi-4, mistral-large]
+  modalities: [text, vision]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/features/models
+  docs_url: https://docs.github.com/en/github-models
+  signup_url: https://github.com/settings/personal-access-tokens
+  tags: [essential, frontier, no-card, github-native, prototyping]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Intended for prototyping, not production traffic. Rate limits are per-model."
+
+- id: mistral-la-plateforme
+  name: Mistral La Plateforme (Experiment)
+  provider: Mistral AI
+  description: "European-hosted Mistral family with a free Experiment mode worth roughly $10/month of credits, no card required."
+  free_limit: "~$10/month of credits in Experiment mode (about 1B tokens/month on small models)"
+  free_limit_tokens_per_day: 33000000
+  requires_card: false
+  requires_phone: true
+  rate_limit: "2 RPM on free mode"
+  models: [mistral-medium-3.5, mistral-small-3.2, magistral, codestral]
+  modalities: [text, embeddings]
+  commercial_use: true
+  data_used_for_training: true
+  url: https://mistral.ai
+  docs_url: https://docs.mistral.ai/getting-started/models/models_overview/
+  signup_url: https://console.mistral.ai/
+  tags: [essential, eu-hosted, code, gdpr-friendly, no-card]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Experiment mode trains on your prompts by default. The 2 RPM limit makes it a batch/offline worker, not an interactive backend."
+
+- id: nvidia-nim
+  name: NVIDIA NIM API Catalog
+  provider: NVIDIA
+  description: "Free hosted endpoints for NVIDIA-curated open models (Nemotron, Llama, DeepSeek), built for prototyping."
+  free_limit: "1,000 API credits (26,000 total requests) on signup"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Up to 40 RPM"
+  models: [nemotron-4, llama-3.3-70b, deepseek-r1, mixtral]
+  modalities: [text, vision, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://build.nvidia.com
+  docs_url: https://docs.api.nvidia.com
+  signup_url: https://build.nvidia.com/explore/discover
+  tags: [essential, frontier, open-models, prototyping, no-card]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Credits are one-time and not refilled; some models are marked as evaluation-use only."
+
+- id: zai-glm-free
+  name: Z.ai GLM Flash Models
+  provider: Z.ai (Zhipu)
+  description: "GLM-4.x Flash models served free of charge, popular as a drop-in for reasoning and coding agents."
+  free_limit: "Unmetered access to GLM-4.7-Flash and GLM-4.5-Flash"
+  requires_card: false
+  requires_phone: true
+  rate_limit: "Community-tier concurrency limits"
+  models: [glm-4.7-flash, glm-4.5-flash]
+  modalities: [text]
+  context_window: 128000
+  commercial_use: true
+  data_used_for_training: false
+  url: https://z.ai
+  docs_url: https://docs.z.ai/guides/overview/pricing
+  signup_url: https://z.ai/
+  tags: [agentic, coding, no-card]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Flash tiers are free but rate-limited during peak hours in Asia."
+
+- id: cohere-trial
+  name: Cohere Trial Keys
+  provider: Cohere
+  description: "Every Cohere model including Command A and the Embed/Rerank family on a free trial key, non-commercial use only."
+  free_limit: "1,000 API calls/month"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "20 RPM"
+  models: [command-a, command-r-plus, embed-v4, rerank-v3.5]
+  modalities: [text, embeddings, rerank]
+  commercial_use: false
+  data_used_for_training: false
+  url: https://cohere.com
+  docs_url: https://docs.cohere.com/docs/rate-limits
+  signup_url: https://dashboard.cohere.com/api-keys
+  tags: [rag, embeddings, rerank, non-commercial]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Trial keys explicitly prohibit production/commercial use — fine for a POC, not for a shipped product."
+
+- id: huggingface-inference
+  name: Hugging Face Inference Providers
+  provider: Hugging Face
+  description: "One router in front of 18 inference partners, with monthly free credits on any account."
+  free_limit: "$0.10/month of included inference credits"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Provider-dependent"
+  models: [llama-4, qwen3, deepseek-v3, flux-1]
+  modalities: [text, vision, image-gen, speech-to-text, text-to-speech]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://huggingface.co
+  docs_url: https://huggingface.co/docs/inference-providers/index
+  signup_url: https://huggingface.co/settings/tokens
+  tags: [essential, open-models, multi-provider, hub]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The $0.10/month allowance is genuinely small — treat this as a smoke-test credit, not a workload budget."
+
+- id: sambanova-cloud
+  name: SambaNova Cloud
+  provider: SambaNova
+  description: "Very fast hosted open-model inference with a permanent per-model daily token allowance."
+  free_limit: "200,000 tokens/day per model"
+  free_limit_tokens_per_day: 200000
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Rate-limited by token budget"
+  models: [llama-3.1-405b, llama-3.3-70b, deepseek-r1, qwen3-32b]
+  modalities: [text, vision]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://cloud.sambanova.ai
+  docs_url: https://docs.sambanova.ai/
+  signup_url: https://cloud.sambanova.ai/
+  tags: [essential, fast-inference, open-models, 405b]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Quota is per model, so stacking three models triples your effective daily allowance."
+
+- id: alibaba-model-studio
+  name: Alibaba Cloud Model Studio
+  provider: Alibaba Cloud
+  description: "Qwen family access with a free per-model token grant — the cleanest route to Qwen3 Coder for free."
+  free_limit: "~1M free tokens per model, valid 90 days"
+  free_limit_tokens_per_day: 1000000
+  requires_card: false
+  requires_phone: true
+  rate_limit: "Low RPM on free quota"
+  models: [qwen3-max, qwen3-coder, qwq, qwen-vl]
+  modalities: [text, vision, image-gen]
+  context_window: 1000000
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.alibabacloud.com/en/product/modelstudio
+  docs_url: https://www.alibabacloud.com/help/en/model-studio/models
+  signup_url: https://modelstudio.console.alibabacloud.com/
+  tags: [qwen, long-context, coder, china]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Grants expire 90 days after activation and do not renew — good for a build sprint, not a standing tier."
+
+- id: google-cloud-vertex-free-credits
+  name: Google Cloud Vertex AI Free Credits
+  provider: Google Cloud
+  description: "Vertex AI access to Gemini and Model Garden on new-account credits — the enterprise-labelled alternative to AI Studio."
+  free_limit: "$300 in new-customer credits valid 90 days"
+  requires_card: true
+  requires_phone: false
+  rate_limit: "Paid-tier quotas from day one"
+  models: [gemini-3-flash, gemini-3.1-pro, llama-4, mistral]
+  modalities: [text, vision, video, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://cloud.google.com/vertex-ai
+  docs_url: https://cloud.google.com/vertex-ai/generative-ai/docs/start/quickstarts/quickstart-multimodal
+  signup_url: https://console.cloud.google.com/
+  tags: [enterprise, credits, google-cloud]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Requires a billing account with a card, so it fails the strictest no-card filter — but the $300 covers a serious prototype."
+
+- id: azure-ai-foundry-free
+  name: Azure AI Foundry Free Credits
+  provider: Microsoft
+  description: "Azure-hosted OpenAI, Phi and Llama models with the new Azure free-account credit bundle."
+  free_limit: "$200 in credits valid 30 days"
+  requires_card: true
+  requires_phone: true
+  rate_limit: "Per-deployment quotas"
+  models: [gpt-4o, phi-4, llama-4, mistral-large]
+  modalities: [text, vision, speech-to-text, text-to-speech]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://azure.microsoft.com/en-us/products/ai-foundry
+  docs_url: https://learn.microsoft.com/en-us/azure/ai-foundry/
+  signup_url: https://azure.microsoft.com/free/
+  tags: [enterprise, credits, openai-models]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Identity verification with a card is mandatory; 30-day clock makes it a sprint budget."
+
+- id: aws-bedrock-free-tier
+  name: Amazon Bedrock Free Tier
+  provider: AWS
+  description: "Bedrock-hosted Claude, Llama and Titan models on the AWS free tier for new accounts."
+  free_limit: "Trial credits for Nova and select models for new AWS accounts"
+  requires_card: true
+  requires_phone: true
+  rate_limit: "Per-model on-demand quotas"
+  models: [amazon-nova-pro, claude-haiku, llama-4, titan]
+  modalities: [text, vision, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://aws.amazon.com/bedrock/
+  docs_url: https://docs.aws.amazon.com/bedrock/
+  signup_url: https://aws.amazon.com/free/
+  tags: [enterprise, credits, aws]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Card required at signup. Bedrock model access must be requested per model in the console."
+
+- id: baidu-qianfan
+  name: Baidu Qianfan (ERNIE)
+  provider: Baidu
+  description: "ERNIE Speed and ERNIE Lite are permanently free on Baidu's Qianfan console for Chinese-language agents."
+  free_limit: "ERNIE Speed and Lite free of charge; others on per-token billing"
+  requires_card: false
+  requires_phone: true
+  rate_limit: "Low RPM on free models"
+  models: [ernie-speed, ernie-lite, ernie-4.5]
+  modalities: [text, vision]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://cloud.baidu.com/product/wenxinworkshop
+  docs_url: https://cloud.baidu.com/doc/WENXINWORKSHOP/index.html
+  signup_url: https://console.bce.baidu.com/qianfan/
+  tags: [china, chinese-language, free-models]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Requires a mainland-China verified phone number for full access."
+
+- id: siliconflow-free-models
+  name: SiliconFlow
+  provider: SiliconFlow
+  description: "Chinese inference host that keeps a rotating set of open models free to call, including embedding and rerank models."
+  free_limit: "Rotating set of free models (Qwen, GLM, DeepSeek small variants)"
+  requires_card: false
+  requires_phone: true
+  rate_limit: "3-10 RPM on free models"
+  models: [qwen3-8b, glm-4-9b, bge-m3, bce-reranker]
+  modalities: [text, embeddings, rerank]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://siliconflow.com
+  docs_url: https://docs.siliconflow.com/en/userguide/rate-limits/rate-limit-and-upgradation
+  signup_url: https://cloud.siliconflow.cn/account/ak
+  tags: [embeddings, rerank, free-models, rag]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Free model list changes without notice; the reranker and embedding models are the durable part."
+
+- id: chutes
+  name: Chutes.ai
+  provider: Chutes
+  description: "Decentralised open-model inference with a community tier that costs nothing for low-volume agent calls."
+  free_limit: "Community tier: quota-limited free requests across 100+ open models"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Community queue priority"
+  models: [deepseek-v3, llama-4, qwen3-coder]
+  modalities: [text, image-gen]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://chutes.ai
+  docs_url: https://docs.chutes.ai
+  signup_url: https://chutes.ai/app/api
+  tags: [decentralised, open-models, community]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: degraded
+  notes: "Community capacity is best-effort; expect queueing at peak. Fine for batch, risky for user-facing agents."
+
+- id: vercel-ai-gateway
+  name: Vercel AI Gateway
+  provider: Vercel
+  description: "One endpoint in front of every major provider with free monthly included credit and per-request observability."
+  free_limit: "$5/month of included AI credits on the Hobby plan"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Gateway-level, per provider"
+  models: [gpt-4o, claude-sonnet, gemini-3-flash, llama-4]
+  modalities: [text, vision, image-gen, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://vercel.com/ai-gateway
+  docs_url: https://vercel.com/docs/ai-gateway
+  signup_url: https://vercel.com/signup
+  tags: [gateway, multi-provider, observability, fallbacks]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Also works as a BYOK proxy — you can route your existing free keys through it for logging and failover."
+
+- id: cloudflare-ai-gateway
+  name: Cloudflare AI Gateway
+  provider: Cloudflare
+  description: "Free caching, rate-limiting and logging proxy placed in front of any provider, including your own free keys."
+  free_limit: "Free on all plans; caching and analytics included"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Not applicable (proxy layer)"
+  modalities: [text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://developers.cloudflare.com/ai-gateway/
+  docs_url: https://developers.cloudflare.com/ai-gateway/configuration/
+  signup_url: https://dash.cloudflare.com/sign-up
+  tags: [gateway, caching, observability, cost-control]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The single highest-leverage free tool in this list: response caching can stretch a 1,000 req/day quota several-fold."
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Tier B — one-time credits and short-lived trials
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: fireworks-ai
+  name: Fireworks AI
+  provider: Fireworks AI
+  description: "Fast open-model inference with a small no-card starter credit."
+  free_limit: "$1 one-time credit"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "10 RPM until a payment method is added"
+  models: [llama-4, deepseek-v3, qwen3-coder, flux-1]
+  modalities: [text, vision, image-gen]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://fireworks.ai
+  docs_url: https://docs.fireworks.ai/getting-started/quickstart
+  signup_url: https://fireworks.ai/login
+  tags: [trial, open-models, fast-inference]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The account suspends when the $1 is spent. Treat as a smoke test, not a tier."
+
+- id: cerebras-cloud
+  name: Cerebras Cloud
+  provider: Cerebras
+  description: "Wafer-scale inference — still the fastest tokens/sec available — but the permanent free tier ended in July 2026."
+  free_limit: "$5 trial credit valid 30 days (card verification required since 2026-07-16)"
+  requires_card: true
+  requires_phone: false
+  rate_limit: "5 RPM, 30K TPM on trial"
+  models: [gpt-oss-120b, glm-4.7, qwen3-32b]
+  modalities: [text]
+  context_window: 8192
+  commercial_use: true
+  data_used_for_training: false
+  url: https://cloud.cerebras.ai
+  docs_url: https://inference-docs.cerebras.ai/support/rate-limits
+  signup_url: https://cloud.cerebras.ai/
+  tags: [fast-inference, trial, card-required]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: degraded
+  notes: "Downgraded from a no-card permanent free tier to a card-gated 30-day trial. Context is capped at 8K on trial."
+
+- id: deepinfra
+  name: DeepInfra
+  provider: DeepInfra
+  description: "Cheap open-model inference with a small signup credit and no card requirement for the trial."
+  free_limit: "$1.80 one-time credit"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Standard trial limits"
+  models: [llama-4, qwen3, deepseek-v3, whisper]
+  modalities: [text, vision, speech-to-text, image-gen]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://deepinfra.com
+  docs_url: https://deepinfra.com/docs
+  signup_url: https://deepinfra.com/login
+  tags: [trial, open-models, cheap]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: ai21-studio
+  name: AI21 Studio
+  provider: AI21 Labs
+  description: "Jamba family models with a recurring free allowance aimed at evaluation."
+  free_limit: "$10 in credits every 3 months on the free plan"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "3 RPM on free plan"
+  models: [jamba-1.6-large, jamba-1.6-mini]
+  modalities: [text]
+  context_window: 256000
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.ai21.com/studio
+  docs_url: https://docs.ai21.com
+  signup_url: https://studio.ai21.com/sign-up
+  tags: [long-context, trial, recurring-credits]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "One of the few providers whose free credit refreshes on a schedule rather than once."
+
+- id: moonshot-kimi-trial
+  name: Moonshot Kimi API
+  provider: Moonshot AI
+  description: "Kimi K2 family with signup credit for long-context Chinese and English workloads."
+  free_limit: "Signup trial credit (roughly ¥15)"
+  requires_card: false
+  requires_phone: true
+  rate_limit: "Low on trial tier"
+  models: [kimi-k2, moonshot-v1-128k]
+  modalities: [text, vision]
+  context_window: 128000
+  commercial_use: true
+  data_used_for_training: false
+  url: https://platform.moonshot.ai
+  docs_url: https://platform.moonshot.ai/docs
+  signup_url: https://platform.moonshot.ai/console/api-keys
+  tags: [long-context, trial, china]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Tier C — speech, audio, vision, embeddings
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: elevenlabs
+  name: ElevenLabs Free
+  provider: ElevenLabs
+  description: "Best-in-class TTS voices with a genuine monthly free character allowance, no card required."
+  free_limit: "10,000 characters/month"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "2 concurrent requests"
+  modalities: [text-to-speech]
+  commercial_use: false
+  data_used_for_training: false
+  url: https://elevenlabs.io
+  docs_url: https://elevenlabs.io/docs/api-reference/text-to-speech
+  signup_url: https://elevenlabs.io/sign-up
+  tags: [tts, voice-agent, no-card]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Free-tier output requires attribution and cannot be used commercially."
+
+- id: deepgram
+  name: Deepgram
+  provider: Deepgram
+  description: "Low-latency STT and TTS built for voice agents, with a large one-time credit and no card on signup."
+  free_limit: "$200 one-time credit (roughly 100 hours of Nova-3 transcription)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Standard free limits"
+  models: [nova-3, aura-2]
+  modalities: [speech-to-text, text-to-speech, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://deepgram.com
+  docs_url: https://developers.deepgram.com/docs
+  signup_url: https://console.deepgram.com/signup
+  tags: [stt, tts, voice-agent, credits]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Credit is one-time; voice agents burn it fast. Pair with a local Whisper fallback."
+
+- id: assemblyai
+  name: AssemblyAI
+  provider: AssemblyAI
+  description: "Speech-to-text plus audio intelligence (summarisation, topic detection) on a no-card starter credit."
+  free_limit: "$50 one-time credit plus rate-limited free transcription"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "5 concurrent transcriptions"
+  models: [universal-2, slam-1]
+  modalities: [speech-to-text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.assemblyai.com
+  docs_url: https://www.assemblyai.com/docs
+  signup_url: https://www.assemblyai.com/dashboard/signup
+  tags: [stt, audio-intelligence, credits]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: speechmatics
+  name: Speechmatics
+  provider: Speechmatics
+  description: "Accurate multilingual transcription with a recurring free monthly hour allowance."
+  free_limit: "8 hours of transcription/month"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Standard free limits"
+  modalities: [speech-to-text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.speechmatics.com
+  docs_url: https://docs.speechmatics.com
+  signup_url: https://portal.speechmatics.com/signup
+  tags: [stt, multilingual, recurring-free]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: google-cloud-speech-tts
+  name: Google Cloud Speech & TTS
+  provider: Google Cloud
+  description: "Production speech APIs with a standing free monthly allowance for STT and WaveNet/Neural2 voices."
+  free_limit: "60 min STT + 1M characters TTS per month"
+  requires_card: true
+  requires_phone: false
+  rate_limit: "Standard free-tier quotas"
+  modalities: [speech-to-text, text-to-speech]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://cloud.google.com/speech-to-text
+  docs_url: https://cloud.google.com/text-to-speech/pricing
+  signup_url: https://console.cloud.google.com/
+  tags: [stt, tts, google-cloud, recurring-free]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The STT/TTS free allowance does not expire, unlike the $300 signup credit — this is one of the best long-term free voice stacks."
+
+- id: azure-ai-speech
+  name: Azure AI Speech
+  provider: Microsoft
+  description: "Speech-to-text and neural TTS free allowances inside the Azure free account."
+  free_limit: "5 hours STT + 500K characters TTS per month"
+  requires_card: true
+  requires_phone: true
+  rate_limit: "20 transactions/sec on free tier"
+  modalities: [speech-to-text, text-to-speech]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://azure.microsoft.com/en-us/products/ai-services/ai-speech
+  docs_url: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/
+  signup_url: https://azure.microsoft.com/free/
+  tags: [stt, tts, azure, recurring-free]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: stability-ai
+  name: Stability AI
+  provider: Stability AI
+  description: "Stable Diffusion and Stable Audio via API, with a small recurring monthly credit grant."
+  free_limit: "25 credits/month on the free plan"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Standard free limits"
+  models: [sd-3.5-large, stable-image-ultra, stable-audio-2]
+  modalities: [image-gen, audio]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://platform.stability.ai
+  docs_url: https://platform.stability.ai/docs/api-reference
+  signup_url: https://platform.stability.ai/account/keys
+  tags: [image-gen, audio-gen, recurring-free]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: pollinations
+  name: Pollinations.AI
+  provider: Pollinations
+  description: "Completely keyless text and image generation API — the fastest possible zero-signup smoke test."
+  free_limit: "Unmetered with fair-use rate limits; no API key at all"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "1 request / 5 seconds for image generation"
+  models: [openai, mistral, flux, turbo]
+  modalities: [text, image-gen, speech-to-text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://pollinations.ai
+  docs_url: https://github.com/pollinations/pollinations/blob/master/APIDOCS.md
+  tags: [no-key, image-gen, prototyping, no-card]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "No SLA and no guarantee of model availability — perfect for demos, unsuitable for production."
+
+- id: leonardo-ai
+  name: Leonardo.Ai API
+  provider: Leonardo.Ai
+  description: "Image generation API with a daily free token allowance tied to a free account."
+  free_limit: "150 free tokens/day (image generations)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Standard free limits"
+  modalities: [image-gen]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://leonardo.ai
+  docs_url: https://docs.leonardo.ai/docs/getting-started
+  signup_url: https://docs.leonardo.ai/docs/getting-started
+  tags: [image-gen, daily-free]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: voyage-ai
+  name: Voyage AI
+  provider: Voyage AI
+  description: "High-quality embeddings and rerankers with an unusually large free token grant for RAG prototypes."
+  free_limit: "200M free tokens across embedding and rerank models"
+  free_limit_tokens_per_day: 660000
+  requires_card: false
+  requires_phone: false
+  rate_limit: "3 RPM, 10K TPM on free"
+  models: [voyage-3.5, voyage-code-3, rerank-2.5]
+  modalities: [embeddings, rerank]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.voyageai.com
+  docs_url: https://docs.voyageai.com/docs/rate-limits
+  signup_url: https://www.voyageai.com/
+  tags: [embeddings, rerank, rag, large-free-grant]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The 3 RPM limit is the real constraint — fine for indexing a corpus offline, painful for live retrieval."
+
+- id: jina-ai
+  name: Jina AI Embeddings & Reranker
+  provider: Jina AI
+  description: "Multilingual embeddings, reranker and reader APIs with a large free token allowance on one key."
+  free_limit: "10M free tokens on signup key"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "Token-bucket per key"
+  models: [jina-embeddings-v4, jina-reranker-v2, reader-lm]
+  modalities: [embeddings, rerank]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://jina.ai
+  docs_url: https://jina.ai/embeddings/
+  signup_url: https://jina.ai/
+  tags: [embeddings, rerank, multilingual, rag]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: mistral-embeddings-codestral
+  name: Mistral Codestral
+  provider: Mistral AI
+  description: "Code-specialised completions and fill-in-the-middle model inside the Mistral free Experiment tier."
+  free_limit: "Included in the Mistral free-tier monthly credit"
+  requires_card: false
+  requires_phone: true
+  rate_limit: "2 RPM"
+  models: [codestral-2508, codestral-embed]
+  modalities: [text, embeddings]
+  context_window: 256000
+  commercial_use: true
+  data_used_for_training: true
+  url: https://mistral.ai/news/codestral
+  docs_url: https://docs.mistral.ai/capabilities/code_generation/
+  signup_url: https://console.mistral.ai/
+  tags: [code, fill-in-middle, ide]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: bhashini
+  name: Bhashini (ULCA)
+  provider: Government of India / MeitY
+  description: "India's national language platform — free STT, TTS, translation and OCR APIs for 22 scheduled languages."
+  free_limit: "Free for developers via the Bhashini API program"
+  requires_card: false
+  requires_phone: true
+  rate_limit: "Fair-use, per-API quotas"
+  modalities: [speech-to-text, text-to-speech, translation, ocr]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://bhashini.gov.in
+  docs_url: https://bhashini.gitbook.io/bhashini-apis
+  signup_url: https://bhashini.gov.in/ulca/user/register
+  tags: [india, indic-languages, translation, government]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Requires registration approval and a pipeline configuration — the signup is heavier than a typical vendor, but the API is genuinely free."
+
+- id: sarvam-ai
+  name: Sarvam AI
+  provider: Sarvam AI
+  description: "Indian-language LLMs (Sarvam-M), speech and translation APIs with signup credits for Indian developers."
+  free_limit: "Free credits on signup; usage-based afterwards"
+  requires_card: false
+  requires_phone: true
+  rate_limit: "Low on free credits"
+  models: [sarvam-m, saarika, bulbul]
+  modalities: [text, speech-to-text, text-to-speech, translation]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.sarvam.ai
+  docs_url: https://docs.sarvam.ai
+  signup_url: https://dashboard.sarvam.ai
+  tags: [india, indic-languages, voice]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Indic-language models are the differentiator; English performance is below frontier tiers."
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Tier D — local and self-hosted (unlimited, $0, hardware-bound)
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: ollama
+  name: Ollama
+  provider: Ollama
+  description: "The default way to run open models locally — one command to pull, serve and expose an OpenAI-compatible endpoint."
+  free_limit: "Unlimited; limited only by your GPU/RAM"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  models: [gpt-oss-120b, llama-4, qwen3, gemma-3, mistral-small]
+  modalities: [text, vision, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://ollama.com
+  docs_url: https://github.com/ollama/ollama/blob/main/docs/api.md
+  tags: [essential, local, privacy, unlimited, openai-compatible]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "No rate limit and no data leaving your machine — the correct answer to 'what is the truly free LLM API'."
+
+- id: llama-cpp
+  name: llama.cpp
+  provider: ggml-org
+  description: "Portable C/C++ inference engine that runs GGUF-quantised models on CPU, GPU or Apple Silicon."
+  free_limit: "Unlimited (self-hosted, MIT licensed)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  models: [any-gguf]
+  modalities: [text, vision]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/ggml-org/llama.cpp
+  docs_url: https://github.com/ggml-org/llama.cpp/tree/master/examples/server
+  tags: [local, cpu, gguf, self-hosted]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: lm-studio
+  name: LM Studio
+  provider: LM Studio
+  description: "Desktop GUI for local models with a one-click local server and built-in model discovery."
+  free_limit: "Free for personal and work use"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, vision, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://lmstudio.ai
+  docs_url: https://lmstudio.ai/docs/app/api
+  tags: [local, gui, beginner-friendly]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: vllm
+  name: vLLM
+  provider: vLLM Project
+  description: "High-throughput serving engine with PagedAttention — the standard for self-hosted production inference."
+  free_limit: "Unlimited (self-hosted, Apache 2.0)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, vision, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/vllm-project/vllm
+  docs_url: https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html
+  tags: [local, gpu, production, high-throughput]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: jan-ai
+  name: Jan
+  provider: Menlo Research
+  description: "Open-source offline ChatGPT alternative that can also expose a local OpenAI-compatible API."
+  free_limit: "Unlimited (self-hosted, AGPL)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, vision]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://jan.ai
+  docs_url: https://jan.ai/docs
+  tags: [local, gui, offline, privacy]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: gpt4all
+  name: GPT4All
+  provider: Nomic AI
+  description: "Consumer desktop app for running local models on modest hardware, with Python bindings for agents."
+  free_limit: "Unlimited (self-hosted, MIT)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.nomic.ai/gpt4all
+  docs_url: https://docs.gpt4all.io
+  tags: [local, cpu, python-bindings]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: mlx-lm
+  name: MLX LM
+  provider: Apple
+  description: "Apple-silicon-optimised inference and fine-tuning library — the fastest local option on a Mac."
+  free_limit: "Unlimited (self-hosted, MIT)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, vision]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/ml-explore/mlx-lm
+  docs_url: https://ml-explore.github.io/mlx/build/html/index.html
+  tags: [local, apple-silicon, mac, fast-inference]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: localai
+  name: LocalAI
+  provider: LocalAI
+  description: "Drop-in OpenAI API replacement that also speaks image, audio and embedding endpoints on modest hardware."
+  free_limit: "Unlimited (self-hosted, MIT)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, image-gen, speech-to-text, text-to-speech, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://localai.io
+  docs_url: https://localai.io/basics/getting_started/
+  tags: [local, openai-compatible, docker, multi-modal]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: koboldcpp
+  name: KoboldCpp
+  provider: LostRuins
+  description: "Single-binary llama.cpp wrapper with a built-in web UI and an OpenAI-compatible endpoint."
+  free_limit: "Unlimited (self-hosted, AGPL)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, image-gen, speech-to-text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/LostRuins/koboldcpp
+  docs_url: https://github.com/LostRuins/koboldcpp/wiki
+  tags: [local, single-binary, cpu]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: llamafile
+  name: llamafile
+  provider: Mozilla Builders
+  description: "Single-file executable that bundles a model and a server — portable agent runtimes with zero install."
+  free_limit: "Unlimited (self-hosted, Apache 2.0)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, vision]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/Mozilla-Ocho/llamafile
+  docs_url: https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#gotchas
+  tags: [local, portable, single-file]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: text-generation-webui
+  name: Text Generation WebUI
+  provider: oobabooga
+  description: "Feature-rich local web UI with OpenAI-compatible API, extensions and multi-model loading."
+  free_limit: "Unlimited (self-hosted, AGPL)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, vision, text-to-speech]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/oobabooga/text-generation-webui
+  docs_url: https://github.com/oobabooga/text-generation-webui/wiki
+  tags: [local, gui, extensions]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: faster-whisper
+  name: faster-whisper
+  provider: SYSTRAN
+  description: "CTranslate2 reimplementation of Whisper that transcribes locally far faster than the reference build."
+  free_limit: "Unlimited (self-hosted, MIT)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [speech-to-text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/SYSTRAN/faster-whisper
+  docs_url: https://github.com/SYSTRAN/faster-whisper?tab=readme-ov-file#usage
+  tags: [local, stt, voice-agent]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: piper-tts
+  name: Piper TTS
+  provider: Rhasspy
+  description: "Fast, small neural TTS that runs on a Raspberry Pi — the free voice layer for offline agents."
+  free_limit: "Unlimited (self-hosted, MIT)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text-to-speech]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/OHF-Voice/piper1-gpl
+  docs_url: https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/API_PYTHON.md
+  tags: [local, tts, edge, offline]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: sentence-transformers
+  name: Sentence Transformers
+  provider: UKPLab
+  description: "The standard library for local embeddings and reranking — 15K+ models, no API key, no quota."
+  free_limit: "Unlimited (self-hosted, Apache 2.0)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  models: [all-minilm-l6-v2, bge-large, e5-large, cross-encoder-ms-marco]
+  modalities: [embeddings, rerank]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://sbert.net
+  docs_url: https://sbert.net/docs/quickstart.html
+  tags: [local, embeddings, rerank, rag]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: fastembed
+  name: FastEmbed
+  provider: Qdrant
+  description: "Lightweight ONNX embedding library — CPU-friendly local vectors that pair directly with Qdrant."
+  free_limit: "Unlimited (self-hosted, Apache 2.0)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [embeddings, rerank]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/qdrant/fastembed
+  docs_url: https://qdrant.github.io/fastembed/
+  tags: [local, embeddings, onnx, rag]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: webllm
+  name: WebLLM
+  provider: MLC AI
+  description: "Runs quantised LLMs in the browser on WebGPU — zero server, zero cost, zero data egress."
+  free_limit: "Unlimited (runs on the user's device)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  models: [llama-3.2-3b, phi-3.5-mini, gemma-2-2b, qwen2.5-1.5b]
+  modalities: [text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://webllm.mlc.ai
+  docs_url: https://webllm.mlc.ai/docs/
+  tags: [in-browser, webgpu, privacy, no-server]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "First load downloads 1-2GB of weights into the browser cache — design for that or you will lose users."
+
+- id: transformers-js
+  name: Transformers.js
+  provider: Hugging Face
+  description: "Hugging Face pipelines running in the browser or Node via ONNX runtime, with WebGPU acceleration."
+  free_limit: "Unlimited (runs locally/in-browser, Apache 2.0)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text, embeddings, speech-to-text, image-gen]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://huggingface.co/docs/transformers.js
+  docs_url: https://huggingface.co/docs/transformers.js/tutorials/browser-extension
+  tags: [in-browser, onnx, embeddings, client-side]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: wllama
+  name: wllama
+  provider: ngxson
+  description: "llama.cpp compiled to WebAssembly with WASM SIMD and threads — GGUF models straight in the browser."
+  free_limit: "Unlimited (client-side, MIT)"
+  requires_card: false
+  requires_phone: false
+  rate_limit: "None"
+  modalities: [text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://github.com/ngxson/wllama
+  docs_url: https://github.com/ngxson/wllama?tab=readme-ov-file#usage
+  tags: [in-browser, wasm, gguf, privacy]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Tier E — no longer free (kept deliberately, so you don't waste a signup)
+# These entries are why this list exists: the "awesome" lists still show them
+# as free in 2026. They do not. Left in place with status: deprecated.
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: openai-api
+  name: OpenAI API
+  provider: OpenAI
+  description: "No standing free tier. Data-sharing evaluation tokens are the only free path."
+  free_limit: "None — no signup credits; $5 prepay minimum for API access"
+  requires_card: true
+  requires_phone: true
+  rate_limit: "Not applicable"
+  models: [gpt-5, gpt-5-mini, o-series]
+  modalities: [text, vision, speech-to-text, text-to-speech, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://platform.openai.com
+  docs_url: https://platform.openai.com/docs/pricing
+  signup_url: https://platform.openai.com/signup
+  tags: [no-longer-free, frontier, deprecated]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: deprecated
+  notes: "Unless your org is eligible for the data-sharing token grant, treat OpenAI as paid-only."
+
+- id: anthropic-claude-api
+  name: Anthropic Claude API
+  provider: Anthropic
+  description: "No public free API tier; the OSS program grants Claude Max to qualifying maintainers instead."
+  free_limit: "None — paid API only. OSS maintainer program gives a Claude Max seat"
+  requires_card: true
+  requires_phone: true
+  rate_limit: "Not applicable"
+  models: [claude-opus, claude-sonnet, claude-haiku]
+  modalities: [text, vision]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.anthropic.com/api
+  docs_url: https://docs.claude.com/en/docs/about-claude/pricing
+  signup_url: https://console.anthropic.com/
+  tags: [no-longer-free, frontier, deprecated]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: deprecated
+  notes: "Free chat on claude.ai is separate from API access — there is no free API key."
+
+- id: xai-grok-api
+  name: xAI Grok API
+  provider: xAI
+  description: "No documented free tier; console access requires prepaid credits."
+  free_limit: "None — prepaid credits required"
+  requires_card: true
+  requires_phone: true
+  rate_limit: "Not applicable"
+  models: [grok-4.6, grok-4-mini]
+  modalities: [text, vision, image-gen]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://x.ai/api
+  docs_url: https://docs.x.ai/docs/models
+  signup_url: https://console.x.ai/
+  tags: [no-longer-free, deprecated]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: deprecated
+
+- id: deepseek-api
+  name: DeepSeek API
+  provider: DeepSeek
+  description: "Extremely cheap per-token pricing, but no standing free tier and no signup grant since 2026."
+  free_limit: "None — top-up required (cheapest paid tokens on the market)"
+  requires_card: true
+  requires_phone: true
+  rate_limit: "Not applicable"
+  models: [deepseek-v4.1, deepseek-r1]
+  modalities: [text]
+  context_window: 128000
+  commercial_use: true
+  data_used_for_training: false
+  url: https://platform.deepseek.com
+  docs_url: https://api-docs.deepseek.com/quick_start/pricing
+  signup_url: https://platform.deepseek.com/sign_up
+  tags: [no-longer-free, cheap, deprecated]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: deprecated
+  notes: "DeepSeek weights are open — run V4-Flash locally for free rather than paying the API."
+
+- id: together-ai
+  name: Together AI
+  provider: Together AI
+  description: "200+ open models, but the signup trial credit was retired; a $5 minimum purchase is required."
+  free_limit: "None — $5 minimum purchase to start"
+  requires_card: true
+  requires_phone: false
+  rate_limit: "Not applicable"
+  models: [llama-4, qwen3, deepseek-v3]
+  modalities: [text, vision, image-gen, embeddings]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.together.ai
+  docs_url: https://docs.together.ai/docs/quickstart
+  signup_url: https://api.together.ai/signin
+  tags: [no-longer-free, deprecated]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: deprecated
+
+- id: perplexity-api
+  name: Perplexity API (Sonar)
+  provider: Perplexity
+  description: "Search-grounded Sonar models are paid API only; the free consumer app is not API access."
+  free_limit: "None — Pro subscribers get $5/month of API credit"
+  requires_card: true
+  requires_phone: false
+  rate_limit: "Not applicable"
+  models: [sonar, sonar-pro, sonar-reasoning]
+  modalities: [text]
+  commercial_use: true
+  data_used_for_training: false
+  url: https://www.perplexity.ai/api
+  docs_url: https://docs.perplexity.ai/getting-started/pricing
+  signup_url: https://console.perplexity.ai/
+  tags: [no-longer-free, search, deprecated]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: deprecated
+  notes: "Tavily, Exa and Brave all have free search tiers — see the MCP list for agent-ready alternatives."

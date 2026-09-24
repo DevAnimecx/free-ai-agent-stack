@@ -1,0 +1,100 @@
+name: Submit a resource
+description: Suggest a free LLM API, MCP server, agent tool or free-tier service
+title: "[Submission] "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the submission. A maintainer turns accepted submissions into a PR for you — you do not need to know YAML.
+
+        **The three facts that decide acceptance:** the free limit, whether a credit card is required, and a link to the vendor's own pricing page. Everything else is optional.
+
+        Please read the inclusion criteria in [CONTRIBUTING.md](https://github.com/free-ai-agent-stack/free-ai-agent-stack/blob/main/CONTRIBUTING.md) first — most rejections are "free trial only" or "requires contacting sales".
+
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: "Acme LLM API"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Free LLM API
+        - MCP server
+        - Agent tool (IDE / CLI / framework / orchestrator)
+        - Free-tier infrastructure (hosting, database, auth, observability…)
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Canonical URL
+      description: The signup page or pricing page — not a blog post or a referral link.
+      placeholder: "https://acme.example/pricing"
+    validations:
+      required: true
+
+  - type: input
+    id: free_limit
+    attributes:
+      label: Free limit, in the vendor's own units
+      description: Copy it as published — "1,000 requests/day", "500MB database", "10K Neurons/day".
+      placeholder: "1,000 requests/day, 30 RPM"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: card
+    attributes:
+      label: Does using the free tier require a credit card?
+      description: If the pricing page does not say, choose "Not sure" — we default to "yes" rather than mislead anyone.
+      options:
+        - "No — no payment details at signup"
+        - "Yes — card required"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: What did you check, and where?
+      description: Paste the URL of the page where you confirmed the free limit. This is what makes the entry verifiable.
+      placeholder: "https://acme.example/pricing — states 'Free: 1,000 requests per day' under the Developer plan."
+    validations:
+      required: true
+
+  - type: textarea
+    id: caveats
+    attributes:
+      label: Caveats worth knowing
+      description: Region restrictions, data used for training, commercial-use limits, phone verification, rate limits, signup friction.
+    validations:
+      required: false
+
+  - type: input
+    id: affiliation
+    attributes:
+      label: Are you affiliated with this resource?
+      description: "Disclosure is required and welcome — it never disqualifies a submission. Example: 'I work at Acme' or 'I am the maintainer'."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: This free tier can be started without paying, and without contacting sales.
+          required: true
+        - label: This is not an affiliate or referral link.
+          required: true
+        - label: This resource has been updated or maintained within the last 12 months.
+          required: true

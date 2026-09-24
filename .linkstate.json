@@ -1,0 +1,1543 @@
+{
+  "entries": {
+    "agent-tools/activepieces": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/ag2-autogen": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/agno": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/aider": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/amp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/cline": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/continue-dev": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/crewai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/crush": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/cursor": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/devin-desktop": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/dify": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/dspy": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/flowise": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/gemini-cli": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/github-copilot": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/google-adk": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/goose": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/haystack": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/kilo-code": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/kiro": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/langchain": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/langflow": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/langgraph": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/letta": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/litellm": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/llamaindex": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/mastra": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/n8n": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/openai-agents-sdk": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/opencode": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/openhands": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/pydantic-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/qwen-code": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/roo-code": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/semantic-kernel": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/smolagents": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/trae": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/vercel-ai-sdk": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "agent-tools/zed": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/ably": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/aiven-free": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/algolia": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/auth0": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/aws-free-tier": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "",
+      "last_status_url": 200
+    },
+    "free-tiers/axiom": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/backblaze-b2": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/better-auth": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/better-stack": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/brevo": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/chroma-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/clerk": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/cloudamqp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/cloudflare-d1": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/cloudflare-pages": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/cloudflare-r2": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/cloudflare-workers": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/cockroachdb-basic": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/convex": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/deno-deploy": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/docsearch": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/e2b": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/firebase-firestore": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/fly-io": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/gcp-free-tier": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/github-pages": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/google-colab": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/grafana-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/helicone": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/huggingface-spaces": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/inngest": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/kaggle-notebooks": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200,
+      "recovered_from": 2
+    },
+    "free-tiers/keycloak": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/koyeb": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/lancedb": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/langfuse": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/logto": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/mailtrap": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/modal": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/mongodb-atlas": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/neo4j-auradb": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/neon": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/netlify": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/novu": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/oracle-cloud-always-free": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/pgvector": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/pinecone-starter": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/plausible": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/pocketbase": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/posthog": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/pusher": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/qdrant-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/railway": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/render": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/resend": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/sentry": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/supabase": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/trigger-dev": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/turso": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/typesense-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/umami": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/upstash-qstash": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/upstash-redis": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/upstash-vector": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/uptimerobot": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/val-town": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/vercel": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/weaviate-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/workos-authkit": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "free-tiers/zilliz-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "llm-apis/ai21-studio": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/alibaba-model-studio": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/anthropic-claude-api": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/assemblyai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/aws-bedrock-free-tier": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/azure-ai-foundry-free": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/azure-ai-speech": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/baidu-qianfan": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/bhashini": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/cerebras-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/chutes": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/cloudflare-ai-gateway": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 403,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/cloudflare-workers-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 403,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/cohere-trial": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/deepgram": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/deepinfra": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/deepseek-api": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 403,
+      "last_status_url": 403
+    },
+    "llm-apis/elevenlabs": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/fastembed": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/faster-whisper": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_docs_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/fireworks-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/github-models": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/google-cloud-speech-tts": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/google-cloud-vertex-free-credits": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/google-gemini": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/gpt4all": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 0
+    },
+    "llm-apis/groq": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/huggingface-inference": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 403,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/jan-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/jina-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/koboldcpp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/leonardo-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "gated (HTTP 403) \u2014 link resolves",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 403,
+      "recovered_from": 1
+    },
+    "llm-apis/llama-cpp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_docs_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/llamafile": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/lm-studio": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/localai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/mistral-embeddings-codestral": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/mistral-la-plateforme": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/mlx-lm": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/moonshot-kimi-trial": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/nvidia-nim": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/ollama": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/openai-api": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 403,
+      "last_status_url": 403
+    },
+    "llm-apis/openrouter-free": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/perplexity-api": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 403,
+      "last_status_url": 403
+    },
+    "llm-apis/piper-tts": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/pollinations": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/sambanova-cloud": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/sarvam-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/sentence-transformers": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/siliconflow-free-models": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/speechmatics": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/stability-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/text-generation-webui": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/together-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/transformers-js": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/vercel-ai-gateway": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/vllm": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/voyage-ai": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "llm-apis/webllm": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/wllama": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_docs_url": 0,
+      "last_status_url": 200
+    },
+    "llm-apis/xai-grok-api": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200
+    },
+    "llm-apis/zai-glm-free": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_signup_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "mcp-servers/airtable-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/antv-chart-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/apify-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/atlassian-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/aws-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/azure-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/brave-search-archived-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/brave-search-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/browserbase-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/chroma-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/chrome-devtools-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/cloudflare-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/context7-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/deepwiki-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/docker-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/duckduckgo-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/elasticsearch-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/elevenlabs-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/everything-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/exa-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/fastmcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "mcp-servers/fetch-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/figma-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "mcp-servers/filesystem-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 0,
+      "recovered_from": 1
+    },
+    "mcp-servers/firecrawl-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/gcp-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200,
+      "recovered_from": 2
+    },
+    "mcp-servers/git-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/github-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 404,
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "mcp-servers/google-drive-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/google-workspace-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/grafana-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/huggingface-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/kubernetes-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/linear-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/memory-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/mongodb-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/mysql-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/n8n-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/neo4j-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/notion-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_docs_url": 200,
+      "last_status_url": 200
+    },
+    "mcp-servers/obsidian-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/openapi-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200,
+      "recovered_from": 1
+    },
+    "mcp-servers/playwright-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/postgres-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/puppeteer-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/qdrant-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/redis-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/ref-tools-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/sentry-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/sequential-thinking-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/slack-archived-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/slack-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/sqlite-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/stripe-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/supabase-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/tavily-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/terraform-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/time-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "skipped: disallowed by robots.txt",
+      "last_status_url": 0
+    },
+    "mcp-servers/vercel-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/wikipedia-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/youtube-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    },
+    "mcp-servers/zapier-mcp": {
+      "failures": 0,
+      "last_checked": "2026-09-24",
+      "last_reason": "OK",
+      "last_status_url": 200
+    }
+  },
+  "last_run": "2026-09-24T09:29:07+00:00"
+}

@@ -1,0 +1,98 @@
+name: Stale entry triage
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  stale:
+    name: Open the weekly re-verification issue
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+      - run: python3 -m pip install --quiet pyyaml jsonschema
+
+      - name: Build the re-verification list
+        id: collect
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import sys
+          from datetime import date
+          sys.path.insert(0, "scripts")
+          from datalib import CATEGORY_MAP, STALE_AFTER_DAYS, load_category
+
+          today = date.today()
+          rows = []
+          for stem in CATEGORY_MAP:
+              for entry in load_category(stem):
+                  try:
+                      age = (today - date.fromisoformat(str(entry["verified"]))).days
+                  except (TypeError, ValueError):
+                      age = 10_000
+                  if age > STALE_AFTER_DAYS:
+                      rows.append((age, stem, entry["id"], entry.get("name", ""), entry["verified"]))
+
+          rows.sort(reverse=True)
+          print(f"count={len(rows)}")
+          if not rows:
+              print("body=count=0")
+              raise SystemExit
+
+          body = [
+              f"{len(rows)} entr{'y' if len(rows) == 1 else 'ies'} "
+              f"{'has' if len(rows) == 1 else 'have'} not been verified in over {STALE_AFTER_DAYS} days.",
+              "",
+              "Re-verify by opening the vendor's pricing page and updating `verified` + `verified_by`",
+              "(and `free_limit` / `requires_card` if they changed). See docs/METHODOLOGY.md.",
+              "",
+              "| Days | Entry | Verified |",
+              "|---:|---|---|",
+          ]
+          body += [f"| {age} | `{stem}#{eid}` — {name} | {verified} |" for age, stem, eid, name, verified in rows]
+          body += ["", "_Labels: `needs-reverification`. Close this issue when the list is empty._"]
+          print("body<<EOF")
+          print("\n".join(body))
+          print("EOF")
+          PY
+
+      - name: Open or refresh the issue
+        if: steps.collect.outputs.count != '0'
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          BODY: ${{ steps.collect.outputs.body }}
+        with:
+          script: |
+            const title = 'Needs re-verification';
+            const body = process.env.BODY;
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'needs-reverification',
+            });
+            if (existing.data.length > 0) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body,
+              });
+              core.notice(`Updated issue #${existing.data[0].number}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['needs-reverification', 'good first issue'],
+              });
+              core.notice(`Opened issue #${created.data.number}`);
+            }

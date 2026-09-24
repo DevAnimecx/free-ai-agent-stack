@@ -1,0 +1,1017 @@
+[
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "category": "ide",
+    "description": "AI-first code editor with whole-project awareness, tab completion and a multi-file agent.",
+    "free_limit": "Hobby plan: limited agent requests + 2,000 tab completions/month",
+    "requires_card": false,
+    "open_source": false,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "url": "https://cursor.com",
+    "tags": [
+      "coding-agent",
+      "ide",
+      "commercial"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Free tier is an evaluation budget, not a workflow. Pair it with Gemini CLI or Cline for the heavy lifting."
+  },
+  {
+    "id": "devin-desktop",
+    "name": "Devin Desktop (formerly Windsurf)",
+    "category": "ide",
+    "description": "Agentic editor from Cognition — the Windsurf/Cascade lineage, renamed after the 2026 acquisition.",
+    "free_limit": "Free plan: unlimited tab completion, quota-limited Cascade agent sessions",
+    "requires_card": false,
+    "open_source": false,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "url": "https://devin.ai/desktop",
+    "tags": [
+      "coding-agent",
+      "ide",
+      "unlimited-completions"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "windsurf.com now redirects to devin.ai. Tab completion is unlimited on every plan, including free — the agent quota is what runs out."
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot Free",
+    "category": "ide",
+    "description": "Copilot's genuinely free tier inside VS Code, JetBrains and the GitHub web editor.",
+    "free_limit": "2,000 completions + 50 chat/agent requests per month",
+    "requires_card": false,
+    "open_source": false,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux",
+      "web"
+    ],
+    "url": "https://github.com/features/copilot",
+    "tags": [
+      "coding-agent",
+      "completions",
+      "github"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Requires any GitHub account, including free. Best free choice if you already live in VS Code."
+  },
+  {
+    "id": "zed",
+    "name": "Zed",
+    "category": "ide",
+    "description": "Rust-native, GPU-accelerated editor with a free built-in AI tier and bring-your-own-key support.",
+    "free_limit": "Free AI tier included; unlimited use with your own API keys",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "url": "https://zed.dev",
+    "tags": [
+      "ide",
+      "fast",
+      "open-source",
+      "byok"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "kiro",
+    "name": "Kiro",
+    "category": "ide",
+    "description": "AWS's spec-driven agentic IDE — writes requirements and design docs before it writes code.",
+    "free_limit": "Free tier with monthly agentic-interaction quota",
+    "requires_card": false,
+    "open_source": false,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "url": "https://kiro.dev",
+    "tags": [
+      "coding-agent",
+      "ide",
+      "spec-driven",
+      "aws"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "trae",
+    "name": "Trae",
+    "category": "ide",
+    "description": "ByteDance's AI IDE with a free tier built around frontier models and an agent mode.",
+    "free_limit": "Free plan with monthly premium-model requests",
+    "requires_card": false,
+    "open_source": false,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "url": "https://trae.ai",
+    "tags": [
+      "coding-agent",
+      "ide",
+      "free-tier"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Review the data-retention policy before using it on proprietary code."
+  },
+  {
+    "id": "amp",
+    "name": "Amp (Sourcegraph)",
+    "category": "cli",
+    "description": "Frontier agent from Sourcegraph with a free-forever plan, then pay-as-you-go with no subscription required.",
+    "free_limit": "Free plan with a monthly ad-supported allowance; BYOK option",
+    "requires_card": false,
+    "open_source": false,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "url": "https://ampcode.com",
+    "tags": [
+      "coding-agent",
+      "cli",
+      "frontier",
+      "byok"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "opencode",
+    "name": "OpenCode",
+    "category": "cli",
+    "description": "Open-source terminal coding agent with a client/server architecture and provider-agnostic model routing.",
+    "free_limit": "Free software — you bring a model key (free tiers work fine)",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "curl -fsSL https://opencode.ai/install | bash",
+    "url": "https://opencode.ai",
+    "tags": [
+      "coding-agent",
+      "cli",
+      "open-source",
+      "byok"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "kilo-code",
+    "name": "Kilo Code",
+    "category": "ide",
+    "description": "Open-source VS Code agent with a large free model allocation before you need your own key.",
+    "free_limit": "Free credits on signup for Anthropic/Gemini models; unlimited with BYOK",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "url": "https://kilocode.ai",
+    "tags": [
+      "coding-agent",
+      "vscode",
+      "open-source"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "gemini-cli",
+    "name": "Gemini CLI",
+    "category": "cli",
+    "description": "Google's open-source terminal agent with the most generous free quota of any first-party CLI.",
+    "free_limit": "1,000 requests/day with a personal Google account (60 RPM)",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "npx -y @google/gemini-cli",
+    "url": "https://github.com/google-gemini/gemini-cli",
+    "stars": 107139,
+    "tags": [
+      "coding-agent",
+      "cli",
+      "generous-free-tier",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Also ships a free Gemini Code Assist VS Code extension on the same account. The best $0 coding agent in 2026."
+  },
+  {
+    "id": "qwen-code",
+    "name": "Qwen Code",
+    "category": "cli",
+    "description": "Qwen's fork of Gemini CLI wired to Qwen3-Coder, with a large free daily request allowance via OAuth.",
+    "free_limit": "~2,000 requests/day via Qwen OAuth",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "npm install -g @qwen-code/qwen-code",
+    "url": "https://github.com/QwenLM/qwen-code",
+    "stars": 28109,
+    "tags": [
+      "coding-agent",
+      "cli",
+      "qwen",
+      "generous-free-tier",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Strong on large refactors thanks to Qwen3-Coder's context window. The 2,000/day figure is subject to change."
+  },
+  {
+    "id": "aider",
+    "name": "Aider",
+    "category": "cli",
+    "description": "Terminal pair-programmer that commits every change to git and maps your repo into the model's context.",
+    "free_limit": "Free software — works with any free LLM API key",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install aider-install && aider-install",
+    "url": "https://aider.chat",
+    "tags": [
+      "coding-agent",
+      "cli",
+      "git-native",
+      "byok",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "cline",
+    "name": "Cline",
+    "category": "ide",
+    "description": "Autonomous coding agent for VS Code, JetBrains and the terminal, with human approval at every step.",
+    "free_limit": "Free and open source — bring any provider key (including free tiers)",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "url": "https://cline.bot",
+    "tags": [
+      "coding-agent",
+      "vscode",
+      "open-source",
+      "byok",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "The most flexible free setup: point it at Gemini or Groq free tiers and a full agent costs nothing."
+  },
+  {
+    "id": "roo-code",
+    "name": "Roo Code",
+    "category": "ide",
+    "description": "Cline fork with custom modes (architect, debugger, tester) and an orchestrator mode for multi-step work.",
+    "free_limit": "Free and open source — bring any provider key",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "url": "https://roocode.com",
+    "tags": [
+      "coding-agent",
+      "vscode",
+      "modes",
+      "byok"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "continue-dev",
+    "name": "Continue",
+    "category": "ide",
+    "description": "Open-source Copilot alternative for VS Code and JetBrains with customisable model routing.",
+    "free_limit": "Free software; connect Ollama for genuinely unlimited local use",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "url": "https://continue.dev",
+    "tags": [
+      "coding-agent",
+      "vscode",
+      "jetbrains",
+      "local-models"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "openhands",
+    "name": "OpenHands",
+    "category": "cli",
+    "description": "Open-source software engineering agent (formerly OpenDevin) that runs in a sandboxed container.",
+    "free_limit": "Free software; hosted version has limited free credits",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "docker run -it --rm -p 3000:3000 docker.all-hands.dev/all-hands-ai/openhands:latest",
+    "url": "https://github.com/All-Hands-AI/OpenHands",
+    "stars": 89035,
+    "tags": [
+      "coding-agent",
+      "autonomous",
+      "docker",
+      "open-source"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "goose",
+    "name": "Goose",
+    "category": "cli",
+    "description": "Block's local-first agent that can extend itself by writing its own MCP extensions.",
+    "free_limit": "Free and open source — bring any provider key",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux"
+    ],
+    "install": "curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | bash",
+    "url": "https://block.github.io/goose/",
+    "tags": [
+      "coding-agent",
+      "cli",
+      "mcp-native",
+      "open-source"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "crush",
+    "name": "Crush",
+    "category": "cli",
+    "description": "Charm's glamorous terminal agent with MCP support, LSP awareness and session management.",
+    "free_limit": "Free and open source — bring any provider key",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "brew install charmbracelet/tap/crush",
+    "url": "https://github.com/charmbracelet/crush",
+    "stars": 28280,
+    "tags": [
+      "coding-agent",
+      "cli",
+      "mcp-native",
+      "open-source"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "langgraph",
+    "name": "LangGraph",
+    "category": "framework",
+    "description": "Stateful, graph-based agent orchestration with durable execution, human-in-the-loop and time travel.",
+    "free_limit": "Open source (MIT). LangGraph Platform has a free developer tier",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install -U langgraph",
+    "url": "https://langchain-ai.github.io/langgraph/",
+    "tags": [
+      "orchestration",
+      "state-machine",
+      "durable",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Choose this over raw LangChain when your agent needs to pause, resume or survive a crash mid-run."
+  },
+  {
+    "id": "langchain",
+    "name": "LangChain",
+    "category": "framework",
+    "description": "The widest integration ecosystem in the space — 600+ tools, loaders and vector store connectors.",
+    "free_limit": "Open source (MIT); no account required",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install -U langchain",
+    "url": "https://python.langchain.com",
+    "tags": [
+      "framework",
+      "integrations",
+      "rag",
+      "toolkit"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "llamaindex",
+    "name": "LlamaIndex",
+    "category": "framework",
+    "description": "Data framework for RAG: ingestion, chunking, indexing and query engines over your own documents.",
+    "free_limit": "Open source (MIT); LlamaCloud has a limited free tier",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install llama-index",
+    "url": "https://docs.llamaindex.ai",
+    "tags": [
+      "rag",
+      "data",
+      "ingestion",
+      "retrieval"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "crewai",
+    "name": "CrewAI",
+    "category": "framework",
+    "description": "Role-based multi-agent crews with delegation, sequential and hierarchical process modes.",
+    "free_limit": "Open source (MIT)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install crewai",
+    "url": "https://docs.crewai.com",
+    "tags": [
+      "multi-agent",
+      "roles",
+      "orchestration"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "ag2-autogen",
+    "name": "AG2 (AutoGen)",
+    "category": "framework",
+    "description": "Microsoft-originated multi-agent conversation framework: agents that talk to each other until the task is done.",
+    "free_limit": "Open source (Apache 2.0)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install ag2",
+    "url": "https://ag2.ai",
+    "tags": [
+      "multi-agent",
+      "conversation",
+      "research"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "openai-agents-sdk",
+    "name": "OpenAI Agents SDK",
+    "category": "framework",
+    "description": "Small, provider-agnostic agent SDK: handoffs, guardrails, sessions and tracing in a few hundred lines.",
+    "free_limit": "Open source (MIT); works with any provider, not just OpenAI",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install openai-agents",
+    "url": "https://openai.github.io/openai-agents-python/",
+    "tags": [
+      "agents",
+      "handoffs",
+      "guardrails",
+      "lightweight"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Despite the name, it is vendor-neutral — point it at Gemini or Groq and it works unchanged."
+  },
+  {
+    "id": "google-adk",
+    "name": "Google Agent Development Kit",
+    "category": "framework",
+    "description": "Google's agent framework with a built-in dev UI, evaluation harness and A2A protocol support.",
+    "free_limit": "Open source (Apache 2.0)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install google-adk",
+    "url": "https://google.github.io/adk-docs/",
+    "tags": [
+      "agents",
+      "google",
+      "evaluation",
+      "a2a"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "pydantic-ai",
+    "name": "Pydantic AI",
+    "category": "framework",
+    "description": "Type-safe agent framework from the Pydantic team — validated structured outputs and dependency injection.",
+    "free_limit": "Open source (MIT)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install pydantic-ai",
+    "url": "https://ai.pydantic.dev",
+    "tags": [
+      "type-safe",
+      "structured-output",
+      "python",
+      "validation"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "smolagents",
+    "name": "smolagents",
+    "category": "framework",
+    "description": "Hugging Face's minimal agent library — code-writing agents in under 1,000 lines of core logic.",
+    "free_limit": "Open source (Apache 2.0)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install smolagents",
+    "url": "https://huggingface.co/docs/smolagents",
+    "tags": [
+      "minimal",
+      "code-agents",
+      "huggingface"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "agno",
+    "name": "Agno",
+    "category": "framework",
+    "description": "High-performance multi-modal agent framework with built-in memory, knowledge and reasoning tools.",
+    "free_limit": "Open source (MPL 2.0)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install agno",
+    "url": "https://docs.agno.com",
+    "tags": [
+      "multi-modal",
+      "performance",
+      "memory"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "dspy",
+    "name": "DSPy",
+    "category": "framework",
+    "description": "Programs language models instead of prompting them — optimisers compile prompts against a metric.",
+    "free_limit": "Open source (MIT)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install dspy",
+    "url": "https://dspy.ai",
+    "tags": [
+      "prompt-optimisation",
+      "research",
+      "evaluation"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "haystack",
+    "name": "Haystack",
+    "category": "framework",
+    "description": "Production RAG and agent pipelines from deepset, with strong evaluation and deployment tooling.",
+    "free_limit": "Open source (Apache 2.0)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install haystack-ai",
+    "url": "https://haystack.deepset.ai",
+    "tags": [
+      "rag",
+      "pipelines",
+      "production"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "letta",
+    "name": "Letta",
+    "category": "framework",
+    "description": "Stateful agents with long-term memory that manage their own context window (formerly MemGPT).",
+    "free_limit": "Open source (Apache 2.0); free cloud sandbox available",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install letta",
+    "url": "https://docs.letta.com",
+    "tags": [
+      "memory",
+      "stateful",
+      "context-management"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "semantic-kernel",
+    "name": "Semantic Kernel",
+    "category": "framework",
+    "description": "Microsoft's enterprise agent SDK for Python, .NET and Java with planners and process framework.",
+    "free_limit": "Open source (MIT)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "dotnet",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install semantic-kernel",
+    "url": "https://learn.microsoft.com/en-us/semantic-kernel/overview/",
+    "tags": [
+      "enterprise",
+      "dotnet",
+      "java",
+      "planners"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "mastra",
+    "name": "Mastra",
+    "category": "framework",
+    "description": "TypeScript agent framework with workflows, evals, RAG and local dev playground.",
+    "free_limit": "Open source (Apache 2.0)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "typescript",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "npm create mastra@latest",
+    "url": "https://mastra.ai",
+    "tags": [
+      "typescript",
+      "workflows",
+      "evals"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "vercel-ai-sdk",
+    "name": "Vercel AI SDK",
+    "category": "framework",
+    "description": "The standard TypeScript toolkit for streaming UI plus agents, with unified provider interfaces.",
+    "free_limit": "Open source (Apache 2.0)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "typescript",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "npm install ai @ai-sdk/openai",
+    "url": "https://sdk.vercel.ai",
+    "tags": [
+      "typescript",
+      "streaming",
+      "ui",
+      "frontend"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "litellm",
+    "name": "LiteLLM",
+    "category": "framework",
+    "description": "One OpenAI-shaped interface over 100+ providers, with a proxy that adds budgets, keys and tracing.",
+    "free_limit": "Open source (MIT)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "pip install litellm",
+    "url": "https://docs.litellm.ai",
+    "tags": [
+      "gateway",
+      "proxy",
+      "multi-provider",
+      "cost-tracking",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "The cleanest way to stack several free tiers behind one endpoint and fail over automatically when one 429s."
+  },
+  {
+    "id": "n8n",
+    "name": "n8n",
+    "category": "orchestrator",
+    "description": "Node-based automation with native AI agent nodes, MCP trigger and hundreds of integrations.",
+    "free_limit": "Self-hosted Community Edition is free forever (fair-code licence)",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows",
+      "web"
+    ],
+    "install": "npx n8n",
+    "url": "https://n8n.io",
+    "tags": [
+      "automation",
+      "visual",
+      "mcp",
+      "self-host",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Running the Docker image on a free-tier VM is the cheapest credible production agent host in this list."
+  },
+  {
+    "id": "dify",
+    "name": "Dify",
+    "category": "orchestrator",
+    "description": "LLMOps platform for building chat agents, workflows and RAG apps with a visual editor and API output.",
+    "free_limit": "Self-hosted Community Edition free; cloud sandbox free tier",
+    "requires_card": false,
+    "open_source": true,
+    "platforms": [
+      "macos",
+      "linux",
+      "windows",
+      "web"
+    ],
+    "url": "https://dify.ai",
+    "tags": [
+      "llmops",
+      "visual",
+      "rag",
+      "self-host"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "langflow",
+    "name": "Langflow",
+    "category": "orchestrator",
+    "description": "Visual drag-and-drop builder that compiles to LangChain-based flows and exposes each as an API.",
+    "free_limit": "Open source (MIT)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "python",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "uvx langflow",
+    "url": "https://www.langflow.org",
+    "tags": [
+      "visual",
+      "langchain",
+      "prototyping"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "flowise",
+    "name": "Flowise",
+    "category": "orchestrator",
+    "description": "Low-code LLM orchestration with agent flows, tools and embeddable chat widgets.",
+    "free_limit": "Open source (Apache 2.0)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "typescript",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows"
+    ],
+    "install": "npx flowise start",
+    "url": "https://flowiseai.com",
+    "tags": [
+      "visual",
+      "low-code",
+      "chat-widgets"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "activepieces",
+    "name": "Activepieces",
+    "category": "orchestrator",
+    "description": "Open-source Zapier alternative with AI pieces and MCP support, MIT-licensed rather than fair-code.",
+    "free_limit": "Self-hosted Community Edition free (MIT)",
+    "requires_card": false,
+    "open_source": true,
+    "language": "typescript",
+    "platforms": [
+      "macos",
+      "linux",
+      "windows",
+      "web"
+    ],
+    "url": "https://www.activepieces.com",
+    "tags": [
+      "automation",
+      "visual",
+      "mit",
+      "self-host"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  }
+]

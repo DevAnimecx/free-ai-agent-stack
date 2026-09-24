@@ -1,0 +1,961 @@
+# free-ai-agent-stack — data/free-tiers.yaml
+# Source of truth for the free infrastructure an agent actually needs to ship.
+# Schema: schemas/free-tier.schema.json
+# category: hosting | compute | database | vector-db | auth | storage | queue |
+#           observability | analytics | email | search
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Hosting and compute
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: vercel
+  name: Vercel
+  category: hosting
+  description: "Static and serverless hosting with preview deployments per branch and AI Gateway included."
+  free_limit: "Hobby: 100GB bandwidth/mo, 100h serverless, $5/mo AI credit"
+  requires_card: false
+  cold_start_risk: low
+  url: https://vercel.com
+  tags: [deploy, edge, serverless, nextjs, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Hobby is explicitly non-commercial. Fine for a side project, against ToS for a paid product."
+
+- id: netlify
+  name: Netlify
+  category: hosting
+  description: "Static hosting, edge functions and form handling with per-branch deploy previews."
+  free_limit: "100GB bandwidth/mo, 300 build minutes/mo"
+  requires_card: false
+  cold_start_risk: low
+  url: https://netlify.com
+  tags: [deploy, static, edge]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: cloudflare-pages
+  name: Cloudflare Pages
+  category: hosting
+  description: "Unlimited-bandwidth static hosting that pairs with Workers, D1 and R2 on the same free account."
+  free_limit: "Unlimited requests and bandwidth; 500 builds/month"
+  requires_card: false
+  cold_start_risk: low
+  url: https://pages.cloudflare.com
+  tags: [deploy, static, unlimited-bandwidth, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The best free host for this site's own architecture: static output, no egress billing, global CDN."
+
+- id: cloudflare-workers
+  name: Cloudflare Workers
+  category: compute
+  description: "V8-isolate serverless functions with cron triggers and durable objects, plus a free Workers AI binding."
+  free_limit: "100,000 requests/day, 10ms CPU per request"
+  requires_card: false
+  cold_start_risk: low
+  url: https://workers.cloudflare.com
+  tags: [serverless, edge, cron, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The free tier's 10ms CPU limit is generous for API orchestration and tight for anything doing real compute."
+
+- id: github-pages
+  name: GitHub Pages
+  category: hosting
+  description: "Static hosting straight from a repository, with a custom domain and HTTPS included."
+  free_limit: "1GB site size, 100GB/mo soft bandwidth, 10 builds/hour"
+  requires_card: false
+  cold_start_risk: low
+  url: https://pages.github.com
+  tags: [deploy, static, github, zero-config]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: render
+  name: Render
+  category: hosting
+  description: "Container and web-service hosting with managed Postgres and cron jobs."
+  free_limit: "750 instance-hours/mo; services spin down after 15 min idle"
+  requires_card: false
+  cold_start_risk: high
+  url: https://render.com
+  tags: [deploy, containers, cold-starts]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The 15-minute spin-down makes cold starts of 30-60s. Fine for demos, painful for a live agent endpoint."
+
+- id: railway
+  name: Railway
+  category: hosting
+  description: "Fast deploys from a repo or Dockerfile with databases attached, billed by usage."
+  free_limit: "Trial credits on signup; $5/mo Hobby credit afterwards"
+  requires_card: true
+  cold_start_risk: low
+  url: https://railway.com
+  tags: [deploy, containers, databases]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: fly-io
+  name: Fly.io
+  category: hosting
+  description: "Runs Docker containers close to users with persistent volumes and private networking."
+  free_limit: "Limited free VM allowance for small machines (no managed databases)"
+  requires_card: true
+  cold_start_risk: low
+  url: https://fly.io
+  tags: [deploy, containers, global, volumes]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: koyeb
+  name: Koyeb
+  category: hosting
+  description: "Serverless container platform with a small always-on free instance and GPU options."
+  free_limit: "One free web service instance (0.1 vCPU / 512MB)"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://koyeb.com
+  tags: [deploy, containers, always-on]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: deno-deploy
+  name: Deno Deploy
+  category: compute
+  description: "Edge TypeScript runtime with KV storage, queues and cron built in — no build step."
+  free_limit: "1M requests/mo, 100GB bandwidth/mo"
+  requires_card: false
+  cold_start_risk: low
+  url: https://deno.com/deploy
+  tags: [serverless, edge, typescript, kv]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: oracle-cloud-always-free
+  name: Oracle Cloud Always Free
+  category: compute
+  description: "The only major cloud with a permanently free ARM VM generous enough to self-host several services."
+  free_limit: "4 ARM cores + 24GB RAM, 200GB storage, 10TB egress/mo, forever"
+  requires_card: true
+  cold_start_risk: low
+  url: https://www.oracle.com/cloud/free/
+  tags: [vm, always-free, self-host, arm, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Capacity in popular regions is often exhausted — retry or pick another home region. Card required for verification but not charged."
+
+- id: aws-free-tier
+  name: AWS Free Tier
+  category: compute
+  description: "Twelve months of t4g.small, Lambda allowances and 5GB S3, plus always-free Lambda and DynamoDB caps."
+  free_limit: "12-month credits for new accounts; perpetual Lambda/DynamoDB allowances"
+  requires_card: true
+  cold_start_risk: low
+  url: https://aws.amazon.com/free/
+  tags: [cloud, aws, credits]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: gcp-free-tier
+  name: Google Cloud Free Tier
+  category: compute
+  description: "e2-micro VM, Cloud Run and Firestore allowances, plus the $300 new-account credit."
+  free_limit: "Always-free e2-micro VM + Cloud Run/Speech/BigQuery monthly quotas"
+  requires_card: true
+  cold_start_risk: low
+  url: https://cloud.google.com/free
+  tags: [cloud, gcp, always-free]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: huggingface-spaces
+  name: Hugging Face Spaces
+  category: compute
+  description: "Free CPU containers for hosting Gradio or Docker demos, with permanent public URLs."
+  free_limit: "2 vCPU / 16GB RAM free CPU Spaces (sleep after inactivity on some configs)"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://huggingface.co/spaces
+  tags: [demos, gradio, docker, ml]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Best free way to put a public demo of your agent in front of people."
+
+- id: google-colab
+  name: Google Colab
+  category: compute
+  description: "Free hosted Jupyter with a T4 GPU — the cheapest path to fine-tuning or running a large model."
+  free_limit: "Free GPU sessions (T4), subject to availability and session limits"
+  requires_card: false
+  cold_start_risk: high
+  url: https://colab.research.google.com
+  tags: [gpu, notebooks, fine-tuning, free-gpu]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Free GPU availability is not guaranteed at peak times and sessions die after idle periods — not a deploy target."
+
+- id: kaggle-notebooks
+  name: Kaggle Notebooks
+  category: compute
+  description: "Free GPU/TPU notebooks with 30 hours of weekly GPU quota and persistent datasets."
+  free_limit: "30 GPU hours/week (P100 or T4x2), 20 TPU hours/week"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://www.kaggle.com/docs/notebooks
+  tags: [gpu, tpu, notebooks, fine-tuning]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: modal
+  name: Modal
+  category: compute
+  description: "Serverless Python with GPU-per-second billing — good for embedding jobs and batch inference."
+  free_limit: "$30/month of included compute on the free plan"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://modal.com
+  tags: [gpu, serverless, batch, python]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "$30/month covers a lot of embedding generation; it does not cover sustained GPU inference."
+
+- id: e2b
+  name: E2B
+  category: compute
+  description: "Sandboxed cloud VMs built for agent code execution, with filesystem and process control."
+  free_limit: "$100 of sandbox credit on signup"
+  requires_card: false
+  cold_start_risk: low
+  url: https://e2b.dev
+  tags: [sandbox, code-execution, agent-infra]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: val-town
+  name: Val Town
+  category: compute
+  description: "Write and deploy TypeScript functions in the browser with cron, SQLite and secrets included."
+  free_limit: "Free tier with 100K daily function runs"
+  requires_card: false
+  cold_start_risk: low
+  url: https://val.town
+  tags: [serverless, cron, typescript, sqlite]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Databases and storage
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: supabase
+  name: Supabase
+  category: database
+  description: "Postgres with auth, storage, realtime and pgvector in one free project — the default agent backend."
+  free_limit: "500MB database, 1GB file storage, 50K MAU auth"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://supabase.com
+  tags: [postgres, auth, storage, pgvector, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Free projects pause after 7 days of inactivity. Set up a weekly keep-alive ping or accept the cold start."
+
+- id: neon
+  name: Neon
+  category: database
+  description: "Serverless Postgres with copy-on-write branching — a database branch per feature or per agent run."
+  free_limit: "0.5GB storage, 10 branches, 190 compute hours/mo"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://neon.com
+  tags: [postgres, branching, serverless, pgvector]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: turso
+  name: Turso
+  category: database
+  description: "Edge SQLite with embedded replicas — sub-millisecond reads next to your function, plus native vector search."
+  free_limit: "5GB storage, 500M row reads/mo"
+  requires_card: false
+  cold_start_risk: low
+  url: https://turso.tech
+  tags: [sqlite, edge, vector, low-latency]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: cloudflare-d1
+  name: Cloudflare D1
+  category: database
+  description: "SQLite at the edge, bound directly to Workers with no connection pooling to manage."
+  free_limit: "5GB storage, 5M rows read/day"
+  requires_card: false
+  cold_start_risk: low
+  url: https://developers.cloudflare.com/d1/
+  tags: [sqlite, edge, workers, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: cockroachdb-basic
+  name: CockroachDB Basic
+  category: database
+  description: "Distributed SQL with automatic replication across regions and standard Postgres wire protocol."
+  free_limit: "10GB storage, 50M request units/mo"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.cockroachlabs.com/product/
+  tags: [distributed, postgres-compatible, multi-region]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: mongodb-atlas
+  name: MongoDB Atlas
+  category: database
+  description: "Managed document database with a permanent M0 cluster, including Atlas Vector Search."
+  free_limit: "M0 cluster: 512MB storage, shared vCPU"
+  requires_card: true
+  cold_start_risk: low
+  url: https://www.mongodb.com/atlas
+  tags: [document, vector, nosql]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Card verification is required even for M0 in most regions now — the one free database that usually asks."
+
+- id: firebase-firestore
+  name: Firebase Firestore
+  category: database
+  description: "Realtime document database with offline sync and client SDKs for every platform."
+  free_limit: "1GiB storage, 50K document reads/day"
+  requires_card: false
+  cold_start_risk: low
+  url: https://firebase.google.com/products/firestore
+  tags: [document, realtime, mobile]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: aiven-free
+  name: Aiven
+  category: database
+  description: "Managed Postgres, MySQL, Valkey and OpenSearch on a single always-free plan."
+  free_limit: "One 1GB managed service (Postgres, MySQL, Valkey or OpenSearch)"
+  requires_card: false
+  cold_start_risk: low
+  url: https://aiven.io/free-tier
+  tags: [postgres, mysql, valkey, managed]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: convex
+  name: Convex
+  category: database
+  description: "Reactive backend with TypeScript queries, mutations, scheduled functions and vector search."
+  free_limit: "0.5GB storage, 1M function calls/mo"
+  requires_card: false
+  cold_start_risk: low
+  url: https://convex.dev
+  tags: [reactive, typescript, backend, functions]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: upstash-redis
+  name: Upstash Redis
+  category: database
+  description: "Serverless Redis with per-request pricing and a REST API — no connection limit problems from serverless functions."
+  free_limit: "500K commands/mo, 256MB"
+  requires_card: false
+  cold_start_risk: low
+  url: https://upstash.com
+  tags: [redis, cache, serverless, rate-limiting, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: pocketbase
+  name: PocketBase
+  category: database
+  description: "Single-binary backend with SQLite, auth, file storage, realtime and an admin UI — self-host anywhere."
+  free_limit: "Unlimited (self-hosted, MIT)"
+  requires_card: false
+  cold_start_risk: low
+  url: https://pocketbase.io
+  tags: [sqlite, self-host, backend, auth, single-binary]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: cloudflare-r2
+  name: Cloudflare R2
+  category: storage
+  description: "S3-compatible object storage with zero egress fees — the reason to store agent artefacts here."
+  free_limit: "10GB storage, 1M Class A ops/mo, free egress"
+  requires_card: false
+  cold_start_risk: low
+  url: https://developers.cloudflare.com/r2/
+  tags: [object-storage, s3-compatible, no-egress-fees, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: backblaze-b2
+  name: Backblaze B2
+  category: storage
+  description: "Cheap S3-compatible object storage with free egress through Cloudflare's bandwidth alliance."
+  free_limit: "10GB storage, 1GB/day download free"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.backblaze.com/cloud-storage
+  tags: [object-storage, backup, s3-compatible]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Vector databases
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: qdrant-cloud
+  name: Qdrant Cloud
+  category: vector-db
+  description: "The best free vector tier: a real cluster with payload filtering, no card required."
+  free_limit: "1GB cluster free forever (0.5 vCPU, 1GB RAM, 4GB disk)"
+  requires_card: false
+  cold_start_risk: low
+  url: https://qdrant.tech
+  tags: [vector, rag, filtering, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "1GB holds roughly 250K vectors at 384 dimensions — enough for a serious RAG prototype."
+
+- id: pinecone-starter
+  name: Pinecone Starter
+  category: vector-db
+  description: "Fully managed vector database with the least operational overhead of any option here."
+  free_limit: "2GB storage, 2M write units and 1M read units/mo, 5 indexes"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.pinecone.io
+  tags: [vector, managed, serverless, hybrid-search]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Free indexes are pinned to AWS us-east-1 — latency from India or Europe is noticeable."
+
+- id: weaviate-cloud
+  name: Weaviate Cloud
+  category: vector-db
+  description: "Open-source vector database with hybrid keyword+vector search and built-in vectoriser modules."
+  free_limit: "Free sandbox: 100K objects, 1GB memory, 1 collection"
+  requires_card: false
+  cold_start_risk: medium
+  url: https://weaviate.io
+  tags: [vector, hybrid-search, oss, rag]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: zilliz-cloud
+  name: Zilliz Cloud
+  category: vector-db
+  description: "Managed Milvus with strong performance at scale and a genuine free cluster."
+  free_limit: "Free tier: 5GB storage, 2.5M vector compute units/mo"
+  requires_card: false
+  cold_start_risk: low
+  url: https://zilliz.com
+  tags: [vector, milvus, managed, scale]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: upstash-vector
+  name: Upstash Vector
+  category: vector-db
+  description: "Serverless vector database over REST — no connection management, pairs with Upstash Redis on one key."
+  free_limit: "10K vectors, 150K query units/day"
+  requires_card: false
+  cold_start_risk: low
+  url: https://upstash.com/docs/vector/overall/getstarted
+  tags: [vector, serverless, rest-api, low-volume]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: chroma-cloud
+  name: Chroma Cloud
+  category: vector-db
+  description: "Managed version of the most developer-friendly embedded vector store, with $5 of starter credit."
+  free_limit: "$5 starter credit; Chroma OSS remains free to self-host"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.trychroma.com
+  tags: [vector, oss, embedded, simple]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "For anything under a few hundred thousand vectors, self-hosted Chroma on the same box as your app is simpler and free."
+
+- id: neo4j-auradb
+  name: Neo4j AuraDB Free
+  category: vector-db
+  description: "Managed graph database with native vector indexes — a knowledge graph and a vector store in one."
+  free_limit: "Free instance: 200K nodes, 400K relationships, no card required"
+  requires_card: false
+  cold_start_risk: low
+  url: https://neo4j.com/cloud/aura-free/
+  tags: [graph, vector, knowledge-graph, rag]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: pgvector
+  name: pgvector
+  category: vector-db
+  description: "Postgres extension that turns the database you already run into a vector store — no second system to operate."
+  free_limit: "Free (extension; self-hosted or on any Postgres free tier)"
+  requires_card: false
+  cold_start_risk: low
+  url: https://github.com/pgvector/pgvector
+  tags: [postgres, vector, self-host, no-vendor]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Available out of the box on Supabase and Neon free tiers — the pragmatic default for a small agent."
+
+- id: lancedb
+  name: LanceDB
+  category: vector-db
+  description: "Embedded vector database on the Lance columnar format — runs in-process, no server, no account."
+  free_limit: "Open source (Apache 2.0); $100 one-time cloud credit"
+  requires_card: false
+  cold_start_risk: low
+  url: https://lancedb.com
+  tags: [vector, embedded, local, columnar]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Auth, queues, messaging
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: clerk
+  name: Clerk
+  category: auth
+  description: "Drop-in authentication with prebuilt UI components, organisations and webhooks."
+  free_limit: "50,000 monthly retained users"
+  requires_card: false
+  cold_start_risk: low
+  url: https://clerk.com
+  tags: [auth, users, ui-components, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: workos-authkit
+  name: WorkOS AuthKit
+  category: auth
+  description: "Auth with enterprise SSO, SCIM and directory sync built in from day one."
+  free_limit: "Free up to 1M monthly active users on AuthKit"
+  requires_card: false
+  cold_start_risk: low
+  url: https://workos.com/authkit
+  tags: [auth, sso, enterprise, saml]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The 1M MAU number makes this the strongest free option if you might later need enterprise SSO."
+
+- id: auth0
+  name: Auth0
+  category: auth
+  description: "Mature identity platform with social logins, MFA and rules/extensibility."
+  free_limit: "25,000 MAU on the free plan"
+  requires_card: false
+  cold_start_risk: low
+  url: https://auth0.com
+  tags: [auth, mfa, social-login]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: logto
+  name: Logto
+  category: auth
+  description: "Open-source auth alternative to Auth0 with a clean developer experience and a free cloud tier."
+  free_limit: "50,000 MAU on free cloud; self-hosted is unlimited"
+  requires_card: false
+  cold_start_risk: low
+  url: https://logto.io
+  tags: [auth, open-source, self-host]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: better-auth
+  name: Better Auth
+  category: auth
+  description: "TypeScript-first authentication library that lives inside your app — no third party in the request path."
+  free_limit: "Free (MIT, self-hosted in your own codebase)"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.better-auth.com
+  tags: [auth, typescript, library, no-vendor, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "For an agent app, a library beats a hosted auth service: no MAU cliff, no extra vendor."
+
+- id: keycloak
+  name: Keycloak
+  category: auth
+  description: "Red Hat's battle-tested identity server — full OIDC/SAML with self-hosting on a free VM."
+  free_limit: "Free (Apache 2.0, self-hosted)"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.keycloak.org
+  tags: [auth, self-host, oidc, saml, enterprise]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: upstash-qstash
+  name: Upstash QStash
+  category: queue
+  description: "HTTP-based message queue and scheduler — the simplest way to add durable background jobs to serverless agents."
+  free_limit: "1,000 messages/day"
+  requires_card: false
+  cold_start_risk: low
+  url: https://upstash.com/docs/qstash/overall/getstarted
+  tags: [queue, cron, webhooks, durable, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: inngest
+  name: Inngest
+  category: queue
+  description: "Durable workflow engine with steps, retries and fan-out — long-running agents that survive restarts."
+  free_limit: "50K executions/mo, 5 concurrent steps"
+  requires_card: false
+  cold_start_risk: low
+  url: https://inngest.com
+  tags: [workflows, durable, retries, agents, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "The most direct fix for 'my agent died halfway through': each step is checkpointed and retried."
+
+- id: trigger-dev
+  name: Trigger.dev
+  category: queue
+  description: "Background jobs as code with long-running tasks, realtime progress and observability."
+  free_limit: "$5/mo of included compute"
+  requires_card: false
+  cold_start_risk: low
+  url: https://trigger.dev
+  tags: [jobs, background, long-running, typescript]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: ably
+  name: Ably
+  category: queue
+  description: "Realtime pub/sub and presence for streaming agent output to a browser."
+  free_limit: "6M messages/mo, 200 peak concurrent connections"
+  requires_card: false
+  cold_start_risk: low
+  url: https://ably.com
+  tags: [realtime, pubsub, websockets, streaming]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: pusher
+  name: Pusher Channels
+  category: queue
+  description: "Managed WebSockets with channels, presence and client events."
+  free_limit: "200K messages/day, 100 concurrent connections"
+  requires_card: false
+  cold_start_risk: low
+  url: https://pusher.com/channels
+  tags: [realtime, websockets, notifications]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: novu
+  name: Novu
+  category: queue
+  description: "Notification infrastructure that fans out one event to email, in-app, chat and push channels."
+  free_limit: "30K events/mo on free cloud; self-hosted is unlimited"
+  requires_card: false
+  cold_start_risk: low
+  url: https://novu.co
+  tags: [notifications, multi-channel, open-source]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: cloudamqp
+  name: CloudAMQP
+  category: queue
+  description: "Managed RabbitMQ on a small always-free instance — proper AMQP when QStash is not enough."
+  free_limit: "Little Lemur plan: 1M messages/mo, 20 connections"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.cloudamqp.com
+  tags: [rabbitmq, amqp, queue, managed]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Observability and analytics
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: langfuse
+  name: Langfuse
+  category: observability
+  description: "Open-source LLM tracing, prompt management and evaluation — the default for debugging agent runs."
+  free_limit: "50K observations/mo on free cloud; self-hosted is unlimited"
+  requires_card: false
+  cold_start_risk: low
+  url: https://langfuse.com
+  tags: [llm-observability, tracing, evals, prompts, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Self-hosting on the Oracle always-free ARM VM gives you unlimited tracing for $0."
+
+- id: helicone
+  name: Helicone
+  category: observability
+  description: "One-line proxy that logs every LLM request with cost, latency and caching."
+  free_limit: "10,000 requests/mo on free plan"
+  requires_card: false
+  cold_start_risk: low
+  url: https://helicone.ai
+  tags: [llm-observability, proxy, cost-tracking, caching]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: sentry
+  name: Sentry
+  category: observability
+  description: "Error tracking with stack traces, releases, session replay and an official MCP server."
+  free_limit: "5,000 errors/mo, 50 session replays, 1 user"
+  requires_card: false
+  cold_start_risk: low
+  url: https://sentry.io
+  tags: [errors, apm, replay, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: grafana-cloud
+  name: Grafana Cloud
+  category: observability
+  description: "Metrics, logs and traces with a permanent free tier plus 14-day retention."
+  free_limit: "10K metrics series, 50GB logs, 50GB traces, 3 users"
+  requires_card: false
+  cold_start_risk: low
+  url: https://grafana.com/products/cloud/
+  tags: [metrics, logs, traces, dashboards]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: axiom
+  name: Axiom
+  category: observability
+  description: "Log analytics built for high-cardinality events, with dashboards and alerts."
+  free_limit: "0.5TB ingest/mo, 30-day retention"
+  requires_card: false
+  cold_start_risk: low
+  url: https://axiom.co
+  tags: [logs, analytics, high-volume]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "0.5TB/month free is unusually large — useful if you log every agent step and tool call."
+
+- id: posthog
+  name: PostHog
+  category: analytics
+  description: "Product analytics, session replay, feature flags and experiments in one SDK."
+  free_limit: "1M events/mo, 5K replays, 1M feature-flag requests"
+  requires_card: false
+  cold_start_risk: low
+  url: https://posthog.com
+  tags: [analytics, funnels, flags, experiments]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: better-stack
+  name: Better Stack
+  category: observability
+  description: "Uptime monitoring, status pages, on-call alerting and log management."
+  free_limit: "10 monitors at 3-min checks, 1 status page, 3GB logs"
+  requires_card: false
+  cold_start_risk: low
+  url: https://betterstack.com
+  tags: [uptime, monitoring, status-page, alerts]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: uptimerobot
+  name: UptimeRobot
+  category: observability
+  description: "Simple external uptime checks with Slack and email alerts — the guardrail for 'is my agent alive'."
+  free_limit: "50 monitors at 5-minute intervals"
+  requires_card: false
+  cold_start_risk: low
+  url: https://uptimerobot.com
+  tags: [uptime, monitoring, alerts, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: plausible
+  name: Plausible Analytics
+  category: analytics
+  description: "Privacy-first, cookie-free web analytics — no consent banner needed, GDPR-compliant by design."
+  free_limit: "30-day trial on cloud; self-hosted Community Edition is free forever"
+  requires_card: false
+  cold_start_risk: low
+  url: https://plausible.io
+  tags: [analytics, privacy, no-cookies, gdpr]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "This project's own site should self-host Plausible or Umami — a cookie banner would violate the 'no dark patterns' principle."
+
+- id: umami
+  name: Umami
+  category: analytics
+  description: "Lightweight, open-source, cookie-free analytics with a simple dashboard."
+  free_limit: "Free (MIT, self-hosted); managed cloud has a small free allowance"
+  requires_card: false
+  cold_start_risk: low
+  url: https://umami.is
+  tags: [analytics, privacy, open-source, self-host]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Email, search and docs
+# ─────────────────────────────────────────────────────────────────────────────
+
+- id: resend
+  name: Resend
+  category: email
+  description: "Transactional email API with React Email templates and good deliverability."
+  free_limit: "3,000 emails/mo, 100/day"
+  requires_card: false
+  cold_start_risk: low
+  url: https://resend.com
+  tags: [email, transactional, api, essential]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: brevo
+  name: Brevo
+  category: email
+  description: "Transactional email plus marketing campaigns and SMS on one generous free plan."
+  free_limit: "300 emails/day (9,000/mo), unlimited contacts"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.brevo.com
+  tags: [email, marketing, sms]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: mailtrap
+  name: Mailtrap
+  category: email
+  description: "Email sandbox for testing plus a small sending allowance — stops agents spamming real inboxes in dev."
+  free_limit: "1,000 emails/mo sending; free sandbox for testing"
+  requires_card: false
+  cold_start_risk: low
+  url: https://mailtrap.io
+  tags: [email, testing, sandbox]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: algolia
+  name: Algolia
+  category: search
+  description: "Hosted search with typo tolerance, synonyms and instant-search UI libraries."
+  free_limit: "10K search requests/mo, 1M records"
+  requires_card: false
+  cold_start_risk: low
+  url: https://www.algolia.com
+  tags: [search, instant-search, docs]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+
+- id: docsearch
+  name: DocSearch
+  category: search
+  description: "Free Algolia-powered documentation search for open-source projects, including crawl and the search UI."
+  free_limit: "Free for open-source and developer documentation"
+  requires_card: false
+  cold_start_risk: low
+  url: https://docsearch.algolia.com
+  tags: [search, docs, open-source, free]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: active
+  notes: "Requires your docs to be public and crawlable — this project's site qualifies."
+
+- id: typesense-cloud
+  name: Typesense Cloud
+  category: search
+  description: "Open-source (GPL) search engine with typo tolerance and vector search, self-hostable or managed."
+  free_limit: "Self-hosted is free; cloud offers trial clusters"
+  requires_card: false
+  cold_start_risk: low
+  url: https://typesense.org
+  tags: [search, open-source, vector, self-host]
+  verified: 2026-09-24
+  verified_by: "@seed-import"
+  status: degraded
+  notes: "The managed cloud often lacks a permanent free cluster now — budget to self-host on the free Oracle VM."

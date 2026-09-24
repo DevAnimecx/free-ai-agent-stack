@@ -1,0 +1,1912 @@
+[
+  {
+    "id": "filesystem-mcp",
+    "name": "Filesystem",
+    "maintainer": "MCP Steering Group",
+    "description": "Secure local file operations with configurable allow-listed directories — the reference server every local agent starts with.",
+    "install": "npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "tools_exposed": 14,
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+    "docs_url": "https://modelcontextprotocol.io/",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "windsurf",
+      "zed",
+      "cline"
+    ],
+    "tags": [
+      "files",
+      "local",
+      "reference",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Always pass an explicit allow-listed root. Running it on `/` gives an agent write access to your whole machine."
+  },
+  {
+    "id": "fetch-mcp",
+    "name": "Fetch",
+    "maintainer": "MCP Steering Group",
+    "description": "Fetches a URL and converts it to clean markdown for the model, with robots.txt respect and chunked reading.",
+    "install": "uvx mcp-server-fetch",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "tools_exposed": 1,
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "cline"
+    ],
+    "tags": [
+      "web",
+      "scraping",
+      "markdown",
+      "reference"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "git-mcp",
+    "name": "Git",
+    "maintainer": "MCP Steering Group",
+    "description": "Read, search and diff a local git repository — history-aware agents without shelling out to raw git.",
+    "install": "uvx mcp-server-git --repository /path/to/repo",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "tools_exposed": 13,
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "cline"
+    ],
+    "tags": [
+      "git",
+      "version-control",
+      "reference",
+      "local"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "memory-mcp",
+    "name": "Memory (Knowledge Graph)",
+    "maintainer": "MCP Steering Group",
+    "description": "Persistent knowledge-graph memory stored as local JSON — gives an agent recall across sessions for free.",
+    "install": "npx -y @modelcontextprotocol/server-memory",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "tools_exposed": 9,
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "cline"
+    ],
+    "tags": [
+      "memory",
+      "knowledge-graph",
+      "rdf",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Pair with a free vector store (Qdrant or Chroma) when the graph grows past a few thousand entities."
+  },
+  {
+    "id": "sequential-thinking-mcp",
+    "name": "Sequential Thinking",
+    "maintainer": "MCP Steering Group",
+    "description": "Structured step-by-step reasoning with revision and branching — measurably improves multi-step agent plans.",
+    "install": "npx -y @modelcontextprotocol/server-sequential-thinking",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "tools_exposed": 1,
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "cline"
+    ],
+    "tags": [
+      "reasoning",
+      "planning",
+      "reference"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "time-mcp",
+    "name": "Time",
+    "maintainer": "MCP Steering Group",
+    "description": "Time and timezone conversion grounded in the host clock — stops agents hallucinating dates.",
+    "install": "uvx mcp-server-time",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "tools_exposed": 4,
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "cline"
+    ],
+    "tags": [
+      "time",
+      "timezone",
+      "reference"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "everything-mcp",
+    "name": "Everything (Test Server)",
+    "maintainer": "MCP Steering Group",
+    "description": "Reference server exercising every MCP primitive — the fastest way to test a new client or transport.",
+    "install": "npx -y @modelcontextprotocol/server-everything",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "testing",
+      "reference",
+      "development"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "github-mcp",
+    "name": "GitHub MCP Server",
+    "maintainer": "GitHub",
+    "description": "Repo automation, PRs, issues, code search and CI workflows — the most-starred MCP server in the ecosystem.",
+    "install": "docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "go",
+    "tools_exposed": 51,
+    "requires_auth": true,
+    "auth_type": "GitHub PAT (fine-grained, read-only works)",
+    "url": "https://github.com/github/github-mcp-server",
+    "stars": 33166,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "windsurf",
+      "zed"
+    ],
+    "tags": [
+      "git",
+      "devops",
+      "issues",
+      "pull-requests",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "A hosted remote variant is available at https://api.githubcopilot.com/mcp/ if you would rather not run Docker."
+  },
+  {
+    "id": "playwright-mcp",
+    "name": "Playwright MCP",
+    "maintainer": "Microsoft",
+    "description": "Browser automation over accessibility snapshots rather than screenshots — deterministic agent browsing in Chromium, Firefox and WebKit.",
+    "install": "npx -y @playwright/mcp@latest",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "tools_exposed": 22,
+    "requires_auth": false,
+    "url": "https://github.com/microsoft/playwright-mcp",
+    "stars": 37530,
+    "clients": [
+      "claude-code",
+      "cursor",
+      "vscode",
+      "windsurf",
+      "cline"
+    ],
+    "tags": [
+      "browser",
+      "automation",
+      "testing",
+      "scraping",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Accessibility-tree snapshots use far fewer tokens than screenshot-based browser agents."
+  },
+  {
+    "id": "chrome-devtools-mcp",
+    "name": "Chrome DevTools MCP",
+    "maintainer": "Google Chrome DevTools team",
+    "description": "Drives a real Chrome instance for performance traces, console errors and network inspection.",
+    "install": "npx -y chrome-devtools-mcp@latest",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+    "stars": 52550,
+    "clients": [
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "browser",
+      "debugging",
+      "performance",
+      "frontend"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "notion-mcp",
+    "name": "Notion MCP",
+    "maintainer": "Notion",
+    "description": "Reads and writes Notion pages and databases — the cleanest way to give an agent a knowledge base you already maintain.",
+    "install": "npx -y @notionhq/notion-mcp-server",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Notion internal integration token",
+    "url": "https://github.com/makenotion/notion-mcp-server",
+    "docs_url": "https://developers.notion.com/docs/mcp",
+    "stars": 4644,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "windsurf"
+    ],
+    "tags": [
+      "notes",
+      "knowledge-base",
+      "productivity"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Remember to share the specific pages with the integration — a token alone grants nothing."
+  },
+  {
+    "id": "sentry-mcp",
+    "name": "Sentry MCP",
+    "maintainer": "Sentry",
+    "description": "Pulls issues, stack traces and traces into the prompt so an agent can triage production errors.",
+    "install": "npx -y @sentry/mcp-server@latest",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Sentry user auth token",
+    "url": "https://github.com/getsentry/sentry-mcp",
+    "stars": 858,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "observability",
+      "errors",
+      "triage",
+      "devops"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "supabase-mcp",
+    "name": "Supabase MCP",
+    "maintainer": "Supabase",
+    "description": "Postgres schema, migrations, edge functions and logs through one authenticated server.",
+    "install": "npx -y @supabase/mcp-server-supabase@latest --read-only --project-ref=<ref>",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Supabase personal access token",
+    "url": "https://github.com/supabase-community/supabase-mcp",
+    "stars": 2919,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "windsurf"
+    ],
+    "tags": [
+      "database",
+      "postgres",
+      "backend",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Start with --read-only; agents granted DDL rights will eventually drop something you wanted."
+  },
+  {
+    "id": "mongodb-mcp",
+    "name": "MongoDB MCP",
+    "maintainer": "MongoDB",
+    "description": "Query, aggregate and inspect collections, including Atlas administration.",
+    "install": "npx -y mongodb-mcp-server --connectionString \"<uri>\"",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Connection string / Atlas API key",
+    "url": "https://github.com/mongodb-js/mongodb-mcp-server",
+    "stars": 1138,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "database",
+      "nosql",
+      "atlas"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "redis-mcp",
+    "name": "Redis MCP",
+    "maintainer": "Redis",
+    "description": "Key-value access, data structure operations and vector set queries against Redis or Upstash.",
+    "install": "npx -y @redis/mcp-redis",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Redis URL with credentials",
+    "url": "https://github.com/redis/mcp-redis",
+    "stars": 628,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "cache",
+      "database",
+      "vector",
+      "key-value"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "cloudflare-mcp",
+    "name": "Cloudflare MCP Servers",
+    "maintainer": "Cloudflare",
+    "description": "Fifteen-plus specialised servers for Workers, R2, D1, DNS, logs and Workers AI.",
+    "install": "npx -y mcp-remote https://observability.mcp.cloudflare.com/mcp",
+    "transport": [
+      "http",
+      "sse"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Cloudflare OAuth",
+    "url": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "stars": 4277,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "cloud",
+      "edge",
+      "devops",
+      "observability"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Each Cloudflare product ships its own server; pick the observability or bindings one rather than enabling all of them."
+  },
+  {
+    "id": "vercel-mcp",
+    "name": "Vercel MCP",
+    "maintainer": "Vercel",
+    "description": "Deployments, build logs, environment variables and project configuration.",
+    "install": "npx -y mcp-remote https://mcp.vercel.com",
+    "transport": [
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Vercel OAuth",
+    "url": "https://vercel.com/docs/mcp/vercel-mcp",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "deploy",
+      "hosting",
+      "devops"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "aws-mcp",
+    "name": "AWS MCP Servers",
+    "maintainer": "AWS Labs",
+    "description": "Official suite covering S3, Lambda, DynamoDB, CloudWatch and 20+ other services.",
+    "install": "uvx awslabs.core-mcp-server@latest",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "requires_auth": true,
+    "auth_type": "AWS IAM credentials / SSO profile",
+    "url": "https://github.com/awslabs/mcp",
+    "stars": 9728,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "kiro"
+    ],
+    "tags": [
+      "cloud",
+      "aws",
+      "devops"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Scope IAM to a read-only role before letting an agent near your account."
+  },
+  {
+    "id": "azure-mcp",
+    "name": "Azure MCP Server",
+    "maintainer": "Microsoft",
+    "description": "Natural-language management of Azure resources with Entra ID authentication.",
+    "install": "npx -y @azure/mcp@latest server start",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Entra ID (az login)",
+    "url": "https://github.com/microsoft/mcp",
+    "stars": 3705,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "cloud",
+      "azure",
+      "devops"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "gcp-mcp",
+    "name": "Google Cloud MCP Servers",
+    "maintainer": "Google Cloud",
+    "description": "Managed MCP endpoints for Cloud Run, BigQuery, Spanner and gcloud workflows.",
+    "install": "npx -y @google-cloud/gcloud-mcp",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Google Cloud ADC (gcloud auth login)",
+    "url": "https://github.com/googleapis/gcloud-mcp",
+    "docs_url": "https://cloud.google.com/sdk/docs",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "gemini-cli"
+    ],
+    "tags": [
+      "cloud",
+      "gcp",
+      "devops"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "degraded",
+    "notes": "Google has renamed and reorganised these packages several times in 2026 — confirm the current package name on the docs page before copying the install line."
+  },
+  {
+    "id": "docker-mcp",
+    "name": "Docker MCP Gateway",
+    "maintainer": "Docker",
+    "description": "Container management plus a gateway that catalogs and proxies hundreds of other MCP servers.",
+    "install": "docker mcp gateway run",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "go",
+    "requires_auth": false,
+    "url": "https://github.com/docker/mcp-gateway",
+    "stars": 1582,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "containers",
+      "devops",
+      "gateway",
+      "catalog"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "kubernetes-mcp",
+    "name": "Kubernetes MCP",
+    "maintainer": "Flux159 (community)",
+    "description": "kubectl-style cluster operations — inspect pods, apply manifests and read logs.",
+    "install": "npx -y mcp-server-kubernetes",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "kubeconfig context",
+    "url": "https://github.com/Flux159/mcp-server-kubernetes",
+    "stars": 1594,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "kubernetes",
+      "devops",
+      "platform"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Point it at a non-production context. An agent with cluster-admin is a very efficient way to delete a namespace."
+  },
+  {
+    "id": "terraform-mcp",
+    "name": "Terraform MCP",
+    "maintainer": "HashiCorp",
+    "description": "Provider and module registry lookups plus plan/apply assistance for infrastructure as code.",
+    "install": "docker run -i --rm hashicorp/terraform-mcp-server",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "go",
+    "requires_auth": false,
+    "url": "https://github.com/hashicorp/terraform-mcp-server",
+    "stars": 1532,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "iac",
+      "terraform",
+      "devops"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "grafana-mcp",
+    "name": "Grafana MCP",
+    "maintainer": "Grafana Labs",
+    "description": "Query dashboards, Loki logs and Prometheus metrics from inside the agent loop.",
+    "install": "docker run -i --rm mcp/grafana -t stdio",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "go",
+    "requires_auth": true,
+    "auth_type": "Grafana service account token",
+    "url": "https://github.com/grafana/mcp-grafana",
+    "stars": 3491,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "observability",
+      "metrics",
+      "logs",
+      "devops"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "elasticsearch-mcp",
+    "name": "Elasticsearch MCP",
+    "maintainer": "Elastic",
+    "description": "Search indices and run aggregations; works against Elastic Cloud or self-hosted.",
+    "install": "npx -y @elastic/mcp-server-elasticsearch",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Elasticsearch API key",
+    "url": "https://github.com/elastic/mcp-server-elasticsearch",
+    "stars": 720,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "search",
+      "logs",
+      "database"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "stripe-mcp",
+    "name": "Stripe MCP",
+    "maintainer": "Stripe",
+    "description": "Read customers, invoices and subscriptions, and create payment links from a prompt.",
+    "install": "npx -y @stripe/mcp --tools=all --api-key=<rk_live_or_test>",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Stripe restricted API key",
+    "url": "https://github.com/stripe/agent-toolkit",
+    "stars": 1830,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "payments",
+      "business",
+      "finance"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Use a restricted key in test mode. --tools=all grants write access to live objects if the key allows it."
+  },
+  {
+    "id": "figma-mcp",
+    "name": "Figma MCP",
+    "maintainer": "Framelink (community) / Figma Dev Mode",
+    "description": "Pulls design tokens, layout and component structure out of Figma files into the editor.",
+    "install": "npx -y figma-developer-mcp --figma-api-key=<token>",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Figma personal access token",
+    "url": "https://github.com/GLips/Figma-Context-MCP",
+    "docs_url": "https://developers.figma.com/docs/figma-mcp-server/",
+    "stars": 15902,
+    "clients": [
+      "claude-code",
+      "cursor",
+      "vscode",
+      "windsurf"
+    ],
+    "tags": [
+      "design",
+      "frontend",
+      "ui"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Figma also ships a first-party Dev Mode server on localhost:3845 for desktop app users."
+  },
+  {
+    "id": "linear-mcp",
+    "name": "Linear MCP",
+    "maintainer": "Linear",
+    "description": "Create, search and update issues and projects in Linear from the agent loop.",
+    "install": "npx -y mcp-remote https://mcp.linear.app/mcp",
+    "transport": [
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Linear OAuth",
+    "url": "https://linear.app/docs/mcp",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "issues",
+      "planning",
+      "productivity"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "atlassian-mcp",
+    "name": "Atlassian MCP",
+    "maintainer": "Atlassian",
+    "description": "Jira issues and Confluence pages — the enterprise ticketing counterpart to Linear.",
+    "install": "npx -y mcp-remote https://mcp.atlassian.com/v1/mcp",
+    "transport": [
+      "http",
+      "sse"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Atlassian OAuth",
+    "url": "https://github.com/atlassian/atlassian-mcp-server",
+    "stars": 1062,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "issues",
+      "docs",
+      "enterprise",
+      "productivity"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "slack-mcp",
+    "name": "Slack MCP",
+    "maintainer": "Zencoder (community)",
+    "description": "Read channels and post messages — the archived reference server's maintained successor.",
+    "install": "npx -y @zencoderai/slack-mcp-server",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Slack bot/user token",
+    "url": "https://github.com/zencoderai/slack-mcp-server",
+    "stars": 75,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "chat",
+      "notifications",
+      "team"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "The original Slack reference server was archived in 2026 and now lives in modelcontextprotocol/servers-archived."
+  },
+  {
+    "id": "airtable-mcp",
+    "name": "Airtable MCP",
+    "maintainer": "Airtable",
+    "description": "Read and write Airtable bases — a spreadsheet-shaped backend for agent prototypes.",
+    "install": "npx -y mcp-remote https://mcp.airtable.com/mcp",
+    "transport": [
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Airtable OAuth / PAT",
+    "url": "https://support.airtable.com/docs/airtable-mcp-server",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "database",
+      "spreadsheet",
+      "no-code"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "google-workspace-mcp",
+    "name": "Google Workspace MCP",
+    "maintainer": "taylorwilsdon (community)",
+    "description": "Gmail, Drive, Calendar, Docs and Sheets through a single OAuth'd server.",
+    "install": "uvx workspace-mcp",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "python",
+    "requires_auth": true,
+    "auth_type": "Google OAuth 2.0",
+    "url": "https://github.com/taylorwilsdon/google_workspace_mcp",
+    "stars": 3218,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "email",
+      "calendar",
+      "docs",
+      "productivity"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "zapier-mcp",
+    "name": "Zapier MCP",
+    "maintainer": "Zapier",
+    "description": "Bridges an agent to 8,000+ app actions without writing per-service integrations.",
+    "install": "npx -y mcp-remote https://mcp.zapier.com/api/mcp/mcp",
+    "transport": [
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Zapier OAuth (per action)",
+    "url": "https://zapier.com/mcp",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "automation",
+      "integrations",
+      "no-code"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Free plan limits how many actions you can expose at once."
+  },
+  {
+    "id": "n8n-mcp",
+    "name": "n8n MCP",
+    "maintainer": "czlonkowski (community)",
+    "description": "Gives an agent the full n8n node catalogue so it can build and edit workflows.",
+    "install": "npx -y n8n-mcp",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "n8n API key (optional, for live control)",
+    "url": "https://github.com/czlonkowski/n8n-mcp",
+    "stars": 22984,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "automation",
+      "workflows",
+      "low-code"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "browserbase-mcp",
+    "name": "Browserbase MCP",
+    "maintainer": "Browserbase",
+    "description": "Cloud browser sessions with stealth mode, proxies and session replay for agents.",
+    "install": "npx -y @browserbasehq/mcp-server-browserbase",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Browserbase API key + project ID",
+    "url": "https://github.com/browserbase/mcp-server-browserbase",
+    "stars": 3413,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "browser",
+      "scraping",
+      "cloud",
+      "stealth"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "apify-mcp",
+    "name": "Apify Actors MCP",
+    "maintainer": "Apify",
+    "description": "Runs any of Apify's 5,000+ scrapers as an agent tool, including the free-tier actors.",
+    "install": "npx -y @apify/actors-mcp-server",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Apify API token",
+    "url": "https://github.com/apify/actors-mcp-server",
+    "stars": 8268,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "scraping",
+      "automation",
+      "data"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "elevenlabs-mcp",
+    "name": "ElevenLabs MCP",
+    "maintainer": "ElevenLabs",
+    "description": "Text-to-speech generation and voice management inside the agent loop.",
+    "install": "uvx elevenlabs-mcp",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "requires_auth": true,
+    "auth_type": "ElevenLabs API key",
+    "url": "https://github.com/elevenlabs/elevenlabs-mcp",
+    "stars": 1538,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "audio",
+      "tts",
+      "voice-agent"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "huggingface-mcp",
+    "name": "Hugging Face MCP",
+    "maintainer": "Hugging Face",
+    "description": "Searches models, datasets and Spaces, and can call Gradio apps as tools.",
+    "install": "npx -y mcp-remote https://huggingface.co/mcp",
+    "transport": [
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Hugging Face access token",
+    "url": "https://huggingface.co/mcp",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "models",
+      "datasets",
+      "hub",
+      "gradio"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "qdrant-mcp",
+    "name": "Qdrant MCP",
+    "maintainer": "Qdrant",
+    "description": "Stores and retrieves memories in a Qdrant collection — vector memory as a tool, in about four lines of config.",
+    "install": "uvx mcp-server-qdrant --qdrant-url <url>",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "requires_auth": true,
+    "auth_type": "Qdrant API key (cloud)",
+    "url": "https://github.com/qdrant/mcp-server-qdrant",
+    "stars": 1537,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "vector",
+      "embeddings",
+      "memory",
+      "rag",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Pairs with Qdrant's free 1GB cluster, so long-term agent memory costs nothing to start."
+  },
+  {
+    "id": "chroma-mcp",
+    "name": "Chroma MCP",
+    "maintainer": "Chroma",
+    "description": "Local or cloud Chroma collections exposed as MCP tools for RAG and memory.",
+    "install": "uvx chroma-mcp --client-type persistent --data-dir ./chroma",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "requires_auth": false,
+    "url": "https://github.com/chroma-core/chroma-mcp",
+    "stars": 599,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "vector",
+      "embeddings",
+      "rag",
+      "local"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "neo4j-mcp",
+    "name": "Neo4j MCP",
+    "maintainer": "Neo4j",
+    "description": "Cypher queries and graph-schema inspection against AuraDB Free or self-hosted Neo4j.",
+    "install": "uvx mcp-neo4j-cypher",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "requires_auth": true,
+    "auth_type": "Neo4j username/password",
+    "url": "https://github.com/neo4j-contrib/mcp-neo4j",
+    "stars": 986,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "graph",
+      "database",
+      "knowledge-graph"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "postgres-mcp",
+    "name": "Postgres MCP Pro",
+    "maintainer": "Crystal DBA (community)",
+    "description": "Read-only-safe Postgres access with index tuning and health checks — the maintained replacement for the archived reference server.",
+    "install": "uvx postgres-mcp --access-mode=restricted",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "python",
+    "requires_auth": true,
+    "auth_type": "Postgres connection string",
+    "url": "https://github.com/crystaldba/postgres-mcp",
+    "stars": 3339,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "database",
+      "postgres",
+      "sql",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "The original @modelcontextprotocol/server-postgres reference server was archived in 2025 — many guides still tell you to install it."
+  },
+  {
+    "id": "sqlite-mcp",
+    "name": "SQLite MCP",
+    "maintainer": "MCP Steering Group (archived)",
+    "description": "Query and inspect a local SQLite file, including business-intelligence style summaries.",
+    "install": "uvx mcp-server-sqlite --db-path ./data.db",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "python",
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sqlite",
+    "stars": 304,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "database",
+      "sqlite",
+      "local"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "degraded",
+    "notes": "Archived but still functional and still the simplest SQLite option. Community forks exist if you need active maintenance."
+  },
+  {
+    "id": "mysql-mcp",
+    "name": "MySQL MCP Server",
+    "maintainer": "designcomputer (community)",
+    "description": "Read-only-by-default MySQL queries and schema inspection.",
+    "install": "uvx mysql-mcp-server",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "python",
+    "requires_auth": true,
+    "auth_type": "MySQL username/password",
+    "url": "https://github.com/designcomputer/mysql_mcp_server",
+    "stars": 1395,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "database",
+      "mysql",
+      "sql"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "context7-mcp",
+    "name": "Context7",
+    "maintainer": "Upstash",
+    "description": "Version-pinned, up-to-date documentation for thousands of libraries — the single highest-value server for coding agents.",
+    "install": "npx -y @upstash/context7-mcp",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://github.com/upstash/context7",
+    "stars": 62381,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "windsurf",
+      "zed",
+      "cline"
+    ],
+    "tags": [
+      "docs",
+      "coding",
+      "hallucination-fix",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Works without a key at low volume; an API key raises the rate limit. The most-installed MCP server on npm."
+  },
+  {
+    "id": "firecrawl-mcp",
+    "name": "Firecrawl MCP",
+    "maintainer": "Firecrawl",
+    "description": "Crawls, scrapes and extracts structured data from sites, returning clean markdown for the model.",
+    "install": "npx -y firecrawl-mcp",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Firecrawl API key (free tier available)",
+    "url": "https://github.com/firecrawl/firecrawl-mcp-server",
+    "stars": 7509,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode",
+      "windsurf"
+    ],
+    "tags": [
+      "scraping",
+      "crawling",
+      "markdown",
+      "research"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "exa-mcp",
+    "name": "Exa MCP",
+    "maintainer": "Exa",
+    "description": "Semantic web search tuned for agents, with deep-research and company-research modes.",
+    "install": "npx -y exa-mcp-server",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Exa API key",
+    "url": "https://github.com/exa-labs/exa-mcp-server",
+    "stars": 5045,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "search",
+      "research",
+      "semantic"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "tavily-mcp",
+    "name": "Tavily MCP",
+    "maintainer": "Tavily",
+    "description": "Search, extract and map endpoints purpose-built for LLM grounding, with a genuinely usable free tier.",
+    "install": "npx -y tavily-mcp@latest",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Tavily API key (1,000 free credits/month)",
+    "url": "https://github.com/tavily-ai/tavily-mcp",
+    "stars": 2401,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "search",
+      "research",
+      "grounding",
+      "free-tier"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "brave-search-mcp",
+    "name": "Brave Search MCP",
+    "maintainer": "Brave",
+    "description": "Independent web and local search index with a free API tier — no Google/Bing dependency.",
+    "install": "npx -y @brave/brave-search-mcp-server",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Brave Search API key",
+    "url": "https://github.com/brave/brave-search-mcp-server",
+    "stars": 1466,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "search",
+      "web",
+      "privacy"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Brave's free tier is rate-limited to roughly one query per second and requires a card for verification."
+  },
+  {
+    "id": "deepwiki-mcp",
+    "name": "DeepWiki MCP",
+    "maintainer": "Cognition (Devin)",
+    "description": "Ask questions about any public GitHub repository and get answers grounded in its actual code and wiki.",
+    "install": "npx -y mcp-remote https://mcp.deepwiki.com/mcp",
+    "transport": [
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://docs.devin.ai/work-with-devin/deepwiki-mcp",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "research",
+      "code-understanding",
+      "no-auth"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "ref-tools-mcp",
+    "name": "Ref MCP",
+    "maintainer": "Ref (community)",
+    "description": "Token-efficient documentation search across technical sites, alternative to Context7.",
+    "install": "npx -y ref-tools-mcp@latest",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://github.com/ref-tools/ref-tools-mcp",
+    "stars": 1177,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "docs",
+      "search",
+      "token-efficient"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "duckduckgo-mcp",
+    "name": "DuckDuckGo MCP",
+    "maintainer": "nickclyde (community)",
+    "description": "Keyless web search and safe text fetching — zero signup, which is rare in search tooling.",
+    "install": "uvx duckduckgo-mcp-server",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "python",
+    "requires_auth": false,
+    "url": "https://github.com/nickclyde/duckduckgo-mcp-server",
+    "stars": 1503,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "search",
+      "no-auth",
+      "free"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "Rate-limited by DuckDuckGo itself; fine for occasional lookups, not for bulk crawling."
+  },
+  {
+    "id": "wikipedia-mcp",
+    "name": "Wikipedia MCP",
+    "maintainer": "Rudra-ravi (community)",
+    "description": "Wikipedia search, article retrieval and section-level summaries.",
+    "install": "uvx wikipedia-mcp",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "python",
+    "requires_auth": false,
+    "url": "https://github.com/Rudra-ravi/wikipedia-mcp",
+    "stars": 295,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "research",
+      "knowledge",
+      "no-auth"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "youtube-mcp",
+    "name": "YouTube MCP",
+    "maintainer": "anaisbetts (community)",
+    "description": "Fetches video transcripts by URL so agents can reason over talks and tutorials.",
+    "install": "npx -y @anaisbetts/mcp-youtube",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://github.com/anaisbetts/mcp-youtube",
+    "stars": 546,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "video",
+      "transcripts",
+      "research"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "obsidian-mcp",
+    "name": "Obsidian MCP",
+    "maintainer": "StevenStavrakis (community)",
+    "description": "Read and write notes in a local Obsidian vault — a personal knowledge base as agent memory.",
+    "install": "npx -y obsidian-mcp /path/to/vault",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://github.com/StevenStavrakis/obsidian-mcp",
+    "stars": 735,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "notes",
+      "markdown",
+      "knowledge-base",
+      "local"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "fastmcp",
+    "name": "FastMCP",
+    "maintainer": "Prefect / community",
+    "description": "Pythonic framework and CLI for building MCP servers in about ten lines, with a built-in dev inspector.",
+    "install": "uvx fastmcp run server.py",
+    "transport": [
+      "stdio",
+      "http",
+      "sse"
+    ],
+    "official": false,
+    "language": "python",
+    "requires_auth": false,
+    "url": "https://github.com/jlowin/fastmcp",
+    "docs_url": "https://gofastmcp.com",
+    "stars": 27889,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "framework",
+      "python",
+      "development",
+      "essential"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active",
+    "notes": "If you are writing your own server, start here. It also has `fastmcp dev` for interactive testing."
+  },
+  {
+    "id": "openapi-mcp",
+    "name": "OpenAPI MCP Server",
+    "maintainer": "ivotoby (community)",
+    "description": "Turns any OpenAPI/Swagger spec into MCP tools — the fastest path to exposing an existing REST API.",
+    "install": "npx -y @ivotoby/openapi-mcp-server --api-base-url <url> --openapi-spec <path>",
+    "transport": [
+      "stdio"
+    ],
+    "official": false,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Target API credentials",
+    "url": "https://github.com/ivo-toby/mcp-openapi-server",
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "openapi",
+      "rest",
+      "integration",
+      "development"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "antv-chart-mcp",
+    "name": "AntV Chart MCP",
+    "maintainer": "Ant Group",
+    "description": "Generates charts and dashboards (25+ chart types) as images from natural language data.",
+    "install": "npx -y @antv/mcp-server-chart",
+    "transport": [
+      "stdio",
+      "http"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://github.com/antvis/mcp-server-chart",
+    "stars": 4382,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor",
+      "vscode"
+    ],
+    "tags": [
+      "visualisation",
+      "charts",
+      "data"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "active"
+  },
+  {
+    "id": "puppeteer-mcp",
+    "name": "Puppeteer (Archived)",
+    "maintainer": "MCP Steering Group (archived)",
+    "description": "The original browser-automation reference server. Superseded by Playwright MCP.",
+    "install": "npx -y @modelcontextprotocol/server-puppeteer",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": false,
+    "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer",
+    "stars": 304,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "browser",
+      "automation",
+      "archived"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "deprecated",
+    "notes": "Still installs and works, but receives no fixes. Use @playwright/mcp for anything new."
+  },
+  {
+    "id": "google-drive-mcp",
+    "name": "Google Drive (Archived)",
+    "maintainer": "MCP Steering Group (archived)",
+    "description": "Searches and reads Google Drive files. Superseded by community Workspace servers.",
+    "install": "npx -y @modelcontextprotocol/server-gdrive",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Google OAuth credentials",
+    "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/gdrive",
+    "stars": 304,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "files",
+      "google",
+      "archived"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "deprecated",
+    "notes": "Archived in 2025. The community google_workspace_mcp server covers this and more."
+  },
+  {
+    "id": "slack-archived-mcp",
+    "name": "Slack (Archived Reference)",
+    "maintainer": "MCP Steering Group (archived)",
+    "description": "The original Slack channel-management reference server, now unmaintained.",
+    "install": "npx -y @modelcontextprotocol/server-slack",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Slack bot token",
+    "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/slack",
+    "stars": 304,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "chat",
+      "archived"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "deprecated",
+    "notes": "Listed so you can recognise it when a tutorial tells you to install it. Use the Zencoder fork instead."
+  },
+  {
+    "id": "brave-search-archived-mcp",
+    "name": "Brave Search (Archived Reference)",
+    "maintainer": "MCP Steering Group (archived)",
+    "description": "Archived reference search server, replaced by Brave's own first-party server.",
+    "install": "npx -y @modelcontextprotocol/server-brave-search",
+    "transport": [
+      "stdio"
+    ],
+    "official": true,
+    "language": "typescript",
+    "requires_auth": true,
+    "auth_type": "Brave Search API key",
+    "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/brave-search",
+    "stars": 304,
+    "clients": [
+      "claude",
+      "claude-code",
+      "cursor"
+    ],
+    "tags": [
+      "search",
+      "archived"
+    ],
+    "verified": "2026-09-24",
+    "verified_by": "@seed-import",
+    "status": "deprecated",
+    "notes": "Install @brave/brave-search-mcp-server instead."
+  }
+]

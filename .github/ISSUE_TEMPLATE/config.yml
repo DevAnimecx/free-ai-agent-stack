@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the inclusion criteria first
+    url: https://github.com/free-ai-agent-stack/free-ai-agent-stack/blob/main/CONTRIBUTING.md
+    about: What qualifies as free, what gets rejected, and how verification works.
+  - name: Question about the data or the schema
+    url: https://github.com/free-ai-agent-stack/free-ai-agent-stack/discussions
+    about: Ask in Discussions instead of opening an issue — schema ideas, use cases, "is this free enough?" questions.
+  - name: How entries are verified
+    url: https://github.com/free-ai-agent-stack/free-ai-agent-stack/blob/main/docs/METHODOLOGY.md
+    about: The five facts we check, what automation may and may not change, and our known limitations.
+  - name: Security or privacy concern
+    url: https://github.com/free-ai-agent-stack/free-ai-agent-stack/security/advisories/new
+    about: Report privately rather than in a public issue.

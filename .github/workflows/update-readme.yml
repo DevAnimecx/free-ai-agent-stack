@@ -1,0 +1,44 @@
+name: Update README stats
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-readme
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Refresh stats block, stars and contributor wall
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+      - run: python3 -m pip install --quiet pyyaml jsonschema requests
+
+      - name: Refresh star counts and rewrite the README blocks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 5,000 req/hr instead of 60
+        run: python3 scripts/generate_stats.py --update-stars
+
+      - name: Validate (stars are schema-checked too)
+        run: python3 scripts/validate.py --quiet
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md data/stats.json data/*.yaml
+          if git diff --cached --quiet; then
+            echo "Nothing to update this week."
+          else
+            git commit -m "chore: weekly stats + star refresh"
+            git push
+          fi

@@ -1,0 +1,6303 @@
+{
+  "schema_version": "1.0.0",
+  "exported_at": "2026-09-24T09:30:23+00:00",
+  "llm-apis": [
+    {
+      "id": "google-gemini",
+      "name": "Google Gemini API",
+      "provider": "Google",
+      "description": "Frontier multimodal models on a permanent free tier — Flash and Flash-Lite families only since April 2026.",
+      "free_limit": "1,500 requests/day on Flash, 1,000/day on Flash-Lite; 250K TPM",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "10-15 RPM, 250K TPM",
+      "models": [
+        "gemini-3-flash",
+        "gemini-3.1-flash-lite",
+        "gemini-2.5-flash"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "audio",
+        "video"
+      ],
+      "context_window": 1000000,
+      "commercial_use": true,
+      "data_used_for_training": true,
+      "url": "https://ai.google.dev",
+      "docs_url": "https://ai.google.dev/gemini-api/docs",
+      "signup_url": "https://aistudio.google.com/apikey",
+      "tags": [
+        "essential",
+        "multimodal",
+        "long-context",
+        "frontier",
+        "no-card"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Free-tier prompts are used to improve Google products outside the EU/UK/EEA. Pro models left the free tier in April 2026."
+    },
+    {
+      "id": "groq",
+      "name": "Groq Cloud",
+      "provider": "Groq",
+      "description": "Open-weight models at 300+ tokens/sec on LPU hardware, with the most generous request-per-day allowance of any free tier.",
+      "free_limit": "1,000 req/day and 200K tokens/day per model",
+      "free_limit_tokens_per_day": 200000,
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "30 RPM, 8K TPM",
+      "models": [
+        "gpt-oss-120b",
+        "gpt-oss-20b",
+        "qwen3.6-27b"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "context_window": 131072,
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://groq.com",
+      "docs_url": "https://console.groq.com/docs/rate-limits",
+      "signup_url": "https://console.groq.com/keys",
+      "tags": [
+        "essential",
+        "fast-inference",
+        "openai-compatible",
+        "no-card",
+        "agents"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The 200K tokens/day ceiling usually binds before the request count does. Llama models were removed from the free plan in 2026."
+    },
+    {
+      "id": "openrouter-free",
+      "name": "OpenRouter Free Models",
+      "provider": "OpenRouter",
+      "description": "One OpenAI-compatible key fronting 19+ `:free` models across providers — the best way to A/B models without multiple signups.",
+      "free_limit": "50 requests/day (1,000/day after a one-time $10 credit purchase)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "20 RPM",
+      "models": [
+        "deepseek-v3.2",
+        "llama-4-scout",
+        "qwen3-coder",
+        "gemma-3-27b"
+      ],
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "context_window": 262144,
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://openrouter.ai",
+      "docs_url": "https://openrouter.ai/docs/api-reference/limits",
+      "signup_url": "https://openrouter.ai/settings/keys",
+      "tags": [
+        "essential",
+        "multi-provider",
+        "openai-compatible",
+        "model-comparison",
+        "no-card"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The `:free` roster rotates monthly. Upstream providers frequently return 429s on free variants."
+    },
+    {
+      "id": "cloudflare-workers-ai",
+      "name": "Cloudflare Workers AI",
+      "provider": "Cloudflare",
+      "description": "Serverless inference that runs inside a Worker — no egress cost, no cold-start management, free daily budget.",
+      "free_limit": "10,000 Neurons/day (roughly 3-8K short LLM calls/day)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Account-level; unchanged by plan",
+      "models": [
+        "llama-3.3-70b",
+        "gpt-oss-120b",
+        "qwen3",
+        "kimi-k2.5",
+        "flux-1-schnell",
+        "whisper"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "image-gen",
+        "speech-to-text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://developers.cloudflare.com/workers-ai/",
+      "docs_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+      "signup_url": "https://dash.cloudflare.com/sign-up",
+      "tags": [
+        "essential",
+        "edge",
+        "serverless",
+        "embeddings",
+        "no-card"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Budget is denominated in Neurons, not tokens — per-model conversion varies, so budget by testing one call."
+    },
+    {
+      "id": "github-models",
+      "name": "GitHub Models",
+      "provider": "GitHub / Microsoft",
+      "description": "Frontier and open models behind a GitHub PAT — the lowest-friction free tier if you already have a GitHub account.",
+      "free_limit": "150-1,000 requests/day depending on tier and model",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "15 RPM",
+      "models": [
+        "gpt-4o",
+        "claude-sonnet",
+        "llama-4",
+        "phi-4",
+        "mistral-large"
+      ],
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/features/models",
+      "docs_url": "https://docs.github.com/en/github-models",
+      "signup_url": "https://github.com/settings/personal-access-tokens",
+      "tags": [
+        "essential",
+        "frontier",
+        "no-card",
+        "github-native",
+        "prototyping"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Intended for prototyping, not production traffic. Rate limits are per-model."
+    },
+    {
+      "id": "mistral-la-plateforme",
+      "name": "Mistral La Plateforme (Experiment)",
+      "provider": "Mistral AI",
+      "description": "European-hosted Mistral family with a free Experiment mode worth roughly $10/month of credits, no card required.",
+      "free_limit": "~$10/month of credits in Experiment mode (about 1B tokens/month on small models)",
+      "free_limit_tokens_per_day": 33000000,
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "2 RPM on free mode",
+      "models": [
+        "mistral-medium-3.5",
+        "mistral-small-3.2",
+        "magistral",
+        "codestral"
+      ],
+      "modalities": [
+        "text",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": true,
+      "url": "https://mistral.ai",
+      "docs_url": "https://docs.mistral.ai/getting-started/models/models_overview/",
+      "signup_url": "https://console.mistral.ai/",
+      "tags": [
+        "essential",
+        "eu-hosted",
+        "code",
+        "gdpr-friendly",
+        "no-card"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Experiment mode trains on your prompts by default. The 2 RPM limit makes it a batch/offline worker, not an interactive backend."
+    },
+    {
+      "id": "nvidia-nim",
+      "name": "NVIDIA NIM API Catalog",
+      "provider": "NVIDIA",
+      "description": "Free hosted endpoints for NVIDIA-curated open models (Nemotron, Llama, DeepSeek), built for prototyping.",
+      "free_limit": "1,000 API credits (26,000 total requests) on signup",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Up to 40 RPM",
+      "models": [
+        "nemotron-4",
+        "llama-3.3-70b",
+        "deepseek-r1",
+        "mixtral"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://build.nvidia.com",
+      "docs_url": "https://docs.api.nvidia.com",
+      "signup_url": "https://build.nvidia.com/explore/discover",
+      "tags": [
+        "essential",
+        "frontier",
+        "open-models",
+        "prototyping",
+        "no-card"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Credits are one-time and not refilled; some models are marked as evaluation-use only."
+    },
+    {
+      "id": "zai-glm-free",
+      "name": "Z.ai GLM Flash Models",
+      "provider": "Z.ai (Zhipu)",
+      "description": "GLM-4.x Flash models served free of charge, popular as a drop-in for reasoning and coding agents.",
+      "free_limit": "Unmetered access to GLM-4.7-Flash and GLM-4.5-Flash",
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "Community-tier concurrency limits",
+      "models": [
+        "glm-4.7-flash",
+        "glm-4.5-flash"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "context_window": 128000,
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://z.ai",
+      "docs_url": "https://docs.z.ai/guides/overview/pricing",
+      "signup_url": "https://z.ai/",
+      "tags": [
+        "agentic",
+        "coding",
+        "no-card"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Flash tiers are free but rate-limited during peak hours in Asia."
+    },
+    {
+      "id": "cohere-trial",
+      "name": "Cohere Trial Keys",
+      "provider": "Cohere",
+      "description": "Every Cohere model including Command A and the Embed/Rerank family on a free trial key, non-commercial use only.",
+      "free_limit": "1,000 API calls/month",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "20 RPM",
+      "models": [
+        "command-a",
+        "command-r-plus",
+        "embed-v4",
+        "rerank-v3.5"
+      ],
+      "modalities": [
+        "text",
+        "embeddings",
+        "rerank"
+      ],
+      "commercial_use": false,
+      "data_used_for_training": false,
+      "url": "https://cohere.com",
+      "docs_url": "https://docs.cohere.com/docs/rate-limits",
+      "signup_url": "https://dashboard.cohere.com/api-keys",
+      "tags": [
+        "rag",
+        "embeddings",
+        "rerank",
+        "non-commercial"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Trial keys explicitly prohibit production/commercial use — fine for a POC, not for a shipped product."
+    },
+    {
+      "id": "huggingface-inference",
+      "name": "Hugging Face Inference Providers",
+      "provider": "Hugging Face",
+      "description": "One router in front of 18 inference partners, with monthly free credits on any account.",
+      "free_limit": "$0.10/month of included inference credits",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Provider-dependent",
+      "models": [
+        "llama-4",
+        "qwen3",
+        "deepseek-v3",
+        "flux-1"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "image-gen",
+        "speech-to-text",
+        "text-to-speech"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://huggingface.co",
+      "docs_url": "https://huggingface.co/docs/inference-providers/index",
+      "signup_url": "https://huggingface.co/settings/tokens",
+      "tags": [
+        "essential",
+        "open-models",
+        "multi-provider",
+        "hub"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The $0.10/month allowance is genuinely small — treat this as a smoke-test credit, not a workload budget."
+    },
+    {
+      "id": "sambanova-cloud",
+      "name": "SambaNova Cloud",
+      "provider": "SambaNova",
+      "description": "Very fast hosted open-model inference with a permanent per-model daily token allowance.",
+      "free_limit": "200,000 tokens/day per model",
+      "free_limit_tokens_per_day": 200000,
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Rate-limited by token budget",
+      "models": [
+        "llama-3.1-405b",
+        "llama-3.3-70b",
+        "deepseek-r1",
+        "qwen3-32b"
+      ],
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://cloud.sambanova.ai",
+      "docs_url": "https://docs.sambanova.ai/",
+      "signup_url": "https://cloud.sambanova.ai/",
+      "tags": [
+        "essential",
+        "fast-inference",
+        "open-models",
+        "405b"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Quota is per model, so stacking three models triples your effective daily allowance."
+    },
+    {
+      "id": "alibaba-model-studio",
+      "name": "Alibaba Cloud Model Studio",
+      "provider": "Alibaba Cloud",
+      "description": "Qwen family access with a free per-model token grant — the cleanest route to Qwen3 Coder for free.",
+      "free_limit": "~1M free tokens per model, valid 90 days",
+      "free_limit_tokens_per_day": 1000000,
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "Low RPM on free quota",
+      "models": [
+        "qwen3-max",
+        "qwen3-coder",
+        "qwq",
+        "qwen-vl"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "image-gen"
+      ],
+      "context_window": 1000000,
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.alibabacloud.com/en/product/modelstudio",
+      "docs_url": "https://www.alibabacloud.com/help/en/model-studio/models",
+      "signup_url": "https://modelstudio.console.alibabacloud.com/",
+      "tags": [
+        "qwen",
+        "long-context",
+        "coder",
+        "china"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Grants expire 90 days after activation and do not renew — good for a build sprint, not a standing tier."
+    },
+    {
+      "id": "google-cloud-vertex-free-credits",
+      "name": "Google Cloud Vertex AI Free Credits",
+      "provider": "Google Cloud",
+      "description": "Vertex AI access to Gemini and Model Garden on new-account credits — the enterprise-labelled alternative to AI Studio.",
+      "free_limit": "$300 in new-customer credits valid 90 days",
+      "requires_card": true,
+      "requires_phone": false,
+      "rate_limit": "Paid-tier quotas from day one",
+      "models": [
+        "gemini-3-flash",
+        "gemini-3.1-pro",
+        "llama-4",
+        "mistral"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "video",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://cloud.google.com/vertex-ai",
+      "docs_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/start/quickstarts/quickstart-multimodal",
+      "signup_url": "https://console.cloud.google.com/",
+      "tags": [
+        "enterprise",
+        "credits",
+        "google-cloud"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Requires a billing account with a card, so it fails the strictest no-card filter — but the $300 covers a serious prototype."
+    },
+    {
+      "id": "azure-ai-foundry-free",
+      "name": "Azure AI Foundry Free Credits",
+      "provider": "Microsoft",
+      "description": "Azure-hosted OpenAI, Phi and Llama models with the new Azure free-account credit bundle.",
+      "free_limit": "$200 in credits valid 30 days",
+      "requires_card": true,
+      "requires_phone": true,
+      "rate_limit": "Per-deployment quotas",
+      "models": [
+        "gpt-4o",
+        "phi-4",
+        "llama-4",
+        "mistral-large"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "speech-to-text",
+        "text-to-speech"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://azure.microsoft.com/en-us/products/ai-foundry",
+      "docs_url": "https://learn.microsoft.com/en-us/azure/ai-foundry/",
+      "signup_url": "https://azure.microsoft.com/free/",
+      "tags": [
+        "enterprise",
+        "credits",
+        "openai-models"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Identity verification with a card is mandatory; 30-day clock makes it a sprint budget."
+    },
+    {
+      "id": "aws-bedrock-free-tier",
+      "name": "Amazon Bedrock Free Tier",
+      "provider": "AWS",
+      "description": "Bedrock-hosted Claude, Llama and Titan models on the AWS free tier for new accounts.",
+      "free_limit": "Trial credits for Nova and select models for new AWS accounts",
+      "requires_card": true,
+      "requires_phone": true,
+      "rate_limit": "Per-model on-demand quotas",
+      "models": [
+        "amazon-nova-pro",
+        "claude-haiku",
+        "llama-4",
+        "titan"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://aws.amazon.com/bedrock/",
+      "docs_url": "https://docs.aws.amazon.com/bedrock/",
+      "signup_url": "https://aws.amazon.com/free/",
+      "tags": [
+        "enterprise",
+        "credits",
+        "aws"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Card required at signup. Bedrock model access must be requested per model in the console."
+    },
+    {
+      "id": "baidu-qianfan",
+      "name": "Baidu Qianfan (ERNIE)",
+      "provider": "Baidu",
+      "description": "ERNIE Speed and ERNIE Lite are permanently free on Baidu's Qianfan console for Chinese-language agents.",
+      "free_limit": "ERNIE Speed and Lite free of charge; others on per-token billing",
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "Low RPM on free models",
+      "models": [
+        "ernie-speed",
+        "ernie-lite",
+        "ernie-4.5"
+      ],
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://cloud.baidu.com/product/wenxinworkshop",
+      "docs_url": "https://cloud.baidu.com/doc/WENXINWORKSHOP/index.html",
+      "signup_url": "https://console.bce.baidu.com/qianfan/",
+      "tags": [
+        "china",
+        "chinese-language",
+        "free-models"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Requires a mainland-China verified phone number for full access."
+    },
+    {
+      "id": "siliconflow-free-models",
+      "name": "SiliconFlow",
+      "provider": "SiliconFlow",
+      "description": "Chinese inference host that keeps a rotating set of open models free to call, including embedding and rerank models.",
+      "free_limit": "Rotating set of free models (Qwen, GLM, DeepSeek small variants)",
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "3-10 RPM on free models",
+      "models": [
+        "qwen3-8b",
+        "glm-4-9b",
+        "bge-m3",
+        "bce-reranker"
+      ],
+      "modalities": [
+        "text",
+        "embeddings",
+        "rerank"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://siliconflow.com",
+      "docs_url": "https://docs.siliconflow.com/en/userguide/rate-limits/rate-limit-and-upgradation",
+      "signup_url": "https://cloud.siliconflow.cn/account/ak",
+      "tags": [
+        "embeddings",
+        "rerank",
+        "free-models",
+        "rag"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Free model list changes without notice; the reranker and embedding models are the durable part."
+    },
+    {
+      "id": "chutes",
+      "name": "Chutes.ai",
+      "provider": "Chutes",
+      "description": "Decentralised open-model inference with a community tier that costs nothing for low-volume agent calls.",
+      "free_limit": "Community tier: quota-limited free requests across 100+ open models",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Community queue priority",
+      "models": [
+        "deepseek-v3",
+        "llama-4",
+        "qwen3-coder"
+      ],
+      "modalities": [
+        "text",
+        "image-gen"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://chutes.ai",
+      "docs_url": "https://docs.chutes.ai",
+      "signup_url": "https://chutes.ai/app/api",
+      "tags": [
+        "decentralised",
+        "open-models",
+        "community"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "degraded",
+      "notes": "Community capacity is best-effort; expect queueing at peak. Fine for batch, risky for user-facing agents."
+    },
+    {
+      "id": "vercel-ai-gateway",
+      "name": "Vercel AI Gateway",
+      "provider": "Vercel",
+      "description": "One endpoint in front of every major provider with free monthly included credit and per-request observability.",
+      "free_limit": "$5/month of included AI credits on the Hobby plan",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Gateway-level, per provider",
+      "models": [
+        "gpt-4o",
+        "claude-sonnet",
+        "gemini-3-flash",
+        "llama-4"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "image-gen",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://vercel.com/ai-gateway",
+      "docs_url": "https://vercel.com/docs/ai-gateway",
+      "signup_url": "https://vercel.com/signup",
+      "tags": [
+        "gateway",
+        "multi-provider",
+        "observability",
+        "fallbacks"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Also works as a BYOK proxy — you can route your existing free keys through it for logging and failover."
+    },
+    {
+      "id": "cloudflare-ai-gateway",
+      "name": "Cloudflare AI Gateway",
+      "provider": "Cloudflare",
+      "description": "Free caching, rate-limiting and logging proxy placed in front of any provider, including your own free keys.",
+      "free_limit": "Free on all plans; caching and analytics included",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Not applicable (proxy layer)",
+      "modalities": [
+        "text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://developers.cloudflare.com/ai-gateway/",
+      "docs_url": "https://developers.cloudflare.com/ai-gateway/configuration/",
+      "signup_url": "https://dash.cloudflare.com/sign-up",
+      "tags": [
+        "gateway",
+        "caching",
+        "observability",
+        "cost-control"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The single highest-leverage free tool in this list: response caching can stretch a 1,000 req/day quota several-fold."
+    },
+    {
+      "id": "fireworks-ai",
+      "name": "Fireworks AI",
+      "provider": "Fireworks AI",
+      "description": "Fast open-model inference with a small no-card starter credit.",
+      "free_limit": "$1 one-time credit",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "10 RPM until a payment method is added",
+      "models": [
+        "llama-4",
+        "deepseek-v3",
+        "qwen3-coder",
+        "flux-1"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "image-gen"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://fireworks.ai",
+      "docs_url": "https://docs.fireworks.ai/getting-started/quickstart",
+      "signup_url": "https://fireworks.ai/login",
+      "tags": [
+        "trial",
+        "open-models",
+        "fast-inference"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The account suspends when the $1 is spent. Treat as a smoke test, not a tier."
+    },
+    {
+      "id": "cerebras-cloud",
+      "name": "Cerebras Cloud",
+      "provider": "Cerebras",
+      "description": "Wafer-scale inference — still the fastest tokens/sec available — but the permanent free tier ended in July 2026.",
+      "free_limit": "$5 trial credit valid 30 days (card verification required since 2026-07-16)",
+      "requires_card": true,
+      "requires_phone": false,
+      "rate_limit": "5 RPM, 30K TPM on trial",
+      "models": [
+        "gpt-oss-120b",
+        "glm-4.7",
+        "qwen3-32b"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "context_window": 8192,
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://cloud.cerebras.ai",
+      "docs_url": "https://inference-docs.cerebras.ai/support/rate-limits",
+      "signup_url": "https://cloud.cerebras.ai/",
+      "tags": [
+        "fast-inference",
+        "trial",
+        "card-required"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "degraded",
+      "notes": "Downgraded from a no-card permanent free tier to a card-gated 30-day trial. Context is capped at 8K on trial."
+    },
+    {
+      "id": "deepinfra",
+      "name": "DeepInfra",
+      "provider": "DeepInfra",
+      "description": "Cheap open-model inference with a small signup credit and no card requirement for the trial.",
+      "free_limit": "$1.80 one-time credit",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Standard trial limits",
+      "models": [
+        "llama-4",
+        "qwen3",
+        "deepseek-v3",
+        "whisper"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "speech-to-text",
+        "image-gen"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://deepinfra.com",
+      "docs_url": "https://deepinfra.com/docs",
+      "signup_url": "https://deepinfra.com/login",
+      "tags": [
+        "trial",
+        "open-models",
+        "cheap"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "ai21-studio",
+      "name": "AI21 Studio",
+      "provider": "AI21 Labs",
+      "description": "Jamba family models with a recurring free allowance aimed at evaluation.",
+      "free_limit": "$10 in credits every 3 months on the free plan",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "3 RPM on free plan",
+      "models": [
+        "jamba-1.6-large",
+        "jamba-1.6-mini"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "context_window": 256000,
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.ai21.com/studio",
+      "docs_url": "https://docs.ai21.com",
+      "signup_url": "https://studio.ai21.com/sign-up",
+      "tags": [
+        "long-context",
+        "trial",
+        "recurring-credits"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "One of the few providers whose free credit refreshes on a schedule rather than once."
+    },
+    {
+      "id": "moonshot-kimi-trial",
+      "name": "Moonshot Kimi API",
+      "provider": "Moonshot AI",
+      "description": "Kimi K2 family with signup credit for long-context Chinese and English workloads.",
+      "free_limit": "Signup trial credit (roughly ¥15)",
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "Low on trial tier",
+      "models": [
+        "kimi-k2",
+        "moonshot-v1-128k"
+      ],
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "context_window": 128000,
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://platform.moonshot.ai",
+      "docs_url": "https://platform.moonshot.ai/docs",
+      "signup_url": "https://platform.moonshot.ai/console/api-keys",
+      "tags": [
+        "long-context",
+        "trial",
+        "china"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs Free",
+      "provider": "ElevenLabs",
+      "description": "Best-in-class TTS voices with a genuine monthly free character allowance, no card required.",
+      "free_limit": "10,000 characters/month",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "2 concurrent requests",
+      "modalities": [
+        "text-to-speech"
+      ],
+      "commercial_use": false,
+      "data_used_for_training": false,
+      "url": "https://elevenlabs.io",
+      "docs_url": "https://elevenlabs.io/docs/api-reference/text-to-speech",
+      "signup_url": "https://elevenlabs.io/sign-up",
+      "tags": [
+        "tts",
+        "voice-agent",
+        "no-card"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Free-tier output requires attribution and cannot be used commercially."
+    },
+    {
+      "id": "deepgram",
+      "name": "Deepgram",
+      "provider": "Deepgram",
+      "description": "Low-latency STT and TTS built for voice agents, with a large one-time credit and no card on signup.",
+      "free_limit": "$200 one-time credit (roughly 100 hours of Nova-3 transcription)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Standard free limits",
+      "models": [
+        "nova-3",
+        "aura-2"
+      ],
+      "modalities": [
+        "speech-to-text",
+        "text-to-speech",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://deepgram.com",
+      "docs_url": "https://developers.deepgram.com/docs",
+      "signup_url": "https://console.deepgram.com/signup",
+      "tags": [
+        "stt",
+        "tts",
+        "voice-agent",
+        "credits"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Credit is one-time; voice agents burn it fast. Pair with a local Whisper fallback."
+    },
+    {
+      "id": "assemblyai",
+      "name": "AssemblyAI",
+      "provider": "AssemblyAI",
+      "description": "Speech-to-text plus audio intelligence (summarisation, topic detection) on a no-card starter credit.",
+      "free_limit": "$50 one-time credit plus rate-limited free transcription",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "5 concurrent transcriptions",
+      "models": [
+        "universal-2",
+        "slam-1"
+      ],
+      "modalities": [
+        "speech-to-text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.assemblyai.com",
+      "docs_url": "https://www.assemblyai.com/docs",
+      "signup_url": "https://www.assemblyai.com/dashboard/signup",
+      "tags": [
+        "stt",
+        "audio-intelligence",
+        "credits"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "speechmatics",
+      "name": "Speechmatics",
+      "provider": "Speechmatics",
+      "description": "Accurate multilingual transcription with a recurring free monthly hour allowance.",
+      "free_limit": "8 hours of transcription/month",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Standard free limits",
+      "modalities": [
+        "speech-to-text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.speechmatics.com",
+      "docs_url": "https://docs.speechmatics.com",
+      "signup_url": "https://portal.speechmatics.com/signup",
+      "tags": [
+        "stt",
+        "multilingual",
+        "recurring-free"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "google-cloud-speech-tts",
+      "name": "Google Cloud Speech & TTS",
+      "provider": "Google Cloud",
+      "description": "Production speech APIs with a standing free monthly allowance for STT and WaveNet/Neural2 voices.",
+      "free_limit": "60 min STT + 1M characters TTS per month",
+      "requires_card": true,
+      "requires_phone": false,
+      "rate_limit": "Standard free-tier quotas",
+      "modalities": [
+        "speech-to-text",
+        "text-to-speech"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://cloud.google.com/speech-to-text",
+      "docs_url": "https://cloud.google.com/text-to-speech/pricing",
+      "signup_url": "https://console.cloud.google.com/",
+      "tags": [
+        "stt",
+        "tts",
+        "google-cloud",
+        "recurring-free"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The STT/TTS free allowance does not expire, unlike the $300 signup credit — this is one of the best long-term free voice stacks."
+    },
+    {
+      "id": "azure-ai-speech",
+      "name": "Azure AI Speech",
+      "provider": "Microsoft",
+      "description": "Speech-to-text and neural TTS free allowances inside the Azure free account.",
+      "free_limit": "5 hours STT + 500K characters TTS per month",
+      "requires_card": true,
+      "requires_phone": true,
+      "rate_limit": "20 transactions/sec on free tier",
+      "modalities": [
+        "speech-to-text",
+        "text-to-speech"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://azure.microsoft.com/en-us/products/ai-services/ai-speech",
+      "docs_url": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/",
+      "signup_url": "https://azure.microsoft.com/free/",
+      "tags": [
+        "stt",
+        "tts",
+        "azure",
+        "recurring-free"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "stability-ai",
+      "name": "Stability AI",
+      "provider": "Stability AI",
+      "description": "Stable Diffusion and Stable Audio via API, with a small recurring monthly credit grant.",
+      "free_limit": "25 credits/month on the free plan",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Standard free limits",
+      "models": [
+        "sd-3.5-large",
+        "stable-image-ultra",
+        "stable-audio-2"
+      ],
+      "modalities": [
+        "image-gen",
+        "audio"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://platform.stability.ai",
+      "docs_url": "https://platform.stability.ai/docs/api-reference",
+      "signup_url": "https://platform.stability.ai/account/keys",
+      "tags": [
+        "image-gen",
+        "audio-gen",
+        "recurring-free"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "pollinations",
+      "name": "Pollinations.AI",
+      "provider": "Pollinations",
+      "description": "Completely keyless text and image generation API — the fastest possible zero-signup smoke test.",
+      "free_limit": "Unmetered with fair-use rate limits; no API key at all",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "1 request / 5 seconds for image generation",
+      "models": [
+        "openai",
+        "mistral",
+        "flux",
+        "turbo"
+      ],
+      "modalities": [
+        "text",
+        "image-gen",
+        "speech-to-text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://pollinations.ai",
+      "docs_url": "https://github.com/pollinations/pollinations/blob/master/APIDOCS.md",
+      "tags": [
+        "no-key",
+        "image-gen",
+        "prototyping",
+        "no-card"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "No SLA and no guarantee of model availability — perfect for demos, unsuitable for production."
+    },
+    {
+      "id": "leonardo-ai",
+      "name": "Leonardo.Ai API",
+      "provider": "Leonardo.Ai",
+      "description": "Image generation API with a daily free token allowance tied to a free account.",
+      "free_limit": "150 free tokens/day (image generations)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Standard free limits",
+      "modalities": [
+        "image-gen"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://leonardo.ai",
+      "docs_url": "https://docs.leonardo.ai/docs/getting-started",
+      "signup_url": "https://docs.leonardo.ai/docs/getting-started",
+      "tags": [
+        "image-gen",
+        "daily-free"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "voyage-ai",
+      "name": "Voyage AI",
+      "provider": "Voyage AI",
+      "description": "High-quality embeddings and rerankers with an unusually large free token grant for RAG prototypes.",
+      "free_limit": "200M free tokens across embedding and rerank models",
+      "free_limit_tokens_per_day": 660000,
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "3 RPM, 10K TPM on free",
+      "models": [
+        "voyage-3.5",
+        "voyage-code-3",
+        "rerank-2.5"
+      ],
+      "modalities": [
+        "embeddings",
+        "rerank"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.voyageai.com",
+      "docs_url": "https://docs.voyageai.com/docs/rate-limits",
+      "signup_url": "https://www.voyageai.com/",
+      "tags": [
+        "embeddings",
+        "rerank",
+        "rag",
+        "large-free-grant"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The 3 RPM limit is the real constraint — fine for indexing a corpus offline, painful for live retrieval."
+    },
+    {
+      "id": "jina-ai",
+      "name": "Jina AI Embeddings & Reranker",
+      "provider": "Jina AI",
+      "description": "Multilingual embeddings, reranker and reader APIs with a large free token allowance on one key.",
+      "free_limit": "10M free tokens on signup key",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "Token-bucket per key",
+      "models": [
+        "jina-embeddings-v4",
+        "jina-reranker-v2",
+        "reader-lm"
+      ],
+      "modalities": [
+        "embeddings",
+        "rerank"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://jina.ai",
+      "docs_url": "https://jina.ai/embeddings/",
+      "signup_url": "https://jina.ai/",
+      "tags": [
+        "embeddings",
+        "rerank",
+        "multilingual",
+        "rag"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "mistral-embeddings-codestral",
+      "name": "Mistral Codestral",
+      "provider": "Mistral AI",
+      "description": "Code-specialised completions and fill-in-the-middle model inside the Mistral free Experiment tier.",
+      "free_limit": "Included in the Mistral free-tier monthly credit",
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "2 RPM",
+      "models": [
+        "codestral-2508",
+        "codestral-embed"
+      ],
+      "modalities": [
+        "text",
+        "embeddings"
+      ],
+      "context_window": 256000,
+      "commercial_use": true,
+      "data_used_for_training": true,
+      "url": "https://mistral.ai/news/codestral",
+      "docs_url": "https://docs.mistral.ai/capabilities/code_generation/",
+      "signup_url": "https://console.mistral.ai/",
+      "tags": [
+        "code",
+        "fill-in-middle",
+        "ide"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "bhashini",
+      "name": "Bhashini (ULCA)",
+      "provider": "Government of India / MeitY",
+      "description": "India's national language platform — free STT, TTS, translation and OCR APIs for 22 scheduled languages.",
+      "free_limit": "Free for developers via the Bhashini API program",
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "Fair-use, per-API quotas",
+      "modalities": [
+        "speech-to-text",
+        "text-to-speech",
+        "translation",
+        "ocr"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://bhashini.gov.in",
+      "docs_url": "https://bhashini.gitbook.io/bhashini-apis",
+      "signup_url": "https://bhashini.gov.in/ulca/user/register",
+      "tags": [
+        "india",
+        "indic-languages",
+        "translation",
+        "government"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Requires registration approval and a pipeline configuration — the signup is heavier than a typical vendor, but the API is genuinely free."
+    },
+    {
+      "id": "sarvam-ai",
+      "name": "Sarvam AI",
+      "provider": "Sarvam AI",
+      "description": "Indian-language LLMs (Sarvam-M), speech and translation APIs with signup credits for Indian developers.",
+      "free_limit": "Free credits on signup; usage-based afterwards",
+      "requires_card": false,
+      "requires_phone": true,
+      "rate_limit": "Low on free credits",
+      "models": [
+        "sarvam-m",
+        "saarika",
+        "bulbul"
+      ],
+      "modalities": [
+        "text",
+        "speech-to-text",
+        "text-to-speech",
+        "translation"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.sarvam.ai",
+      "docs_url": "https://docs.sarvam.ai",
+      "signup_url": "https://dashboard.sarvam.ai",
+      "tags": [
+        "india",
+        "indic-languages",
+        "voice"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Indic-language models are the differentiator; English performance is below frontier tiers."
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "provider": "Ollama",
+      "description": "The default way to run open models locally — one command to pull, serve and expose an OpenAI-compatible endpoint.",
+      "free_limit": "Unlimited; limited only by your GPU/RAM",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "models": [
+        "gpt-oss-120b",
+        "llama-4",
+        "qwen3",
+        "gemma-3",
+        "mistral-small"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://ollama.com",
+      "docs_url": "https://github.com/ollama/ollama/blob/main/docs/api.md",
+      "tags": [
+        "essential",
+        "local",
+        "privacy",
+        "unlimited",
+        "openai-compatible"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "No rate limit and no data leaving your machine — the correct answer to 'what is the truly free LLM API'."
+    },
+    {
+      "id": "llama-cpp",
+      "name": "llama.cpp",
+      "provider": "ggml-org",
+      "description": "Portable C/C++ inference engine that runs GGUF-quantised models on CPU, GPU or Apple Silicon.",
+      "free_limit": "Unlimited (self-hosted, MIT licensed)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "models": [
+        "any-gguf"
+      ],
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/ggml-org/llama.cpp",
+      "docs_url": "https://github.com/ggml-org/llama.cpp/tree/master/examples/server",
+      "tags": [
+        "local",
+        "cpu",
+        "gguf",
+        "self-hosted"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "lm-studio",
+      "name": "LM Studio",
+      "provider": "LM Studio",
+      "description": "Desktop GUI for local models with a one-click local server and built-in model discovery.",
+      "free_limit": "Free for personal and work use",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "vision",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://lmstudio.ai",
+      "docs_url": "https://lmstudio.ai/docs/app/api",
+      "tags": [
+        "local",
+        "gui",
+        "beginner-friendly"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM",
+      "provider": "vLLM Project",
+      "description": "High-throughput serving engine with PagedAttention — the standard for self-hosted production inference.",
+      "free_limit": "Unlimited (self-hosted, Apache 2.0)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "vision",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/vllm-project/vllm",
+      "docs_url": "https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html",
+      "tags": [
+        "local",
+        "gpu",
+        "production",
+        "high-throughput"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "jan-ai",
+      "name": "Jan",
+      "provider": "Menlo Research",
+      "description": "Open-source offline ChatGPT alternative that can also expose a local OpenAI-compatible API.",
+      "free_limit": "Unlimited (self-hosted, AGPL)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://jan.ai",
+      "docs_url": "https://jan.ai/docs",
+      "tags": [
+        "local",
+        "gui",
+        "offline",
+        "privacy"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "gpt4all",
+      "name": "GPT4All",
+      "provider": "Nomic AI",
+      "description": "Consumer desktop app for running local models on modest hardware, with Python bindings for agents.",
+      "free_limit": "Unlimited (self-hosted, MIT)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.nomic.ai/gpt4all",
+      "docs_url": "https://docs.gpt4all.io",
+      "tags": [
+        "local",
+        "cpu",
+        "python-bindings"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "mlx-lm",
+      "name": "MLX LM",
+      "provider": "Apple",
+      "description": "Apple-silicon-optimised inference and fine-tuning library — the fastest local option on a Mac.",
+      "free_limit": "Unlimited (self-hosted, MIT)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/ml-explore/mlx-lm",
+      "docs_url": "https://ml-explore.github.io/mlx/build/html/index.html",
+      "tags": [
+        "local",
+        "apple-silicon",
+        "mac",
+        "fast-inference"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "localai",
+      "name": "LocalAI",
+      "provider": "LocalAI",
+      "description": "Drop-in OpenAI API replacement that also speaks image, audio and embedding endpoints on modest hardware.",
+      "free_limit": "Unlimited (self-hosted, MIT)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "image-gen",
+        "speech-to-text",
+        "text-to-speech",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://localai.io",
+      "docs_url": "https://localai.io/basics/getting_started/",
+      "tags": [
+        "local",
+        "openai-compatible",
+        "docker",
+        "multi-modal"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "koboldcpp",
+      "name": "KoboldCpp",
+      "provider": "LostRuins",
+      "description": "Single-binary llama.cpp wrapper with a built-in web UI and an OpenAI-compatible endpoint.",
+      "free_limit": "Unlimited (self-hosted, AGPL)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "image-gen",
+        "speech-to-text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/LostRuins/koboldcpp",
+      "docs_url": "https://github.com/LostRuins/koboldcpp/wiki",
+      "tags": [
+        "local",
+        "single-binary",
+        "cpu"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "llamafile",
+      "name": "llamafile",
+      "provider": "Mozilla Builders",
+      "description": "Single-file executable that bundles a model and a server — portable agent runtimes with zero install.",
+      "free_limit": "Unlimited (self-hosted, Apache 2.0)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/Mozilla-Ocho/llamafile",
+      "docs_url": "https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#gotchas",
+      "tags": [
+        "local",
+        "portable",
+        "single-file"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "text-generation-webui",
+      "name": "Text Generation WebUI",
+      "provider": "oobabooga",
+      "description": "Feature-rich local web UI with OpenAI-compatible API, extensions and multi-model loading.",
+      "free_limit": "Unlimited (self-hosted, AGPL)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "vision",
+        "text-to-speech"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/oobabooga/text-generation-webui",
+      "docs_url": "https://github.com/oobabooga/text-generation-webui/wiki",
+      "tags": [
+        "local",
+        "gui",
+        "extensions"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "faster-whisper",
+      "name": "faster-whisper",
+      "provider": "SYSTRAN",
+      "description": "CTranslate2 reimplementation of Whisper that transcribes locally far faster than the reference build.",
+      "free_limit": "Unlimited (self-hosted, MIT)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "speech-to-text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/SYSTRAN/faster-whisper",
+      "docs_url": "https://github.com/SYSTRAN/faster-whisper?tab=readme-ov-file#usage",
+      "tags": [
+        "local",
+        "stt",
+        "voice-agent"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "piper-tts",
+      "name": "Piper TTS",
+      "provider": "Rhasspy",
+      "description": "Fast, small neural TTS that runs on a Raspberry Pi — the free voice layer for offline agents.",
+      "free_limit": "Unlimited (self-hosted, MIT)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text-to-speech"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/OHF-Voice/piper1-gpl",
+      "docs_url": "https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/API_PYTHON.md",
+      "tags": [
+        "local",
+        "tts",
+        "edge",
+        "offline"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "sentence-transformers",
+      "name": "Sentence Transformers",
+      "provider": "UKPLab",
+      "description": "The standard library for local embeddings and reranking — 15K+ models, no API key, no quota.",
+      "free_limit": "Unlimited (self-hosted, Apache 2.0)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "models": [
+        "all-minilm-l6-v2",
+        "bge-large",
+        "e5-large",
+        "cross-encoder-ms-marco"
+      ],
+      "modalities": [
+        "embeddings",
+        "rerank"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://sbert.net",
+      "docs_url": "https://sbert.net/docs/quickstart.html",
+      "tags": [
+        "local",
+        "embeddings",
+        "rerank",
+        "rag"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "fastembed",
+      "name": "FastEmbed",
+      "provider": "Qdrant",
+      "description": "Lightweight ONNX embedding library — CPU-friendly local vectors that pair directly with Qdrant.",
+      "free_limit": "Unlimited (self-hosted, Apache 2.0)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "embeddings",
+        "rerank"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/qdrant/fastembed",
+      "docs_url": "https://qdrant.github.io/fastembed/",
+      "tags": [
+        "local",
+        "embeddings",
+        "onnx",
+        "rag"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "webllm",
+      "name": "WebLLM",
+      "provider": "MLC AI",
+      "description": "Runs quantised LLMs in the browser on WebGPU — zero server, zero cost, zero data egress.",
+      "free_limit": "Unlimited (runs on the user's device)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "models": [
+        "llama-3.2-3b",
+        "phi-3.5-mini",
+        "gemma-2-2b",
+        "qwen2.5-1.5b"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://webllm.mlc.ai",
+      "docs_url": "https://webllm.mlc.ai/docs/",
+      "tags": [
+        "in-browser",
+        "webgpu",
+        "privacy",
+        "no-server"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "First load downloads 1-2GB of weights into the browser cache — design for that or you will lose users."
+    },
+    {
+      "id": "transformers-js",
+      "name": "Transformers.js",
+      "provider": "Hugging Face",
+      "description": "Hugging Face pipelines running in the browser or Node via ONNX runtime, with WebGPU acceleration.",
+      "free_limit": "Unlimited (runs locally/in-browser, Apache 2.0)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text",
+        "embeddings",
+        "speech-to-text",
+        "image-gen"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://huggingface.co/docs/transformers.js",
+      "docs_url": "https://huggingface.co/docs/transformers.js/tutorials/browser-extension",
+      "tags": [
+        "in-browser",
+        "onnx",
+        "embeddings",
+        "client-side"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "wllama",
+      "name": "wllama",
+      "provider": "ngxson",
+      "description": "llama.cpp compiled to WebAssembly with WASM SIMD and threads — GGUF models straight in the browser.",
+      "free_limit": "Unlimited (client-side, MIT)",
+      "requires_card": false,
+      "requires_phone": false,
+      "rate_limit": "None",
+      "modalities": [
+        "text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://github.com/ngxson/wllama",
+      "docs_url": "https://github.com/ngxson/wllama?tab=readme-ov-file#usage",
+      "tags": [
+        "in-browser",
+        "wasm",
+        "gguf",
+        "privacy"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "openai-api",
+      "name": "OpenAI API",
+      "provider": "OpenAI",
+      "description": "No standing free tier. Data-sharing evaluation tokens are the only free path.",
+      "free_limit": "None — no signup credits; $5 prepay minimum for API access",
+      "requires_card": true,
+      "requires_phone": true,
+      "rate_limit": "Not applicable",
+      "models": [
+        "gpt-5",
+        "gpt-5-mini",
+        "o-series"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "speech-to-text",
+        "text-to-speech",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://platform.openai.com",
+      "docs_url": "https://platform.openai.com/docs/pricing",
+      "signup_url": "https://platform.openai.com/signup",
+      "tags": [
+        "no-longer-free",
+        "frontier",
+        "deprecated"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated",
+      "notes": "Unless your org is eligible for the data-sharing token grant, treat OpenAI as paid-only."
+    },
+    {
+      "id": "anthropic-claude-api",
+      "name": "Anthropic Claude API",
+      "provider": "Anthropic",
+      "description": "No public free API tier; the OSS program grants Claude Max to qualifying maintainers instead.",
+      "free_limit": "None — paid API only. OSS maintainer program gives a Claude Max seat",
+      "requires_card": true,
+      "requires_phone": true,
+      "rate_limit": "Not applicable",
+      "models": [
+        "claude-opus",
+        "claude-sonnet",
+        "claude-haiku"
+      ],
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.anthropic.com/api",
+      "docs_url": "https://docs.claude.com/en/docs/about-claude/pricing",
+      "signup_url": "https://console.anthropic.com/",
+      "tags": [
+        "no-longer-free",
+        "frontier",
+        "deprecated"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated",
+      "notes": "Free chat on claude.ai is separate from API access — there is no free API key."
+    },
+    {
+      "id": "xai-grok-api",
+      "name": "xAI Grok API",
+      "provider": "xAI",
+      "description": "No documented free tier; console access requires prepaid credits.",
+      "free_limit": "None — prepaid credits required",
+      "requires_card": true,
+      "requires_phone": true,
+      "rate_limit": "Not applicable",
+      "models": [
+        "grok-4.6",
+        "grok-4-mini"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "image-gen"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://x.ai/api",
+      "docs_url": "https://docs.x.ai/docs/models",
+      "signup_url": "https://console.x.ai/",
+      "tags": [
+        "no-longer-free",
+        "deprecated"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated"
+    },
+    {
+      "id": "deepseek-api",
+      "name": "DeepSeek API",
+      "provider": "DeepSeek",
+      "description": "Extremely cheap per-token pricing, but no standing free tier and no signup grant since 2026.",
+      "free_limit": "None — top-up required (cheapest paid tokens on the market)",
+      "requires_card": true,
+      "requires_phone": true,
+      "rate_limit": "Not applicable",
+      "models": [
+        "deepseek-v4.1",
+        "deepseek-r1"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "context_window": 128000,
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://platform.deepseek.com",
+      "docs_url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "signup_url": "https://platform.deepseek.com/sign_up",
+      "tags": [
+        "no-longer-free",
+        "cheap",
+        "deprecated"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated",
+      "notes": "DeepSeek weights are open — run V4-Flash locally for free rather than paying the API."
+    },
+    {
+      "id": "together-ai",
+      "name": "Together AI",
+      "provider": "Together AI",
+      "description": "200+ open models, but the signup trial credit was retired; a $5 minimum purchase is required.",
+      "free_limit": "None — $5 minimum purchase to start",
+      "requires_card": true,
+      "requires_phone": false,
+      "rate_limit": "Not applicable",
+      "models": [
+        "llama-4",
+        "qwen3",
+        "deepseek-v3"
+      ],
+      "modalities": [
+        "text",
+        "vision",
+        "image-gen",
+        "embeddings"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.together.ai",
+      "docs_url": "https://docs.together.ai/docs/quickstart",
+      "signup_url": "https://api.together.ai/signin",
+      "tags": [
+        "no-longer-free",
+        "deprecated"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated"
+    },
+    {
+      "id": "perplexity-api",
+      "name": "Perplexity API (Sonar)",
+      "provider": "Perplexity",
+      "description": "Search-grounded Sonar models are paid API only; the free consumer app is not API access.",
+      "free_limit": "None — Pro subscribers get $5/month of API credit",
+      "requires_card": true,
+      "requires_phone": false,
+      "rate_limit": "Not applicable",
+      "models": [
+        "sonar",
+        "sonar-pro",
+        "sonar-reasoning"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "commercial_use": true,
+      "data_used_for_training": false,
+      "url": "https://www.perplexity.ai/api",
+      "docs_url": "https://docs.perplexity.ai/getting-started/pricing",
+      "signup_url": "https://console.perplexity.ai/",
+      "tags": [
+        "no-longer-free",
+        "search",
+        "deprecated"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated",
+      "notes": "Tavily, Exa and Brave all have free search tiers — see the MCP list for agent-ready alternatives."
+    }
+  ],
+  "mcp-servers": [
+    {
+      "id": "filesystem-mcp",
+      "name": "Filesystem",
+      "maintainer": "MCP Steering Group",
+      "description": "Secure local file operations with configurable allow-listed directories — the reference server every local agent starts with.",
+      "install": "npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "tools_exposed": 14,
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "docs_url": "https://modelcontextprotocol.io/",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "windsurf",
+        "zed",
+        "cline"
+      ],
+      "tags": [
+        "files",
+        "local",
+        "reference",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Always pass an explicit allow-listed root. Running it on `/` gives an agent write access to your whole machine."
+    },
+    {
+      "id": "fetch-mcp",
+      "name": "Fetch",
+      "maintainer": "MCP Steering Group",
+      "description": "Fetches a URL and converts it to clean markdown for the model, with robots.txt respect and chunked reading.",
+      "install": "uvx mcp-server-fetch",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "tools_exposed": 1,
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "cline"
+      ],
+      "tags": [
+        "web",
+        "scraping",
+        "markdown",
+        "reference"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "git-mcp",
+      "name": "Git",
+      "maintainer": "MCP Steering Group",
+      "description": "Read, search and diff a local git repository — history-aware agents without shelling out to raw git.",
+      "install": "uvx mcp-server-git --repository /path/to/repo",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "tools_exposed": 13,
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "cline"
+      ],
+      "tags": [
+        "git",
+        "version-control",
+        "reference",
+        "local"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "memory-mcp",
+      "name": "Memory (Knowledge Graph)",
+      "maintainer": "MCP Steering Group",
+      "description": "Persistent knowledge-graph memory stored as local JSON — gives an agent recall across sessions for free.",
+      "install": "npx -y @modelcontextprotocol/server-memory",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "tools_exposed": 9,
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "cline"
+      ],
+      "tags": [
+        "memory",
+        "knowledge-graph",
+        "rdf",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Pair with a free vector store (Qdrant or Chroma) when the graph grows past a few thousand entities."
+    },
+    {
+      "id": "sequential-thinking-mcp",
+      "name": "Sequential Thinking",
+      "maintainer": "MCP Steering Group",
+      "description": "Structured step-by-step reasoning with revision and branching — measurably improves multi-step agent plans.",
+      "install": "npx -y @modelcontextprotocol/server-sequential-thinking",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "tools_exposed": 1,
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "cline"
+      ],
+      "tags": [
+        "reasoning",
+        "planning",
+        "reference"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "time-mcp",
+      "name": "Time",
+      "maintainer": "MCP Steering Group",
+      "description": "Time and timezone conversion grounded in the host clock — stops agents hallucinating dates.",
+      "install": "uvx mcp-server-time",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "tools_exposed": 4,
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "cline"
+      ],
+      "tags": [
+        "time",
+        "timezone",
+        "reference"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "everything-mcp",
+      "name": "Everything (Test Server)",
+      "maintainer": "MCP Steering Group",
+      "description": "Reference server exercising every MCP primitive — the fastest way to test a new client or transport.",
+      "install": "npx -y @modelcontextprotocol/server-everything",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "testing",
+        "reference",
+        "development"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "github-mcp",
+      "name": "GitHub MCP Server",
+      "maintainer": "GitHub",
+      "description": "Repo automation, PRs, issues, code search and CI workflows — the most-starred MCP server in the ecosystem.",
+      "install": "docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "go",
+      "tools_exposed": 51,
+      "requires_auth": true,
+      "auth_type": "GitHub PAT (fine-grained, read-only works)",
+      "url": "https://github.com/github/github-mcp-server",
+      "stars": 33166,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "windsurf",
+        "zed"
+      ],
+      "tags": [
+        "git",
+        "devops",
+        "issues",
+        "pull-requests",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "A hosted remote variant is available at https://api.githubcopilot.com/mcp/ if you would rather not run Docker."
+    },
+    {
+      "id": "playwright-mcp",
+      "name": "Playwright MCP",
+      "maintainer": "Microsoft",
+      "description": "Browser automation over accessibility snapshots rather than screenshots — deterministic agent browsing in Chromium, Firefox and WebKit.",
+      "install": "npx -y @playwright/mcp@latest",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "tools_exposed": 22,
+      "requires_auth": false,
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "stars": 37530,
+      "clients": [
+        "claude-code",
+        "cursor",
+        "vscode",
+        "windsurf",
+        "cline"
+      ],
+      "tags": [
+        "browser",
+        "automation",
+        "testing",
+        "scraping",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Accessibility-tree snapshots use far fewer tokens than screenshot-based browser agents."
+    },
+    {
+      "id": "chrome-devtools-mcp",
+      "name": "Chrome DevTools MCP",
+      "maintainer": "Google Chrome DevTools team",
+      "description": "Drives a real Chrome instance for performance traces, console errors and network inspection.",
+      "install": "npx -y chrome-devtools-mcp@latest",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "stars": 52550,
+      "clients": [
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "browser",
+        "debugging",
+        "performance",
+        "frontend"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "notion-mcp",
+      "name": "Notion MCP",
+      "maintainer": "Notion",
+      "description": "Reads and writes Notion pages and databases — the cleanest way to give an agent a knowledge base you already maintain.",
+      "install": "npx -y @notionhq/notion-mcp-server",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Notion internal integration token",
+      "url": "https://github.com/makenotion/notion-mcp-server",
+      "docs_url": "https://developers.notion.com/docs/mcp",
+      "stars": 4644,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "windsurf"
+      ],
+      "tags": [
+        "notes",
+        "knowledge-base",
+        "productivity"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Remember to share the specific pages with the integration — a token alone grants nothing."
+    },
+    {
+      "id": "sentry-mcp",
+      "name": "Sentry MCP",
+      "maintainer": "Sentry",
+      "description": "Pulls issues, stack traces and traces into the prompt so an agent can triage production errors.",
+      "install": "npx -y @sentry/mcp-server@latest",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Sentry user auth token",
+      "url": "https://github.com/getsentry/sentry-mcp",
+      "stars": 858,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "observability",
+        "errors",
+        "triage",
+        "devops"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "supabase-mcp",
+      "name": "Supabase MCP",
+      "maintainer": "Supabase",
+      "description": "Postgres schema, migrations, edge functions and logs through one authenticated server.",
+      "install": "npx -y @supabase/mcp-server-supabase@latest --read-only --project-ref=<ref>",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Supabase personal access token",
+      "url": "https://github.com/supabase-community/supabase-mcp",
+      "stars": 2919,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "windsurf"
+      ],
+      "tags": [
+        "database",
+        "postgres",
+        "backend",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Start with --read-only; agents granted DDL rights will eventually drop something you wanted."
+    },
+    {
+      "id": "mongodb-mcp",
+      "name": "MongoDB MCP",
+      "maintainer": "MongoDB",
+      "description": "Query, aggregate and inspect collections, including Atlas administration.",
+      "install": "npx -y mongodb-mcp-server --connectionString \"<uri>\"",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Connection string / Atlas API key",
+      "url": "https://github.com/mongodb-js/mongodb-mcp-server",
+      "stars": 1138,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "database",
+        "nosql",
+        "atlas"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "redis-mcp",
+      "name": "Redis MCP",
+      "maintainer": "Redis",
+      "description": "Key-value access, data structure operations and vector set queries against Redis or Upstash.",
+      "install": "npx -y @redis/mcp-redis",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Redis URL with credentials",
+      "url": "https://github.com/redis/mcp-redis",
+      "stars": 628,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "cache",
+        "database",
+        "vector",
+        "key-value"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "cloudflare-mcp",
+      "name": "Cloudflare MCP Servers",
+      "maintainer": "Cloudflare",
+      "description": "Fifteen-plus specialised servers for Workers, R2, D1, DNS, logs and Workers AI.",
+      "install": "npx -y mcp-remote https://observability.mcp.cloudflare.com/mcp",
+      "transport": [
+        "http",
+        "sse"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Cloudflare OAuth",
+      "url": "https://github.com/cloudflare/mcp-server-cloudflare",
+      "stars": 4277,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "cloud",
+        "edge",
+        "devops",
+        "observability"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Each Cloudflare product ships its own server; pick the observability or bindings one rather than enabling all of them."
+    },
+    {
+      "id": "vercel-mcp",
+      "name": "Vercel MCP",
+      "maintainer": "Vercel",
+      "description": "Deployments, build logs, environment variables and project configuration.",
+      "install": "npx -y mcp-remote https://mcp.vercel.com",
+      "transport": [
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Vercel OAuth",
+      "url": "https://vercel.com/docs/mcp/vercel-mcp",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "deploy",
+        "hosting",
+        "devops"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "aws-mcp",
+      "name": "AWS MCP Servers",
+      "maintainer": "AWS Labs",
+      "description": "Official suite covering S3, Lambda, DynamoDB, CloudWatch and 20+ other services.",
+      "install": "uvx awslabs.core-mcp-server@latest",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "requires_auth": true,
+      "auth_type": "AWS IAM credentials / SSO profile",
+      "url": "https://github.com/awslabs/mcp",
+      "stars": 9728,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "kiro"
+      ],
+      "tags": [
+        "cloud",
+        "aws",
+        "devops"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Scope IAM to a read-only role before letting an agent near your account."
+    },
+    {
+      "id": "azure-mcp",
+      "name": "Azure MCP Server",
+      "maintainer": "Microsoft",
+      "description": "Natural-language management of Azure resources with Entra ID authentication.",
+      "install": "npx -y @azure/mcp@latest server start",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Entra ID (az login)",
+      "url": "https://github.com/microsoft/mcp",
+      "stars": 3705,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "cloud",
+        "azure",
+        "devops"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "gcp-mcp",
+      "name": "Google Cloud MCP Servers",
+      "maintainer": "Google Cloud",
+      "description": "Managed MCP endpoints for Cloud Run, BigQuery, Spanner and gcloud workflows.",
+      "install": "npx -y @google-cloud/gcloud-mcp",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Google Cloud ADC (gcloud auth login)",
+      "url": "https://github.com/googleapis/gcloud-mcp",
+      "docs_url": "https://cloud.google.com/sdk/docs",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "gemini-cli"
+      ],
+      "tags": [
+        "cloud",
+        "gcp",
+        "devops"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "degraded",
+      "notes": "Google has renamed and reorganised these packages several times in 2026 — confirm the current package name on the docs page before copying the install line."
+    },
+    {
+      "id": "docker-mcp",
+      "name": "Docker MCP Gateway",
+      "maintainer": "Docker",
+      "description": "Container management plus a gateway that catalogs and proxies hundreds of other MCP servers.",
+      "install": "docker mcp gateway run",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "go",
+      "requires_auth": false,
+      "url": "https://github.com/docker/mcp-gateway",
+      "stars": 1582,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "containers",
+        "devops",
+        "gateway",
+        "catalog"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "kubernetes-mcp",
+      "name": "Kubernetes MCP",
+      "maintainer": "Flux159 (community)",
+      "description": "kubectl-style cluster operations — inspect pods, apply manifests and read logs.",
+      "install": "npx -y mcp-server-kubernetes",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "kubeconfig context",
+      "url": "https://github.com/Flux159/mcp-server-kubernetes",
+      "stars": 1594,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "kubernetes",
+        "devops",
+        "platform"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Point it at a non-production context. An agent with cluster-admin is a very efficient way to delete a namespace."
+    },
+    {
+      "id": "terraform-mcp",
+      "name": "Terraform MCP",
+      "maintainer": "HashiCorp",
+      "description": "Provider and module registry lookups plus plan/apply assistance for infrastructure as code.",
+      "install": "docker run -i --rm hashicorp/terraform-mcp-server",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "go",
+      "requires_auth": false,
+      "url": "https://github.com/hashicorp/terraform-mcp-server",
+      "stars": 1532,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "iac",
+        "terraform",
+        "devops"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "grafana-mcp",
+      "name": "Grafana MCP",
+      "maintainer": "Grafana Labs",
+      "description": "Query dashboards, Loki logs and Prometheus metrics from inside the agent loop.",
+      "install": "docker run -i --rm mcp/grafana -t stdio",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "go",
+      "requires_auth": true,
+      "auth_type": "Grafana service account token",
+      "url": "https://github.com/grafana/mcp-grafana",
+      "stars": 3491,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "observability",
+        "metrics",
+        "logs",
+        "devops"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "elasticsearch-mcp",
+      "name": "Elasticsearch MCP",
+      "maintainer": "Elastic",
+      "description": "Search indices and run aggregations; works against Elastic Cloud or self-hosted.",
+      "install": "npx -y @elastic/mcp-server-elasticsearch",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Elasticsearch API key",
+      "url": "https://github.com/elastic/mcp-server-elasticsearch",
+      "stars": 720,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "search",
+        "logs",
+        "database"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "stripe-mcp",
+      "name": "Stripe MCP",
+      "maintainer": "Stripe",
+      "description": "Read customers, invoices and subscriptions, and create payment links from a prompt.",
+      "install": "npx -y @stripe/mcp --tools=all --api-key=<rk_live_or_test>",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Stripe restricted API key",
+      "url": "https://github.com/stripe/agent-toolkit",
+      "stars": 1830,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "payments",
+        "business",
+        "finance"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Use a restricted key in test mode. --tools=all grants write access to live objects if the key allows it."
+    },
+    {
+      "id": "figma-mcp",
+      "name": "Figma MCP",
+      "maintainer": "Framelink (community) / Figma Dev Mode",
+      "description": "Pulls design tokens, layout and component structure out of Figma files into the editor.",
+      "install": "npx -y figma-developer-mcp --figma-api-key=<token>",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Figma personal access token",
+      "url": "https://github.com/GLips/Figma-Context-MCP",
+      "docs_url": "https://developers.figma.com/docs/figma-mcp-server/",
+      "stars": 15902,
+      "clients": [
+        "claude-code",
+        "cursor",
+        "vscode",
+        "windsurf"
+      ],
+      "tags": [
+        "design",
+        "frontend",
+        "ui"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Figma also ships a first-party Dev Mode server on localhost:3845 for desktop app users."
+    },
+    {
+      "id": "linear-mcp",
+      "name": "Linear MCP",
+      "maintainer": "Linear",
+      "description": "Create, search and update issues and projects in Linear from the agent loop.",
+      "install": "npx -y mcp-remote https://mcp.linear.app/mcp",
+      "transport": [
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Linear OAuth",
+      "url": "https://linear.app/docs/mcp",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "issues",
+        "planning",
+        "productivity"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "atlassian-mcp",
+      "name": "Atlassian MCP",
+      "maintainer": "Atlassian",
+      "description": "Jira issues and Confluence pages — the enterprise ticketing counterpart to Linear.",
+      "install": "npx -y mcp-remote https://mcp.atlassian.com/v1/mcp",
+      "transport": [
+        "http",
+        "sse"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Atlassian OAuth",
+      "url": "https://github.com/atlassian/atlassian-mcp-server",
+      "stars": 1062,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "issues",
+        "docs",
+        "enterprise",
+        "productivity"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "slack-mcp",
+      "name": "Slack MCP",
+      "maintainer": "Zencoder (community)",
+      "description": "Read channels and post messages — the archived reference server's maintained successor.",
+      "install": "npx -y @zencoderai/slack-mcp-server",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Slack bot/user token",
+      "url": "https://github.com/zencoderai/slack-mcp-server",
+      "stars": 75,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "chat",
+        "notifications",
+        "team"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The original Slack reference server was archived in 2026 and now lives in modelcontextprotocol/servers-archived."
+    },
+    {
+      "id": "airtable-mcp",
+      "name": "Airtable MCP",
+      "maintainer": "Airtable",
+      "description": "Read and write Airtable bases — a spreadsheet-shaped backend for agent prototypes.",
+      "install": "npx -y mcp-remote https://mcp.airtable.com/mcp",
+      "transport": [
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Airtable OAuth / PAT",
+      "url": "https://support.airtable.com/docs/airtable-mcp-server",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "database",
+        "spreadsheet",
+        "no-code"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "google-workspace-mcp",
+      "name": "Google Workspace MCP",
+      "maintainer": "taylorwilsdon (community)",
+      "description": "Gmail, Drive, Calendar, Docs and Sheets through a single OAuth'd server.",
+      "install": "uvx workspace-mcp",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "python",
+      "requires_auth": true,
+      "auth_type": "Google OAuth 2.0",
+      "url": "https://github.com/taylorwilsdon/google_workspace_mcp",
+      "stars": 3218,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "email",
+        "calendar",
+        "docs",
+        "productivity"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "zapier-mcp",
+      "name": "Zapier MCP",
+      "maintainer": "Zapier",
+      "description": "Bridges an agent to 8,000+ app actions without writing per-service integrations.",
+      "install": "npx -y mcp-remote https://mcp.zapier.com/api/mcp/mcp",
+      "transport": [
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Zapier OAuth (per action)",
+      "url": "https://zapier.com/mcp",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "automation",
+        "integrations",
+        "no-code"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Free plan limits how many actions you can expose at once."
+    },
+    {
+      "id": "n8n-mcp",
+      "name": "n8n MCP",
+      "maintainer": "czlonkowski (community)",
+      "description": "Gives an agent the full n8n node catalogue so it can build and edit workflows.",
+      "install": "npx -y n8n-mcp",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "n8n API key (optional, for live control)",
+      "url": "https://github.com/czlonkowski/n8n-mcp",
+      "stars": 22984,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "automation",
+        "workflows",
+        "low-code"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "browserbase-mcp",
+      "name": "Browserbase MCP",
+      "maintainer": "Browserbase",
+      "description": "Cloud browser sessions with stealth mode, proxies and session replay for agents.",
+      "install": "npx -y @browserbasehq/mcp-server-browserbase",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Browserbase API key + project ID",
+      "url": "https://github.com/browserbase/mcp-server-browserbase",
+      "stars": 3413,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "browser",
+        "scraping",
+        "cloud",
+        "stealth"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "apify-mcp",
+      "name": "Apify Actors MCP",
+      "maintainer": "Apify",
+      "description": "Runs any of Apify's 5,000+ scrapers as an agent tool, including the free-tier actors.",
+      "install": "npx -y @apify/actors-mcp-server",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Apify API token",
+      "url": "https://github.com/apify/actors-mcp-server",
+      "stars": 8268,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "scraping",
+        "automation",
+        "data"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "elevenlabs-mcp",
+      "name": "ElevenLabs MCP",
+      "maintainer": "ElevenLabs",
+      "description": "Text-to-speech generation and voice management inside the agent loop.",
+      "install": "uvx elevenlabs-mcp",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "requires_auth": true,
+      "auth_type": "ElevenLabs API key",
+      "url": "https://github.com/elevenlabs/elevenlabs-mcp",
+      "stars": 1538,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "audio",
+        "tts",
+        "voice-agent"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "huggingface-mcp",
+      "name": "Hugging Face MCP",
+      "maintainer": "Hugging Face",
+      "description": "Searches models, datasets and Spaces, and can call Gradio apps as tools.",
+      "install": "npx -y mcp-remote https://huggingface.co/mcp",
+      "transport": [
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Hugging Face access token",
+      "url": "https://huggingface.co/mcp",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "models",
+        "datasets",
+        "hub",
+        "gradio"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "qdrant-mcp",
+      "name": "Qdrant MCP",
+      "maintainer": "Qdrant",
+      "description": "Stores and retrieves memories in a Qdrant collection — vector memory as a tool, in about four lines of config.",
+      "install": "uvx mcp-server-qdrant --qdrant-url <url>",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "requires_auth": true,
+      "auth_type": "Qdrant API key (cloud)",
+      "url": "https://github.com/qdrant/mcp-server-qdrant",
+      "stars": 1537,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "vector",
+        "embeddings",
+        "memory",
+        "rag",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Pairs with Qdrant's free 1GB cluster, so long-term agent memory costs nothing to start."
+    },
+    {
+      "id": "chroma-mcp",
+      "name": "Chroma MCP",
+      "maintainer": "Chroma",
+      "description": "Local or cloud Chroma collections exposed as MCP tools for RAG and memory.",
+      "install": "uvx chroma-mcp --client-type persistent --data-dir ./chroma",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "requires_auth": false,
+      "url": "https://github.com/chroma-core/chroma-mcp",
+      "stars": 599,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "vector",
+        "embeddings",
+        "rag",
+        "local"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "neo4j-mcp",
+      "name": "Neo4j MCP",
+      "maintainer": "Neo4j",
+      "description": "Cypher queries and graph-schema inspection against AuraDB Free or self-hosted Neo4j.",
+      "install": "uvx mcp-neo4j-cypher",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "requires_auth": true,
+      "auth_type": "Neo4j username/password",
+      "url": "https://github.com/neo4j-contrib/mcp-neo4j",
+      "stars": 986,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "graph",
+        "database",
+        "knowledge-graph"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "postgres-mcp",
+      "name": "Postgres MCP Pro",
+      "maintainer": "Crystal DBA (community)",
+      "description": "Read-only-safe Postgres access with index tuning and health checks — the maintained replacement for the archived reference server.",
+      "install": "uvx postgres-mcp --access-mode=restricted",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "python",
+      "requires_auth": true,
+      "auth_type": "Postgres connection string",
+      "url": "https://github.com/crystaldba/postgres-mcp",
+      "stars": 3339,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "database",
+        "postgres",
+        "sql",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The original @modelcontextprotocol/server-postgres reference server was archived in 2025 — many guides still tell you to install it."
+    },
+    {
+      "id": "sqlite-mcp",
+      "name": "SQLite MCP",
+      "maintainer": "MCP Steering Group (archived)",
+      "description": "Query and inspect a local SQLite file, including business-intelligence style summaries.",
+      "install": "uvx mcp-server-sqlite --db-path ./data.db",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "python",
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sqlite",
+      "stars": 304,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "database",
+        "sqlite",
+        "local"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "degraded",
+      "notes": "Archived but still functional and still the simplest SQLite option. Community forks exist if you need active maintenance."
+    },
+    {
+      "id": "mysql-mcp",
+      "name": "MySQL MCP Server",
+      "maintainer": "designcomputer (community)",
+      "description": "Read-only-by-default MySQL queries and schema inspection.",
+      "install": "uvx mysql-mcp-server",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "python",
+      "requires_auth": true,
+      "auth_type": "MySQL username/password",
+      "url": "https://github.com/designcomputer/mysql_mcp_server",
+      "stars": 1395,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "database",
+        "mysql",
+        "sql"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "context7-mcp",
+      "name": "Context7",
+      "maintainer": "Upstash",
+      "description": "Version-pinned, up-to-date documentation for thousands of libraries — the single highest-value server for coding agents.",
+      "install": "npx -y @upstash/context7-mcp",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://github.com/upstash/context7",
+      "stars": 62381,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "windsurf",
+        "zed",
+        "cline"
+      ],
+      "tags": [
+        "docs",
+        "coding",
+        "hallucination-fix",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Works without a key at low volume; an API key raises the rate limit. The most-installed MCP server on npm."
+    },
+    {
+      "id": "firecrawl-mcp",
+      "name": "Firecrawl MCP",
+      "maintainer": "Firecrawl",
+      "description": "Crawls, scrapes and extracts structured data from sites, returning clean markdown for the model.",
+      "install": "npx -y firecrawl-mcp",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Firecrawl API key (free tier available)",
+      "url": "https://github.com/firecrawl/firecrawl-mcp-server",
+      "stars": 7509,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode",
+        "windsurf"
+      ],
+      "tags": [
+        "scraping",
+        "crawling",
+        "markdown",
+        "research"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "exa-mcp",
+      "name": "Exa MCP",
+      "maintainer": "Exa",
+      "description": "Semantic web search tuned for agents, with deep-research and company-research modes.",
+      "install": "npx -y exa-mcp-server",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Exa API key",
+      "url": "https://github.com/exa-labs/exa-mcp-server",
+      "stars": 5045,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "search",
+        "research",
+        "semantic"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "tavily-mcp",
+      "name": "Tavily MCP",
+      "maintainer": "Tavily",
+      "description": "Search, extract and map endpoints purpose-built for LLM grounding, with a genuinely usable free tier.",
+      "install": "npx -y tavily-mcp@latest",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Tavily API key (1,000 free credits/month)",
+      "url": "https://github.com/tavily-ai/tavily-mcp",
+      "stars": 2401,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "search",
+        "research",
+        "grounding",
+        "free-tier"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "brave-search-mcp",
+      "name": "Brave Search MCP",
+      "maintainer": "Brave",
+      "description": "Independent web and local search index with a free API tier — no Google/Bing dependency.",
+      "install": "npx -y @brave/brave-search-mcp-server",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Brave Search API key",
+      "url": "https://github.com/brave/brave-search-mcp-server",
+      "stars": 1466,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "search",
+        "web",
+        "privacy"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Brave's free tier is rate-limited to roughly one query per second and requires a card for verification."
+    },
+    {
+      "id": "deepwiki-mcp",
+      "name": "DeepWiki MCP",
+      "maintainer": "Cognition (Devin)",
+      "description": "Ask questions about any public GitHub repository and get answers grounded in its actual code and wiki.",
+      "install": "npx -y mcp-remote https://mcp.deepwiki.com/mcp",
+      "transport": [
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://docs.devin.ai/work-with-devin/deepwiki-mcp",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "research",
+        "code-understanding",
+        "no-auth"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "ref-tools-mcp",
+      "name": "Ref MCP",
+      "maintainer": "Ref (community)",
+      "description": "Token-efficient documentation search across technical sites, alternative to Context7.",
+      "install": "npx -y ref-tools-mcp@latest",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://github.com/ref-tools/ref-tools-mcp",
+      "stars": 1177,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "docs",
+        "search",
+        "token-efficient"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "duckduckgo-mcp",
+      "name": "DuckDuckGo MCP",
+      "maintainer": "nickclyde (community)",
+      "description": "Keyless web search and safe text fetching — zero signup, which is rare in search tooling.",
+      "install": "uvx duckduckgo-mcp-server",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "python",
+      "requires_auth": false,
+      "url": "https://github.com/nickclyde/duckduckgo-mcp-server",
+      "stars": 1503,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "search",
+        "no-auth",
+        "free"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Rate-limited by DuckDuckGo itself; fine for occasional lookups, not for bulk crawling."
+    },
+    {
+      "id": "wikipedia-mcp",
+      "name": "Wikipedia MCP",
+      "maintainer": "Rudra-ravi (community)",
+      "description": "Wikipedia search, article retrieval and section-level summaries.",
+      "install": "uvx wikipedia-mcp",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "python",
+      "requires_auth": false,
+      "url": "https://github.com/Rudra-ravi/wikipedia-mcp",
+      "stars": 295,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "research",
+        "knowledge",
+        "no-auth"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "youtube-mcp",
+      "name": "YouTube MCP",
+      "maintainer": "anaisbetts (community)",
+      "description": "Fetches video transcripts by URL so agents can reason over talks and tutorials.",
+      "install": "npx -y @anaisbetts/mcp-youtube",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://github.com/anaisbetts/mcp-youtube",
+      "stars": 546,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "video",
+        "transcripts",
+        "research"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "obsidian-mcp",
+      "name": "Obsidian MCP",
+      "maintainer": "StevenStavrakis (community)",
+      "description": "Read and write notes in a local Obsidian vault — a personal knowledge base as agent memory.",
+      "install": "npx -y obsidian-mcp /path/to/vault",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://github.com/StevenStavrakis/obsidian-mcp",
+      "stars": 735,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "notes",
+        "markdown",
+        "knowledge-base",
+        "local"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "fastmcp",
+      "name": "FastMCP",
+      "maintainer": "Prefect / community",
+      "description": "Pythonic framework and CLI for building MCP servers in about ten lines, with a built-in dev inspector.",
+      "install": "uvx fastmcp run server.py",
+      "transport": [
+        "stdio",
+        "http",
+        "sse"
+      ],
+      "official": false,
+      "language": "python",
+      "requires_auth": false,
+      "url": "https://github.com/jlowin/fastmcp",
+      "docs_url": "https://gofastmcp.com",
+      "stars": 27889,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "framework",
+        "python",
+        "development",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "If you are writing your own server, start here. It also has `fastmcp dev` for interactive testing."
+    },
+    {
+      "id": "openapi-mcp",
+      "name": "OpenAPI MCP Server",
+      "maintainer": "ivotoby (community)",
+      "description": "Turns any OpenAPI/Swagger spec into MCP tools — the fastest path to exposing an existing REST API.",
+      "install": "npx -y @ivotoby/openapi-mcp-server --api-base-url <url> --openapi-spec <path>",
+      "transport": [
+        "stdio"
+      ],
+      "official": false,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Target API credentials",
+      "url": "https://github.com/ivo-toby/mcp-openapi-server",
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "openapi",
+        "rest",
+        "integration",
+        "development"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "antv-chart-mcp",
+      "name": "AntV Chart MCP",
+      "maintainer": "Ant Group",
+      "description": "Generates charts and dashboards (25+ chart types) as images from natural language data.",
+      "install": "npx -y @antv/mcp-server-chart",
+      "transport": [
+        "stdio",
+        "http"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://github.com/antvis/mcp-server-chart",
+      "stars": 4382,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor",
+        "vscode"
+      ],
+      "tags": [
+        "visualisation",
+        "charts",
+        "data"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "puppeteer-mcp",
+      "name": "Puppeteer (Archived)",
+      "maintainer": "MCP Steering Group (archived)",
+      "description": "The original browser-automation reference server. Superseded by Playwright MCP.",
+      "install": "npx -y @modelcontextprotocol/server-puppeteer",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": false,
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer",
+      "stars": 304,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "browser",
+        "automation",
+        "archived"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated",
+      "notes": "Still installs and works, but receives no fixes. Use @playwright/mcp for anything new."
+    },
+    {
+      "id": "google-drive-mcp",
+      "name": "Google Drive (Archived)",
+      "maintainer": "MCP Steering Group (archived)",
+      "description": "Searches and reads Google Drive files. Superseded by community Workspace servers.",
+      "install": "npx -y @modelcontextprotocol/server-gdrive",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Google OAuth credentials",
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/gdrive",
+      "stars": 304,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "files",
+        "google",
+        "archived"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated",
+      "notes": "Archived in 2025. The community google_workspace_mcp server covers this and more."
+    },
+    {
+      "id": "slack-archived-mcp",
+      "name": "Slack (Archived Reference)",
+      "maintainer": "MCP Steering Group (archived)",
+      "description": "The original Slack channel-management reference server, now unmaintained.",
+      "install": "npx -y @modelcontextprotocol/server-slack",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Slack bot token",
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/slack",
+      "stars": 304,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "chat",
+        "archived"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated",
+      "notes": "Listed so you can recognise it when a tutorial tells you to install it. Use the Zencoder fork instead."
+    },
+    {
+      "id": "brave-search-archived-mcp",
+      "name": "Brave Search (Archived Reference)",
+      "maintainer": "MCP Steering Group (archived)",
+      "description": "Archived reference search server, replaced by Brave's own first-party server.",
+      "install": "npx -y @modelcontextprotocol/server-brave-search",
+      "transport": [
+        "stdio"
+      ],
+      "official": true,
+      "language": "typescript",
+      "requires_auth": true,
+      "auth_type": "Brave Search API key",
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/brave-search",
+      "stars": 304,
+      "clients": [
+        "claude",
+        "claude-code",
+        "cursor"
+      ],
+      "tags": [
+        "search",
+        "archived"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "deprecated",
+      "notes": "Install @brave/brave-search-mcp-server instead."
+    }
+  ],
+  "agent-tools": [
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "category": "ide",
+      "description": "AI-first code editor with whole-project awareness, tab completion and a multi-file agent.",
+      "free_limit": "Hobby plan: limited agent requests + 2,000 tab completions/month",
+      "requires_card": false,
+      "open_source": false,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://cursor.com",
+      "tags": [
+        "coding-agent",
+        "ide",
+        "commercial"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Free tier is an evaluation budget, not a workflow. Pair it with Gemini CLI or Cline for the heavy lifting."
+    },
+    {
+      "id": "devin-desktop",
+      "name": "Devin Desktop (formerly Windsurf)",
+      "category": "ide",
+      "description": "Agentic editor from Cognition — the Windsurf/Cascade lineage, renamed after the 2026 acquisition.",
+      "free_limit": "Free plan: unlimited tab completion, quota-limited Cascade agent sessions",
+      "requires_card": false,
+      "open_source": false,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://devin.ai/desktop",
+      "tags": [
+        "coding-agent",
+        "ide",
+        "unlimited-completions"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "windsurf.com now redirects to devin.ai. Tab completion is unlimited on every plan, including free — the agent quota is what runs out."
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot Free",
+      "category": "ide",
+      "description": "Copilot's genuinely free tier inside VS Code, JetBrains and the GitHub web editor.",
+      "free_limit": "2,000 completions + 50 chat/agent requests per month",
+      "requires_card": false,
+      "open_source": false,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux",
+        "web"
+      ],
+      "url": "https://github.com/features/copilot",
+      "tags": [
+        "coding-agent",
+        "completions",
+        "github"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Requires any GitHub account, including free. Best free choice if you already live in VS Code."
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "category": "ide",
+      "description": "Rust-native, GPU-accelerated editor with a free built-in AI tier and bring-your-own-key support.",
+      "free_limit": "Free AI tier included; unlimited use with your own API keys",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://zed.dev",
+      "tags": [
+        "ide",
+        "fast",
+        "open-source",
+        "byok"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "kiro",
+      "name": "Kiro",
+      "category": "ide",
+      "description": "AWS's spec-driven agentic IDE — writes requirements and design docs before it writes code.",
+      "free_limit": "Free tier with monthly agentic-interaction quota",
+      "requires_card": false,
+      "open_source": false,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://kiro.dev",
+      "tags": [
+        "coding-agent",
+        "ide",
+        "spec-driven",
+        "aws"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "trae",
+      "name": "Trae",
+      "category": "ide",
+      "description": "ByteDance's AI IDE with a free tier built around frontier models and an agent mode.",
+      "free_limit": "Free plan with monthly premium-model requests",
+      "requires_card": false,
+      "open_source": false,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://trae.ai",
+      "tags": [
+        "coding-agent",
+        "ide",
+        "free-tier"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Review the data-retention policy before using it on proprietary code."
+    },
+    {
+      "id": "amp",
+      "name": "Amp (Sourcegraph)",
+      "category": "cli",
+      "description": "Frontier agent from Sourcegraph with a free-forever plan, then pay-as-you-go with no subscription required.",
+      "free_limit": "Free plan with a monthly ad-supported allowance; BYOK option",
+      "requires_card": false,
+      "open_source": false,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "url": "https://ampcode.com",
+      "tags": [
+        "coding-agent",
+        "cli",
+        "frontier",
+        "byok"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode",
+      "category": "cli",
+      "description": "Open-source terminal coding agent with a client/server architecture and provider-agnostic model routing.",
+      "free_limit": "Free software — you bring a model key (free tiers work fine)",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "curl -fsSL https://opencode.ai/install | bash",
+      "url": "https://opencode.ai",
+      "tags": [
+        "coding-agent",
+        "cli",
+        "open-source",
+        "byok"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "kilo-code",
+      "name": "Kilo Code",
+      "category": "ide",
+      "description": "Open-source VS Code agent with a large free model allocation before you need your own key.",
+      "free_limit": "Free credits on signup for Anthropic/Gemini models; unlimited with BYOK",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://kilocode.ai",
+      "tags": [
+        "coding-agent",
+        "vscode",
+        "open-source"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini CLI",
+      "category": "cli",
+      "description": "Google's open-source terminal agent with the most generous free quota of any first-party CLI.",
+      "free_limit": "1,000 requests/day with a personal Google account (60 RPM)",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "npx -y @google/gemini-cli",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "stars": 107139,
+      "tags": [
+        "coding-agent",
+        "cli",
+        "generous-free-tier",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Also ships a free Gemini Code Assist VS Code extension on the same account. The best $0 coding agent in 2026."
+    },
+    {
+      "id": "qwen-code",
+      "name": "Qwen Code",
+      "category": "cli",
+      "description": "Qwen's fork of Gemini CLI wired to Qwen3-Coder, with a large free daily request allowance via OAuth.",
+      "free_limit": "~2,000 requests/day via Qwen OAuth",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "npm install -g @qwen-code/qwen-code",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "stars": 28109,
+      "tags": [
+        "coding-agent",
+        "cli",
+        "qwen",
+        "generous-free-tier",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Strong on large refactors thanks to Qwen3-Coder's context window. The 2,000/day figure is subject to change."
+    },
+    {
+      "id": "aider",
+      "name": "Aider",
+      "category": "cli",
+      "description": "Terminal pair-programmer that commits every change to git and maps your repo into the model's context.",
+      "free_limit": "Free software — works with any free LLM API key",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install aider-install && aider-install",
+      "url": "https://aider.chat",
+      "tags": [
+        "coding-agent",
+        "cli",
+        "git-native",
+        "byok",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "cline",
+      "name": "Cline",
+      "category": "ide",
+      "description": "Autonomous coding agent for VS Code, JetBrains and the terminal, with human approval at every step.",
+      "free_limit": "Free and open source — bring any provider key (including free tiers)",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://cline.bot",
+      "tags": [
+        "coding-agent",
+        "vscode",
+        "open-source",
+        "byok",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The most flexible free setup: point it at Gemini or Groq free tiers and a full agent costs nothing."
+    },
+    {
+      "id": "roo-code",
+      "name": "Roo Code",
+      "category": "ide",
+      "description": "Cline fork with custom modes (architect, debugger, tester) and an orchestrator mode for multi-step work.",
+      "free_limit": "Free and open source — bring any provider key",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://roocode.com",
+      "tags": [
+        "coding-agent",
+        "vscode",
+        "modes",
+        "byok"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "continue-dev",
+      "name": "Continue",
+      "category": "ide",
+      "description": "Open-source Copilot alternative for VS Code and JetBrains with customisable model routing.",
+      "free_limit": "Free software; connect Ollama for genuinely unlimited local use",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ],
+      "url": "https://continue.dev",
+      "tags": [
+        "coding-agent",
+        "vscode",
+        "jetbrains",
+        "local-models"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "openhands",
+      "name": "OpenHands",
+      "category": "cli",
+      "description": "Open-source software engineering agent (formerly OpenDevin) that runs in a sandboxed container.",
+      "free_limit": "Free software; hosted version has limited free credits",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "docker run -it --rm -p 3000:3000 docker.all-hands.dev/all-hands-ai/openhands:latest",
+      "url": "https://github.com/All-Hands-AI/OpenHands",
+      "stars": 89035,
+      "tags": [
+        "coding-agent",
+        "autonomous",
+        "docker",
+        "open-source"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "goose",
+      "name": "Goose",
+      "category": "cli",
+      "description": "Block's local-first agent that can extend itself by writing its own MCP extensions.",
+      "free_limit": "Free and open source — bring any provider key",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux"
+      ],
+      "install": "curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | bash",
+      "url": "https://block.github.io/goose/",
+      "tags": [
+        "coding-agent",
+        "cli",
+        "mcp-native",
+        "open-source"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "crush",
+      "name": "Crush",
+      "category": "cli",
+      "description": "Charm's glamorous terminal agent with MCP support, LSP awareness and session management.",
+      "free_limit": "Free and open source — bring any provider key",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "brew install charmbracelet/tap/crush",
+      "url": "https://github.com/charmbracelet/crush",
+      "stars": 28280,
+      "tags": [
+        "coding-agent",
+        "cli",
+        "mcp-native",
+        "open-source"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "category": "framework",
+      "description": "Stateful, graph-based agent orchestration with durable execution, human-in-the-loop and time travel.",
+      "free_limit": "Open source (MIT). LangGraph Platform has a free developer tier",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install -U langgraph",
+      "url": "https://langchain-ai.github.io/langgraph/",
+      "tags": [
+        "orchestration",
+        "state-machine",
+        "durable",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Choose this over raw LangChain when your agent needs to pause, resume or survive a crash mid-run."
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "category": "framework",
+      "description": "The widest integration ecosystem in the space — 600+ tools, loaders and vector store connectors.",
+      "free_limit": "Open source (MIT); no account required",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install -U langchain",
+      "url": "https://python.langchain.com",
+      "tags": [
+        "framework",
+        "integrations",
+        "rag",
+        "toolkit"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "llamaindex",
+      "name": "LlamaIndex",
+      "category": "framework",
+      "description": "Data framework for RAG: ingestion, chunking, indexing and query engines over your own documents.",
+      "free_limit": "Open source (MIT); LlamaCloud has a limited free tier",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install llama-index",
+      "url": "https://docs.llamaindex.ai",
+      "tags": [
+        "rag",
+        "data",
+        "ingestion",
+        "retrieval"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "crewai",
+      "name": "CrewAI",
+      "category": "framework",
+      "description": "Role-based multi-agent crews with delegation, sequential and hierarchical process modes.",
+      "free_limit": "Open source (MIT)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install crewai",
+      "url": "https://docs.crewai.com",
+      "tags": [
+        "multi-agent",
+        "roles",
+        "orchestration"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "ag2-autogen",
+      "name": "AG2 (AutoGen)",
+      "category": "framework",
+      "description": "Microsoft-originated multi-agent conversation framework: agents that talk to each other until the task is done.",
+      "free_limit": "Open source (Apache 2.0)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install ag2",
+      "url": "https://ag2.ai",
+      "tags": [
+        "multi-agent",
+        "conversation",
+        "research"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "openai-agents-sdk",
+      "name": "OpenAI Agents SDK",
+      "category": "framework",
+      "description": "Small, provider-agnostic agent SDK: handoffs, guardrails, sessions and tracing in a few hundred lines.",
+      "free_limit": "Open source (MIT); works with any provider, not just OpenAI",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install openai-agents",
+      "url": "https://openai.github.io/openai-agents-python/",
+      "tags": [
+        "agents",
+        "handoffs",
+        "guardrails",
+        "lightweight"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Despite the name, it is vendor-neutral — point it at Gemini or Groq and it works unchanged."
+    },
+    {
+      "id": "google-adk",
+      "name": "Google Agent Development Kit",
+      "category": "framework",
+      "description": "Google's agent framework with a built-in dev UI, evaluation harness and A2A protocol support.",
+      "free_limit": "Open source (Apache 2.0)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install google-adk",
+      "url": "https://google.github.io/adk-docs/",
+      "tags": [
+        "agents",
+        "google",
+        "evaluation",
+        "a2a"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "pydantic-ai",
+      "name": "Pydantic AI",
+      "category": "framework",
+      "description": "Type-safe agent framework from the Pydantic team — validated structured outputs and dependency injection.",
+      "free_limit": "Open source (MIT)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install pydantic-ai",
+      "url": "https://ai.pydantic.dev",
+      "tags": [
+        "type-safe",
+        "structured-output",
+        "python",
+        "validation"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "smolagents",
+      "name": "smolagents",
+      "category": "framework",
+      "description": "Hugging Face's minimal agent library — code-writing agents in under 1,000 lines of core logic.",
+      "free_limit": "Open source (Apache 2.0)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install smolagents",
+      "url": "https://huggingface.co/docs/smolagents",
+      "tags": [
+        "minimal",
+        "code-agents",
+        "huggingface"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "agno",
+      "name": "Agno",
+      "category": "framework",
+      "description": "High-performance multi-modal agent framework with built-in memory, knowledge and reasoning tools.",
+      "free_limit": "Open source (MPL 2.0)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install agno",
+      "url": "https://docs.agno.com",
+      "tags": [
+        "multi-modal",
+        "performance",
+        "memory"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "dspy",
+      "name": "DSPy",
+      "category": "framework",
+      "description": "Programs language models instead of prompting them — optimisers compile prompts against a metric.",
+      "free_limit": "Open source (MIT)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install dspy",
+      "url": "https://dspy.ai",
+      "tags": [
+        "prompt-optimisation",
+        "research",
+        "evaluation"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "haystack",
+      "name": "Haystack",
+      "category": "framework",
+      "description": "Production RAG and agent pipelines from deepset, with strong evaluation and deployment tooling.",
+      "free_limit": "Open source (Apache 2.0)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install haystack-ai",
+      "url": "https://haystack.deepset.ai",
+      "tags": [
+        "rag",
+        "pipelines",
+        "production"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "letta",
+      "name": "Letta",
+      "category": "framework",
+      "description": "Stateful agents with long-term memory that manage their own context window (formerly MemGPT).",
+      "free_limit": "Open source (Apache 2.0); free cloud sandbox available",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install letta",
+      "url": "https://docs.letta.com",
+      "tags": [
+        "memory",
+        "stateful",
+        "context-management"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "semantic-kernel",
+      "name": "Semantic Kernel",
+      "category": "framework",
+      "description": "Microsoft's enterprise agent SDK for Python, .NET and Java with planners and process framework.",
+      "free_limit": "Open source (MIT)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "dotnet",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install semantic-kernel",
+      "url": "https://learn.microsoft.com/en-us/semantic-kernel/overview/",
+      "tags": [
+        "enterprise",
+        "dotnet",
+        "java",
+        "planners"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "mastra",
+      "name": "Mastra",
+      "category": "framework",
+      "description": "TypeScript agent framework with workflows, evals, RAG and local dev playground.",
+      "free_limit": "Open source (Apache 2.0)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "typescript",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "npm create mastra@latest",
+      "url": "https://mastra.ai",
+      "tags": [
+        "typescript",
+        "workflows",
+        "evals"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "vercel-ai-sdk",
+      "name": "Vercel AI SDK",
+      "category": "framework",
+      "description": "The standard TypeScript toolkit for streaming UI plus agents, with unified provider interfaces.",
+      "free_limit": "Open source (Apache 2.0)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "typescript",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "npm install ai @ai-sdk/openai",
+      "url": "https://sdk.vercel.ai",
+      "tags": [
+        "typescript",
+        "streaming",
+        "ui",
+        "frontend"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "litellm",
+      "name": "LiteLLM",
+      "category": "framework",
+      "description": "One OpenAI-shaped interface over 100+ providers, with a proxy that adds budgets, keys and tracing.",
+      "free_limit": "Open source (MIT)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "pip install litellm",
+      "url": "https://docs.litellm.ai",
+      "tags": [
+        "gateway",
+        "proxy",
+        "multi-provider",
+        "cost-tracking",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The cleanest way to stack several free tiers behind one endpoint and fail over automatically when one 429s."
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "category": "orchestrator",
+      "description": "Node-based automation with native AI agent nodes, MCP trigger and hundreds of integrations.",
+      "free_limit": "Self-hosted Community Edition is free forever (fair-code licence)",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows",
+        "web"
+      ],
+      "install": "npx n8n",
+      "url": "https://n8n.io",
+      "tags": [
+        "automation",
+        "visual",
+        "mcp",
+        "self-host",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Running the Docker image on a free-tier VM is the cheapest credible production agent host in this list."
+    },
+    {
+      "id": "dify",
+      "name": "Dify",
+      "category": "orchestrator",
+      "description": "LLMOps platform for building chat agents, workflows and RAG apps with a visual editor and API output.",
+      "free_limit": "Self-hosted Community Edition free; cloud sandbox free tier",
+      "requires_card": false,
+      "open_source": true,
+      "platforms": [
+        "macos",
+        "linux",
+        "windows",
+        "web"
+      ],
+      "url": "https://dify.ai",
+      "tags": [
+        "llmops",
+        "visual",
+        "rag",
+        "self-host"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "langflow",
+      "name": "Langflow",
+      "category": "orchestrator",
+      "description": "Visual drag-and-drop builder that compiles to LangChain-based flows and exposes each as an API.",
+      "free_limit": "Open source (MIT)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "python",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "uvx langflow",
+      "url": "https://www.langflow.org",
+      "tags": [
+        "visual",
+        "langchain",
+        "prototyping"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "flowise",
+      "name": "Flowise",
+      "category": "orchestrator",
+      "description": "Low-code LLM orchestration with agent flows, tools and embeddable chat widgets.",
+      "free_limit": "Open source (Apache 2.0)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "typescript",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ],
+      "install": "npx flowise start",
+      "url": "https://flowiseai.com",
+      "tags": [
+        "visual",
+        "low-code",
+        "chat-widgets"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "activepieces",
+      "name": "Activepieces",
+      "category": "orchestrator",
+      "description": "Open-source Zapier alternative with AI pieces and MCP support, MIT-licensed rather than fair-code.",
+      "free_limit": "Self-hosted Community Edition free (MIT)",
+      "requires_card": false,
+      "open_source": true,
+      "language": "typescript",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows",
+        "web"
+      ],
+      "url": "https://www.activepieces.com",
+      "tags": [
+        "automation",
+        "visual",
+        "mit",
+        "self-host"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    }
+  ],
+  "free-tiers": [
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "category": "hosting",
+      "description": "Static and serverless hosting with preview deployments per branch and AI Gateway included.",
+      "free_limit": "Hobby: 100GB bandwidth/mo, 100h serverless, $5/mo AI credit",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://vercel.com",
+      "tags": [
+        "deploy",
+        "edge",
+        "serverless",
+        "nextjs",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Hobby is explicitly non-commercial. Fine for a side project, against ToS for a paid product."
+    },
+    {
+      "id": "netlify",
+      "name": "Netlify",
+      "category": "hosting",
+      "description": "Static hosting, edge functions and form handling with per-branch deploy previews.",
+      "free_limit": "100GB bandwidth/mo, 300 build minutes/mo",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://netlify.com",
+      "tags": [
+        "deploy",
+        "static",
+        "edge"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "cloudflare-pages",
+      "name": "Cloudflare Pages",
+      "category": "hosting",
+      "description": "Unlimited-bandwidth static hosting that pairs with Workers, D1 and R2 on the same free account.",
+      "free_limit": "Unlimited requests and bandwidth; 500 builds/month",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://pages.cloudflare.com",
+      "tags": [
+        "deploy",
+        "static",
+        "unlimited-bandwidth",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The best free host for this site's own architecture: static output, no egress billing, global CDN."
+    },
+    {
+      "id": "cloudflare-workers",
+      "name": "Cloudflare Workers",
+      "category": "compute",
+      "description": "V8-isolate serverless functions with cron triggers and durable objects, plus a free Workers AI binding.",
+      "free_limit": "100,000 requests/day, 10ms CPU per request",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://workers.cloudflare.com",
+      "tags": [
+        "serverless",
+        "edge",
+        "cron",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The free tier's 10ms CPU limit is generous for API orchestration and tight for anything doing real compute."
+    },
+    {
+      "id": "github-pages",
+      "name": "GitHub Pages",
+      "category": "hosting",
+      "description": "Static hosting straight from a repository, with a custom domain and HTTPS included.",
+      "free_limit": "1GB site size, 100GB/mo soft bandwidth, 10 builds/hour",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://pages.github.com",
+      "tags": [
+        "deploy",
+        "static",
+        "github",
+        "zero-config"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "render",
+      "name": "Render",
+      "category": "hosting",
+      "description": "Container and web-service hosting with managed Postgres and cron jobs.",
+      "free_limit": "750 instance-hours/mo; services spin down after 15 min idle",
+      "requires_card": false,
+      "cold_start_risk": "high",
+      "url": "https://render.com",
+      "tags": [
+        "deploy",
+        "containers",
+        "cold-starts"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The 15-minute spin-down makes cold starts of 30-60s. Fine for demos, painful for a live agent endpoint."
+    },
+    {
+      "id": "railway",
+      "name": "Railway",
+      "category": "hosting",
+      "description": "Fast deploys from a repo or Dockerfile with databases attached, billed by usage.",
+      "free_limit": "Trial credits on signup; $5/mo Hobby credit afterwards",
+      "requires_card": true,
+      "cold_start_risk": "low",
+      "url": "https://railway.com",
+      "tags": [
+        "deploy",
+        "containers",
+        "databases"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "fly-io",
+      "name": "Fly.io",
+      "category": "hosting",
+      "description": "Runs Docker containers close to users with persistent volumes and private networking.",
+      "free_limit": "Limited free VM allowance for small machines (no managed databases)",
+      "requires_card": true,
+      "cold_start_risk": "low",
+      "url": "https://fly.io",
+      "tags": [
+        "deploy",
+        "containers",
+        "global",
+        "volumes"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "koyeb",
+      "name": "Koyeb",
+      "category": "hosting",
+      "description": "Serverless container platform with a small always-on free instance and GPU options.",
+      "free_limit": "One free web service instance (0.1 vCPU / 512MB)",
+      "requires_card": false,
+      "cold_start_risk": "medium",
+      "url": "https://koyeb.com",
+      "tags": [
+        "deploy",
+        "containers",
+        "always-on"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "deno-deploy",
+      "name": "Deno Deploy",
+      "category": "compute",
+      "description": "Edge TypeScript runtime with KV storage, queues and cron built in — no build step.",
+      "free_limit": "1M requests/mo, 100GB bandwidth/mo",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://deno.com/deploy",
+      "tags": [
+        "serverless",
+        "edge",
+        "typescript",
+        "kv"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "oracle-cloud-always-free",
+      "name": "Oracle Cloud Always Free",
+      "category": "compute",
+      "description": "The only major cloud with a permanently free ARM VM generous enough to self-host several services.",
+      "free_limit": "4 ARM cores + 24GB RAM, 200GB storage, 10TB egress/mo, forever",
+      "requires_card": true,
+      "cold_start_risk": "low",
+      "url": "https://www.oracle.com/cloud/free/",
+      "tags": [
+        "vm",
+        "always-free",
+        "self-host",
+        "arm",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Capacity in popular regions is often exhausted — retry or pick another home region. Card required for verification but not charged."
+    },
+    {
+      "id": "aws-free-tier",
+      "name": "AWS Free Tier",
+      "category": "compute",
+      "description": "Twelve months of t4g.small, Lambda allowances and 5GB S3, plus always-free Lambda and DynamoDB caps.",
+      "free_limit": "12-month credits for new accounts; perpetual Lambda/DynamoDB allowances",
+      "requires_card": true,
+      "cold_start_risk": "low",
+      "url": "https://aws.amazon.com/free/",
+      "tags": [
+        "cloud",
+        "aws",
+        "credits"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "gcp-free-tier",
+      "name": "Google Cloud Free Tier",
+      "category": "compute",
+      "description": "e2-micro VM, Cloud Run and Firestore allowances, plus the $300 new-account credit.",
+      "free_limit": "Always-free e2-micro VM + Cloud Run/Speech/BigQuery monthly quotas",
+      "requires_card": true,
+      "cold_start_risk": "low",
+      "url": "https://cloud.google.com/free",
+      "tags": [
+        "cloud",
+        "gcp",
+        "always-free"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "huggingface-spaces",
+      "name": "Hugging Face Spaces",
+      "category": "compute",
+      "description": "Free CPU containers for hosting Gradio or Docker demos, with permanent public URLs.",
+      "free_limit": "2 vCPU / 16GB RAM free CPU Spaces (sleep after inactivity on some configs)",
+      "requires_card": false,
+      "cold_start_risk": "medium",
+      "url": "https://huggingface.co/spaces",
+      "tags": [
+        "demos",
+        "gradio",
+        "docker",
+        "ml"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Best free way to put a public demo of your agent in front of people."
+    },
+    {
+      "id": "google-colab",
+      "name": "Google Colab",
+      "category": "compute",
+      "description": "Free hosted Jupyter with a T4 GPU — the cheapest path to fine-tuning or running a large model.",
+      "free_limit": "Free GPU sessions (T4), subject to availability and session limits",
+      "requires_card": false,
+      "cold_start_risk": "high",
+      "url": "https://colab.research.google.com",
+      "tags": [
+        "gpu",
+        "notebooks",
+        "fine-tuning",
+        "free-gpu"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Free GPU availability is not guaranteed at peak times and sessions die after idle periods — not a deploy target."
+    },
+    {
+      "id": "kaggle-notebooks",
+      "name": "Kaggle Notebooks",
+      "category": "compute",
+      "description": "Free GPU/TPU notebooks with 30 hours of weekly GPU quota and persistent datasets.",
+      "free_limit": "30 GPU hours/week (P100 or T4x2), 20 TPU hours/week",
+      "requires_card": false,
+      "cold_start_risk": "medium",
+      "url": "https://www.kaggle.com/docs/notebooks",
+      "tags": [
+        "gpu",
+        "tpu",
+        "notebooks",
+        "fine-tuning"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "modal",
+      "name": "Modal",
+      "category": "compute",
+      "description": "Serverless Python with GPU-per-second billing — good for embedding jobs and batch inference.",
+      "free_limit": "$30/month of included compute on the free plan",
+      "requires_card": false,
+      "cold_start_risk": "medium",
+      "url": "https://modal.com",
+      "tags": [
+        "gpu",
+        "serverless",
+        "batch",
+        "python"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "$30/month covers a lot of embedding generation; it does not cover sustained GPU inference."
+    },
+    {
+      "id": "e2b",
+      "name": "E2B",
+      "category": "compute",
+      "description": "Sandboxed cloud VMs built for agent code execution, with filesystem and process control.",
+      "free_limit": "$100 of sandbox credit on signup",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://e2b.dev",
+      "tags": [
+        "sandbox",
+        "code-execution",
+        "agent-infra"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "val-town",
+      "name": "Val Town",
+      "category": "compute",
+      "description": "Write and deploy TypeScript functions in the browser with cron, SQLite and secrets included.",
+      "free_limit": "Free tier with 100K daily function runs",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://val.town",
+      "tags": [
+        "serverless",
+        "cron",
+        "typescript",
+        "sqlite"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase",
+      "category": "database",
+      "description": "Postgres with auth, storage, realtime and pgvector in one free project — the default agent backend.",
+      "free_limit": "500MB database, 1GB file storage, 50K MAU auth",
+      "requires_card": false,
+      "cold_start_risk": "medium",
+      "url": "https://supabase.com",
+      "tags": [
+        "postgres",
+        "auth",
+        "storage",
+        "pgvector",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Free projects pause after 7 days of inactivity. Set up a weekly keep-alive ping or accept the cold start."
+    },
+    {
+      "id": "neon",
+      "name": "Neon",
+      "category": "database",
+      "description": "Serverless Postgres with copy-on-write branching — a database branch per feature or per agent run.",
+      "free_limit": "0.5GB storage, 10 branches, 190 compute hours/mo",
+      "requires_card": false,
+      "cold_start_risk": "medium",
+      "url": "https://neon.com",
+      "tags": [
+        "postgres",
+        "branching",
+        "serverless",
+        "pgvector"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "turso",
+      "name": "Turso",
+      "category": "database",
+      "description": "Edge SQLite with embedded replicas — sub-millisecond reads next to your function, plus native vector search.",
+      "free_limit": "5GB storage, 500M row reads/mo",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://turso.tech",
+      "tags": [
+        "sqlite",
+        "edge",
+        "vector",
+        "low-latency"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "cloudflare-d1",
+      "name": "Cloudflare D1",
+      "category": "database",
+      "description": "SQLite at the edge, bound directly to Workers with no connection pooling to manage.",
+      "free_limit": "5GB storage, 5M rows read/day",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://developers.cloudflare.com/d1/",
+      "tags": [
+        "sqlite",
+        "edge",
+        "workers",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "cockroachdb-basic",
+      "name": "CockroachDB Basic",
+      "category": "database",
+      "description": "Distributed SQL with automatic replication across regions and standard Postgres wire protocol.",
+      "free_limit": "10GB storage, 50M request units/mo",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.cockroachlabs.com/product/",
+      "tags": [
+        "distributed",
+        "postgres-compatible",
+        "multi-region"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "mongodb-atlas",
+      "name": "MongoDB Atlas",
+      "category": "database",
+      "description": "Managed document database with a permanent M0 cluster, including Atlas Vector Search.",
+      "free_limit": "M0 cluster: 512MB storage, shared vCPU",
+      "requires_card": true,
+      "cold_start_risk": "low",
+      "url": "https://www.mongodb.com/atlas",
+      "tags": [
+        "document",
+        "vector",
+        "nosql"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Card verification is required even for M0 in most regions now — the one free database that usually asks."
+    },
+    {
+      "id": "firebase-firestore",
+      "name": "Firebase Firestore",
+      "category": "database",
+      "description": "Realtime document database with offline sync and client SDKs for every platform.",
+      "free_limit": "1GiB storage, 50K document reads/day",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://firebase.google.com/products/firestore",
+      "tags": [
+        "document",
+        "realtime",
+        "mobile"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "aiven-free",
+      "name": "Aiven",
+      "category": "database",
+      "description": "Managed Postgres, MySQL, Valkey and OpenSearch on a single always-free plan.",
+      "free_limit": "One 1GB managed service (Postgres, MySQL, Valkey or OpenSearch)",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://aiven.io/free-tier",
+      "tags": [
+        "postgres",
+        "mysql",
+        "valkey",
+        "managed"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "convex",
+      "name": "Convex",
+      "category": "database",
+      "description": "Reactive backend with TypeScript queries, mutations, scheduled functions and vector search.",
+      "free_limit": "0.5GB storage, 1M function calls/mo",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://convex.dev",
+      "tags": [
+        "reactive",
+        "typescript",
+        "backend",
+        "functions"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "upstash-redis",
+      "name": "Upstash Redis",
+      "category": "database",
+      "description": "Serverless Redis with per-request pricing and a REST API — no connection limit problems from serverless functions.",
+      "free_limit": "500K commands/mo, 256MB",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://upstash.com",
+      "tags": [
+        "redis",
+        "cache",
+        "serverless",
+        "rate-limiting",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "pocketbase",
+      "name": "PocketBase",
+      "category": "database",
+      "description": "Single-binary backend with SQLite, auth, file storage, realtime and an admin UI — self-host anywhere.",
+      "free_limit": "Unlimited (self-hosted, MIT)",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://pocketbase.io",
+      "tags": [
+        "sqlite",
+        "self-host",
+        "backend",
+        "auth",
+        "single-binary"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "cloudflare-r2",
+      "name": "Cloudflare R2",
+      "category": "storage",
+      "description": "S3-compatible object storage with zero egress fees — the reason to store agent artefacts here.",
+      "free_limit": "10GB storage, 1M Class A ops/mo, free egress",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://developers.cloudflare.com/r2/",
+      "tags": [
+        "object-storage",
+        "s3-compatible",
+        "no-egress-fees",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "backblaze-b2",
+      "name": "Backblaze B2",
+      "category": "storage",
+      "description": "Cheap S3-compatible object storage with free egress through Cloudflare's bandwidth alliance.",
+      "free_limit": "10GB storage, 1GB/day download free",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.backblaze.com/cloud-storage",
+      "tags": [
+        "object-storage",
+        "backup",
+        "s3-compatible"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "qdrant-cloud",
+      "name": "Qdrant Cloud",
+      "category": "vector-db",
+      "description": "The best free vector tier: a real cluster with payload filtering, no card required.",
+      "free_limit": "1GB cluster free forever (0.5 vCPU, 1GB RAM, 4GB disk)",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://qdrant.tech",
+      "tags": [
+        "vector",
+        "rag",
+        "filtering",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "1GB holds roughly 250K vectors at 384 dimensions — enough for a serious RAG prototype."
+    },
+    {
+      "id": "pinecone-starter",
+      "name": "Pinecone Starter",
+      "category": "vector-db",
+      "description": "Fully managed vector database with the least operational overhead of any option here.",
+      "free_limit": "2GB storage, 2M write units and 1M read units/mo, 5 indexes",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.pinecone.io",
+      "tags": [
+        "vector",
+        "managed",
+        "serverless",
+        "hybrid-search"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Free indexes are pinned to AWS us-east-1 — latency from India or Europe is noticeable."
+    },
+    {
+      "id": "weaviate-cloud",
+      "name": "Weaviate Cloud",
+      "category": "vector-db",
+      "description": "Open-source vector database with hybrid keyword+vector search and built-in vectoriser modules.",
+      "free_limit": "Free sandbox: 100K objects, 1GB memory, 1 collection",
+      "requires_card": false,
+      "cold_start_risk": "medium",
+      "url": "https://weaviate.io",
+      "tags": [
+        "vector",
+        "hybrid-search",
+        "oss",
+        "rag"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "zilliz-cloud",
+      "name": "Zilliz Cloud",
+      "category": "vector-db",
+      "description": "Managed Milvus with strong performance at scale and a genuine free cluster.",
+      "free_limit": "Free tier: 5GB storage, 2.5M vector compute units/mo",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://zilliz.com",
+      "tags": [
+        "vector",
+        "milvus",
+        "managed",
+        "scale"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "upstash-vector",
+      "name": "Upstash Vector",
+      "category": "vector-db",
+      "description": "Serverless vector database over REST — no connection management, pairs with Upstash Redis on one key.",
+      "free_limit": "10K vectors, 150K query units/day",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://upstash.com/docs/vector/overall/getstarted",
+      "tags": [
+        "vector",
+        "serverless",
+        "rest-api",
+        "low-volume"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "chroma-cloud",
+      "name": "Chroma Cloud",
+      "category": "vector-db",
+      "description": "Managed version of the most developer-friendly embedded vector store, with $5 of starter credit.",
+      "free_limit": "$5 starter credit; Chroma OSS remains free to self-host",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.trychroma.com",
+      "tags": [
+        "vector",
+        "oss",
+        "embedded",
+        "simple"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "For anything under a few hundred thousand vectors, self-hosted Chroma on the same box as your app is simpler and free."
+    },
+    {
+      "id": "neo4j-auradb",
+      "name": "Neo4j AuraDB Free",
+      "category": "vector-db",
+      "description": "Managed graph database with native vector indexes — a knowledge graph and a vector store in one.",
+      "free_limit": "Free instance: 200K nodes, 400K relationships, no card required",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://neo4j.com/cloud/aura-free/",
+      "tags": [
+        "graph",
+        "vector",
+        "knowledge-graph",
+        "rag"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "pgvector",
+      "name": "pgvector",
+      "category": "vector-db",
+      "description": "Postgres extension that turns the database you already run into a vector store — no second system to operate.",
+      "free_limit": "Free (extension; self-hosted or on any Postgres free tier)",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://github.com/pgvector/pgvector",
+      "tags": [
+        "postgres",
+        "vector",
+        "self-host",
+        "no-vendor"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Available out of the box on Supabase and Neon free tiers — the pragmatic default for a small agent."
+    },
+    {
+      "id": "lancedb",
+      "name": "LanceDB",
+      "category": "vector-db",
+      "description": "Embedded vector database on the Lance columnar format — runs in-process, no server, no account.",
+      "free_limit": "Open source (Apache 2.0); $100 one-time cloud credit",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://lancedb.com",
+      "tags": [
+        "vector",
+        "embedded",
+        "local",
+        "columnar"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "clerk",
+      "name": "Clerk",
+      "category": "auth",
+      "description": "Drop-in authentication with prebuilt UI components, organisations and webhooks.",
+      "free_limit": "50,000 monthly retained users",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://clerk.com",
+      "tags": [
+        "auth",
+        "users",
+        "ui-components",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "workos-authkit",
+      "name": "WorkOS AuthKit",
+      "category": "auth",
+      "description": "Auth with enterprise SSO, SCIM and directory sync built in from day one.",
+      "free_limit": "Free up to 1M monthly active users on AuthKit",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://workos.com/authkit",
+      "tags": [
+        "auth",
+        "sso",
+        "enterprise",
+        "saml"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The 1M MAU number makes this the strongest free option if you might later need enterprise SSO."
+    },
+    {
+      "id": "auth0",
+      "name": "Auth0",
+      "category": "auth",
+      "description": "Mature identity platform with social logins, MFA and rules/extensibility.",
+      "free_limit": "25,000 MAU on the free plan",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://auth0.com",
+      "tags": [
+        "auth",
+        "mfa",
+        "social-login"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "logto",
+      "name": "Logto",
+      "category": "auth",
+      "description": "Open-source auth alternative to Auth0 with a clean developer experience and a free cloud tier.",
+      "free_limit": "50,000 MAU on free cloud; self-hosted is unlimited",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://logto.io",
+      "tags": [
+        "auth",
+        "open-source",
+        "self-host"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "better-auth",
+      "name": "Better Auth",
+      "category": "auth",
+      "description": "TypeScript-first authentication library that lives inside your app — no third party in the request path.",
+      "free_limit": "Free (MIT, self-hosted in your own codebase)",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.better-auth.com",
+      "tags": [
+        "auth",
+        "typescript",
+        "library",
+        "no-vendor",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "For an agent app, a library beats a hosted auth service: no MAU cliff, no extra vendor."
+    },
+    {
+      "id": "keycloak",
+      "name": "Keycloak",
+      "category": "auth",
+      "description": "Red Hat's battle-tested identity server — full OIDC/SAML with self-hosting on a free VM.",
+      "free_limit": "Free (Apache 2.0, self-hosted)",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.keycloak.org",
+      "tags": [
+        "auth",
+        "self-host",
+        "oidc",
+        "saml",
+        "enterprise"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "upstash-qstash",
+      "name": "Upstash QStash",
+      "category": "queue",
+      "description": "HTTP-based message queue and scheduler — the simplest way to add durable background jobs to serverless agents.",
+      "free_limit": "1,000 messages/day",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://upstash.com/docs/qstash/overall/getstarted",
+      "tags": [
+        "queue",
+        "cron",
+        "webhooks",
+        "durable",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "inngest",
+      "name": "Inngest",
+      "category": "queue",
+      "description": "Durable workflow engine with steps, retries and fan-out — long-running agents that survive restarts.",
+      "free_limit": "50K executions/mo, 5 concurrent steps",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://inngest.com",
+      "tags": [
+        "workflows",
+        "durable",
+        "retries",
+        "agents",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "The most direct fix for 'my agent died halfway through': each step is checkpointed and retried."
+    },
+    {
+      "id": "trigger-dev",
+      "name": "Trigger.dev",
+      "category": "queue",
+      "description": "Background jobs as code with long-running tasks, realtime progress and observability.",
+      "free_limit": "$5/mo of included compute",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://trigger.dev",
+      "tags": [
+        "jobs",
+        "background",
+        "long-running",
+        "typescript"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "ably",
+      "name": "Ably",
+      "category": "queue",
+      "description": "Realtime pub/sub and presence for streaming agent output to a browser.",
+      "free_limit": "6M messages/mo, 200 peak concurrent connections",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://ably.com",
+      "tags": [
+        "realtime",
+        "pubsub",
+        "websockets",
+        "streaming"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "pusher",
+      "name": "Pusher Channels",
+      "category": "queue",
+      "description": "Managed WebSockets with channels, presence and client events.",
+      "free_limit": "200K messages/day, 100 concurrent connections",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://pusher.com/channels",
+      "tags": [
+        "realtime",
+        "websockets",
+        "notifications"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "novu",
+      "name": "Novu",
+      "category": "queue",
+      "description": "Notification infrastructure that fans out one event to email, in-app, chat and push channels.",
+      "free_limit": "30K events/mo on free cloud; self-hosted is unlimited",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://novu.co",
+      "tags": [
+        "notifications",
+        "multi-channel",
+        "open-source"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "cloudamqp",
+      "name": "CloudAMQP",
+      "category": "queue",
+      "description": "Managed RabbitMQ on a small always-free instance — proper AMQP when QStash is not enough.",
+      "free_limit": "Little Lemur plan: 1M messages/mo, 20 connections",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.cloudamqp.com",
+      "tags": [
+        "rabbitmq",
+        "amqp",
+        "queue",
+        "managed"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "langfuse",
+      "name": "Langfuse",
+      "category": "observability",
+      "description": "Open-source LLM tracing, prompt management and evaluation — the default for debugging agent runs.",
+      "free_limit": "50K observations/mo on free cloud; self-hosted is unlimited",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://langfuse.com",
+      "tags": [
+        "llm-observability",
+        "tracing",
+        "evals",
+        "prompts",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Self-hosting on the Oracle always-free ARM VM gives you unlimited tracing for $0."
+    },
+    {
+      "id": "helicone",
+      "name": "Helicone",
+      "category": "observability",
+      "description": "One-line proxy that logs every LLM request with cost, latency and caching.",
+      "free_limit": "10,000 requests/mo on free plan",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://helicone.ai",
+      "tags": [
+        "llm-observability",
+        "proxy",
+        "cost-tracking",
+        "caching"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "category": "observability",
+      "description": "Error tracking with stack traces, releases, session replay and an official MCP server.",
+      "free_limit": "5,000 errors/mo, 50 session replays, 1 user",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://sentry.io",
+      "tags": [
+        "errors",
+        "apm",
+        "replay",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "grafana-cloud",
+      "name": "Grafana Cloud",
+      "category": "observability",
+      "description": "Metrics, logs and traces with a permanent free tier plus 14-day retention.",
+      "free_limit": "10K metrics series, 50GB logs, 50GB traces, 3 users",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://grafana.com/products/cloud/",
+      "tags": [
+        "metrics",
+        "logs",
+        "traces",
+        "dashboards"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "axiom",
+      "name": "Axiom",
+      "category": "observability",
+      "description": "Log analytics built for high-cardinality events, with dashboards and alerts.",
+      "free_limit": "0.5TB ingest/mo, 30-day retention",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://axiom.co",
+      "tags": [
+        "logs",
+        "analytics",
+        "high-volume"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "0.5TB/month free is unusually large — useful if you log every agent step and tool call."
+    },
+    {
+      "id": "posthog",
+      "name": "PostHog",
+      "category": "analytics",
+      "description": "Product analytics, session replay, feature flags and experiments in one SDK.",
+      "free_limit": "1M events/mo, 5K replays, 1M feature-flag requests",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://posthog.com",
+      "tags": [
+        "analytics",
+        "funnels",
+        "flags",
+        "experiments"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "better-stack",
+      "name": "Better Stack",
+      "category": "observability",
+      "description": "Uptime monitoring, status pages, on-call alerting and log management.",
+      "free_limit": "10 monitors at 3-min checks, 1 status page, 3GB logs",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://betterstack.com",
+      "tags": [
+        "uptime",
+        "monitoring",
+        "status-page",
+        "alerts"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "uptimerobot",
+      "name": "UptimeRobot",
+      "category": "observability",
+      "description": "Simple external uptime checks with Slack and email alerts — the guardrail for 'is my agent alive'.",
+      "free_limit": "50 monitors at 5-minute intervals",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://uptimerobot.com",
+      "tags": [
+        "uptime",
+        "monitoring",
+        "alerts",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "plausible",
+      "name": "Plausible Analytics",
+      "category": "analytics",
+      "description": "Privacy-first, cookie-free web analytics — no consent banner needed, GDPR-compliant by design.",
+      "free_limit": "30-day trial on cloud; self-hosted Community Edition is free forever",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://plausible.io",
+      "tags": [
+        "analytics",
+        "privacy",
+        "no-cookies",
+        "gdpr"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "This project's own site should self-host Plausible or Umami — a cookie banner would violate the 'no dark patterns' principle."
+    },
+    {
+      "id": "umami",
+      "name": "Umami",
+      "category": "analytics",
+      "description": "Lightweight, open-source, cookie-free analytics with a simple dashboard.",
+      "free_limit": "Free (MIT, self-hosted); managed cloud has a small free allowance",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://umami.is",
+      "tags": [
+        "analytics",
+        "privacy",
+        "open-source",
+        "self-host"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "resend",
+      "name": "Resend",
+      "category": "email",
+      "description": "Transactional email API with React Email templates and good deliverability.",
+      "free_limit": "3,000 emails/mo, 100/day",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://resend.com",
+      "tags": [
+        "email",
+        "transactional",
+        "api",
+        "essential"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "brevo",
+      "name": "Brevo",
+      "category": "email",
+      "description": "Transactional email plus marketing campaigns and SMS on one generous free plan.",
+      "free_limit": "300 emails/day (9,000/mo), unlimited contacts",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.brevo.com",
+      "tags": [
+        "email",
+        "marketing",
+        "sms"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "mailtrap",
+      "name": "Mailtrap",
+      "category": "email",
+      "description": "Email sandbox for testing plus a small sending allowance — stops agents spamming real inboxes in dev.",
+      "free_limit": "1,000 emails/mo sending; free sandbox for testing",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://mailtrap.io",
+      "tags": [
+        "email",
+        "testing",
+        "sandbox"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "algolia",
+      "name": "Algolia",
+      "category": "search",
+      "description": "Hosted search with typo tolerance, synonyms and instant-search UI libraries.",
+      "free_limit": "10K search requests/mo, 1M records",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://www.algolia.com",
+      "tags": [
+        "search",
+        "instant-search",
+        "docs"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active"
+    },
+    {
+      "id": "docsearch",
+      "name": "DocSearch",
+      "category": "search",
+      "description": "Free Algolia-powered documentation search for open-source projects, including crawl and the search UI.",
+      "free_limit": "Free for open-source and developer documentation",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://docsearch.algolia.com",
+      "tags": [
+        "search",
+        "docs",
+        "open-source",
+        "free"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "active",
+      "notes": "Requires your docs to be public and crawlable — this project's site qualifies."
+    },
+    {
+      "id": "typesense-cloud",
+      "name": "Typesense Cloud",
+      "category": "search",
+      "description": "Open-source (GPL) search engine with typo tolerance and vector search, self-hostable or managed.",
+      "free_limit": "Self-hosted is free; cloud offers trial clusters",
+      "requires_card": false,
+      "cold_start_risk": "low",
+      "url": "https://typesense.org",
+      "tags": [
+        "search",
+        "open-source",
+        "vector",
+        "self-host"
+      ],
+      "verified": "2026-09-24",
+      "verified_by": "@seed-import",
+      "status": "degraded",
+      "notes": "The managed cloud often lacks a permanent free cluster now — budget to self-host on the free Oracle VM."
+    }
+  ]
+}

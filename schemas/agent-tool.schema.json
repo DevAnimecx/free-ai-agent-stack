@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freeaiagentstack.dev/schemas/agent-tool.schema.json",
+  "title": "Agent tool entry",
+  "description": "One entry in data/agent-tools.yaml (IDEs, CLI agents, frameworks, orchestrators).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "category",
+      "description",
+      "free_limit",
+      "requires_card",
+      "open_source",
+      "url",
+      "verified",
+      "verified_by",
+      "status"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": { "type": "string", "pattern": "^[a-z0-9-]+$", "minLength": 3, "maxLength": 60 },
+      "name": { "type": "string", "minLength": 2, "maxLength": 80 },
+      "category": { "enum": ["ide", "cli", "framework", "orchestrator"] },
+      "description": { "type": "string", "minLength": 20, "maxLength": 280 },
+      "free_limit": { "type": "string", "minLength": 3, "maxLength": 200 },
+      "requires_card": { "type": "boolean" },
+      "open_source": { "type": "boolean" },
+      "license": { "type": "string", "maxLength": 60 },
+      "language": {
+        "enum": [
+          "typescript",
+          "python",
+          "go",
+          "rust",
+          "dotnet",
+          "java",
+          "kotlin",
+          "swift",
+          "ruby",
+          "php",
+          "csharp",
+          "cpp",
+          "other"
+        ]
+      },
+      "platforms": {
+        "type": "array",
+        "items": { "enum": ["macos", "windows", "linux", "web", "ios", "android"] },
+        "uniqueItems": true
+      },
+      "install": { "type": "string", "maxLength": 300 },
+      "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+      "docs_url": { "type": "string", "format": "uri", "pattern": "^https://" },
+      "stars": { "type": "integer", "minimum": 0 },
+      "tags": {
+        "type": "array",
+        "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "maxItems": 12,
+        "uniqueItems": true
+      },
+      "verified": { "type": "string", "format": "date" },
+      "verified_by": { "type": "string", "pattern": "^@[A-Za-z0-9-]+$" },
+      "status": { "enum": ["active", "degraded", "broken", "deprecated"] },
+      "notes": {
+        "description": "Caveats worth reading. A string or a list of strings.",
+        "anyOf": [
+          { "type": "string", "maxLength": 400 },
+          { "type": "array", "items": { "type": "string" }, "maxItems": 6 }
+        ]
+      }
+    }
+  }
+}

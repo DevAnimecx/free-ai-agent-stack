@@ -1,0 +1,73 @@
+name: Label issues and PRs
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  triage:
+    name: Auto-label
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const isPR = !!context.payload.pull_request;
+            const item = context.payload.issue || context.payload.pull_request;
+            const text = `${item.title}\n${item.body || ''}`.toLowerCase();
+            const labels = [];
+
+            if (isPR) {
+              labels.push('needs-review');
+              if (/^chore\(data\)|^data:|verified|re-verif/.test(text)) labels.push('data');
+            } else {
+              if (/broken link|404|dead link|link is dead|doesn't resolve|does not resolve/.test(text)) {
+                labels.push('broken-link', 'bug');
+              }
+              if (/add|submit|new (tool|server|api|resource)|listing|please list|suggest/.test(text)) {
+                labels.push('submission');
+              }
+              if (/limit|quota|no longer free|rate limit|outdated|stale|changed/.test(text)) {
+                labels.push('data-correction');
+              }
+              if (/typo|wording|docs|readme|spelling/.test(text)) labels.push('documentation');
+            }
+
+            // PRD §13.5: warn (never auto-close) on very new accounts with no history.
+            if (!isPR) {
+              const author = item.user.login;
+              const created = new Date(item.user.created_at);
+              const ageDays = (Date.now() - created.getTime()) / 86_400_000;
+              if (ageDays < 30) labels.push('new-account');
+            }
+
+            if (labels.length) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: item.number,
+                labels,
+              });
+            }
+
+            // A friendly first response, so nobody waits 48h wondering if a human saw it.
+            if (!isPR) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: item.number,
+                body: [
+                  'Thanks for opening this — a maintainer will reply within 48 hours.',
+                  '',
+                  'To speed it up: if you are reporting an outdated limit, please paste the vendor page you checked.',
+                  'If you are submitting a resource, the three facts we need are the **free limit**, whether a **credit card** is required, and a **link** to the pricing page.',
+                ].join('\n'),
+              });
+            }

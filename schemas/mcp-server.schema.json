@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freeaiagentstack.dev/schemas/mcp-server.schema.json",
+  "title": "MCP server entry",
+  "description": "One entry in data/mcp-servers.yaml. Validated in CI by scripts/validate.py.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "maintainer",
+      "description",
+      "install",
+      "official",
+      "requires_auth",
+      "url",
+      "verified",
+      "verified_by",
+      "status"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "minLength": 3,
+        "maxLength": 60
+      },
+      "name": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 80
+      },
+      "maintainer": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 80
+      },
+      "description": {
+        "type": "string",
+        "minLength": 20,
+        "maxLength": 280
+      },
+      "install": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 300,
+        "description": "Copy-pasteable install or launch command."
+      },
+      "transport": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "stdio",
+            "http",
+            "sse"
+          ]
+        },
+        "uniqueItems": true
+      },
+      "official": {
+        "type": "boolean",
+        "description": "Maintained by the vendor/MCP steering group rather than a community contributor."
+      },
+      "language": {
+        "enum": [
+          "typescript",
+          "python",
+          "go",
+          "rust",
+          "dotnet",
+          "java",
+          "kotlin",
+          "swift",
+          "ruby",
+          "php",
+          "csharp",
+          "cpp",
+          "other"
+        ]
+      },
+      "tools_exposed": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 500
+      },
+      "requires_auth": {
+        "type": "boolean"
+      },
+      "auth_type": {
+        "type": "string",
+        "maxLength": 120
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https://"
+      },
+      "docs_url": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https://"
+      },
+      "stars": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Auto-populated by scripts/generate_stats.py. Never hand-edit."
+      },
+      "clients": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "claude",
+            "claude-code",
+            "cursor",
+            "vscode",
+            "windsurf",
+            "zed",
+            "cline",
+            "kiro",
+            "gemini-cli",
+            "codex"
+          ]
+        },
+        "uniqueItems": true
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "maxItems": 12,
+        "uniqueItems": true
+      },
+      "verified": {
+        "type": "string",
+        "format": "date"
+      },
+      "verified_by": {
+        "type": "string",
+        "pattern": "^@[A-Za-z0-9-]+$"
+      },
+      "status": {
+        "enum": [
+          "active",
+          "degraded",
+          "broken",
+          "deprecated"
+        ]
+      },
+      "notes": {
+        "description": "Caveats worth reading. A string or a list of strings.",
+        "anyOf": [
+          {
+            "type": "string",
+            "maxLength": 400
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 6
+          }
+        ]
+      }
+    }
+  }
+}

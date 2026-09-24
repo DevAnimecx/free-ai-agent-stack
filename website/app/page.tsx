@@ -1,0 +1,189 @@
+import Link from "next/link";
+
+import { GlobalSearch } from "@/components/GlobalSearch";
+import { StatsBanner } from "@/components/StatsBanner";
+import { VerifiedBadge } from "@/components/VerifiedBadge";
+import { CATEGORIES, getAllEntries, getEntries, getStats } from "@/lib/loadData";
+import { datasetSchema } from "@/lib/schema";
+import { strings } from "@/lib/strings";
+import type { AnyEntry } from "@/lib/types";
+
+export const metadata = {
+  title: `${strings.site.name} — free AI agent tools, free LLM APIs and MCP servers (2026)`,
+  description: strings.site.description,
+  alternates: { canonical: "/" },
+};
+
+function pickFeatured(stats: ReturnType<typeof getStats>): Array<AnyEntry & { _category: string }> {
+  const out: Array<AnyEntry & { _category: string }> = [];
+  for (const category of CATEGORIES) {
+    const ids = stats.featured[category.slug] ?? [];
+    const entries = getEntries(category.slug);
+    for (const id of ids) {
+      const found = entries.find((entry) => entry.id === id);
+      if (found) out.push({ ...found, _category: category.slug });
+    }
+  }
+  return out;
+}
+
+export default function HomePage() {
+  const stats = getStats();
+  const all = getAllEntries();
+  const featured = pickFeatured(stats);
+  const newest = [...all]
+    .sort((a, b) => (a.verified < b.verified ? 1 : -1))
+    .slice(0, 5);
+
+  return (
+    <>
+      <section className="py-2">
+        <h1 className="max-w-3xl text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-[28px] dark:text-slate-50">
+          {strings.home.h1}
+        </h1>
+        <p className="mt-3 max-w-prose text-[14px] leading-6 text-slate-600 dark:text-slate-400">
+          {strings.home.lede}
+        </p>
+
+        <div className="mt-5 max-w-2xl">
+          <GlobalSearch />
+        </div>
+
+        <div className="mt-5">
+          <StatsBanner stats={stats} />
+        </div>
+      </section>
+
+      <section className="mt-8" aria-labelledby="featured">
+        <div className="flex items-baseline justify-between gap-4">
+          <h2 id="featured" className="text-[15px] font-semibold text-slate-900 dark:text-slate-50">
+            {strings.home.featured}
+          </h2>
+          <p className="text-[12px] text-slate-500 dark:text-slate-400">{strings.home.featuredSub}</p>
+        </div>
+
+        <ul className="mt-3 grid gap-px overflow-hidden rounded-md border border-slate-200 bg-slate-200 sm:grid-cols-2 dark:border-slate-800 dark:bg-slate-800">
+          {featured.slice(0, 8).map((entry) => (
+            <li key={`${entry._category}-${entry.id}`} className="bg-white p-3 dark:bg-slate-950">
+              <div className="flex items-baseline justify-between gap-2">
+                <Link
+                  href={`/${entry._category}/#${entry.id}`}
+                  className="text-[13px] font-semibold text-slate-900 hover:underline dark:text-slate-50"
+                >
+                  {entry.name}
+                </Link>
+                <VerifiedBadge date={entry.verified} compact />
+              </div>
+              <p className="mt-1 line-clamp-2 text-[12px] leading-5 text-slate-600 dark:text-slate-400">
+                {entry.description}
+              </p>
+              <p className="mt-1.5 flex items-center gap-2 text-[11px] text-slate-400 dark:text-slate-500">
+                <span className="font-mono">{entry._category}</span>
+                {"requires_card" in entry && (
+                  <span>{(entry as { requires_card: boolean }).requires_card ? "💳 card" : "✅ no card"}</span>
+                )}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-8" aria-labelledby="browse">
+        <h2 id="browse" className="text-[15px] font-semibold text-slate-900 dark:text-slate-50">
+          {strings.home.browseAll}
+        </h2>
+        <ul className="mt-3 divide-y divide-slate-200 border-y border-slate-200 dark:divide-slate-800 dark:border-slate-800">
+          {CATEGORIES.map((category) => {
+            const count = stats.counts[category.slug] ?? 0;
+            const noCard = stats.no_card[category.slug] ?? 0;
+            return (
+              <li key={category.slug} className="py-3">
+                <div className="flex flex-wrap items-baseline gap-x-3">
+                  <Link
+                    href={`/${category.slug}/`}
+                    className="text-[14px] font-semibold text-slate-900 hover:underline dark:text-slate-50"
+                  >
+                    {category.label}
+                  </Link>
+                  <span className="font-mono text-[12px] text-slate-400 dark:text-slate-500">
+                    {count} entries
+                    {noCard > 0 ? ` · ${noCard} without a card` : ""}
+                  </span>
+                </div>
+                <p className="mt-1 max-w-prose text-[12px] leading-5 text-slate-600 dark:text-slate-400">
+                  {category.intro[0].split(". ").slice(0, 2).join(". ")}.
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <section className="mt-8 grid gap-6 sm:grid-cols-2">
+        <div>
+          <h2 className="text-[15px] font-semibold text-slate-900 dark:text-slate-50">
+            {strings.home.forAgents}
+          </h2>
+          <p className="mt-2 max-w-prose text-[13px] leading-6 text-slate-600 dark:text-slate-400">
+            {strings.home.forAgentsBody}
+          </p>
+          <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[12px]">
+            <a href="/data/all.json" className="text-blue-700 hover:underline dark:text-blue-400">
+              /data/all.json
+            </a>
+            <a href="/llms.txt" className="text-blue-700 hover:underline dark:text-blue-400">
+              /llms.txt
+            </a>
+            <a href="/data/index.json" className="text-blue-700 hover:underline dark:text-blue-400">
+              /data/index.json
+            </a>
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-[15px] font-semibold text-slate-900 dark:text-slate-50">
+            {strings.home.howItWorks}
+          </h2>
+          <ol className="mt-2 max-w-prose list-decimal space-y-1.5 pl-4 text-[13px] leading-6 text-slate-600 dark:text-slate-400">
+            <li>A maintainer opens the vendor's pricing page and records the free limit, the rate limit and whether a card is required.</li>
+            <li>
+              The date and their handle go into the entry — every card on this site shows{" "}
+              <VerifiedBadge date={newest[0]?.verified ?? "2026-09-24"} compact /> so you can judge how
+              current the claim is.
+            </li>
+            <li>A robot re-checks every URL daily and flags dead links after three consecutive failures.</li>
+            <li>Anything unverified for 30 days is thrown back into the weekly triage issue.</li>
+          </ol>
+          <p className="mt-3 text-[12px]">
+            <Link href="/about/" className="text-blue-700 hover:underline dark:text-blue-400">
+              Read the full methodology →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-8 border-t border-slate-200 pt-4 dark:border-slate-800">
+        <p className="text-[12px] text-slate-500 dark:text-slate-400">
+          Recently re-verified:{" "}
+          {newest.map((entry, index) => (
+            <span key={`${entry.name}-${entry.id}`}>
+              {index > 0 && " · "}
+              <a
+                href={`/${entry._category}/#${entry.id}`}
+                className="hover:underline"
+                aria-label={`${entry.name}, ${entry._category}, verified ${entry.verified}`}
+              >
+                {entry.name}
+              </a>
+            </span>
+          ))}
+        </p>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema(stats)) }}
+      />
+    </>
+  );
+}

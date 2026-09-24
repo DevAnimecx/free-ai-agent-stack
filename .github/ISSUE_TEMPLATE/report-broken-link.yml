@@ -1,0 +1,66 @@
+name: Report a broken link or outdated limit
+description: Something on the site is wrong — a dead link, a wrong free limit or a changed card requirement
+title: "[Fix] "
+labels: ["data-correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The website's "Report outdated" links pre-fill the entry ID below. If you arrived here directly, just fill in what you know — a partial report is far more useful than none.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong?
+      options:
+        - The link is dead (404, timeout)
+        - The free limit has changed
+        - A credit card is now required (or no longer required)
+        - The free tier has been removed entirely
+        - The service has been renamed or acquired
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: entry_id
+    attributes:
+      label: Entry ID
+      description: The anchor from the site, e.g. `google-gemini` from /llm-apis#google-gemini
+      placeholder: "google-gemini"
+    validations:
+      required: false
+
+  - type: input
+    id: entry_url
+    attributes:
+      label: The link that is wrong (if you have it)
+      placeholder: "https://ai.google.dev"
+    validations:
+      required: false
+
+  - type: textarea
+    id: details
+    attributes:
+      label: What should it say instead?
+      description: Paste the vendor's current wording if you can — that becomes the new `free_limit` value.
+      placeholder: "Pricing page now says 1,000 requests/day on Flash, down from 1,500."
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Where did you check?
+      description: A link to the page that shows the current state. Without this, a maintainer has to reproduce your check before merging.
+      placeholder: "https://ai.google.dev/pricing"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: offer
+    attributes:
+      label: Would you like to open the PR yourself?
+      options:
+        - label: Yes — point me at the YAML file and I will send a PR for this entry
+          required: false

@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-09-24T09:30:45+00:00",
+  "total": 235,
+  "counts": {
+    "llm-apis": 63,
+    "mcp-servers": 62,
+    "agent-tools": 40,
+    "free-tiers": 70
+  },
+  "no_card": {
+    "llm-apis": 51,
+    "mcp-servers": 0,
+    "agent-tools": 40,
+    "free-tiers": 64
+  },
+  "total_no_card": 155,
+  "fresh_within_7_days": {
+    "llm-apis": 63,
+    "mcp-servers": 62,
+    "agent-tools": 40,
+    "free-tiers": 70
+  },
+  "fresh_within_30_days": {
+    "llm-apis": 63,
+    "mcp-servers": 62,
+    "agent-tools": 40,
+    "free-tiers": 70
+  },
+  "freshness_pct_30d": 100.0,
+  "statuses": {
+    "llm-apis": {
+      "active": 55,
+      "degraded": 2,
+      "deprecated": 6
+    },
+    "mcp-servers": {
+      "active": 56,
+      "degraded": 2,
+      "deprecated": 4
+    },
+    "agent-tools": {
+      "active": 40
+    },
+    "free-tiers": {
+      "active": 69,
+      "degraded": 1
+    }
+  },
+  "contributors": {
+    "seed-import": 235
+  },
+  "top_tags": {
+    "essential": 43,
+    "local": 21,
+    "coding-agent": 17,
+    "rag": 15,
+    "vector": 15,
+    "open-source": 12,
+    "devops": 11,
+    "search": 11,
+    "embeddings": 10,
+    "no-card": 10,
+    "self-host": 10,
+    "serverless": 10,
+    "database": 9,
+    "deploy": 9,
+    "edge": 9,
+    "auth": 8,
+    "research": 8,
+    "automation": 7,
+    "cli": 7,
+    "cloud": 7,
+    "enterprise": 7,
+    "privacy": 7,
+    "typescript": 7,
+    "byok": 6,
+    "credits": 6
+  },
+  "deprecated_entries": [
+    "llm-apis#openai-api",
+    "llm-apis#anthropic-claude-api",
+    "llm-apis#xai-grok-api",
+    "llm-apis#deepseek-api",
+    "llm-apis#together-ai",
+    "llm-apis#perplexity-api",
+    "mcp-servers#puppeteer-mcp",
+    "mcp-servers#google-drive-mcp",
+    "mcp-servers#slack-archived-mcp",
+    "mcp-servers#brave-search-archived-mcp"
+  ],
+  "featured": {
+    "llm-apis": [
+      "cloudflare-workers-ai",
+      "github-models",
+      "google-gemini",
+      "groq",
+      "huggingface-inference",
+      "mistral-la-plateforme"
+    ],
+    "mcp-servers": [
+      "context7-mcp",
+      "chrome-devtools-mcp",
+      "playwright-mcp",
+      "github-mcp",
+      "fastmcp",
+      "n8n-mcp"
+    ],
+    "agent-tools": [
+      "aider",
+      "cline",
+      "langgraph",
+      "n8n",
+      "gemini-cli",
+      "litellm"
+    ],
+    "free-tiers": [
+      "better-auth",
+      "cloudflare-d1",
+      "cloudflare-pages",
+      "cloudflare-r2",
+      "cloudflare-workers",
+      "inngest"
+    ]
+  }
+}

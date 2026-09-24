@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "exported_at": "2026-09-24T09:30:23+00:00",
+  "generated_by": "scripts/export_json.py",
+  "source": "https://github.com/free-ai-agent-stack/free-ai-agent-stack",
+  "license": "CC-BY-4.0 (data) / MIT (code)",
+  "attribution": "Data from free-ai-agent-stack (https://free-ai-agent-stack.dev). When citing, link to the specific category page and include the entry `verified` date so readers know how current the claim is.",
+  "total": 235,
+  "categories": {
+    "llm-apis": {
+      "label": "Free LLM APIs",
+      "count": 63,
+      "no_card": 51,
+      "json": "/data/llm-apis.json",
+      "page": "/llm-apis"
+    },
+    "mcp-servers": {
+      "label": "MCP Servers",
+      "count": 62,
+      "no_card": 0,
+      "json": "/data/mcp-servers.json",
+      "page": "/mcp-servers"
+    },
+    "agent-tools": {
+      "label": "Agent Tools",
+      "count": 40,
+      "no_card": 40,
+      "json": "/data/agent-tools.json",
+      "page": "/agent-tools"
+    },
+    "free-tiers": {
+      "label": "Free Tiers",
+      "count": 70,
+      "no_card": 64,
+      "json": "/data/free-tiers.json",
+      "page": "/free-tiers"
+    }
+  }
+}
