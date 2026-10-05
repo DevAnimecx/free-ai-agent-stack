@@ -152,7 +152,7 @@
   platforms: [macos, linux, windows]
   install: "npx -y @google/gemini-cli"
   url: https://github.com/google-gemini/gemini-cli
-  stars: 107168
+  stars: 107231
   tags: [coding-agent, cli, generous-free-tier, essential]
   verified: 2026-09-24
   verified_by: "@seed-import"
@@ -169,7 +169,7 @@
   platforms: [macos, linux, windows]
   install: "npm install -g @qwen-code/qwen-code"
   url: https://github.com/QwenLM/qwen-code
-  stars: 28192
+  stars: 28311
   tags: [coding-agent, cli, qwen, generous-free-tier, essential]
   verified: 2026-09-24
   verified_by: "@seed-import"
@@ -244,7 +244,7 @@
   platforms: [macos, linux, windows]
   install: "docker run -it --rm -p 3000:3000 docker.all-hands.dev/all-hands-ai/openhands:latest"
   url: https://github.com/All-Hands-AI/OpenHands
-  stars: 89366
+  stars: 90020
   tags: [coding-agent, autonomous, docker, open-source]
   verified: 2026-09-24
   verified_by: "@seed-import"
@@ -275,7 +275,7 @@
   platforms: [macos, linux, windows]
   install: "brew install charmbracelet/tap/crush"
   url: https://github.com/charmbracelet/crush
-  stars: 28336
+  stars: 28494
   tags: [coding-agent, cli, mcp-native, open-source]
   verified: 2026-09-24
   verified_by: "@seed-import"
@@ -658,7 +658,7 @@
   platforms: [macos, linux, windows]
   install: "pip install mempalace && mempalace init"
   url: https://github.com/milla-jovovich/mempalace
-  stars: 59328
+  stars: 59413
   tags: [memory, rag, local-first, mit, mcp, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -680,7 +680,7 @@
   platforms: [macos, linux, windows]
   install: "pip install cognee"
   url: https://github.com/topoteretes/cognee
-  stars: 31110
+  stars: 31377
   tags: [memory, knowledge-graph, rag, self-host, local, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -699,7 +699,7 @@
   platforms: [macos, linux, windows]
   install: "pip install mem0ai"
   url: https://github.com/mem0ai/mem0
-  stars: 66187
+  stars: 66590
   tags: [memory, rag, framework-integrations, self-host, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -717,7 +717,7 @@
   language: typescript
   platforms: [web]
   url: https://github.com/nanobrowser/nanobrowser
-  stars: 13837
+  stars: 13965
   tags: [browser, automation, byok, ollama, chrome-extension, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -791,7 +791,7 @@
   language: python
   platforms: [macos, linux, windows]
   url: https://github.com/HKUDS/NanoBot
-  stars: 48636
+  stars: 48794
   tags: [lightweight, personal-agent, research, hkuds, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -862,7 +862,7 @@
   platforms: [macos, linux, windows]
   install: "pip install kitaru"
   url: https://github.com/zenml-io/kitaru
-  stars: 297
+  stars: 300
   tags: [durable-execution, production, python, replay, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -879,7 +879,7 @@
   license: MIT
   platforms: [macos, linux, windows, web]
   url: https://github.com/ParendumOU/Nexora
-  stars: 22
+  stars: 23
   tags: [orchestration, personas, multi-agent, self-host, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -931,7 +931,7 @@
   language: python
   platforms: [macos, linux, windows]
   url: https://github.com/maruakshay/miii-cli
-  stars: 36
+  stars: 38
   tags: [coding-agent, cli, local, ollama, offline, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -948,7 +948,7 @@
   license: Apache-2.0
   platforms: [macos, windows]
   url: https://github.com/Astro-Han/pawwork
-  stars: 200
+  stars: 202
   tags: [desktop, no-key, office, automation, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -982,7 +982,7 @@
   license: AGPL-3.0
   platforms: [macos, linux, windows]
   url: https://github.com/browseros-ai/BrowserOS
-  stars: 13765
+  stars: 13817
   tags: [browser, agentic-browser, chromium, byok, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -999,7 +999,7 @@
   license: Apache-2.0
   platforms: [macos, windows, linux]
   url: https://github.com/ByteDance/UI-TARS-desktop
-  stars: 39142
+  stars: 39202
   tags: [gui-agent, computer-use, desktop, multimodal, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -1016,7 +1016,7 @@
   license: MIT
   platforms: [macos, windows]
   url: https://github.com/OpenCoworkAI/open-cowork
-  stars: 2172
+  stars: 2188
   tags: [desktop, sandbox, mcp, multi-model, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -1032,7 +1032,7 @@
   open_source: true
   platforms: [macos, windows]
   url: https://github.com/PM-Shawn/Abu-Cowork
-  stars: 388
+  stars: 390
   tags: [desktop, local-first, privacy, multi-model, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -1138,7 +1138,7 @@
   platforms: [macos, linux, windows]
   install: "pip install haiku.rag"
   url: https://github.com/ggozad/haiku.rag
-  stars: 611
+  stars: 620
   tags: [rag, local, ollama, no-key, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -1290,7 +1290,7 @@
   license: AGPL-3.0
   platforms: [linux, macos]
   url: https://github.com/nightona-co/nightona
-  stars: 16
+  stars: 18
   tags: [sandbox, code-execution, self-host, daytona, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
@@ -1306,7 +1306,7 @@
   open_source: true
   platforms: [macos, linux, windows]
   url: https://github.com/LyoSU/capka
-  stars: 51
+  stars: 52
   tags: [sandbox, self-host, isolation, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
