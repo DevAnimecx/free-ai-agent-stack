@@ -1030,7 +1030,7 @@
   tags: [gateway, fallback, self-host, openai-compatible, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
-  status: active
+  status: broken
   notes: "The repository documents 14+ free providers rather than the 24+ that circulates in listicles. It is a small community project (low hundreds of stars) — read the code before putting it in front of real traffic. Pair it with the free tiers already catalogued here (Groq, Gemini, Cerebras, Cloudflare) and the fallback chain rarely runs dry."
 
 # ── Hidden-gem cohort II: observability and gateways, imported 2026-09-24 ──
