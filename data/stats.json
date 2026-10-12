@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T12:56:41+00:00",
+  "generated_at": "2026-10-12T13:48:33+00:00",
   "total": 384,
   "counts": {
     "llm-apis": 70,
@@ -47,8 +47,9 @@
       "degraded": 1
     },
     "free-tiers": {
-      "active": 89,
-      "degraded": 1
+      "active": 88,
+      "degraded": 1,
+      "broken": 1
     },
     "skills": {
       "active": 77,
