@@ -34,7 +34,7 @@
   tags: [coding-agent, ide, unlimited-completions]
   verified: 2026-09-24
   verified_by: "@seed-import"
-  status: active
+  status: broken
   notes: "windsurf.com now redirects to devin.ai. Tab completion is unlimited on every plan, including free — the agent quota is what runs out."
 
 - id: github-copilot
