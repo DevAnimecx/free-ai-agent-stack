@@ -145,7 +145,7 @@
   requires_auth: true
   auth_type: "GitHub PAT (fine-grained, read-only works)"
   url: https://github.com/github/github-mcp-server
-  stars: 33549
+  stars: 33753
   clients: [claude, claude-code, cursor, vscode, windsurf, zed]
   tags: [git, devops, issues, pull-requests, essential]
   verified: 2026-09-24
@@ -164,7 +164,7 @@
   tools_exposed: 22
   requires_auth: false
   url: https://github.com/microsoft/playwright-mcp
-  stars: 38053
+  stars: 38360
   clients: [claude-code, cursor, vscode, windsurf, cline]
   tags: [browser, automation, testing, scraping, essential]
   verified: 2026-09-24
@@ -182,7 +182,7 @@
   language: typescript
   requires_auth: false
   url: https://github.com/ChromeDevTools/chrome-devtools-mcp
-  stars: 53333
+  stars: 53826
   clients: [claude-code, cursor, vscode]
   tags: [browser, debugging, performance, frontend]
   verified: 2026-09-24
@@ -201,7 +201,7 @@
   auth_type: "Notion internal integration token"
   url: https://github.com/makenotion/notion-mcp-server
   docs_url: https://developers.notion.com/docs/mcp
-  stars: 4666
+  stars: 4671
   clients: [claude, claude-code, cursor, vscode, windsurf]
   tags: [notes, knowledge-base, productivity]
   verified: 2026-09-24
@@ -220,7 +220,7 @@
   requires_auth: true
   auth_type: "Sentry user auth token"
   url: https://github.com/getsentry/sentry-mcp
-  stars: 928
+  stars: 933
   clients: [claude, claude-code, cursor, vscode]
   tags: [observability, errors, triage, devops]
   verified: 2026-09-24
@@ -238,7 +238,7 @@
   requires_auth: true
   auth_type: "Supabase personal access token"
   url: https://github.com/supabase-community/supabase-mcp
-  stars: 2945
+  stars: 2961
   clients: [claude, claude-code, cursor, vscode, windsurf]
   tags: [database, postgres, backend, essential]
   verified: 2026-09-24
@@ -257,7 +257,7 @@
   requires_auth: true
   auth_type: "Connection string / Atlas API key"
   url: https://github.com/mongodb-js/mongodb-mcp-server
-  stars: 1142
+  stars: 1144
   clients: [claude, claude-code, cursor, vscode]
   tags: [database, nosql, atlas]
   verified: 2026-09-24
@@ -275,7 +275,7 @@
   requires_auth: true
   auth_type: "Redis URL with credentials"
   url: https://github.com/redis/mcp-redis
-  stars: 634
+  stars: 637
   clients: [claude, claude-code, cursor, vscode]
   tags: [cache, database, vector, key-value]
   verified: 2026-09-24
@@ -293,7 +293,7 @@
   requires_auth: true
   auth_type: "Cloudflare OAuth"
   url: https://github.com/cloudflare/mcp-server-cloudflare
-  stars: 4369
+  stars: 4393
   clients: [claude, claude-code, cursor, vscode]
   tags: [cloud, edge, devops, observability]
   verified: 2026-09-24
@@ -329,7 +329,7 @@
   requires_auth: true
   auth_type: "AWS IAM credentials / SSO profile"
   url: https://github.com/awslabs/mcp
-  stars: 9770
+  stars: 9794
   clients: [claude, claude-code, cursor, kiro]
   tags: [cloud, aws, devops]
   verified: 2026-09-24
@@ -348,7 +348,7 @@
   requires_auth: true
   auth_type: "Entra ID (az login)"
   url: https://github.com/microsoft/mcp
-  stars: 3763
+  stars: 3787
   clients: [claude, claude-code, cursor, vscode]
   tags: [cloud, azure, devops]
   verified: 2026-09-24
@@ -367,7 +367,7 @@
   auth_type: "Google Cloud ADC (gcloud auth login)"
   url: https://github.com/googleapis/gcloud-mcp
   docs_url: https://cloud.google.com/sdk/docs
-  stars: 921
+  stars: 929
   clients: [claude, claude-code, cursor, gemini-cli]
   tags: [cloud, gcp, devops]
   verified: 2026-09-24
@@ -385,7 +385,7 @@
   language: go
   requires_auth: false
   url: https://github.com/docker/mcp-gateway
-  stars: 1595
+  stars: 1606
   clients: [claude, claude-code, cursor, vscode]
   tags: [containers, devops, gateway, catalog]
   verified: 2026-09-24
@@ -403,7 +403,7 @@
   requires_auth: true
   auth_type: "kubeconfig context"
   url: https://github.com/Flux159/mcp-server-kubernetes
-  stars: 1597
+  stars: 1606
   clients: [claude, claude-code, cursor]
   tags: [kubernetes, devops, platform]
   verified: 2026-09-24
@@ -421,7 +421,7 @@
   language: go
   requires_auth: false
   url: https://github.com/hashicorp/terraform-mcp-server
-  stars: 1547
+  stars: 1551
   clients: [claude, claude-code, cursor, vscode]
   tags: [iac, terraform, devops]
   verified: 2026-09-24
@@ -439,7 +439,7 @@
   requires_auth: true
   auth_type: "Grafana service account token"
   url: https://github.com/grafana/mcp-grafana
-  stars: 3554
+  stars: 3573
   clients: [claude, claude-code, cursor, vscode]
   tags: [observability, metrics, logs, devops]
   verified: 2026-09-24
@@ -457,7 +457,7 @@
   requires_auth: true
   auth_type: "Elasticsearch API key"
   url: https://github.com/elastic/mcp-server-elasticsearch
-  stars: 718
+  stars: 719
   clients: [claude, claude-code, cursor]
   tags: [search, logs, database]
   verified: 2026-09-24
@@ -475,7 +475,7 @@
   requires_auth: true
   auth_type: "Stripe restricted API key"
   url: https://github.com/stripe/agent-toolkit
-  stars: 1905
+  stars: 1963
   clients: [claude, claude-code, cursor, vscode]
   tags: [payments, business, finance]
   verified: 2026-09-24
@@ -495,7 +495,7 @@
   auth_type: "Figma personal access token"
   url: https://github.com/GLips/Figma-Context-MCP
   docs_url: https://developers.figma.com/docs/figma-mcp-server/
-  stars: 15974
+  stars: 16008
   clients: [claude-code, cursor, vscode, windsurf]
   tags: [design, frontend, ui]
   verified: 2026-09-24
@@ -532,7 +532,7 @@
   requires_auth: true
   auth_type: "Atlassian OAuth"
   url: https://github.com/atlassian/atlassian-mcp-server
-  stars: 1089
+  stars: 1106
   clients: [claude, claude-code, cursor, vscode]
   tags: [issues, docs, enterprise, productivity]
   verified: 2026-09-24
@@ -586,7 +586,7 @@
   requires_auth: true
   auth_type: "Google OAuth 2.0"
   url: https://github.com/taylorwilsdon/google_workspace_mcp
-  stars: 3325
+  stars: 3373
   clients: [claude, claude-code, cursor, vscode]
   tags: [email, calendar, docs, productivity]
   verified: 2026-09-24
@@ -622,7 +622,7 @@
   requires_auth: true
   auth_type: "n8n API key (optional, for live control)"
   url: https://github.com/czlonkowski/n8n-mcp
-  stars: 23054
+  stars: 23103
   clients: [claude, claude-code, cursor, vscode]
   tags: [automation, workflows, low-code]
   verified: 2026-09-24
@@ -640,7 +640,7 @@
   requires_auth: true
   auth_type: "Browserbase API key + project ID"
   url: https://github.com/browserbase/mcp-server-browserbase
-  stars: 3402
+  stars: 3399
   clients: [claude, claude-code, cursor]
   tags: [browser, scraping, cloud, stealth]
   verified: 2026-09-24
@@ -658,7 +658,7 @@
   requires_auth: true
   auth_type: "Apify API token"
   url: https://github.com/apify/actors-mcp-server
-  stars: 10736
+  stars: 11965
   clients: [claude, claude-code, cursor, vscode]
   tags: [scraping, automation, data]
   verified: 2026-09-24
@@ -676,7 +676,7 @@
   requires_auth: true
   auth_type: "ElevenLabs API key"
   url: https://github.com/elevenlabs/elevenlabs-mcp
-  stars: 1534
+  stars: 1535
   clients: [claude, claude-code, cursor, vscode]
   tags: [audio, tts, voice-agent]
   verified: 2026-09-24
@@ -711,7 +711,7 @@
   requires_auth: true
   auth_type: "Qdrant API key (cloud)"
   url: https://github.com/qdrant/mcp-server-qdrant
-  stars: 1547
+  stars: 1551
   clients: [claude, claude-code, cursor, vscode]
   tags: [vector, embeddings, memory, rag, essential]
   verified: 2026-09-24
@@ -765,7 +765,7 @@
   requires_auth: true
   auth_type: "Postgres connection string"
   url: https://github.com/crystaldba/postgres-mcp
-  stars: 3391
+  stars: 3405
   clients: [claude, claude-code, cursor, vscode]
   tags: [database, postgres, sql, essential]
   verified: 2026-09-24
@@ -783,7 +783,7 @@
   language: python
   requires_auth: false
   url: https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sqlite
-  stars: 304
+  stars: 305
   clients: [claude, claude-code, cursor, vscode]
   tags: [database, sqlite, local]
   verified: 2026-09-24
@@ -802,7 +802,7 @@
   requires_auth: true
   auth_type: "MySQL username/password"
   url: https://github.com/designcomputer/mysql_mcp_server
-  stars: 1397
+  stars: 1399
   clients: [claude, claude-code, cursor, vscode]
   tags: [database, mysql, sql]
   verified: 2026-09-24
@@ -823,7 +823,7 @@
   language: typescript
   requires_auth: false
   url: https://github.com/upstash/context7
-  stars: 62928
+  stars: 63288
   clients: [claude, claude-code, cursor, vscode, windsurf, zed, cline]
   tags: [docs, coding, hallucination-fix, essential]
   verified: 2026-09-24
@@ -842,7 +842,7 @@
   requires_auth: true
   auth_type: "Firecrawl API key (free tier available)"
   url: https://github.com/firecrawl/firecrawl-mcp-server
-  stars: 7583
+  stars: 7635
   clients: [claude, claude-code, cursor, vscode, windsurf]
   tags: [scraping, crawling, markdown, research]
   verified: 2026-09-24
@@ -860,7 +860,7 @@
   requires_auth: true
   auth_type: "Exa API key"
   url: https://github.com/exa-labs/exa-mcp-server
-  stars: 5110
+  stars: 5138
   clients: [claude, claude-code, cursor, vscode]
   tags: [search, research, semantic]
   verified: 2026-09-24
@@ -878,7 +878,7 @@
   requires_auth: true
   auth_type: "Tavily API key (1,000 free credits/month)"
   url: https://github.com/tavily-ai/tavily-mcp
-  stars: 2429
+  stars: 2439
   clients: [claude, claude-code, cursor, vscode]
   tags: [search, research, grounding, free-tier]
   verified: 2026-09-24
@@ -896,7 +896,7 @@
   requires_auth: true
   auth_type: "Brave Search API key"
   url: https://github.com/brave/brave-search-mcp-server
-  stars: 1493
+  stars: 1508
   clients: [claude, claude-code, cursor, vscode]
   tags: [search, web, privacy]
   verified: 2026-09-24
@@ -930,7 +930,7 @@
   language: typescript
   requires_auth: false
   url: https://github.com/ref-tools/ref-tools-mcp
-  stars: 1180
+  stars: 1183
   clients: [claude, claude-code, cursor, vscode]
   tags: [docs, search, token-efficient]
   verified: 2026-09-24
@@ -947,7 +947,7 @@
   language: python
   requires_auth: false
   url: https://github.com/nickclyde/duckduckgo-mcp-server
-  stars: 1527
+  stars: 1546
   clients: [claude, claude-code, cursor, vscode]
   tags: [search, no-auth, free]
   verified: 2026-09-24
@@ -982,7 +982,7 @@
   language: typescript
   requires_auth: false
   url: https://github.com/anaisbetts/mcp-youtube
-  stars: 550
+  stars: 551
   clients: [claude, claude-code, cursor]
   tags: [video, transcripts, research]
   verified: 2026-09-24
@@ -999,7 +999,7 @@
   language: typescript
   requires_auth: false
   url: https://github.com/StevenStavrakis/obsidian-mcp
-  stars: 741
+  stars: 742
   clients: [claude, claude-code, cursor]
   tags: [notes, markdown, knowledge-base, local]
   verified: 2026-09-24
@@ -1021,7 +1021,7 @@
   requires_auth: false
   url: https://github.com/jlowin/fastmcp
   docs_url: https://gofastmcp.com
-  stars: 28049
+  stars: 28135
   clients: [claude, claude-code, cursor, vscode]
   tags: [framework, python, development, essential]
   verified: 2026-09-24
@@ -1040,7 +1040,7 @@
   requires_auth: true
   auth_type: "Target API credentials"
   url: https://github.com/ivo-toby/mcp-openapi-server
-  stars: 299
+  stars: 301
   clients: [claude, claude-code, cursor]
   tags: [openapi, rest, integration, development]
   verified: 2026-09-24
@@ -1057,7 +1057,7 @@
   language: typescript
   requires_auth: false
   url: https://github.com/antvis/mcp-server-chart
-  stars: 4395
+  stars: 4403
   clients: [claude, claude-code, cursor, vscode]
   tags: [visualisation, charts, data]
   verified: 2026-09-24
@@ -1074,7 +1074,7 @@
   language: typescript
   requires_auth: false
   url: https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer
-  stars: 304
+  stars: 305
   clients: [claude, claude-code, cursor]
   tags: [browser, automation, archived]
   verified: 2026-09-24
@@ -1093,7 +1093,7 @@
   requires_auth: true
   auth_type: "Google OAuth credentials"
   url: https://github.com/modelcontextprotocol/servers-archived/tree/main/src/gdrive
-  stars: 304
+  stars: 305
   clients: [claude, claude-code, cursor]
   tags: [files, google, archived]
   verified: 2026-09-24
@@ -1112,7 +1112,7 @@
   requires_auth: true
   auth_type: "Slack bot token"
   url: https://github.com/modelcontextprotocol/servers-archived/tree/main/src/slack
-  stars: 304
+  stars: 305
   clients: [claude, claude-code, cursor]
   tags: [chat, archived]
   verified: 2026-09-24
@@ -1131,7 +1131,7 @@
   requires_auth: true
   auth_type: "Brave Search API key"
   url: https://github.com/modelcontextprotocol/servers-archived/tree/main/src/brave-search
-  stars: 304
+  stars: 305
   clients: [claude, claude-code, cursor]
   tags: [search, archived]
   verified: 2026-09-24
@@ -1176,7 +1176,7 @@
   auth_type: "Figma account (OAuth)"
   url: https://github.com/figma/mcp-server-guide
   docs_url: https://developers.figma.com/docs/figma-mcp-server/
-  stars: 2065
+  stars: 2089
   clients: [claude-code, cursor, vscode, gemini-cli]
   tags: [design, official, remote, frontend]
   verified: 2026-09-24

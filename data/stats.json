@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T13:48:33+00:00",
+  "generated_at": "2026-10-19T11:29:17+00:00",
   "total": 384,
   "counts": {
     "llm-apis": 70,
@@ -43,7 +43,8 @@
       "deprecated": 4
     },
     "agent-tools": {
-      "active": 81,
+      "active": 80,
+      "broken": 1,
       "degraded": 1
     },
     "free-tiers": {
