@@ -601,7 +601,7 @@
   tags: [auth, sso, enterprise, saml]
   verified: 2026-09-24
   verified_by: "@seed-import"
-  status: active
+  status: broken
   notes: "The 1M MAU number makes this the strongest free option if you might later need enterprise SSO."
 
 - id: auth0
