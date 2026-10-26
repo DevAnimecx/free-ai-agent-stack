@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T11:29:17+00:00",
+  "generated_at": "2026-10-26T11:48:08+00:00",
   "total": 384,
   "counts": {
     "llm-apis": 70,
@@ -24,13 +24,13 @@
     "skills": 0
   },
   "fresh_within_30_days": {
-    "llm-apis": 70,
-    "mcp-servers": 64,
-    "agent-tools": 82,
-    "free-tiers": 90,
-    "skills": 78
+    "llm-apis": 0,
+    "mcp-servers": 0,
+    "agent-tools": 0,
+    "free-tiers": 0,
+    "skills": 0
   },
-  "freshness_pct_30d": 100.0,
+  "freshness_pct_30d": 0.0,
   "statuses": {
     "llm-apis": {
       "active": 62,
@@ -43,14 +43,13 @@
       "deprecated": 4
     },
     "agent-tools": {
-      "active": 80,
-      "broken": 1,
+      "active": 81,
       "degraded": 1
     },
     "free-tiers": {
-      "active": 88,
-      "degraded": 1,
-      "broken": 1
+      "active": 87,
+      "broken": 2,
+      "degraded": 1
     },
     "skills": {
       "active": 77,

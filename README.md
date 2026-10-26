@@ -32,14 +32,14 @@ If a listing says "no credit card", a human verified that. If it says "no longer
 <!-- STATS:START -->
 | Category | Count | No credit card | Verified <30d | Top pick |
 |---|---:|---:|---:|---|
-| [Free LLM APIs](data/llm-apis.yaml) | 70 | 58 | 70 | Cloudflare Workers AI |
-| [MCP Servers](data/mcp-servers.yaml) | 64 | — | 64 | Context7 |
-| [Agent Tools](data/agent-tools.yaml) | 82 | 82 | 82 | Aider |
-| [Free Tiers](data/free-tiers.yaml) | 90 | 82 | 90 | Better Auth |
-| [Agent Skills](data/skills.yaml) | 78 | — | 78 | Anthropic Agent Skills |
-| **Total** | **384** | **222** | **384** | — |
+| [Free LLM APIs](data/llm-apis.yaml) | 70 | 58 | 0 | Cloudflare Workers AI |
+| [MCP Servers](data/mcp-servers.yaml) | 64 | — | 0 | Context7 |
+| [Agent Tools](data/agent-tools.yaml) | 82 | 82 | 0 | Aider |
+| [Free Tiers](data/free-tiers.yaml) | 90 | 82 | 0 | Better Auth |
+| [Agent Skills](data/skills.yaml) | 78 | — | 0 | Anthropic Agent Skills |
+| **Total** | **384** | **222** | **0** | — |
 
-_Auto-generated 2026-09-24T11:39:08+00:00 · link freshness 100.0% verified within 30 days (target 95%)._
+_Auto-generated 2026-10-26T11:48:08+00:00 · link freshness 0.0% verified within 30 days (target 95%)._
 <!-- STATS:END -->
 
 ---
