@@ -12,7 +12,7 @@
 [![License](https://img.shields.io/badge/license-MIT%20%2F%20CC-BY-4.0-blue?style=for-the-badge)](LICENSE)
 [![Website](https://img.shields.io/badge/Website-Live%20%28GitHub%20Pages%29-brightgreen?style=for-the-badge)](https://devanimecx.github.io/free-ai-agent-stack/)
 [![Data](https://img.shields.io/badge/Data-JSON%20%2B%20llms.txt-ff6b6b?style=for-the-badge)](https://devanimecx.github.io/free-ai-agent-stack/llms.txt)
-[![Verified](https://img.shields.io/badge/Verified-100%25%20fresh%20%3C%2030d-4ade80?style=for-the-badge)](https://github.com/DevAnimecx/free-ai-agent-stack/actions/workflows/verify.yml)
+[![Freshness](https://img.shields.io/badge/Pricing%20last%20verified-2026--09--24%20%E2%80%94%20re--verification%20in%20progress-orange?style=for-the-badge)](https://github.com/DevAnimecx/free-ai-agent-stack/issues/15)
 [![CI](https://img.shields.io/badge/CI-PRs%20welcome-2ea446?style=for-the-badge)](https://github.com/DevAnimecx/free-ai-agent-stack/pulls)
 
 </div>
@@ -21,13 +21,13 @@
 
 ## 🧠 Build a production AI agent for $0.00 — the complete stack, verified
 
-**384 free-tier resources. 222 with no credit card required. 100% of links verified within the last 30 days.**
+**384 free-tier resources. 222 with no credit card required. Links checked daily by robot; human pricing verification last completed 2026-09-24 — re-verification is open in issue #15.**
 
 Every free LLM API, MCP server, agent framework and free-tier database a developer needs to build an AI agent in 2026 — in one place, with the **free limit**, the **credit-card requirement** and the **date a human last checked it**. Data is YAML in this repo; the website is generated from it; a **daily robot checks every link**.
 
 If a listing says "no credit card", a human verified that. If it says "no longer free", we left it in on purpose — so you stop wasting signups on lists that never update.
 
-> **Free AI agent tools, checked 2026-09-24.** 384 entries · 222 need no credit card · 100% of links verified in the last 30 days.
+> **Free AI agent tools, checked 2026-09-24.** 384 entries · 222 need no credit card · Links checked daily; pricing verification is 32 days old as of 2026-10-26, see the freshness note below.
 
 <!-- STATS:START -->
 | Category | Count | No credit card | Verified <30d | Top pick |
@@ -41,6 +41,8 @@ If a listing says "no credit card", a human verified that. If it says "no longer
 
 _Auto-generated 2026-10-26T11:48:08+00:00 · link freshness 0.0% verified within 30 days (target 95%)._
 <!-- STATS:END -->
+
+> **Freshness status, 2026-10-26:** link checking runs daily and only changes `status` between `active` and `broken`. It does **not** re-verify pricing — only a human opening the vendor's pricing page can do that (see `docs/METHODOLOGY.md`). All 384 pricing dates are from 2026-09-24, so the old “100% fresh” claim is no longer true. Re-verification is tracked in issue #15 and planned in [`docs/REVERIFICATION-PLAN.md`](docs/REVERIFICATION-PLAN.md). Do not trust a “no card” claim here until its date is refreshed.
 
 ---
 
@@ -268,7 +270,7 @@ Open-source LLM tracing, prompt management and evaluation — the default for de
 | Total resources | **384** |
 | No credit card required | **222** (58%) |
 | Human-verified entries | **384** (100%) |
-| Links verified within 30 days | **384** (100%) |
+| Links verified within 30 days | **0** (0% as of the 2026-10-26 auto-stats — pricing dates are from 2026-09-24) |
 | Active entries | **363** |
 | Degraded (works with caveats) | **6** |
 | Deprecated (no longer free) | **15** |
