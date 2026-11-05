@@ -1187,3 +1187,26 @@
     - "Free to connect on Figma's free Starter plan, but that plan and View or Collab seats on paid plans are capped at 6 tool calls per month. Dev and Full seats on paid plans get Tier 1 REST API limits instead. This is a real free allowance, not a generous one — the Studio plan at $16/month is what most people will need for daily use."
     - "Writing to the canvas is free during the beta, and Figma has said it will become a usage-based paid feature. Assume it will not stay free."
     - "Also installable as Claude Code and Cursor plugins and as a Gemini CLI extension, which bundle the server config together with the Figma skill pack below."
+
+# ---------------------------------------------------------------------------
+# Added 2026-10-27 — community MCP servers
+# ---------------------------------------------------------------------------
+
+- id: hyperconsciousness
+  name: Hyperconsciousness
+  maintainer: Louis Beaumont
+  description: "Encrypted, permissioned knowledge layer for humans and agents. Self-hosted Rust MCP server with scoped, expiring grants; local stdio, no account, no card."
+  install: "hc mcp --as <grant-id> --dir <store>"
+  transport: [stdio]
+  official: false
+  language: rust
+  requires_auth: true
+  auth_type: "Scoped, expiring local grant (no account)"
+  url: https://github.com/louis030195/hyperconsciousness
+  tags: [memory, knowledge, local, encrypted]
+  verified: 2026-10-27
+  verified_by: "@DevAnimecx"
+  status: active
+  notes:
+    - "Developer alpha; no independent security audit claimed. Grants scope returned data but do not sandbox the server process."
+    - "Install the binary first, initialize a local store, then create a grant before connecting a client. Self-hosted MIT software: no hosted quota, no card, no service-side rate limit for local stdio."
