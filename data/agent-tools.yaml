@@ -883,7 +883,7 @@
   tags: [orchestration, personas, multi-agent, self-host, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
-  status: active
+  status: broken
   notes: "Early-stage (tens of stars, commits this month). Useful if you want a self-hosted multi-agent UI today; audit it before pointing it at anything sensitive."
 
 - id: automatos-ai
