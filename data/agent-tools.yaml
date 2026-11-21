@@ -1376,5 +1376,5 @@
   tags: [evaluation, benchmarking, visualisation, mit, hidden-gem]
   verified: 2026-09-24
   verified_by: "@hidden-gems-import"
-  status: active
+  status: broken
   notes: "Multi-dimensional scoring is more informative than a single pass/fail number. The advertised \"17-judge AI tribunal\" and deception detection are separate LLM calls judging output — treat their verdicts as signal, not ground truth."
